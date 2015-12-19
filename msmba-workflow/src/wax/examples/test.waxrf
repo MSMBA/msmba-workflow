@@ -1,0 +1,147 @@
+<?xml version="1.0" ?>
+<resource>
+  <NoteBook name="p1">
+    <Page text="Simple Panel">
+      <VerticalPanel>
+        <Button _border="5" _align="c" name="mybutton" text="Click Me!"/>
+      </VerticalPanel>
+    </Page>
+    <Page text="Splitter Test">
+      <Splitter direction="v">
+        <Button _border="5" _expand="both" text="Click Me [L]"/>
+        <Splitter direction="h">
+          <Button _border="5" _expand="both" text="Click Me [R1]"/>
+          <Button _border="5" _expand="both" text="Click Me [R2]"/>
+        </Splitter>
+      </Splitter>
+    </Page>
+    <Page text="Toggle Buttons">
+      <VerticalPanel name="p1">
+        <ToggleButton _border="5" _expand="both" text="Press Me!"/>
+        <ToggleButton _border="5" _expand="both" pressed="1" text="Depress Me!"/>
+      </VerticalPanel>
+    </Page>
+    <Page text="TreeView">
+      <TreeListView _border="5" columns="C1,C2,C3" colwidths="400, 75, 75" _expand="both">
+        <Root col1="The Root (C1)" col2="The Root (C2)" col3="The Root(C3)" _expanded="1">
+          <Item col1="1">
+            <Item col1="1,1"/>
+            <Item col1="1,2"/>
+            <Item col1="1,3" _expanded="1">
+              <Item col1="1,3,1"/>
+              <Item col1="1,3,2"/>
+              <Item col1="1,3,3"/>
+              <Item col1="1,3,4"/>
+              <Item col1="1,3,5"/>
+              <Item col1="1,3,6"/>
+              <Item col1="1,3,7"/>
+              <Item col1="1,3,8"/>
+              <Item col1="1,3,9"/>
+            </Item>
+          </Item>
+          <Item col1="2">
+            <Item col1="2,1"/>
+            <Item col1="2,2">
+              <Item col1="2,2,1"/>
+              <Item col1="2,2,2"/>
+              <Item col1="2,2,3"/>
+            </Item>
+          </Item>
+          <Item col1="3"/>
+        </Root>
+      </TreeListView>
+    </Page>
+    <Page text="ListView">
+      <ListView _border="5" columns="C1,C2,C3" colwidths="150,300,150" _expand="both">
+        <Item>
+          <Col>1,1</Col>
+          <Col>1,2</Col>
+          <Col>1,3</Col>
+        </Item>
+        <Item>
+          <Col>2,1</Col>
+          <Col>2,2</Col>
+          <Col>2,3</Col>
+        </Item>
+        <Item>
+          <Col>3,1</Col>
+          <Col>3,2</Col>
+          <Col>3,3</Col>
+        </Item>
+        <Item>
+          <Col>4,1</Col>
+          <Col>4,2</Col>
+          <Col>4,3</Col>
+        </Item>
+        <Item>
+          <Col>5,1</Col>
+          <Col>5,2</Col>
+          <Col>5,3</Col>
+        </Item>
+      </ListView>
+    </Page>
+    <Page text="StyledTextBox">
+      <StyledTextBox _border="5" _expand="both"/>
+    </Page>
+    <Page text="FileTreeView">
+      <FileTreeView _border="5" _expand="both"/>
+    </Page>
+    <Page text="RadioButton">
+      <HorizontalPanel _border="10">
+        <VerticalPanel _border="10">
+          <RadioButton text="test 1,1" selected="1" />
+          <RadioButton text="test 1,2" />
+          <RadioButton text="test 1,3" />
+        </VerticalPanel>
+        <VerticalPanel _border="10">
+          <RadioButton text="test 2,1" />
+          <RadioButton text="test 2,2" selected="1" />
+          <RadioButton text="test 2,3" />
+        </VerticalPanel>
+        <VerticalPanel _border="10">
+          <RadioButton text="test 3,1" />
+          <RadioButton text="test 3,2" />
+          <RadioButton text="test 3,3" selected="1" />
+        </VerticalPanel>
+      </HorizontalPanel>
+    </Page>
+    <Page text="Bitmaps">
+      <VerticalPanel>
+        <Bitmap bmp="wtf_face" _align="center" _border="5" />
+        <BitmapButton bmp="wtf_face" _align="center" _border="5" />
+      </VerticalPanel>
+    </Page>
+  </NoteBook>
+  <Dialog buttonpanel="1" name="mydialog" title="Test">
+    <Button _border="5" _expand="both" text="just a test 1"/>
+    <Button _border="5" _expand="both" text="just a test 2"/>
+  </Dialog>
+  <MenuBar name="mb">
+    <Menu text="Menu 1">
+      <MenuItem text="Menu Item 1"/>
+      <MenuItem text="Menu Item 2"/>
+      <MenuItem text="Menu Item 3"/>
+      <MenuItem enabled="0" text="Menu Item 4 (disabled)"/>
+      <Menu text="Submenu 1">
+        <MenuItem text="Submenu Item 1"/>
+        <MenuItem text="Submenu Item 2"/>
+        <MenuItem text="Submenu Item 3"/>
+      </Menu>
+    </Menu>
+    <Menu text="Menu 2">
+      <MenuItem checked="1" enabled="0" text="Menu Item 1 (check + checked + disabled)" type="check"/>
+      <MenuItem text="Menu Item 2 (check)" type="check"/>
+      <MenuItem text="Menu Item 3 (check)" type="check"/>
+      <MenuItem checked="1" text="Menu Item 4 (check + checked)" type="check"/>
+    </Menu>
+    <Menu text="Menu 3">
+      <MenuItem text="Menu Item 1 (radio)" type="radio"/>
+      <MenuItem text="Menu Item 2 (radio)" type="radio"/>
+      <MenuItem text="Menu Item 3 (radio)" type="radio"/>
+      <MenuItem text="Menu Item 4 (radio)" type="radio"/>
+    </Menu>
+  </MenuBar>
+  <Image name="wtf_face">
+    iVBORw0KGgoAAAANSUhEUgAAABMAAAAUCAYAAAEYUjbiAAAAB3RJTUUH1QcLAAkAOsTHZAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAARnQU1BAACxjwv8YQUAAAO6SURBVHjahVRdaFxFFP7u33a3a2JrDIVKs22sSNbFSlXcPihh8dEH8UGQfRBK6x9BgzbaaGvjS1K1T40vrRCLEh8UmkIEUbFFN6EoJQ1JaqO52d9sm11Mm5j9ubt77z3OTPZerxL1wGGYOTPfnHO+bwbw2toi0j2HHiTrmkISX7jQFySjKv8hot3d3V9JxMy2bcBOqgsXjgRJhKioLdh5lYaGhvhCm8SQMi2K2kFVAneY+He7g5Y1jkvFYlHgqVTQ1qUdDej6IkqlEkRC/AKqNPFq/FaAZ9nOsixiIxE8faosebF96ykk7WWVjr55UNwRj8fz3g2yeVNOD7zbQ6Zp0qUvgmLk4IODg1SeQZbnI9/6DWmFlNDe9s9w7I0DeGKfgaH+MBggpNtnscWSd018ihy/WzGz8qJsySFqMKAGg3JGBlwuU3rbk+jypnB3LoGMNaeQeVWmhfPiyp1OUNmsY7FYrDcUCkXS6fTU3wK3F5Ct56Vk8ReFHGPLQXdDJQOdsUV0U6Pelx+iQqEgWHvh+XBZtIMjXJxsvRftdfR9GGdLAYyMjKC/vx9+f+vW699gCY0bcqr3lUdFn7ideD0kRsuyaHhgJ61cRlZiJBIvve/kPkS7fsUzsSpmjZ9hGAYeCTwOs2FDauTkpELyHqc/7mhB+K01Oyevr9sKJ1gUw7RHdnNkG7nP6/AJ1lfnsNjiVzrHhgNQNXKrtizYlil97y7Mfo18+SqS5oxMqwmkfjgLrgoJ/2E86CulkGHizq7qyJ48sXttfPy8zSsfHR2tRqPRt/8PIMgPc8kJEgobRJx6r4Omp6fdFnKfmJigcDg84M1Kbo5b1nTB4vTs9cCuYx/cFzr+fieuTG00ZKlwDyKRCBirUBRFeCKRQPeBbW9lEkiy8y0OoL+cRopn0vPifkcrLqk9hx6g3pf2uy+Ty4Q7l8xrhyNkzSuUuYQcV7AQHn9m/CmfO91G5z4ZdgX40elBGjtzJ2UTPho4/ip57eiRg1T4USZOROUKaOpL3JAYWKY1qHTIrGKyNrgWbv3FPXeL/Spnxu7H0u93YXf7Mg4/lYTzEdTqNmZ1LPPmBSpJXPP71D0OiBCPA+zMPcDuvNkQPUf5rmfxmMqm1a2diKzMmfPbW9QaC+7lbRv/2A+zLkH1Na+nTfjn3yATolGTdKCU94pN4/9YdhKTO9ogqZIScsv1ZMkzMiqUnk9Be+fzWPzb7y5eZpG6o63NzM98+8w4fjKq0Gpsq8TAAhqsh59DlMVWeEX/PPQnAvhroYDveP4AAAAASUVORK5CYII=
+  </Image>
+</resource>
