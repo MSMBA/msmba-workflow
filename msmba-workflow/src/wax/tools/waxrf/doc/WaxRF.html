@@ -1,0 +1,259 @@
+<html>
+<head>
+  <title>WaxRF Documentation</title>
+  <style>
+    * { font-family: Verdana, Tahoma, Arial, san-serif; font-size: 10pt; }
+    .title { border: 1px black solid; background-color: white; font-size: 20pt; font-weight: bold; padding: 10px; font-variant: small-caps; }
+    .section { border-top: 2px black dotted; border-right: 2px black dotted; padding: 10px; }
+    .section h1 { font-size: 15pt; font-weight: normal; font-style: italic; font-variant: small-caps; margin: 0px 0px 15px 0px; }
+    .section p { line-height: 125%; margin: 0px 0px 10px 15px; }
+    .section h2 { font-size: 10pt; font-weight: bold; margin: 0px 0px 0px 20px; display: inline; }
+    .control { border: 1px silver solid; background-color: #FFFDF8; margin: 5px 25px 5px 25px; padding: 5px; }
+    .control h1 { font-size: 12pt; font-weight: bold; margin: 0px 0px 0px 0px; }
+    .control h2 { font-size: 10pt; font-weight: bold; margin: 0px 0px 0px 20px; display: inline; }
+    .control span { font-style: italic; }
+    span.b { font-weight: bold; }
+  </style>
+</head>
+
+<body>
+  <div class="title">WaxRF Documentation</div>
+  <br />
+  &lt;Links Here&gt;
+  <br /><br />
+  <div class="section">
+    <h1>Introduction</h1>
+    <p>
+    To compensate for the pitfalls that came with using wxPython's XMLResource, along came WaxRF: Wax's own version of an XML resouce. WaxRF is somewhat similar to the XRC files of wx, but has been redesigned with simplicity in mind.
+    </p>
+  </div>
+  <div class="section">
+    <h1>WaxRF File Format</h1>
+    <p>The WaxRF file format uses XML to represent the different controls and containers that Wax offers. The name of an XML node refers to the name of the control you wish to create, as per the same names you would use in code. Any attributes of that node are used as keyword arguments passed to the control's constructor. There are three special attributes though:</p>
+    <ul>
+      <li><span class="b">_align:</span> the alignment of the control, with respect to its parent container</li>
+      <li><span class="b">_border:</span> the surrounding border of the control</li>
+      <li><span class="b">_expand:</span> how this control behaves to resizing</li>
+    </ul>
+    <p>As you can see, these three properties correspond to the same attributes used when calling AddComponent from within one's code.</p>
+    <p>A list of accepted controls are listed below</p>
+    <div class="control">
+      <h1>Bitmap</h1>
+      <h2>Accepts children: </h2> <span>No</span><br />
+      <h2>Special information: </h2> <span>bmp attribute should refer to either a file or an Image object from within the WaxRF file</span><br />
+    </div>
+    <div class="control">
+      <h1>BitmapButton</h1>
+      <h2>Accepts children: </h2> <span></span><br />
+      <h2>Special information: </h2> <span>bmp attribute should refer to either a file or an Image object from within the WaxRF file</span><br />
+    </div>
+    <div class="control">
+      <h1>Button</h1>
+      <h2>Accepts children: </h2> <span>No</span><br />
+      <h2>Special information: </h2> <span>None</span><br />
+    </div>
+    <div class="control">
+      <h1>Canvas</h1>
+      <h2>Accepts children: </h2> <span>No</span><br />
+      <h2>Special information: </h2> <span>None</span><br />
+    </div>
+    <div class="control">
+      <h1>CheckBox</h1>
+      <h2>Accepts children: </h2> <span>No</span><br />
+      <h2>Special information: </h2> <span>a state attribute is available which accepts a 3 state value (checked, unchecked [default], or undetermined)</span><br />
+    </div>
+    <div class="control">
+      <h1>CheckListBox</h1>
+      <h2>Accepts children: </h2> <span>Yes (see special information)</span><br />
+      <h2>Special information: </h2> <span>The children specified for the CheckListBox node will be the items that are found in the list box. These child nodes should contain a text attribute, which specifies the text associated with that item, and an optional checked attribute, which should be set to 1 for checked, or 0 for unchecked [default].</span><br />
+    </div>
+    <div class="control">
+      <h1>ComboBox</h1>
+      <h2>Accepts children: </h2> <span>Yes (see special information)</span><br />
+      <h2>Special information: </h2> <span>The children specified for the ComboBox node will be the items that are found in combo box. These child nodes should contain a text attribute, which specifies the text associated with that item. There is also an optional text attribute for the ComboBox node which will be the default text found in the combo box.</span><br />
+    </div>
+    <div class="control">
+      <h1>Dialog</h1>
+      <h2>Accepts children: </h2> <span>Yes</span><br />
+      <h2>Special information: </h2> <span>There is an optional buttonpanel attribute which specifies whether or not the dialog should default with Ok and Cancel buttons on the bottom (default is no buttons)</span><br />
+    </div>
+    <div class="control">
+      <h1>DropDownBox</h1>
+      <h2>Accepts children: </h2> <span>Yes (see special information)</span><br />
+      <h2>Special information: </h2> <span>The children specified for the DropDownBox node will be the items that are found in the drop down box. These child nodes should contain a text attribute, which specifies the text associated with that item. There is also an optional selected attribute which, when set to 1, will specify that item to be the default selected item.</span><br />
+    </div>
+    <div class="control">
+      <h1>FileTreeView</h1>
+      <h2>Accepts children: </h2> <span>No</span><br />
+      <h2>Special information: </h2> <span>None</span><br />
+    </div>
+    <div class="control">
+      <h1>FlexGridPanel</h1>
+      <h2>Accepts children: </h2> <span>Yes</span><br />
+      <h2>Special information: </h2> <span>There are two different attribuets: grows and gcols, which should be comma separated lists specifying the index of the rows that are growable and the columns that are growable, respectively. The children will be added from left to right, top to bottom as specified in the WaxRF file.</span><br />
+    </div>
+    <div class="control">
+      <h1>Grid</h1>
+      <h2>Accepts children: </h2> <span>No</span><br />
+      <h2>Special information: </h2> <span>&lt;&lt; The grid currently has basic support &gt;&gt;</span><br />
+    </div>
+    <div class="control">
+      <h1>GridPanel</h1>
+      <h2>Accepts children: </h2> <span>Yes</span><br />
+      <h2>Special information: </h2> <span>The children will be added from left to right, top to bottom as specified in the WaxRF file.</span><br />
+    </div>
+    <div class="control">
+      <h1>GroupBox</h1>
+      <h2>Accepts children: </h2> <span>Yes</span><br />
+      <h2>Special information: </h2> <span>None</span><br />
+    </div>
+    <div class="control">
+      <h1>HTMLWindow</h1>
+      <h2>Accepts children: </h2> <span>No</span><br />
+      <h2>Special information: </h2> <span>None</span><br />
+    </div>
+    <div class="control">
+      <h1>HorizontalPanel</h1>
+      <h2>Accepts children: </h2> <span>Yes</span><br />
+      <h2>Special information: </h2> <span>None</span><br />
+    </div>
+    <div class="control">
+      <h1>Image</h1>
+      <h2>Accepts children: </h2> <span>No (see special information)</span><br />
+      <h2>Special information: </h2> <span>The text contained within this node is base64 encoded image data. Please use img2waxrf.py to add images to, and remove images from, a WaxRF file.</span><br />
+    </div>
+    <div class="control">
+      <h1>ImageList</h1>
+      <h2>Accepts children: </h2> <span>Yes (see special information)</span><br />
+      <h2>Special information: </h2> <span>The ImageList node can contain child nodes which have two attributes: cmp, which refers to a either another Image node in the WaxRF file or an image on the local filesystem, and id, which is the id that will be attached to this bitmap in the image list.</span><br />
+    </div>
+    <div class="control">
+      <h1>Label</h1>
+      <h2>Accepts children: </h2> <span>No</span><br />
+      <h2>Special information: </h2> <span>None</span><br />
+    </div>
+    <div class="control">
+      <h1>Line</h1>
+      <h2>Accepts children: </h2> <span>No</span><br />
+      <h2>Special information: </h2> <span>None</span><br />
+    </div>
+    <div class="control">
+      <h1>ListBox</h1>
+      <h2>Accepts children: </h2> <span>Yes (see special information)</span><br />
+      <h2>Special information: </h2> <span>See special information for DropDownBox</span><br />
+    </div>
+    <div class="control">
+      <h1>ListView</h1>
+      <h2>Accepts children: </h2> <span>Yes (see special information)</span><br />
+      <h2>Special information: </h2>
+        <span>The ListView node introduces two new attributes. The first is columns, which is a comma separated list of column headers. The second is colwidths, which is a comma separated list of default widths for the list view.<br /><br />
+        The children specified for the ListView node will be the rows found within the list view. Each row node has an optional num attribute, which specifies the position of this row. If not specified, the rows going in incremental order. Each row child can contain the same amount of children as the number of columns contained within the colums attribute of the ListView node. The text within these nodes is the default text for that item in the list view.
+        </span><br />
+    </div>
+    <div class="control">
+      <h1>Menu</h1>
+      <h2>Accepts children: </h2> <span>Yes (see special information)</span><br />
+      <h2>Special information: </h2>
+        <span>The Menu node has one different attribute, and that is the text attribute, which specifies the text/title of the menu.<br /><br />
+        The Menu node can contain two types of children: MenuListItem nodes, or additional Menu nodes, which will act as submenus. The MenuItem node has the similar text attribute, but also the checked and enabled attributes, which are self-explanatory.
+        </span><br />
+    </div>
+    <div class="control">
+      <h1>MenuBar</h1>
+      <h2>Accepts children: </h2> <span>Yes (see special information)</span><br />
+      <h2>Special information: </h2> <span>Can only contain Menu nodes!</span><br />
+    </div>
+    <div class="control">
+      <h1>NoteBook</h1>
+      <h2>Accepts children: </h2> <span>Yes (see special information)</span><br />
+      <h2>Special information: </h2> <span>The NoteBook node can contain Page nodes. These page nodes have a text attribute, which specifies the text/title of each tab of the notebook. The Page nodes in turn can contain exactly one child, usually a panel containing a set of children.</span><br />
+    </div>
+    <div class="control">
+      <h1>OverlayPanel</h1>
+      <h2>Accepts children: </h2> <span>Yes</span><br />
+      <h2>Special information: </h2> <span>None</span><br />
+    </div>
+    <div class="control">
+      <h1>Panel</h1>
+      <h2>Accepts children: </h2> <span>Yes</span><br />
+      <h2>Special information: </h2> <span>None</span><br />
+    </div>
+    <div class="control">
+      <h1>PlainPanel</h1>
+      <h2>Accepts children: </h2> <span>Yes</span><br />
+      <h2>Special information: </h2> <span>None</span><br />
+    </div>
+    <div class="control">
+      <h1>RadioButton</h1>
+      <h2>Accepts children: </h2> <span>No</span><br />
+      <h2>Special information: </h2> <span>Has a selected attribute, which specifies that this radio button will be selected by default.</span><br />
+    </div>
+    <div class="control">
+      <h1>Splitter</h1>
+      <h2>Accepts children: </h2> <span>Yes (exactly two)</span><br />
+      <h2>Special information: </h2> <span>There are three new attributes: direction, sashposition and minsize, which are all self-explanatory.</span><br />
+    </div>
+    <div class="control">
+      <h1>StyledTextbBox</h1>
+      <h2>Accepts children: </h2> <span>No</span><br />
+      <h2>Special information: </h2> <span>Only basic support for the StyledTextBox node as of yet</span><br />
+    </div>
+    <div class="control">
+      <h1>TextBox</h1>
+      <h2>Accepts children: </h2> <span>No</span><br />
+      <h2>Special information: </h2> <span>None</span><br />
+    </div>
+    <div class="control">
+      <h1>ToggleButton</h1>
+      <h2>Accepts children: </h2> <span>No</span><br />
+      <h2>Special information: </h2> <span>A pressed attribute is suppled, 1 for pressed and 0 for depressed [default].</span><br />
+    </div>
+    <div class="control">
+      <h1>TreeListView</h1>
+      <h2>Accepts children: </h2> <span>Yes (see special information)</span><br />
+      <h2>Special information: </h2> <span>A maincol attribute, which specifies the main column. Other than that, it is a similar to a TreeView. One exception is that, with the possibility of multiple columns, the way of specifying default text for these columns is new. The first column's default text will be specfied as an attribute named col1, the second column being col2, and so on. Also, there is no value attribute for child nodes.</span><br />
+    </div>
+    <div class="control">
+      <h1>TreeView</h1>
+      <h2>Accepts children: </h2> <span>Yes (see special information)</span><br />
+      <h2>Special information: </h2> <span>The tree view can contain only one node, a root node. The root node can then contain any number of child item nodes, and so on. These child nodes can contain a text attribute, and a value attribute. Also, if the item node contains child item nodes, the expanded attrubute is useful for specifying that this item node will initially be expanded.</span><br />
+    </div>
+    <div class="control">
+      <h1>VerticalPanel</h1>
+      <h2>Accepts children: </h2> <span>Yes</span><br />
+      <h2>Special information: </h2> <span>None</span><br />
+    </div>
+  </div>
+  <div class="section">
+    <h1>XMLResource Class</h1>
+    <p>
+    <h2>LoadFromString(str): </h2> Load WaxRF data from a supplied string<br />
+    <h2>LoadFromFile(file): </h2> Load WaxRF data from the specified file<br />
+    <h2>LoadObject(parent, name): </h2> Load an object onto a parent.<br />
+    <h2>LoadPanel(parent, name): </h2> Alias for LoadObject<br />
+    <h2>LoadMenu(name): Alias for LoadObject</h2> <br />
+    <h2>LoadMenuBar(parent, name): </h2> Alias for LoadObject<br />
+    <h2>LoadToolBar(parent, name): </h2> Alias for LoadObject<br />
+    <h2>LoadImage(name): </h2> Alias for LoadObject<br />
+    <h2>LoadIcon(name): </h2> Alias for LoadObject<br />
+    <h2>LoadDialog(parent, name): </h2> Alias for LoadObject<br />
+    </p>
+  </div>
+  <div class="section">
+    <h1>Handlers and Adding New Controls</h1>
+    <p>
+    When you need to support a new control from within WaxRF, two things must be done:<br /><br />
+    (1) Add the name of the node, and its handler to __handlers__ in the XMLResource class<br />
+    (2) If one of the existing handlers will not suffice, you must create a new handler class. The __init__ method of the handler should accept the following arguments:<br />
+    </p>
+    <ul>
+      <li><span class="b">control: </span> A string representing the name of this control (node)</li>
+      <li><span class="b">attribs: </span> A dictionary of attributes that were specified for this node</li>
+      <li><span class="b">addprops: </span> A list of the add props in the following order [border, align, expand]</li>
+      <li><span class="b">children: </span> The child nodes of this node</li>
+      <li><span class="b">waxrf: </span> A reference to the XMLResource class that this node belonds to</li>
+    </ul>
+    <p>Also, a Handle method must be supplied, which accepts one argument: the parent that this object belongs to (the parent will be a Wax object, some form of a container). Your Handle method should create the control, handle all child nodes, and return the resulting object. Check handlers.py in the /tools/waxrf/ directory to get an idea of how this is done.</p>
+  </div>
+</body>
+</html>

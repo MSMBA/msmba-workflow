@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>Wax API</title>
+    <link href="waxapi.css" rel="stylesheet" type="text/css" />
+<head>
+    
+<body>
+<div id="header">Wax API Listing</div>
+<div id="body">
+<div class="main_head">wax.containers.OverlayContainer  <div class="main_desc"> Container that takes an arbitrary number of windows, and stacks them
+        on top of each other.  Controls are hidden by default. </div>  <ul class="main_list">    <li><a href="#AddComponent">AddComponent</a></li>    <li><a href="#__doc__">[member '__doc__']</a></li>    <li><a href="#__module__">[member '__module__']</a></li>  </ul>  <div class="inherits">Inherits:     <a href="wax.containers.Container.html">wax.containers.Container</a>   </div></div><br /><a name="AddComponent" /><div class="sub_head">AddComponent(self, window, expand, stretch, align, border)    <div class="sub_desc">
+        # make sure the parents are correct
+        if waxconfig.WaxConfig.check_parent:
+            if window.GetParent() is not self:
+                utils.parent_warning(window, self)
+
+        flags = 0
+        if stretch:
+            flags |= wx.EXPAND
+        if align:
+            flags |= {
+                "t": wx.ALIGN_TOP,
+                "c": wx.ALIGN_CENTER,
+                "b": wx.ALIGN_BOTTOM,
+                "r": wx.ALIGN_RIGHT,
+                "l": wx.ALIGN_LEFT,
+            }.get(align.lower()[:1], 0)
+        if border:
+            flags |= wx.ALL
+        flags |= wx.FIXED_MINSIZE
+
+        self.sizer.Add(window, expand, flags, border)
+        </div></div><br /><a name="__doc__" /><div class="sub_head">[member '__doc__']    <div class="sub_desc">Documentation for this class</div></div><br /><a name="__module__" /><div class="sub_head">[member '__module__']    <div class="sub_desc">The module that this class belongs to</div></div><br /></div>
+</body>
+</html>

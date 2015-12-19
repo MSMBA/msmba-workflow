@@ -1,0 +1,104 @@
+<html>
+<head>
+    <title>Wax API</title>
+    <link href="waxapi.css" rel="stylesheet" type="text/css" />
+<head>
+    
+<body>
+<div id="header">Wax API Listing</div>
+<div id="body">
+<div class="main_head">wx._core.ItemContainer  <div class="main_desc">
+    The wx.ItemContainer class defines an interface which is implemented
+    by all controls which have string subitems, each of which may be
+    selected, such as `wx.ListBox`, `wx.CheckListBox`, `wx.Choice` as well
+    as `wx.ComboBox` which implements an extended interface deriving from
+    this one.
+
+    It defines the methods for accessing the control's items and although
+    each of the derived classes implements them differently, they still
+    all conform to the same interface.
+
+    The items in a wx.ItemContainer have (non empty) string labels and,
+    optionally, client data associated with them.
+
+    </div>  <ul class="main_list">    <li><a href="#Append">Append</a></li>    <li><a href="#AppendItems">AppendItems</a></li>    <li><a href="#Clear">Clear</a></li>    <li><a href="#Delete">Delete</a></li>    <li><a href="#FindString">FindString</a></li>    <li><a href="#GetClientData">GetClientData</a></li>    <li><a href="#GetCount">GetCount</a></li>    <li><a href="#GetSelection">GetSelection</a></li>    <li><a href="#GetString">GetString</a></li>    <li><a href="#GetStringSelection">GetStringSelection</a></li>    <li><a href="#GetStrings">GetStrings</a></li>    <li><a href="#Insert">Insert</a></li>    <li><a href="#IsEmpty">IsEmpty</a></li>    <li><a href="#Select">Select</a></li>    <li><a href="#SetClientData">SetClientData</a></li>    <li><a href="#SetSelection">SetSelection</a></li>    <li><a href="#SetString">SetString</a></li>    <li><a href="#SetStringSelection">SetStringSelection</a></li>    <li><a href="#__init__">[constructor]</a></li>    <li><a href="#__dict__">[member '__dict__']</a></li>    <li><a href="#__doc__">[member '__doc__']</a></li>    <li><a href="#__module__">[member '__module__']</a></li>    <li><a href="#__weakref__">[member '__weakref__']</a></li>    <li><a href="#__repr__">[operator 'repr']</a></li>  </ul></div><br /><a name="Append" /><div class="sub_head">Append(args, kwargs)    <div class="sub_desc">
+        Append(self, String item, PyObject clientData=None) -> int
+
+        Adds the item to the control, associating the given data with the item
+        if not None.  The return value is the index of the newly added item
+        which may be different from the last one if the control is sorted (e.g.
+        has wx.LB_SORT or wx.CB_SORT style).
+        </div></div><br /><a name="AppendItems" /><div class="sub_head">AppendItems(args, kwargs)    <div class="sub_desc">
+        AppendItems(self, List strings)
+
+        Apend several items at once to the control.  Notice that calling this
+        method may be much faster than appending the items one by one if you
+        need to add a lot of items.
+        </div></div><br /><a name="Clear" /><div class="sub_head">Clear(args, kwargs)    <div class="sub_desc">
+        Clear(self)
+
+        Removes all items from the control.
+        </div></div><br /><a name="Delete" /><div class="sub_head">Delete(args, kwargs)    <div class="sub_desc">
+        Delete(self, int n)
+
+        Deletes the item at the zero-based index 'n' from the control. Note
+        that it is an error (signalled by a `wx.PyAssertionError` exception if
+        enabled) to remove an item with the index negative or greater or equal
+        than the number of items in the control.
+        </div></div><br /><a name="FindString" /><div class="sub_head">FindString(args, kwargs)    <div class="sub_desc">
+        FindString(self, String s) -> int
+
+        Finds an item whose label matches the given string.  Returns the
+        zero-based position of the item, or ``wx.NOT_FOUND`` if the string was not
+        found.
+        </div></div><br /><a name="GetClientData" /><div class="sub_head">GetClientData(args, kwargs)    <div class="sub_desc">
+        GetClientData(self, int n) -> PyObject
+
+        Returns the client data associated with the given item, (if any.)
+        </div></div><br /><a name="GetCount" /><div class="sub_head">GetCount(args, kwargs)    <div class="sub_desc">
+        GetCount(self) -> int
+
+        Returns the number of items in the control.
+        </div></div><br /><a name="GetSelection" /><div class="sub_head">GetSelection(args, kwargs)    <div class="sub_desc">
+        GetSelection(self) -> int
+
+        Returns the index of the selected item or ``wx.NOT_FOUND`` if no item
+        is selected.
+        </div></div><br /><a name="GetString" /><div class="sub_head">GetString(args, kwargs)    <div class="sub_desc">
+        GetString(self, int n) -> String
+
+        Returns the label of the item with the given index.
+        </div></div><br /><a name="GetStringSelection" /><div class="sub_head">GetStringSelection(args, kwargs)    <div class="sub_desc">
+        GetStringSelection(self) -> String
+
+        Returns the label of the selected item or an empty string if no item
+        is selected.
+        </div></div><br /><a name="GetStrings" /><div class="sub_head">GetStrings(args, kwargs)    <div class="sub_desc">GetStrings(self) -> wxArrayString</div></div><br /><a name="Insert" /><div class="sub_head">Insert(args, kwargs)    <div class="sub_desc">
+        Insert(self, String item, int pos, PyObject clientData=None) -> int
+
+        Insert an item into the control before the item at the ``pos`` index,
+        optionally associating some data object with the item.
+        </div></div><br /><a name="IsEmpty" /><div class="sub_head">IsEmpty(args, kwargs)    <div class="sub_desc">
+        IsEmpty(self) -> bool
+
+        Returns True if the control is empty or False if it has some items.
+        </div></div><br /><a name="Select" /><div class="sub_head">Select(args, kwargs)    <div class="sub_desc">
+        Select(self, int n)
+
+        This is the same as `SetSelection` and exists only because it is
+        slightly more natural for controls which support multiple selection.
+        </div></div><br /><a name="SetClientData" /><div class="sub_head">SetClientData(args, kwargs)    <div class="sub_desc">
+        SetClientData(self, int n, PyObject clientData)
+
+        Associate the given client data with the item at position n.
+        </div></div><br /><a name="SetSelection" /><div class="sub_head">SetSelection(args, kwargs)    <div class="sub_desc">
+        SetSelection(self, int n)
+
+        Sets the item at index 'n' to be the selected item.
+        </div></div><br /><a name="SetString" /><div class="sub_head">SetString(args, kwargs)    <div class="sub_desc">
+        SetString(self, int n, String s)
+
+        Sets the label for the given item.
+        </div></div><br /><a name="SetStringSelection" /><div class="sub_head">SetStringSelection(args, kwargs)    <div class="sub_desc">SetStringSelection(self, String s) -> bool</div></div><br /><a name="__init__" /><div class="sub_head">[constructor]    <div class="sub_desc">Usage: classname(arguments)</div></div><br /><a name="__dict__" /><div class="sub_head">[member '__dict__']    <div class="sub_desc">The dictionary of attributes and methods for this class</div></div><br /><a name="__doc__" /><div class="sub_head">[member '__doc__']    <div class="sub_desc">Documentation for this class</div></div><br /><a name="__module__" /><div class="sub_head">[member '__module__']    <div class="sub_desc">The module that this class belongs to</div></div><br /><a name="__weakref__" /><div class="sub_head">[member '__weakref__']    <div class="sub_desc">No Documentation</div></div><br /><a name="__repr__" /><div class="sub_head">[operator 'repr']    <div class="sub_desc">Usage: repr(a)</div></div><br /></div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Wax API</title>
+    <link href="waxapi.css" rel="stylesheet" type="text/css" />
+<head>
+    
+<body>
+<div id="header">Wax API Listing</div>
+<div id="body">
+<div class="main_head">wx._controls.ListBox  <div class="main_desc">Proxy of C++ ListBox class</div>  <ul class="main_list">    <li><a href="#AppendAndEnsureVisible">AppendAndEnsureVisible</a></li>    <li><a href="#Create">Create</a></li>    <li><a href="#Deselect">Deselect</a></li>    <li><a href="#DeselectAll">DeselectAll</a></li>    <li><a href="#EnsureVisible">EnsureVisible</a></li>    <li><a href="#GetClassDefaultAttributes">GetClassDefaultAttributes</a></li>    <li><a href="#GetSelections">GetSelections</a></li>    <li><a href="#Insert">Insert</a></li>    <li><a href="#InsertItems">InsertItems</a></li>    <li><a href="#IsSelected">IsSelected</a></li>    <li><a href="#IsSorted">IsSorted</a></li>    <li><a href="#Select">Select</a></li>    <li><a href="#Set">Set</a></li>    <li><a href="#SetFirstItem">SetFirstItem</a></li>    <li><a href="#SetFirstItemStr">SetFirstItemStr</a></li>    <li><a href="#SetItemBackgroundColour">SetItemBackgroundColour</a></li>    <li><a href="#SetItemFont">SetItemFont</a></li>    <li><a href="#SetItemForegroundColour">SetItemForegroundColour</a></li>    <li><a href="#SetSelection">SetSelection</a></li>    <li><a href="#SetStringSelection">SetStringSelection</a></li>    <li><a href="#__init__">[constructor]</a></li>    <li><a href="#__doc__">[member '__doc__']</a></li>    <li><a href="#__module__">[member '__module__']</a></li>    <li><a href="#__repr__">[operator 'repr']</a></li>  </ul>  <div class="inherits">Inherits:     <a href="wx._core.ControlWithItems.html">wx._core.ControlWithItems</a>   </div></div><br /><a name="AppendAndEnsureVisible" /><div class="sub_head">AppendAndEnsureVisible(args, kwargs)    <div class="sub_desc">AppendAndEnsureVisible(self, String s)</div></div><br /><a name="Create" /><div class="sub_head">Create(args, kwargs)    <div class="sub_desc">
+        Create(self, Window parent, int id=-1, Point pos=DefaultPosition, 
+            Size size=DefaultSize, wxArrayString choices=wxPyEmptyStringArray, 
+            long style=0, Validator validator=DefaultValidator, 
+            String name=ListBoxNameStr) -> bool
+        </div></div><br /><a name="Deselect" /><div class="sub_head">Deselect(args, kwargs)    <div class="sub_desc">Deselect(self, int n)</div></div><br /><a name="DeselectAll" /><div class="sub_head">DeselectAll(args, kwargs)    <div class="sub_desc">DeselectAll(self, int itemToLeaveSelected=-1)</div></div><br /><a name="EnsureVisible" /><div class="sub_head">EnsureVisible(args, kwargs)    <div class="sub_desc">EnsureVisible(self, int n)</div></div><br /><a name="GetClassDefaultAttributes" /><div class="sub_head">GetClassDefaultAttributes    <div class="sub_desc">
+        GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
+
+        Get the default attributes for this class.  This is useful if you want
+        to use the same font or colour in your own control as in a standard
+        control -- which is a much better idea than hard coding specific
+        colours or fonts which might look completely out of place on the
+        user's system, especially if it uses themes.
+
+        The variant parameter is only relevant under Mac currently and is
+        ignore under other platforms. Under Mac, it will change the size of
+        the returned font. See `wx.Window.SetWindowVariant` for more about
+        this.
+        </div></div><br /><a name="GetSelections" /><div class="sub_head">GetSelections(args, kwargs)    <div class="sub_desc">GetSelections(self) -> PyObject</div></div><br /><a name="Insert" /><div class="sub_head">Insert(args, kwargs)    <div class="sub_desc">
+        Insert(self, String item, int pos, PyObject clientData=None)
+
+        Insert an item into the control before the item at the ``pos`` index,
+        optionally associating some data object with the item.
+        </div></div><br /><a name="InsertItems" /><div class="sub_head">InsertItems(args, kwargs)    <div class="sub_desc">InsertItems(self, wxArrayString items, int pos)</div></div><br /><a name="IsSelected" /><div class="sub_head">IsSelected(args, kwargs)    <div class="sub_desc">IsSelected(self, int n) -> bool</div></div><br /><a name="IsSorted" /><div class="sub_head">IsSorted(args, kwargs)    <div class="sub_desc">IsSorted(self) -> bool</div></div><br /><a name="Select" /><div class="sub_head">Select(args, kwargs)    <div class="sub_desc">
+        Select(self, int n)
+
+        This is the same as `SetSelection` and exists only because it is
+        slightly more natural for controls which support multiple selection.
+        </div></div><br /><a name="Set" /><div class="sub_head">Set(args, kwargs)    <div class="sub_desc">Set(self, wxArrayString items)</div></div><br /><a name="SetFirstItem" /><div class="sub_head">SetFirstItem(args, kwargs)    <div class="sub_desc">SetFirstItem(self, int n)</div></div><br /><a name="SetFirstItemStr" /><div class="sub_head">SetFirstItemStr(args, kwargs)    <div class="sub_desc">SetFirstItemStr(self, String s)</div></div><br /><a name="SetItemBackgroundColour" /><div class="sub_head">SetItemBackgroundColour(args, kwargs)    <div class="sub_desc">SetItemBackgroundColour(self, int item, Colour c)</div></div><br /><a name="SetItemFont" /><div class="sub_head">SetItemFont(args, kwargs)    <div class="sub_desc">SetItemFont(self, int item, Font f)</div></div><br /><a name="SetItemForegroundColour" /><div class="sub_head">SetItemForegroundColour(args, kwargs)    <div class="sub_desc">SetItemForegroundColour(self, int item, Colour c)</div></div><br /><a name="SetSelection" /><div class="sub_head">SetSelection(args, kwargs)    <div class="sub_desc">SetSelection(self, int n, bool select=True)</div></div><br /><a name="SetStringSelection" /><div class="sub_head">SetStringSelection(args, kwargs)    <div class="sub_desc">SetStringSelection(self, String s, bool select=True) -> bool</div></div><br /><a name="__init__" /><div class="sub_head">[constructor]    <div class="sub_desc">Usage: classname(arguments)</div></div><br /><a name="__doc__" /><div class="sub_head">[member '__doc__']    <div class="sub_desc">Documentation for this class</div></div><br /><a name="__module__" /><div class="sub_head">[member '__module__']    <div class="sub_desc">The module that this class belongs to</div></div><br /><a name="__repr__" /><div class="sub_head">[operator 'repr']    <div class="sub_desc">Usage: repr(a)</div></div><br /></div>
+</body>
+</html>

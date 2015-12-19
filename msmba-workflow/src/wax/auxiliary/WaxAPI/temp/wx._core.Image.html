@@ -1,0 +1,382 @@
+<html>
+<head>
+    <title>Wax API</title>
+    <link href="waxapi.css" rel="stylesheet" type="text/css" />
+<head>
+    
+<body>
+<div id="header">Wax API Listing</div>
+<div id="body">
+<div class="main_head">wx._core.Image  <div class="main_desc">
+    A platform-independent image class.  An image can be created from
+    data, or using `wx.Bitmap.ConvertToImage`, or loaded from a file in a
+    variety of formats.  Functions are available to set and get image
+    bits, so it can be used for basic image manipulation.
+
+    A wx.Image cannot be drawn directly to a `wx.DC`.  Instead, a
+    platform-specific `wx.Bitmap` object must be created from it using the
+    `wx.BitmapFromImage` constructor. This bitmap can then be drawn in a
+    device context, using `wx.DC.DrawBitmap`.
+
+    One colour value of the image may be used as a mask colour which will
+    lead to the automatic creation of a `wx.Mask` object associated to the
+    bitmap object.
+
+    wx.Image supports alpha channel data, that is in addition to a byte
+    for the red, green and blue colour components for each pixel it also
+    stores a byte representing the pixel opacity. An alpha value of 0
+    corresponds to a transparent pixel (null opacity) while a value of 255
+    means that the pixel is 100% opaque.
+
+    Unlike RGB data, not all images have an alpha channel and before using
+    `GetAlpha` you should check if this image contains an alpha channel
+    with `HasAlpha`. Note that currently only images loaded from PNG files
+    with transparency information will have an alpha channel.
+    </div>  <ul class="main_list">    <li><a href="#AddHandler">AddHandler</a></li>    <li><a href="#CanRead">CanRead</a></li>    <li><a href="#CanReadStream">CanReadStream</a></li>    <li><a href="#ComputeHistogram">ComputeHistogram</a></li>    <li><a href="#ConvertAlphaToMask">ConvertAlphaToMask</a></li>    <li><a href="#ConvertColourToAlpha">ConvertColourToAlpha</a></li>    <li><a href="#ConvertToBitmap">ConvertToBitmap</a></li>    <li><a href="#ConvertToMono">ConvertToMono</a></li>    <li><a href="#ConvertToMonoBitmap">ConvertToMonoBitmap</a></li>    <li><a href="#Copy">Copy</a></li>    <li><a href="#CountColours">CountColours</a></li>    <li><a href="#Create">Create</a></li>    <li><a href="#Destroy">Destroy</a></li>    <li><a href="#FindFirstUnusedColour">FindFirstUnusedColour</a></li>    <li><a href="#GetAlpha">GetAlpha</a></li>    <li><a href="#GetAlphaBuffer">GetAlphaBuffer</a></li>    <li><a href="#GetAlphaData">GetAlphaData</a></li>    <li><a href="#GetBlue">GetBlue</a></li>    <li><a href="#GetData">GetData</a></li>    <li><a href="#GetDataBuffer">GetDataBuffer</a></li>    <li><a href="#GetGreen">GetGreen</a></li>    <li><a href="#GetHeight">GetHeight</a></li>    <li><a href="#GetImageCount">GetImageCount</a></li>    <li><a href="#GetImageExtWildcard">GetImageExtWildcard</a></li>    <li><a href="#GetMaskBlue">GetMaskBlue</a></li>    <li><a href="#GetMaskGreen">GetMaskGreen</a></li>    <li><a href="#GetMaskRed">GetMaskRed</a></li>    <li><a href="#GetOption">GetOption</a></li>    <li><a href="#GetOptionInt">GetOptionInt</a></li>    <li><a href="#GetOrFindMaskColour">GetOrFindMaskColour</a></li>    <li><a href="#GetRed">GetRed</a></li>    <li><a href="#GetSize">GetSize</a></li>    <li><a href="#GetSubImage">GetSubImage</a></li>    <li><a href="#GetWidth">GetWidth</a></li>    <li><a href="#HasAlpha">HasAlpha</a></li>    <li><a href="#HasMask">HasMask</a></li>    <li><a href="#HasOption">HasOption</a></li>    <li><a href="#InitAlpha">InitAlpha</a></li>    <li><a href="#InsertHandler">InsertHandler</a></li>    <li><a href="#IsTransparent">IsTransparent</a></li>    <li><a href="#LoadFile">LoadFile</a></li>    <li><a href="#LoadMimeFile">LoadMimeFile</a></li>    <li><a href="#LoadMimeStream">LoadMimeStream</a></li>    <li><a href="#LoadStream">LoadStream</a></li>    <li><a href="#Mirror">Mirror</a></li>    <li><a href="#Ok">Ok</a></li>    <li><a href="#Paste">Paste</a></li>    <li><a href="#RemoveHandler">RemoveHandler</a></li>    <li><a href="#Replace">Replace</a></li>    <li><a href="#Rescale">Rescale</a></li>    <li><a href="#Resize">Resize</a></li>    <li><a href="#Rotate">Rotate</a></li>    <li><a href="#Rotate90">Rotate90</a></li>    <li><a href="#SaveFile">SaveFile</a></li>    <li><a href="#SaveMimeFile">SaveMimeFile</a></li>    <li><a href="#Scale">Scale</a></li>    <li><a href="#SetAlpha">SetAlpha</a></li>    <li><a href="#SetAlphaBuffer">SetAlphaBuffer</a></li>    <li><a href="#SetAlphaData">SetAlphaData</a></li>    <li><a href="#SetData">SetData</a></li>    <li><a href="#SetDataBuffer">SetDataBuffer</a></li>    <li><a href="#SetMask">SetMask</a></li>    <li><a href="#SetMaskColour">SetMaskColour</a></li>    <li><a href="#SetMaskFromImage">SetMaskFromImage</a></li>    <li><a href="#SetOption">SetOption</a></li>    <li><a href="#SetOptionInt">SetOptionInt</a></li>    <li><a href="#SetRGB">SetRGB</a></li>    <li><a href="#SetRGBRect">SetRGBRect</a></li>    <li><a href="#ShrinkBy">ShrinkBy</a></li>    <li><a href="#Size">Size</a></li>    <li><a href="#__init__">[constructor]</a></li>    <li><a href="#__doc__">[member '__doc__']</a></li>    <li><a href="#__module__">[member '__module__']</a></li>    <li><a href="#__del__">[operator 'del']</a></li>    <li><a href="#__nonzero__">[operator 'nonzero']</a></li>    <li><a href="#__repr__">[operator 'repr']</a></li>  </ul>  <div class="inherits">Inherits:     <a href="wx._core.Object.html">wx._core.Object</a>   </div></div><br /><a name="AddHandler" /><div class="sub_head">AddHandler    <div class="sub_desc">AddHandler(ImageHandler handler)</div></div><br /><a name="CanRead" /><div class="sub_head">CanRead    <div class="sub_desc">
+        CanRead(String filename) -> bool
+
+        Returns True if the image handlers can read this file.
+        </div></div><br /><a name="CanReadStream" /><div class="sub_head">CanReadStream    <div class="sub_desc">
+        CanReadStream(InputStream stream) -> bool
+
+        Returns True if the image handlers can read an image file from the
+        data currently on the input stream, or a readable Python file-like
+        object.
+        </div></div><br /><a name="ComputeHistogram" /><div class="sub_head">ComputeHistogram(args, kwargs)    <div class="sub_desc">ComputeHistogram(self, ImageHistogram h) -> unsigned long</div></div><br /><a name="ConvertAlphaToMask" /><div class="sub_head">ConvertAlphaToMask(args, kwargs)    <div class="sub_desc">
+        ConvertAlphaToMask(self, byte threshold=IMAGE_ALPHA_THRESHOLD) -> bool
+
+        If the image has alpha channel, this method converts it to mask. All
+        pixels with alpha value less than ``threshold`` are replaced with the
+        mask colour and the alpha channel is removed. The mask colour is
+        chosen automatically using `FindFirstUnusedColour`.
+
+        If the image image doesn't have alpha channel, ConvertAlphaToMask does
+        nothing.
+        </div></div><br /><a name="ConvertColourToAlpha" /><div class="sub_head">ConvertColourToAlpha(args, kwargs)    <div class="sub_desc">
+        ConvertColourToAlpha(self, byte r, byte g, byte b) -> bool
+
+        This method converts an image where the original alpha information is
+        only available as a shades of a colour (actually shades of grey)
+        typically when you draw anti-aliased text into a bitmap. The DC
+        drawing routines draw grey values on the black background although
+        they actually mean to draw white with differnt alpha values.  This
+        method reverses it, assuming a black (!) background and white text.
+        The method will then fill up the whole image with the colour given.
+        </div></div><br /><a name="ConvertToBitmap" /><div class="sub_head">ConvertToBitmap(args, kwargs)    <div class="sub_desc">ConvertToBitmap(self, int depth=-1) -> Bitmap</div></div><br /><a name="ConvertToMono" /><div class="sub_head">ConvertToMono(args, kwargs)    <div class="sub_desc">
+        ConvertToMono(self, byte r, byte g, byte b) -> Image
+
+        Returns monochromatic version of the image. The returned image has
+        white colour where the original has ``(r,g,b)`` colour and black
+        colour everywhere else.
+        </div></div><br /><a name="ConvertToMonoBitmap" /><div class="sub_head">ConvertToMonoBitmap(args, kwargs)    <div class="sub_desc">ConvertToMonoBitmap(self, byte red, byte green, byte blue) -> Bitmap</div></div><br /><a name="Copy" /><div class="sub_head">Copy(args, kwargs)    <div class="sub_desc">
+        Copy(self) -> Image
+
+        Returns an identical copy of the image.
+        </div></div><br /><a name="CountColours" /><div class="sub_head">CountColours(args, kwargs)    <div class="sub_desc">CountColours(self, unsigned long stopafter=(unsigned long) -1) -> unsigned long</div></div><br /><a name="Create" /><div class="sub_head">Create(args, kwargs)    <div class="sub_desc">
+        Create(self, int width, int height, bool clear=True)
+
+        Creates a fresh image.  If clear is ``True``, the new image will be
+        initialized to black. Otherwise, the image data will be uninitialized.
+        </div></div><br /><a name="Destroy" /><div class="sub_head">Destroy(args, kwargs)    <div class="sub_desc">
+        Destroy(self)
+
+        Destroys the image data.
+        </div></div><br /><a name="FindFirstUnusedColour" /><div class="sub_head">FindFirstUnusedColour(args, kwargs)    <div class="sub_desc">
+        FindFirstUnusedColour(int startR=1, int startG=0, int startB=0) -> (success, r, g, b)
+
+        Find first colour that is not used in the image and has higher RGB
+        values than startR, startG, startB.  Returns a tuple consisting of a
+        success flag and rgb values.
+        </div></div><br /><a name="GetAlpha" /><div class="sub_head">GetAlpha(args, kwargs)    <div class="sub_desc">
+        GetAlpha(self, int x, int y) -> byte
+
+        Returns the alpha value for the given pixel. This function may only be
+        called for the images with alpha channel, use `HasAlpha` to check for
+        this.
+
+        The returned value is the *opacity* of the image, i.e. the value of 0
+        corresponds to the fully transparent pixels while the value of 255 to
+        the fully opaque pixels.
+        </div></div><br /><a name="GetAlphaBuffer" /><div class="sub_head">GetAlphaBuffer(args, kwargs)    <div class="sub_desc">GetAlphaBuffer(self) -> PyObject</div></div><br /><a name="GetAlphaData" /><div class="sub_head">GetAlphaData(args, kwargs)    <div class="sub_desc">
+        GetAlphaData(self) -> PyObject
+
+        Returns a string containing a copy of the alpha bytes of the image.
+        </div></div><br /><a name="GetBlue" /><div class="sub_head">GetBlue(args, kwargs)    <div class="sub_desc">
+        GetBlue(self, int x, int y) -> byte
+
+        Returns the blue intensity at the given coordinate.
+        </div></div><br /><a name="GetData" /><div class="sub_head">GetData(args, kwargs)    <div class="sub_desc">
+        GetData(self) -> PyObject
+
+        Returns a string containing a copy of the RGB bytes of the image.
+        </div></div><br /><a name="GetDataBuffer" /><div class="sub_head">GetDataBuffer(args, kwargs)    <div class="sub_desc">
+        GetDataBuffer(self) -> PyObject
+
+        Returns a writable Python buffer object that is pointing at the RGB
+        image data buffer inside the wx.Image. You need to ensure that you do
+        not use this buffer object after the image has been destroyed.
+        </div></div><br /><a name="GetGreen" /><div class="sub_head">GetGreen(args, kwargs)    <div class="sub_desc">
+        GetGreen(self, int x, int y) -> byte
+
+        Returns the green intensity at the given coordinate.
+        </div></div><br /><a name="GetHeight" /><div class="sub_head">GetHeight(args, kwargs)    <div class="sub_desc">
+        GetHeight(self) -> int
+
+        Gets the height of the image in pixels.
+        </div></div><br /><a name="GetImageCount" /><div class="sub_head">GetImageCount    <div class="sub_desc">
+        GetImageCount(String filename, long type=BITMAP_TYPE_ANY) -> int
+
+        If the image file contains more than one image and the image handler
+        is capable of retrieving these individually, this function will return
+        the number of available images.
+        </div></div><br /><a name="GetImageExtWildcard" /><div class="sub_head">GetImageExtWildcard    <div class="sub_desc">
+        GetImageExtWildcard() -> String
+
+        Iterates all registered wxImageHandler objects, and returns a string
+        containing file extension masks suitable for passing to file open/save
+        dialog boxes.
+        </div></div><br /><a name="GetMaskBlue" /><div class="sub_head">GetMaskBlue(args, kwargs)    <div class="sub_desc">
+        GetMaskBlue(self) -> byte
+
+        Gets the blue component of the mask colour.
+        </div></div><br /><a name="GetMaskGreen" /><div class="sub_head">GetMaskGreen(args, kwargs)    <div class="sub_desc">
+        GetMaskGreen(self) -> byte
+
+        Gets the green component of the mask colour.
+        </div></div><br /><a name="GetMaskRed" /><div class="sub_head">GetMaskRed(args, kwargs)    <div class="sub_desc">
+        GetMaskRed(self) -> byte
+
+        Gets the red component of the mask colour.
+        </div></div><br /><a name="GetOption" /><div class="sub_head">GetOption(args, kwargs)    <div class="sub_desc">
+        GetOption(self, String name) -> String
+
+        Gets the value of an image handler option.
+        </div></div><br /><a name="GetOptionInt" /><div class="sub_head">GetOptionInt(args, kwargs)    <div class="sub_desc">
+        GetOptionInt(self, String name) -> int
+
+        Gets the value of an image handler option as an integer.  If the given
+        option is not present, the function returns 0.
+        </div></div><br /><a name="GetOrFindMaskColour" /><div class="sub_head">GetOrFindMaskColour(args, kwargs)    <div class="sub_desc">
+        GetOrFindMaskColour() -> (r,g,b)
+
+        Get the current mask colour or find a suitable colour.
+        </div></div><br /><a name="GetRed" /><div class="sub_head">GetRed(args, kwargs)    <div class="sub_desc">
+        GetRed(self, int x, int y) -> byte
+
+        Returns the red intensity at the given coordinate.
+        </div></div><br /><a name="GetSize" /><div class="sub_head">GetSize(args, kwargs)    <div class="sub_desc">
+        GetSize(self) -> Size
+
+        Returns the size of the image in pixels.
+        </div></div><br /><a name="GetSubImage" /><div class="sub_head">GetSubImage(args, kwargs)    <div class="sub_desc">
+        GetSubImage(self, Rect rect) -> Image
+
+        Returns a sub image of the current one as long as the rect belongs
+        entirely to the image.
+        </div></div><br /><a name="GetWidth" /><div class="sub_head">GetWidth(args, kwargs)    <div class="sub_desc">
+        GetWidth(self) -> int
+
+        Gets the width of the image in pixels.
+        </div></div><br /><a name="HasAlpha" /><div class="sub_head">HasAlpha(args, kwargs)    <div class="sub_desc">
+        HasAlpha(self) -> bool
+
+        Returns true if this image has alpha channel, false otherwise.
+        </div></div><br /><a name="HasMask" /><div class="sub_head">HasMask(args, kwargs)    <div class="sub_desc">
+        HasMask(self) -> bool
+
+        Returns ``True`` if there is a mask active, ``False`` otherwise.
+        </div></div><br /><a name="HasOption" /><div class="sub_head">HasOption(args, kwargs)    <div class="sub_desc">
+        HasOption(self, String name) -> bool
+
+        Returns true if the given option is present.
+        </div></div><br /><a name="InitAlpha" /><div class="sub_head">InitAlpha(args, kwargs)    <div class="sub_desc">
+        InitAlpha(self)
+
+        Initializes the image alpha channel data. It is an error to call it if
+        the image already has alpha data. If it doesn't, alpha data will be by
+        default initialized to all pixels being fully opaque. But if the image
+        has a a mask colour, all mask pixels will be completely transparent.
+        </div></div><br /><a name="InsertHandler" /><div class="sub_head">InsertHandler    <div class="sub_desc">InsertHandler(ImageHandler handler)</div></div><br /><a name="IsTransparent" /><div class="sub_head">IsTransparent(args, kwargs)    <div class="sub_desc">
+        IsTransparent(self, int x, int y, byte threshold=IMAGE_ALPHA_THRESHOLD) -> bool
+
+        Returns ``True`` if this pixel is masked or has an alpha value less
+        than the spcified threshold.
+        </div></div><br /><a name="LoadFile" /><div class="sub_head">LoadFile(args, kwargs)    <div class="sub_desc">
+        LoadFile(self, String name, long type=BITMAP_TYPE_ANY, int index=-1) -> bool
+
+        Loads an image from a file. If no handler type is provided, the
+        library will try to autodetect the format.
+        </div></div><br /><a name="LoadMimeFile" /><div class="sub_head">LoadMimeFile(args, kwargs)    <div class="sub_desc">
+        LoadMimeFile(self, String name, String mimetype, int index=-1) -> bool
+
+        Loads an image from a file, specifying the image type with a MIME type
+        string.
+        </div></div><br /><a name="LoadMimeStream" /><div class="sub_head">LoadMimeStream(args, kwargs)    <div class="sub_desc">
+        LoadMimeStream(self, InputStream stream, String mimetype, int index=-1) -> bool
+
+        Loads an image from an input stream or a readable Python file-like
+        object, using a MIME type string to specify the image file format.
+        </div></div><br /><a name="LoadStream" /><div class="sub_head">LoadStream(args, kwargs)    <div class="sub_desc">
+        LoadStream(self, InputStream stream, long type=BITMAP_TYPE_ANY, int index=-1) -> bool
+
+        Loads an image from an input stream or a readable Python file-like
+        object. If no handler type is provided, the library will try to
+        autodetect the format.
+        </div></div><br /><a name="Mirror" /><div class="sub_head">Mirror(args, kwargs)    <div class="sub_desc">
+        Mirror(self, bool horizontally=True) -> Image
+
+        Returns a mirrored copy of the image. The parameter ``horizontally``
+        indicates the orientation.
+        </div></div><br /><a name="Ok" /><div class="sub_head">Ok(args, kwargs)    <div class="sub_desc">
+        Ok(self) -> bool
+
+        Returns true if image data is present.
+        </div></div><br /><a name="Paste" /><div class="sub_head">Paste(args, kwargs)    <div class="sub_desc">
+        Paste(self, Image image, int x, int y)
+
+        Pastes ``image`` into this instance and takes care of the mask colour
+        and any out of bounds problems.
+        </div></div><br /><a name="RemoveHandler" /><div class="sub_head">RemoveHandler    <div class="sub_desc">RemoveHandler(String name) -> bool</div></div><br /><a name="Replace" /><div class="sub_head">Replace(args, kwargs)    <div class="sub_desc">
+        Replace(self, byte r1, byte g1, byte b1, byte r2, byte g2, byte b2)
+
+        Replaces the colour specified by ``(r1,g1,b1)`` by the colour
+        ``(r2,g2,b2)``.
+        </div></div><br /><a name="Rescale" /><div class="sub_head">Rescale(args, kwargs)    <div class="sub_desc">
+        Rescale(self, int width, int height) -> Image
+
+        Changes the size of the image in-place by scaling it: after a call to
+        this function, the image will have the given width and height.
+
+        Returns the (modified) image itself.
+        </div></div><br /><a name="Resize" /><div class="sub_head">Resize(args, kwargs)    <div class="sub_desc">
+        Resize(self, Size size, Point pos, int r=-1, int g=-1, int b=-1) -> Image
+
+        Changes the size of the image in-place without scaling it, by adding
+        either a border with the given colour or cropping as necessary. The
+        image is pasted into a new image with the given size and background
+        colour at the position pos relative to the upper left of the new
+        image. If red = green = blue = -1 then use either the current mask
+        colour if set or find, use, and set a suitable mask colour for any
+        newly exposed areas.
+
+        Returns the (modified) image itself.
+        </div></div><br /><a name="Rotate" /><div class="sub_head">Rotate(args, kwargs)    <div class="sub_desc">
+        Rotate(self, double angle, Point centre_of_rotation, bool interpolating=True, 
+            Point offset_after_rotation=None) -> Image
+
+        Rotates the image about the given point, by ``angle`` radians. Passing
+        ``True`` to ``interpolating`` results in better image quality, but is
+        slower. If the image has a mask, then the mask colour is used for the
+        uncovered pixels in the rotated image background. Otherwise, black
+        will be used as the fill colour.
+
+        Returns the rotated image, leaving this image intact.
+        </div></div><br /><a name="Rotate90" /><div class="sub_head">Rotate90(args, kwargs)    <div class="sub_desc">
+        Rotate90(self, bool clockwise=True) -> Image
+
+        Returns a copy of the image rotated 90 degrees in the direction
+        indicated by ``clockwise``.
+        </div></div><br /><a name="SaveFile" /><div class="sub_head">SaveFile(args, kwargs)    <div class="sub_desc">
+        SaveFile(self, String name, int type) -> bool
+
+        Saves an image in the named file.
+        </div></div><br /><a name="SaveMimeFile" /><div class="sub_head">SaveMimeFile(args, kwargs)    <div class="sub_desc">
+        SaveMimeFile(self, String name, String mimetype) -> bool
+
+        Saves an image in the named file.
+        </div></div><br /><a name="Scale" /><div class="sub_head">Scale(args, kwargs)    <div class="sub_desc">
+        Scale(self, int width, int height) -> Image
+
+        Returns a scaled version of the image. This is also useful for scaling
+        bitmaps in general as the only other way to scale bitmaps is to blit a
+        `wx.MemoryDC` into another `wx.MemoryDC`.
+        </div></div><br /><a name="SetAlpha" /><div class="sub_head">SetAlpha(args, kwargs)    <div class="sub_desc">
+        SetAlpha(self, int x, int y, byte alpha)
+
+        Sets the alpha value for the given pixel. This function should only be
+        called if the image has alpha channel data, use `HasAlpha` to check
+        for this.
+        </div></div><br /><a name="SetAlphaBuffer" /><div class="sub_head">SetAlphaBuffer(args, kwargs)    <div class="sub_desc">SetAlphaBuffer(self, buffer alpha)</div></div><br /><a name="SetAlphaData" /><div class="sub_head">SetAlphaData(args, kwargs)    <div class="sub_desc">
+        SetAlphaData(self, buffer alpha)
+
+        Resets the Image's alpha data from a buffer of bytes.  Accepts either
+        a string or a buffer object holding the data and the length of the
+        data must be width*height.
+        </div></div><br /><a name="SetData" /><div class="sub_head">SetData(args, kwargs)    <div class="sub_desc">
+        SetData(self, buffer data)
+
+        Resets the Image's RGB data from a buffer of RGB bytes.  Accepts
+        either a string or a buffer object holding the data and the length of
+        the data must be width*height*3.
+        </div></div><br /><a name="SetDataBuffer" /><div class="sub_head">SetDataBuffer(args, kwargs)    <div class="sub_desc">
+        SetDataBuffer(self, buffer data)
+
+        Sets the internal image data pointer to point at a Python buffer
+        object.  This can save making an extra copy of the data but you must
+        ensure that the buffer object lives longer than the wx.Image does.
+        </div></div><br /><a name="SetMask" /><div class="sub_head">SetMask(args, kwargs)    <div class="sub_desc">
+        SetMask(self, bool mask=True)
+
+        Specifies whether there is a mask or not. The area of the mask is
+        determined by the current mask colour.
+        </div></div><br /><a name="SetMaskColour" /><div class="sub_head">SetMaskColour(args, kwargs)    <div class="sub_desc">
+        SetMaskColour(self, byte r, byte g, byte b)
+
+        Sets the mask colour for this image (and tells the image to use the
+        mask).
+        </div></div><br /><a name="SetMaskFromImage" /><div class="sub_head">SetMaskFromImage(args, kwargs)    <div class="sub_desc">
+        SetMaskFromImage(self, Image mask, byte mr, byte mg, byte mb) -> bool
+
+        Sets the image's mask so that the pixels that have RGB value of
+        ``(mr,mg,mb)`` in ``mask`` will be masked in this image. This is done
+        by first finding an unused colour in the image, setting this colour as
+        the mask colour and then using this colour to draw all pixels in the
+        image who corresponding pixel in mask has given RGB value.
+
+        Returns ``False`` if ``mask`` does not have same dimensions as the
+        image or if there is no unused colour left. Returns ``True`` if the
+        mask was successfully applied.
+
+        Note that this method involves computing the histogram, which is
+        computationally intensive operation.
+        </div></div><br /><a name="SetOption" /><div class="sub_head">SetOption(args, kwargs)    <div class="sub_desc">
+        SetOption(self, String name, String value)
+
+        Sets an image handler defined option.  For example, when saving as a
+        JPEG file, the option ``wx.IMAGE_OPTION_QUALITY`` is used, which is a
+        number between 0 and 100 (0 is terrible, 100 is very good).
+        </div></div><br /><a name="SetOptionInt" /><div class="sub_head">SetOptionInt(args, kwargs)    <div class="sub_desc">
+        SetOptionInt(self, String name, int value)
+
+        Sets an image option as an integer.
+        </div></div><br /><a name="SetRGB" /><div class="sub_head">SetRGB(args, kwargs)    <div class="sub_desc">
+        SetRGB(self, int x, int y, byte r, byte g, byte b)
+
+        Sets the pixel at the given coordinate. This routine performs
+        bounds-checks for the coordinate so it can be considered a safe way to
+        manipulate the data, but in some cases this might be too slow so that
+        the data will have to be set directly. In that case you will have to
+        get access to the image data using the `GetData` method.
+        </div></div><br /><a name="SetRGBRect" /><div class="sub_head">SetRGBRect(args, kwargs)    <div class="sub_desc">
+        SetRGBRect(self, Rect rect, byte r, byte g, byte b)
+
+        Sets the colour of the pixels within the given rectangle. This routine
+        performs bounds-checks for the rectangle so it can be considered a
+        safe way to manipulate the data.
+        </div></div><br /><a name="ShrinkBy" /><div class="sub_head">ShrinkBy(args, kwargs)    <div class="sub_desc">
+        ShrinkBy(self, int xFactor, int yFactor) -> Image
+
+        Return a version of the image scaled smaller by the given factors.
+        </div></div><br /><a name="Size" /><div class="sub_head">Size(args, kwargs)    <div class="sub_desc">
+        Size(self, Size size, Point pos, int r=-1, int g=-1, int b=-1) -> Image
+
+        Returns a resized version of this image without scaling it by adding
+        either a border with the given colour or cropping as necessary. The
+        image is pasted into a new image with the given size and background
+        colour at the position ``pos`` relative to the upper left of the new
+        image. If red = green = blue = -1 then use either the current mask
+        colour if set or find, use, and set a suitable mask colour for any
+        newly exposed areas.
+        </div></div><br /><a name="__init__" /><div class="sub_head">[constructor]    <div class="sub_desc">Usage: classname(arguments)</div></div><br /><a name="__doc__" /><div class="sub_head">[member '__doc__']    <div class="sub_desc">Documentation for this class</div></div><br /><a name="__module__" /><div class="sub_head">[member '__module__']    <div class="sub_desc">The module that this class belongs to</div></div><br /><a name="__del__" /><div class="sub_head">[operator 'del']    <div class="sub_desc">Usage: del a</div></div><br /><a name="__nonzero__" /><div class="sub_head">[operator 'nonzero']    <div class="sub_desc">Usage: None, used by core for things such as the not operator</div></div><br /><a name="__repr__" /><div class="sub_head">[operator 'repr']    <div class="sub_desc">Usage: repr(a)</div></div><br /></div>
+</body>
+</html>

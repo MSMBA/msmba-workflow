@@ -1,0 +1,1863 @@
+<html>
+<head>
+    <title>Wax API</title>
+    <link href="waxapi.css" rel="stylesheet" type="text/css" />
+<head>
+    
+<body>
+<div id="header">Wax API Listing</div>
+<div id="body">
+<div class="main_head">wx.stc.StyledTextCtrl  <div class="main_desc">Proxy of C++ StyledTextCtrl class</div>  <ul class="main_list">    <li><a href="#AddRefDocument">AddRefDocument</a></li>    <li><a href="#AddStyledText">AddStyledText</a></li>    <li><a href="#AddText">AddText</a></li>    <li><a href="#AddTextRaw">AddTextRaw</a></li>    <li><a href="#AddTextUTF8">AddTextUTF8</a></li>    <li><a href="#Allocate">Allocate</a></li>    <li><a href="#AppendText">AppendText</a></li>    <li><a href="#AppendTextRaw">AppendTextRaw</a></li>    <li><a href="#AppendTextUTF8">AppendTextUTF8</a></li>    <li><a href="#AutoCompActive">AutoCompActive</a></li>    <li><a href="#AutoCompCancel">AutoCompCancel</a></li>    <li><a href="#AutoCompComplete">AutoCompComplete</a></li>    <li><a href="#AutoCompGetAutoHide">AutoCompGetAutoHide</a></li>    <li><a href="#AutoCompGetCancelAtStart">AutoCompGetCancelAtStart</a></li>    <li><a href="#AutoCompGetChooseSingle">AutoCompGetChooseSingle</a></li>    <li><a href="#AutoCompGetCurrent">AutoCompGetCurrent</a></li>    <li><a href="#AutoCompGetDropRestOfWord">AutoCompGetDropRestOfWord</a></li>    <li><a href="#AutoCompGetIgnoreCase">AutoCompGetIgnoreCase</a></li>    <li><a href="#AutoCompGetSeparator">AutoCompGetSeparator</a></li>    <li><a href="#AutoCompGetTypeSeparator">AutoCompGetTypeSeparator</a></li>    <li><a href="#AutoCompPosStart">AutoCompPosStart</a></li>    <li><a href="#AutoCompSelect">AutoCompSelect</a></li>    <li><a href="#AutoCompSetAutoHide">AutoCompSetAutoHide</a></li>    <li><a href="#AutoCompSetCancelAtStart">AutoCompSetCancelAtStart</a></li>    <li><a href="#AutoCompSetChooseSingle">AutoCompSetChooseSingle</a></li>    <li><a href="#AutoCompSetDropRestOfWord">AutoCompSetDropRestOfWord</a></li>    <li><a href="#AutoCompSetFillUps">AutoCompSetFillUps</a></li>    <li><a href="#AutoCompSetIgnoreCase">AutoCompSetIgnoreCase</a></li>    <li><a href="#AutoCompSetSeparator">AutoCompSetSeparator</a></li>    <li><a href="#AutoCompSetTypeSeparator">AutoCompSetTypeSeparator</a></li>    <li><a href="#AutoCompShow">AutoCompShow</a></li>    <li><a href="#AutoCompStops">AutoCompStops</a></li>    <li><a href="#BackTab">BackTab</a></li>    <li><a href="#BeginUndoAction">BeginUndoAction</a></li>    <li><a href="#BraceBadLight">BraceBadLight</a></li>    <li><a href="#BraceHighlight">BraceHighlight</a></li>    <li><a href="#BraceMatch">BraceMatch</a></li>    <li><a href="#CallTipActive">CallTipActive</a></li>    <li><a href="#CallTipCancel">CallTipCancel</a></li>    <li><a href="#CallTipPosAtStart">CallTipPosAtStart</a></li>    <li><a href="#CallTipSetBackground">CallTipSetBackground</a></li>    <li><a href="#CallTipSetForeground">CallTipSetForeground</a></li>    <li><a href="#CallTipSetForegroundHighlight">CallTipSetForegroundHighlight</a></li>    <li><a href="#CallTipSetHighlight">CallTipSetHighlight</a></li>    <li><a href="#CallTipShow">CallTipShow</a></li>    <li><a href="#CanPaste">CanPaste</a></li>    <li><a href="#CanRedo">CanRedo</a></li>    <li><a href="#CanUndo">CanUndo</a></li>    <li><a href="#Cancel">Cancel</a></li>    <li><a href="#CharLeft">CharLeft</a></li>    <li><a href="#CharLeftExtend">CharLeftExtend</a></li>    <li><a href="#CharLeftRectExtend">CharLeftRectExtend</a></li>    <li><a href="#CharRight">CharRight</a></li>    <li><a href="#CharRightExtend">CharRightExtend</a></li>    <li><a href="#CharRightRectExtend">CharRightRectExtend</a></li>    <li><a href="#ChooseCaretX">ChooseCaretX</a></li>    <li><a href="#Clear">Clear</a></li>    <li><a href="#ClearAll">ClearAll</a></li>    <li><a href="#ClearDocumentStyle">ClearDocumentStyle</a></li>    <li><a href="#ClearRegisteredImages">ClearRegisteredImages</a></li>    <li><a href="#CmdKeyAssign">CmdKeyAssign</a></li>    <li><a href="#CmdKeyClear">CmdKeyClear</a></li>    <li><a href="#CmdKeyClearAll">CmdKeyClearAll</a></li>    <li><a href="#CmdKeyExecute">CmdKeyExecute</a></li>    <li><a href="#Colourise">Colourise</a></li>    <li><a href="#ConvertEOLs">ConvertEOLs</a></li>    <li><a href="#Copy">Copy</a></li>    <li><a href="#CopyRange">CopyRange</a></li>    <li><a href="#CopyText">CopyText</a></li>    <li><a href="#Create">Create</a></li>    <li><a href="#CreateDocument">CreateDocument</a></li>    <li><a href="#Cut">Cut</a></li>    <li><a href="#DelLineLeft">DelLineLeft</a></li>    <li><a href="#DelLineRight">DelLineRight</a></li>    <li><a href="#DelWordLeft">DelWordLeft</a></li>    <li><a href="#DelWordRight">DelWordRight</a></li>    <li><a href="#DeleteBack">DeleteBack</a></li>    <li><a href="#DeleteBackNotLine">DeleteBackNotLine</a></li>    <li><a href="#DoDragOver">DoDragOver</a></li>    <li><a href="#DoDropText">DoDropText</a></li>    <li><a href="#DocLineFromVisible">DocLineFromVisible</a></li>    <li><a href="#DocumentEnd">DocumentEnd</a></li>    <li><a href="#DocumentEndExtend">DocumentEndExtend</a></li>    <li><a href="#DocumentStart">DocumentStart</a></li>    <li><a href="#DocumentStartExtend">DocumentStartExtend</a></li>    <li><a href="#EditToggleOvertype">EditToggleOvertype</a></li>    <li><a href="#EmptyUndoBuffer">EmptyUndoBuffer</a></li>    <li><a href="#EndUndoAction">EndUndoAction</a></li>    <li><a href="#EnsureCaretVisible">EnsureCaretVisible</a></li>    <li><a href="#EnsureVisible">EnsureVisible</a></li>    <li><a href="#EnsureVisibleEnforcePolicy">EnsureVisibleEnforcePolicy</a></li>    <li><a href="#FindColumn">FindColumn</a></li>    <li><a href="#FindText">FindText</a></li>    <li><a href="#FormFeed">FormFeed</a></li>    <li><a href="#FormatRange">FormatRange</a></li>    <li><a href="#GetAnchor">GetAnchor</a></li>    <li><a href="#GetBackSpaceUnIndents">GetBackSpaceUnIndents</a></li>    <li><a href="#GetBufferedDraw">GetBufferedDraw</a></li>    <li><a href="#GetCaretForeground">GetCaretForeground</a></li>    <li><a href="#GetCaretLineBack">GetCaretLineBack</a></li>    <li><a href="#GetCaretLineVisible">GetCaretLineVisible</a></li>    <li><a href="#GetCaretPeriod">GetCaretPeriod</a></li>    <li><a href="#GetCaretWidth">GetCaretWidth</a></li>    <li><a href="#GetCharAt">GetCharAt</a></li>    <li><a href="#GetCodePage">GetCodePage</a></li>    <li><a href="#GetColumn">GetColumn</a></li>    <li><a href="#GetControlCharSymbol">GetControlCharSymbol</a></li>    <li><a href="#GetCurLine">GetCurLine</a></li>    <li><a href="#GetCurLineRaw">GetCurLineRaw</a></li>    <li><a href="#GetCurLineUTF8">GetCurLineUTF8</a></li>    <li><a href="#GetCurrentLine">GetCurrentLine</a></li>    <li><a href="#GetCurrentPos">GetCurrentPos</a></li>    <li><a href="#GetDocPointer">GetDocPointer</a></li>    <li><a href="#GetEOLMode">GetEOLMode</a></li>    <li><a href="#GetEdgeColour">GetEdgeColour</a></li>    <li><a href="#GetEdgeColumn">GetEdgeColumn</a></li>    <li><a href="#GetEdgeMode">GetEdgeMode</a></li>    <li><a href="#GetEndAtLastLine">GetEndAtLastLine</a></li>    <li><a href="#GetEndStyled">GetEndStyled</a></li>    <li><a href="#GetFirstVisibleLine">GetFirstVisibleLine</a></li>    <li><a href="#GetFoldExpanded">GetFoldExpanded</a></li>    <li><a href="#GetFoldLevel">GetFoldLevel</a></li>    <li><a href="#GetFoldParent">GetFoldParent</a></li>    <li><a href="#GetHighlightGuide">GetHighlightGuide</a></li>    <li><a href="#GetIndent">GetIndent</a></li>    <li><a href="#GetIndentationGuides">GetIndentationGuides</a></li>    <li><a href="#GetLastChild">GetLastChild</a></li>    <li><a href="#GetLastKeydownProcessed">GetLastKeydownProcessed</a></li>    <li><a href="#GetLayoutCache">GetLayoutCache</a></li>    <li><a href="#GetLength">GetLength</a></li>    <li><a href="#GetLexer">GetLexer</a></li>    <li><a href="#GetLine">GetLine</a></li>    <li><a href="#GetLineCount">GetLineCount</a></li>    <li><a href="#GetLineEndPosition">GetLineEndPosition</a></li>    <li><a href="#GetLineIndentPosition">GetLineIndentPosition</a></li>    <li><a href="#GetLineIndentation">GetLineIndentation</a></li>    <li><a href="#GetLineRaw">GetLineRaw</a></li>    <li><a href="#GetLineSelEndPosition">GetLineSelEndPosition</a></li>    <li><a href="#GetLineSelStartPosition">GetLineSelStartPosition</a></li>    <li><a href="#GetLineState">GetLineState</a></li>    <li><a href="#GetLineUTF8">GetLineUTF8</a></li>    <li><a href="#GetLineVisible">GetLineVisible</a></li>    <li><a href="#GetMarginLeft">GetMarginLeft</a></li>    <li><a href="#GetMarginMask">GetMarginMask</a></li>    <li><a href="#GetMarginRight">GetMarginRight</a></li>    <li><a href="#GetMarginSensitive">GetMarginSensitive</a></li>    <li><a href="#GetMarginType">GetMarginType</a></li>    <li><a href="#GetMarginWidth">GetMarginWidth</a></li>    <li><a href="#GetMaxLineState">GetMaxLineState</a></li>    <li><a href="#GetModEventMask">GetModEventMask</a></li>    <li><a href="#GetModify">GetModify</a></li>    <li><a href="#GetMouseDownCaptures">GetMouseDownCaptures</a></li>    <li><a href="#GetMouseDwellTime">GetMouseDwellTime</a></li>    <li><a href="#GetOvertype">GetOvertype</a></li>    <li><a href="#GetPrintColourMode">GetPrintColourMode</a></li>    <li><a href="#GetPrintMagnification">GetPrintMagnification</a></li>    <li><a href="#GetPrintWrapMode">GetPrintWrapMode</a></li>    <li><a href="#GetReadOnly">GetReadOnly</a></li>    <li><a href="#GetSTCCursor">GetSTCCursor</a></li>    <li><a href="#GetSTCFocus">GetSTCFocus</a></li>    <li><a href="#GetScrollWidth">GetScrollWidth</a></li>    <li><a href="#GetSearchFlags">GetSearchFlags</a></li>    <li><a href="#GetSelectedText">GetSelectedText</a></li>    <li><a href="#GetSelectedTextRaw">GetSelectedTextRaw</a></li>    <li><a href="#GetSelectedTextUTF8">GetSelectedTextUTF8</a></li>    <li><a href="#GetSelection">GetSelection</a></li>    <li><a href="#GetSelectionEnd">GetSelectionEnd</a></li>    <li><a href="#GetSelectionMode">GetSelectionMode</a></li>    <li><a href="#GetSelectionStart">GetSelectionStart</a></li>    <li><a href="#GetStatus">GetStatus</a></li>    <li><a href="#GetStyleAt">GetStyleAt</a></li>    <li><a href="#GetStyleBits">GetStyleBits</a></li>    <li><a href="#GetStyledText">GetStyledText</a></li>    <li><a href="#GetTabIndents">GetTabIndents</a></li>    <li><a href="#GetTabWidth">GetTabWidth</a></li>    <li><a href="#GetTargetEnd">GetTargetEnd</a></li>    <li><a href="#GetTargetStart">GetTargetStart</a></li>    <li><a href="#GetText">GetText</a></li>    <li><a href="#GetTextLength">GetTextLength</a></li>    <li><a href="#GetTextRange">GetTextRange</a></li>    <li><a href="#GetTextRangeRaw">GetTextRangeRaw</a></li>    <li><a href="#GetTextRangeUTF8">GetTextRangeUTF8</a></li>    <li><a href="#GetTextRaw">GetTextRaw</a></li>    <li><a href="#GetTextUTF8">GetTextUTF8</a></li>    <li><a href="#GetTwoPhaseDraw">GetTwoPhaseDraw</a></li>    <li><a href="#GetUndoCollection">GetUndoCollection</a></li>    <li><a href="#GetUseAntiAliasing">GetUseAntiAliasing</a></li>    <li><a href="#GetUseHorizontalScrollBar">GetUseHorizontalScrollBar</a></li>    <li><a href="#GetUseTabs">GetUseTabs</a></li>    <li><a href="#GetUseVerticalScrollBar">GetUseVerticalScrollBar</a></li>    <li><a href="#GetViewEOL">GetViewEOL</a></li>    <li><a href="#GetViewWhiteSpace">GetViewWhiteSpace</a></li>    <li><a href="#GetWrapMode">GetWrapMode</a></li>    <li><a href="#GetWrapStartIndent">GetWrapStartIndent</a></li>    <li><a href="#GetWrapVisualFlags">GetWrapVisualFlags</a></li>    <li><a href="#GetWrapVisualFlagsLocation">GetWrapVisualFlagsLocation</a></li>    <li><a href="#GetXOffset">GetXOffset</a></li>    <li><a href="#GetZoom">GetZoom</a></li>    <li><a href="#GotoLine">GotoLine</a></li>    <li><a href="#GotoPos">GotoPos</a></li>    <li><a href="#HideLines">HideLines</a></li>    <li><a href="#HideSelection">HideSelection</a></li>    <li><a href="#Home">Home</a></li>    <li><a href="#HomeDisplay">HomeDisplay</a></li>    <li><a href="#HomeDisplayExtend">HomeDisplayExtend</a></li>    <li><a href="#HomeExtend">HomeExtend</a></li>    <li><a href="#HomeRectExtend">HomeRectExtend</a></li>    <li><a href="#HomeWrap">HomeWrap</a></li>    <li><a href="#HomeWrapExtend">HomeWrapExtend</a></li>    <li><a href="#IndicatorGetForeground">IndicatorGetForeground</a></li>    <li><a href="#IndicatorGetStyle">IndicatorGetStyle</a></li>    <li><a href="#IndicatorSetForeground">IndicatorSetForeground</a></li>    <li><a href="#IndicatorSetStyle">IndicatorSetStyle</a></li>    <li><a href="#InsertText">InsertText</a></li>    <li><a href="#InsertTextRaw">InsertTextRaw</a></li>    <li><a href="#InsertTextUTF8">InsertTextUTF8</a></li>    <li><a href="#LineCopy">LineCopy</a></li>    <li><a href="#LineCut">LineCut</a></li>    <li><a href="#LineDelete">LineDelete</a></li>    <li><a href="#LineDown">LineDown</a></li>    <li><a href="#LineDownExtend">LineDownExtend</a></li>    <li><a href="#LineDownRectExtend">LineDownRectExtend</a></li>    <li><a href="#LineDuplicate">LineDuplicate</a></li>    <li><a href="#LineEnd">LineEnd</a></li>    <li><a href="#LineEndDisplay">LineEndDisplay</a></li>    <li><a href="#LineEndDisplayExtend">LineEndDisplayExtend</a></li>    <li><a href="#LineEndExtend">LineEndExtend</a></li>    <li><a href="#LineEndRectExtend">LineEndRectExtend</a></li>    <li><a href="#LineEndWrap">LineEndWrap</a></li>    <li><a href="#LineEndWrapExtend">LineEndWrapExtend</a></li>    <li><a href="#LineFromPosition">LineFromPosition</a></li>    <li><a href="#LineLength">LineLength</a></li>    <li><a href="#LineScroll">LineScroll</a></li>    <li><a href="#LineScrollDown">LineScrollDown</a></li>    <li><a href="#LineScrollUp">LineScrollUp</a></li>    <li><a href="#LineTranspose">LineTranspose</a></li>    <li><a href="#LineUp">LineUp</a></li>    <li><a href="#LineUpExtend">LineUpExtend</a></li>    <li><a href="#LineUpRectExtend">LineUpRectExtend</a></li>    <li><a href="#LinesJoin">LinesJoin</a></li>    <li><a href="#LinesOnScreen">LinesOnScreen</a></li>    <li><a href="#LinesSplit">LinesSplit</a></li>    <li><a href="#LoadFile">LoadFile</a></li>    <li><a href="#LowerCase">LowerCase</a></li>    <li><a href="#MarkerAdd">MarkerAdd</a></li>    <li><a href="#MarkerDefine">MarkerDefine</a></li>    <li><a href="#MarkerDefineBitmap">MarkerDefineBitmap</a></li>    <li><a href="#MarkerDelete">MarkerDelete</a></li>    <li><a href="#MarkerDeleteAll">MarkerDeleteAll</a></li>    <li><a href="#MarkerDeleteHandle">MarkerDeleteHandle</a></li>    <li><a href="#MarkerGet">MarkerGet</a></li>    <li><a href="#MarkerLineFromHandle">MarkerLineFromHandle</a></li>    <li><a href="#MarkerNext">MarkerNext</a></li>    <li><a href="#MarkerPrevious">MarkerPrevious</a></li>    <li><a href="#MarkerSetBackground">MarkerSetBackground</a></li>    <li><a href="#MarkerSetForeground">MarkerSetForeground</a></li>    <li><a href="#MoveCaretInsideView">MoveCaretInsideView</a></li>    <li><a href="#NewLine">NewLine</a></li>    <li><a href="#PageDown">PageDown</a></li>    <li><a href="#PageDownExtend">PageDownExtend</a></li>    <li><a href="#PageDownRectExtend">PageDownRectExtend</a></li>    <li><a href="#PageUp">PageUp</a></li>    <li><a href="#PageUpExtend">PageUpExtend</a></li>    <li><a href="#PageUpRectExtend">PageUpRectExtend</a></li>    <li><a href="#ParaDown">ParaDown</a></li>    <li><a href="#ParaDownExtend">ParaDownExtend</a></li>    <li><a href="#ParaUp">ParaUp</a></li>    <li><a href="#ParaUpExtend">ParaUpExtend</a></li>    <li><a href="#Paste">Paste</a></li>    <li><a href="#PointFromPosition">PointFromPosition</a></li>    <li><a href="#PositionAfter">PositionAfter</a></li>    <li><a href="#PositionBefore">PositionBefore</a></li>    <li><a href="#PositionFromLine">PositionFromLine</a></li>    <li><a href="#PositionFromPoint">PositionFromPoint</a></li>    <li><a href="#PositionFromPointClose">PositionFromPointClose</a></li>    <li><a href="#Redo">Redo</a></li>    <li><a href="#RegisterImage">RegisterImage</a></li>    <li><a href="#ReleaseDocument">ReleaseDocument</a></li>    <li><a href="#ReplaceSelection">ReplaceSelection</a></li>    <li><a href="#ReplaceTarget">ReplaceTarget</a></li>    <li><a href="#ReplaceTargetRE">ReplaceTargetRE</a></li>    <li><a href="#SaveFile">SaveFile</a></li>    <li><a href="#ScrollToColumn">ScrollToColumn</a></li>    <li><a href="#ScrollToLine">ScrollToLine</a></li>    <li><a href="#SearchAnchor">SearchAnchor</a></li>    <li><a href="#SearchInTarget">SearchInTarget</a></li>    <li><a href="#SearchNext">SearchNext</a></li>    <li><a href="#SearchPrev">SearchPrev</a></li>    <li><a href="#SelectAll">SelectAll</a></li>    <li><a href="#SelectionIsRectangle">SelectionIsRectangle</a></li>    <li><a href="#SendMsg">SendMsg</a></li>    <li><a href="#SetAnchor">SetAnchor</a></li>    <li><a href="#SetBackSpaceUnIndents">SetBackSpaceUnIndents</a></li>    <li><a href="#SetBufferedDraw">SetBufferedDraw</a></li>    <li><a href="#SetCaretForeground">SetCaretForeground</a></li>    <li><a href="#SetCaretLineBack">SetCaretLineBack</a></li>    <li><a href="#SetCaretLineVisible">SetCaretLineVisible</a></li>    <li><a href="#SetCaretPeriod">SetCaretPeriod</a></li>    <li><a href="#SetCaretWidth">SetCaretWidth</a></li>    <li><a href="#SetCharsDefault">SetCharsDefault</a></li>    <li><a href="#SetCodePage">SetCodePage</a></li>    <li><a href="#SetControlCharSymbol">SetControlCharSymbol</a></li>    <li><a href="#SetCurrentPos">SetCurrentPos</a></li>    <li><a href="#SetDocPointer">SetDocPointer</a></li>    <li><a href="#SetEOLMode">SetEOLMode</a></li>    <li><a href="#SetEdgeColour">SetEdgeColour</a></li>    <li><a href="#SetEdgeColumn">SetEdgeColumn</a></li>    <li><a href="#SetEdgeMode">SetEdgeMode</a></li>    <li><a href="#SetEndAtLastLine">SetEndAtLastLine</a></li>    <li><a href="#SetFoldExpanded">SetFoldExpanded</a></li>    <li><a href="#SetFoldFlags">SetFoldFlags</a></li>    <li><a href="#SetFoldLevel">SetFoldLevel</a></li>    <li><a href="#SetFoldMarginColour">SetFoldMarginColour</a></li>    <li><a href="#SetFoldMarginHiColour">SetFoldMarginHiColour</a></li>    <li><a href="#SetHScrollBar">SetHScrollBar</a></li>    <li><a href="#SetHighlightGuide">SetHighlightGuide</a></li>    <li><a href="#SetHotspotActiveBackground">SetHotspotActiveBackground</a></li>    <li><a href="#SetHotspotActiveForeground">SetHotspotActiveForeground</a></li>    <li><a href="#SetHotspotActiveUnderline">SetHotspotActiveUnderline</a></li>    <li><a href="#SetHotspotSingleLine">SetHotspotSingleLine</a></li>    <li><a href="#SetIndent">SetIndent</a></li>    <li><a href="#SetIndentationGuides">SetIndentationGuides</a></li>    <li><a href="#SetKeyWords">SetKeyWords</a></li>    <li><a href="#SetLastKeydownProcessed">SetLastKeydownProcessed</a></li>    <li><a href="#SetLayoutCache">SetLayoutCache</a></li>    <li><a href="#SetLexer">SetLexer</a></li>    <li><a href="#SetLexerLanguage">SetLexerLanguage</a></li>    <li><a href="#SetLineIndentation">SetLineIndentation</a></li>    <li><a href="#SetLineState">SetLineState</a></li>    <li><a href="#SetMarginLeft">SetMarginLeft</a></li>    <li><a href="#SetMarginMask">SetMarginMask</a></li>    <li><a href="#SetMarginRight">SetMarginRight</a></li>    <li><a href="#SetMarginSensitive">SetMarginSensitive</a></li>    <li><a href="#SetMarginType">SetMarginType</a></li>    <li><a href="#SetMarginWidth">SetMarginWidth</a></li>    <li><a href="#SetMargins">SetMargins</a></li>    <li><a href="#SetModEventMask">SetModEventMask</a></li>    <li><a href="#SetMouseDownCaptures">SetMouseDownCaptures</a></li>    <li><a href="#SetMouseDwellTime">SetMouseDwellTime</a></li>    <li><a href="#SetOvertype">SetOvertype</a></li>    <li><a href="#SetPrintColourMode">SetPrintColourMode</a></li>    <li><a href="#SetPrintMagnification">SetPrintMagnification</a></li>    <li><a href="#SetPrintWrapMode">SetPrintWrapMode</a></li>    <li><a href="#SetProperty">SetProperty</a></li>    <li><a href="#SetReadOnly">SetReadOnly</a></li>    <li><a href="#SetSTCCursor">SetSTCCursor</a></li>    <li><a href="#SetSTCFocus">SetSTCFocus</a></li>    <li><a href="#SetSavePoint">SetSavePoint</a></li>    <li><a href="#SetScrollWidth">SetScrollWidth</a></li>    <li><a href="#SetSearchFlags">SetSearchFlags</a></li>    <li><a href="#SetSelBackground">SetSelBackground</a></li>    <li><a href="#SetSelForeground">SetSelForeground</a></li>    <li><a href="#SetSelection">SetSelection</a></li>    <li><a href="#SetSelectionEnd">SetSelectionEnd</a></li>    <li><a href="#SetSelectionMode">SetSelectionMode</a></li>    <li><a href="#SetSelectionStart">SetSelectionStart</a></li>    <li><a href="#SetStatus">SetStatus</a></li>    <li><a href="#SetStyleBits">SetStyleBits</a></li>    <li><a href="#SetStyleBytes">SetStyleBytes</a></li>    <li><a href="#SetStyling">SetStyling</a></li>    <li><a href="#SetTabIndents">SetTabIndents</a></li>    <li><a href="#SetTabWidth">SetTabWidth</a></li>    <li><a href="#SetTargetEnd">SetTargetEnd</a></li>    <li><a href="#SetTargetStart">SetTargetStart</a></li>    <li><a href="#SetText">SetText</a></li>    <li><a href="#SetTextRaw">SetTextRaw</a></li>    <li><a href="#SetTextUTF8">SetTextUTF8</a></li>    <li><a href="#SetTwoPhaseDraw">SetTwoPhaseDraw</a></li>    <li><a href="#SetUndoCollection">SetUndoCollection</a></li>    <li><a href="#SetUseAntiAliasing">SetUseAntiAliasing</a></li>    <li><a href="#SetUseHorizontalScrollBar">SetUseHorizontalScrollBar</a></li>    <li><a href="#SetUseTabs">SetUseTabs</a></li>    <li><a href="#SetUseVerticalScrollBar">SetUseVerticalScrollBar</a></li>    <li><a href="#SetVScrollBar">SetVScrollBar</a></li>    <li><a href="#SetViewEOL">SetViewEOL</a></li>    <li><a href="#SetViewWhiteSpace">SetViewWhiteSpace</a></li>    <li><a href="#SetVisiblePolicy">SetVisiblePolicy</a></li>    <li><a href="#SetWhitespaceBackground">SetWhitespaceBackground</a></li>    <li><a href="#SetWhitespaceChars">SetWhitespaceChars</a></li>    <li><a href="#SetWhitespaceForeground">SetWhitespaceForeground</a></li>    <li><a href="#SetWordChars">SetWordChars</a></li>    <li><a href="#SetWrapMode">SetWrapMode</a></li>    <li><a href="#SetWrapStartIndent">SetWrapStartIndent</a></li>    <li><a href="#SetWrapVisualFlags">SetWrapVisualFlags</a></li>    <li><a href="#SetWrapVisualFlagsLocation">SetWrapVisualFlagsLocation</a></li>    <li><a href="#SetXCaretPolicy">SetXCaretPolicy</a></li>    <li><a href="#SetXOffset">SetXOffset</a></li>    <li><a href="#SetYCaretPolicy">SetYCaretPolicy</a></li>    <li><a href="#SetZoom">SetZoom</a></li>    <li><a href="#ShowLines">ShowLines</a></li>    <li><a href="#StartRecord">StartRecord</a></li>    <li><a href="#StartStyling">StartStyling</a></li>    <li><a href="#StopRecord">StopRecord</a></li>    <li><a href="#StutteredPageDown">StutteredPageDown</a></li>    <li><a href="#StutteredPageDownExtend">StutteredPageDownExtend</a></li>    <li><a href="#StutteredPageUp">StutteredPageUp</a></li>    <li><a href="#StutteredPageUpExtend">StutteredPageUpExtend</a></li>    <li><a href="#StyleClearAll">StyleClearAll</a></li>    <li><a href="#StyleResetDefault">StyleResetDefault</a></li>    <li><a href="#StyleSetBackground">StyleSetBackground</a></li>    <li><a href="#StyleSetBold">StyleSetBold</a></li>    <li><a href="#StyleSetCase">StyleSetCase</a></li>    <li><a href="#StyleSetChangeable">StyleSetChangeable</a></li>    <li><a href="#StyleSetCharacterSet">StyleSetCharacterSet</a></li>    <li><a href="#StyleSetEOLFilled">StyleSetEOLFilled</a></li>    <li><a href="#StyleSetFaceName">StyleSetFaceName</a></li>    <li><a href="#StyleSetFont">StyleSetFont</a></li>    <li><a href="#StyleSetFontAttr">StyleSetFontAttr</a></li>    <li><a href="#StyleSetFontEncoding">StyleSetFontEncoding</a></li>    <li><a href="#StyleSetForeground">StyleSetForeground</a></li>    <li><a href="#StyleSetHotSpot">StyleSetHotSpot</a></li>    <li><a href="#StyleSetItalic">StyleSetItalic</a></li>    <li><a href="#StyleSetSize">StyleSetSize</a></li>    <li><a href="#StyleSetSpec">StyleSetSpec</a></li>    <li><a href="#StyleSetUnderline">StyleSetUnderline</a></li>    <li><a href="#StyleSetVisible">StyleSetVisible</a></li>    <li><a href="#Tab">Tab</a></li>    <li><a href="#TargetFromSelection">TargetFromSelection</a></li>    <li><a href="#TextHeight">TextHeight</a></li>    <li><a href="#TextWidth">TextWidth</a></li>    <li><a href="#ToggleFold">ToggleFold</a></li>    <li><a href="#Undo">Undo</a></li>    <li><a href="#UpperCase">UpperCase</a></li>    <li><a href="#UsePopUp">UsePopUp</a></li>    <li><a href="#UserListShow">UserListShow</a></li>    <li><a href="#VCHome">VCHome</a></li>    <li><a href="#VCHomeExtend">VCHomeExtend</a></li>    <li><a href="#VCHomeRectExtend">VCHomeRectExtend</a></li>    <li><a href="#VCHomeWrap">VCHomeWrap</a></li>    <li><a href="#VCHomeWrapExtend">VCHomeWrapExtend</a></li>    <li><a href="#VisibleFromDocLine">VisibleFromDocLine</a></li>    <li><a href="#WordEndPosition">WordEndPosition</a></li>    <li><a href="#WordLeft">WordLeft</a></li>    <li><a href="#WordLeftEnd">WordLeftEnd</a></li>    <li><a href="#WordLeftEndExtend">WordLeftEndExtend</a></li>    <li><a href="#WordLeftExtend">WordLeftExtend</a></li>    <li><a href="#WordPartLeft">WordPartLeft</a></li>    <li><a href="#WordPartLeftExtend">WordPartLeftExtend</a></li>    <li><a href="#WordPartRight">WordPartRight</a></li>    <li><a href="#WordPartRightExtend">WordPartRightExtend</a></li>    <li><a href="#WordRight">WordRight</a></li>    <li><a href="#WordRightEnd">WordRightEnd</a></li>    <li><a href="#WordRightEndExtend">WordRightEndExtend</a></li>    <li><a href="#WordRightExtend">WordRightExtend</a></li>    <li><a href="#WordStartPosition">WordStartPosition</a></li>    <li><a href="#ZoomIn">ZoomIn</a></li>    <li><a href="#ZoomOut">ZoomOut</a></li>    <li><a href="#__init__">[constructor]</a></li>    <li><a href="#__doc__">[member '__doc__']</a></li>    <li><a href="#__module__">[member '__module__']</a></li>    <li><a href="#__repr__">[operator 'repr']</a></li>  </ul>  <div class="inherits">Inherits:     <a href="wx._core.Control.html">wx._core.Control</a>   </div></div><br /><a name="AddRefDocument" /><div class="sub_head">AddRefDocument(args, kwargs)    <div class="sub_desc">
+        AddRefDocument(self, void docPointer)
+
+        Extend life of document.
+        </div></div><br /><a name="AddStyledText" /><div class="sub_head">AddStyledText(args, kwargs)    <div class="sub_desc">
+        AddStyledText(self, wxMemoryBuffer data)
+
+        Add array of cells to document.
+        </div></div><br /><a name="AddText" /><div class="sub_head">AddText(args, kwargs)    <div class="sub_desc">
+        AddText(self, String text)
+
+        Add text to the document at current position.
+        </div></div><br /><a name="AddTextRaw" /><div class="sub_head">AddTextRaw(args, kwargs)    <div class="sub_desc">
+        AddTextRaw(self, char text)
+
+        Add text to the document at current position.  The text should be
+        utf-8 encoded on unicode builds of wxPython, or can be any 8-bit text
+        in ansi builds.
+        </div></div><br /><a name="AddTextUTF8" /><div class="sub_head">AddTextUTF8(self, text, u)    <div class="sub_desc">
+        Add UTF8 encoded text to the document at the current position.
+        Works 'natively' in a unicode build of wxPython, and will also work
+        in an ansi build if the UTF8 text is compatible with the current
+        encoding.
+        </div></div><br /><a name="Allocate" /><div class="sub_head">Allocate(args, kwargs)    <div class="sub_desc">
+        Allocate(self, int bytes)
+
+        Enlarge the document to a particular size of text bytes.
+        </div></div><br /><a name="AppendText" /><div class="sub_head">AppendText(args, kwargs)    <div class="sub_desc">
+        AppendText(self, String text)
+
+        Append a string to the end of the document without changing the selection.
+        </div></div><br /><a name="AppendTextRaw" /><div class="sub_head">AppendTextRaw(args, kwargs)    <div class="sub_desc">
+        AppendTextRaw(self, char text)
+
+        Append a string to the end of the document without changing the
+        selection.  The text should be utf-8 encoded on unicode builds of
+        wxPython, or can be any 8-bit text in ansi builds.
+        </div></div><br /><a name="AppendTextUTF8" /><div class="sub_head">AppendTextUTF8(self, text, u)    <div class="sub_desc">
+        Append a UTF8 string to the end of the document without changing
+        the selection.  Works 'natively' in a unicode build of wxPython,
+        and will also work in an ansi build if the UTF8 text is compatible
+        with the current encoding.
+        </div></div><br /><a name="AutoCompActive" /><div class="sub_head">AutoCompActive(args, kwargs)    <div class="sub_desc">
+        AutoCompActive(self) -> bool
+
+        Is there an auto-completion list visible?
+        </div></div><br /><a name="AutoCompCancel" /><div class="sub_head">AutoCompCancel(args, kwargs)    <div class="sub_desc">
+        AutoCompCancel(self)
+
+        Remove the auto-completion list from the screen.
+        </div></div><br /><a name="AutoCompComplete" /><div class="sub_head">AutoCompComplete(args, kwargs)    <div class="sub_desc">
+        AutoCompComplete(self)
+
+        User has selected an item so remove the list and insert the selection.
+        </div></div><br /><a name="AutoCompGetAutoHide" /><div class="sub_head">AutoCompGetAutoHide(args, kwargs)    <div class="sub_desc">
+        AutoCompGetAutoHide(self) -> bool
+
+        Retrieve whether or not autocompletion is hidden automatically when nothing matches.
+        </div></div><br /><a name="AutoCompGetCancelAtStart" /><div class="sub_head">AutoCompGetCancelAtStart(args, kwargs)    <div class="sub_desc">
+        AutoCompGetCancelAtStart(self) -> bool
+
+        Retrieve whether auto-completion cancelled by backspacing before start.
+        </div></div><br /><a name="AutoCompGetChooseSingle" /><div class="sub_head">AutoCompGetChooseSingle(args, kwargs)    <div class="sub_desc">
+        AutoCompGetChooseSingle(self) -> bool
+
+        Retrieve whether a single item auto-completion list automatically choose the item.
+        </div></div><br /><a name="AutoCompGetCurrent" /><div class="sub_head">AutoCompGetCurrent(args, kwargs)    <div class="sub_desc">
+        AutoCompGetCurrent(self) -> int
+
+        Get currently selected item position in the auto-completion list
+        </div></div><br /><a name="AutoCompGetDropRestOfWord" /><div class="sub_head">AutoCompGetDropRestOfWord(args, kwargs)    <div class="sub_desc">
+        AutoCompGetDropRestOfWord(self) -> bool
+
+        Retrieve whether or not autocompletion deletes any word characters
+        after the inserted text upon completion.
+        </div></div><br /><a name="AutoCompGetIgnoreCase" /><div class="sub_head">AutoCompGetIgnoreCase(args, kwargs)    <div class="sub_desc">
+        AutoCompGetIgnoreCase(self) -> bool
+
+        Retrieve state of ignore case flag.
+        </div></div><br /><a name="AutoCompGetSeparator" /><div class="sub_head">AutoCompGetSeparator(args, kwargs)    <div class="sub_desc">
+        AutoCompGetSeparator(self) -> int
+
+        Retrieve the auto-completion list separator character.
+        </div></div><br /><a name="AutoCompGetTypeSeparator" /><div class="sub_head">AutoCompGetTypeSeparator(args, kwargs)    <div class="sub_desc">
+        AutoCompGetTypeSeparator(self) -> int
+
+        Retrieve the auto-completion list type-separator character.
+        </div></div><br /><a name="AutoCompPosStart" /><div class="sub_head">AutoCompPosStart(args, kwargs)    <div class="sub_desc">
+        AutoCompPosStart(self) -> int
+
+        Retrieve the position of the caret when the auto-completion list was displayed.
+        </div></div><br /><a name="AutoCompSelect" /><div class="sub_head">AutoCompSelect(args, kwargs)    <div class="sub_desc">
+        AutoCompSelect(self, String text)
+
+        Select the item in the auto-completion list that starts with a string.
+        </div></div><br /><a name="AutoCompSetAutoHide" /><div class="sub_head">AutoCompSetAutoHide(args, kwargs)    <div class="sub_desc">
+        AutoCompSetAutoHide(self, bool autoHide)
+
+        Set whether or not autocompletion is hidden automatically when nothing matches.
+        </div></div><br /><a name="AutoCompSetCancelAtStart" /><div class="sub_head">AutoCompSetCancelAtStart(args, kwargs)    <div class="sub_desc">
+        AutoCompSetCancelAtStart(self, bool cancel)
+
+        Should the auto-completion list be cancelled if the user backspaces to a
+        position before where the box was created.
+        </div></div><br /><a name="AutoCompSetChooseSingle" /><div class="sub_head">AutoCompSetChooseSingle(args, kwargs)    <div class="sub_desc">
+        AutoCompSetChooseSingle(self, bool chooseSingle)
+
+        Should a single item auto-completion list automatically choose the item.
+        </div></div><br /><a name="AutoCompSetDropRestOfWord" /><div class="sub_head">AutoCompSetDropRestOfWord(args, kwargs)    <div class="sub_desc">
+        AutoCompSetDropRestOfWord(self, bool dropRestOfWord)
+
+        Set whether or not autocompletion deletes any word characters
+        after the inserted text upon completion.
+        </div></div><br /><a name="AutoCompSetFillUps" /><div class="sub_head">AutoCompSetFillUps(args, kwargs)    <div class="sub_desc">
+        AutoCompSetFillUps(self, String characterSet)
+
+        Define a set of characters that when typed will cause the autocompletion to
+        choose the selected item.
+        </div></div><br /><a name="AutoCompSetIgnoreCase" /><div class="sub_head">AutoCompSetIgnoreCase(args, kwargs)    <div class="sub_desc">
+        AutoCompSetIgnoreCase(self, bool ignoreCase)
+
+        Set whether case is significant when performing auto-completion searches.
+        </div></div><br /><a name="AutoCompSetSeparator" /><div class="sub_head">AutoCompSetSeparator(args, kwargs)    <div class="sub_desc">
+        AutoCompSetSeparator(self, int separatorCharacter)
+
+        Change the separator character in the string setting up an auto-completion list.
+        Default is space but can be changed if items contain space.
+        </div></div><br /><a name="AutoCompSetTypeSeparator" /><div class="sub_head">AutoCompSetTypeSeparator(args, kwargs)    <div class="sub_desc">
+        AutoCompSetTypeSeparator(self, int separatorCharacter)
+
+        Change the type-separator character in the string setting up an auto-completion list.
+        Default is '?' but can be changed if items contain '?'.
+        </div></div><br /><a name="AutoCompShow" /><div class="sub_head">AutoCompShow(args, kwargs)    <div class="sub_desc">
+        AutoCompShow(self, int lenEntered, String itemList)
+
+        Display a auto-completion list.
+        The lenEntered parameter indicates how many characters before
+        the caret should be used to provide context.
+        </div></div><br /><a name="AutoCompStops" /><div class="sub_head">AutoCompStops(args, kwargs)    <div class="sub_desc">
+        AutoCompStops(self, String characterSet)
+
+        Define a set of character that when typed cancel the auto-completion list.
+        </div></div><br /><a name="BackTab" /><div class="sub_head">BackTab(args, kwargs)    <div class="sub_desc">
+        BackTab(self)
+
+        Dedent the selected lines.
+        </div></div><br /><a name="BeginUndoAction" /><div class="sub_head">BeginUndoAction(args, kwargs)    <div class="sub_desc">
+        BeginUndoAction(self)
+
+        Start a sequence of actions that is undone and redone as a unit.
+        May be nested.
+        </div></div><br /><a name="BraceBadLight" /><div class="sub_head">BraceBadLight(args, kwargs)    <div class="sub_desc">
+        BraceBadLight(self, int pos)
+
+        Highlight the character at a position indicating there is no matching brace.
+        </div></div><br /><a name="BraceHighlight" /><div class="sub_head">BraceHighlight(args, kwargs)    <div class="sub_desc">
+        BraceHighlight(self, int pos1, int pos2)
+
+        Highlight the characters at two positions.
+        </div></div><br /><a name="BraceMatch" /><div class="sub_head">BraceMatch(args, kwargs)    <div class="sub_desc">
+        BraceMatch(self, int pos) -> int
+
+        Find the position of a matching brace or INVALID_POSITION if no match.
+        </div></div><br /><a name="CallTipActive" /><div class="sub_head">CallTipActive(args, kwargs)    <div class="sub_desc">
+        CallTipActive(self) -> bool
+
+        Is there an active call tip?
+        </div></div><br /><a name="CallTipCancel" /><div class="sub_head">CallTipCancel(args, kwargs)    <div class="sub_desc">
+        CallTipCancel(self)
+
+        Remove the call tip from the screen.
+        </div></div><br /><a name="CallTipPosAtStart" /><div class="sub_head">CallTipPosAtStart(args, kwargs)    <div class="sub_desc">
+        CallTipPosAtStart(self) -> int
+
+        Retrieve the position where the caret was before displaying the call tip.
+        </div></div><br /><a name="CallTipSetBackground" /><div class="sub_head">CallTipSetBackground(args, kwargs)    <div class="sub_desc">
+        CallTipSetBackground(self, Colour back)
+
+        Set the background colour for the call tip.
+        </div></div><br /><a name="CallTipSetForeground" /><div class="sub_head">CallTipSetForeground(args, kwargs)    <div class="sub_desc">
+        CallTipSetForeground(self, Colour fore)
+
+        Set the foreground colour for the call tip.
+        </div></div><br /><a name="CallTipSetForegroundHighlight" /><div class="sub_head">CallTipSetForegroundHighlight(args, kwargs)    <div class="sub_desc">
+        CallTipSetForegroundHighlight(self, Colour fore)
+
+        Set the foreground colour for the highlighted part of the call tip.
+        </div></div><br /><a name="CallTipSetHighlight" /><div class="sub_head">CallTipSetHighlight(args, kwargs)    <div class="sub_desc">
+        CallTipSetHighlight(self, int start, int end)
+
+        Highlight a segment of the definition.
+        </div></div><br /><a name="CallTipShow" /><div class="sub_head">CallTipShow(args, kwargs)    <div class="sub_desc">
+        CallTipShow(self, int pos, String definition)
+
+        Show a call tip containing a definition near position pos.
+        </div></div><br /><a name="CanPaste" /><div class="sub_head">CanPaste(args, kwargs)    <div class="sub_desc">
+        CanPaste(self) -> bool
+
+        Will a paste succeed?
+        </div></div><br /><a name="CanRedo" /><div class="sub_head">CanRedo(args, kwargs)    <div class="sub_desc">
+        CanRedo(self) -> bool
+
+        Are there any redoable actions in the undo history?
+        </div></div><br /><a name="CanUndo" /><div class="sub_head">CanUndo(args, kwargs)    <div class="sub_desc">
+        CanUndo(self) -> bool
+
+        Are there any undoable actions in the undo history?
+        </div></div><br /><a name="Cancel" /><div class="sub_head">Cancel(args, kwargs)    <div class="sub_desc">
+        Cancel(self)
+
+        Cancel any modes such as call tip or auto-completion list display.
+        </div></div><br /><a name="CharLeft" /><div class="sub_head">CharLeft(args, kwargs)    <div class="sub_desc">
+        CharLeft(self)
+
+        Move caret left one character.
+        </div></div><br /><a name="CharLeftExtend" /><div class="sub_head">CharLeftExtend(args, kwargs)    <div class="sub_desc">
+        CharLeftExtend(self)
+
+        Move caret left one character extending selection to new caret position.
+        </div></div><br /><a name="CharLeftRectExtend" /><div class="sub_head">CharLeftRectExtend(args, kwargs)    <div class="sub_desc">
+        CharLeftRectExtend(self)
+
+        Move caret left one character, extending rectangular selection to new caret position.
+        </div></div><br /><a name="CharRight" /><div class="sub_head">CharRight(args, kwargs)    <div class="sub_desc">
+        CharRight(self)
+
+        Move caret right one character.
+        </div></div><br /><a name="CharRightExtend" /><div class="sub_head">CharRightExtend(args, kwargs)    <div class="sub_desc">
+        CharRightExtend(self)
+
+        Move caret right one character extending selection to new caret position.
+        </div></div><br /><a name="CharRightRectExtend" /><div class="sub_head">CharRightRectExtend(args, kwargs)    <div class="sub_desc">
+        CharRightRectExtend(self)
+
+        Move caret right one character, extending rectangular selection to new caret position.
+        </div></div><br /><a name="ChooseCaretX" /><div class="sub_head">ChooseCaretX(args, kwargs)    <div class="sub_desc">
+        ChooseCaretX(self)
+
+        Set the last x chosen value to be the caret x position.
+        </div></div><br /><a name="Clear" /><div class="sub_head">Clear(args, kwargs)    <div class="sub_desc">
+        Clear(self)
+
+        Clear the selection.
+        </div></div><br /><a name="ClearAll" /><div class="sub_head">ClearAll(args, kwargs)    <div class="sub_desc">
+        ClearAll(self)
+
+        Delete all text in the document.
+        </div></div><br /><a name="ClearDocumentStyle" /><div class="sub_head">ClearDocumentStyle(args, kwargs)    <div class="sub_desc">
+        ClearDocumentStyle(self)
+
+        Set all style bytes to 0, remove all folding information.
+        </div></div><br /><a name="ClearRegisteredImages" /><div class="sub_head">ClearRegisteredImages(args, kwargs)    <div class="sub_desc">
+        ClearRegisteredImages(self)
+
+        Clear all the registered images.
+        </div></div><br /><a name="CmdKeyAssign" /><div class="sub_head">CmdKeyAssign(args, kwargs)    <div class="sub_desc">
+        CmdKeyAssign(self, int key, int modifiers, int cmd)
+
+        When key+modifier combination km is pressed perform msg.
+        </div></div><br /><a name="CmdKeyClear" /><div class="sub_head">CmdKeyClear(args, kwargs)    <div class="sub_desc">
+        CmdKeyClear(self, int key, int modifiers)
+
+        When key+modifier combination km is pressed do nothing.
+        </div></div><br /><a name="CmdKeyClearAll" /><div class="sub_head">CmdKeyClearAll(args, kwargs)    <div class="sub_desc">
+        CmdKeyClearAll(self)
+
+        Drop all key mappings.
+        </div></div><br /><a name="CmdKeyExecute" /><div class="sub_head">CmdKeyExecute(args, kwargs)    <div class="sub_desc">
+        CmdKeyExecute(self, int cmd)
+
+        Perform one of the operations defined by the wx.stc.STC_CMD_* constants.
+        </div></div><br /><a name="Colourise" /><div class="sub_head">Colourise(args, kwargs)    <div class="sub_desc">
+        Colourise(self, int start, int end)
+
+        Colourise a segment of the document using the current lexing language.
+        </div></div><br /><a name="ConvertEOLs" /><div class="sub_head">ConvertEOLs(args, kwargs)    <div class="sub_desc">
+        ConvertEOLs(self, int eolMode)
+
+        Convert all line endings in the document to one mode.
+        </div></div><br /><a name="Copy" /><div class="sub_head">Copy(args, kwargs)    <div class="sub_desc">
+        Copy(self)
+
+        Copy the selection to the clipboard.
+        </div></div><br /><a name="CopyRange" /><div class="sub_head">CopyRange(args, kwargs)    <div class="sub_desc">
+        CopyRange(self, int start, int end)
+
+        Copy a range of text to the clipboard. Positions are clipped into the document.
+        </div></div><br /><a name="CopyText" /><div class="sub_head">CopyText(args, kwargs)    <div class="sub_desc">
+        CopyText(self, int length, String text)
+
+        Copy argument text to the clipboard.
+        </div></div><br /><a name="Create" /><div class="sub_head">Create(args, kwargs)    <div class="sub_desc">
+        Create(self, Window parent, int id=ID_ANY, Point pos=DefaultPosition, 
+            Size size=DefaultSize, long style=0, String name=wxSTCNameStr) -> bool
+        </div></div><br /><a name="CreateDocument" /><div class="sub_head">CreateDocument(args, kwargs)    <div class="sub_desc">
+        CreateDocument(self) -> void
+
+        Create a new document object.
+        Starts with reference count of 1 and not selected into editor.
+        </div></div><br /><a name="Cut" /><div class="sub_head">Cut(args, kwargs)    <div class="sub_desc">
+        Cut(self)
+
+        Cut the selection to the clipboard.
+        </div></div><br /><a name="DelLineLeft" /><div class="sub_head">DelLineLeft(args, kwargs)    <div class="sub_desc">
+        DelLineLeft(self)
+
+        Delete back from the current position to the start of the line.
+        </div></div><br /><a name="DelLineRight" /><div class="sub_head">DelLineRight(args, kwargs)    <div class="sub_desc">
+        DelLineRight(self)
+
+        Delete forwards from the current position to the end of the line.
+        </div></div><br /><a name="DelWordLeft" /><div class="sub_head">DelWordLeft(args, kwargs)    <div class="sub_desc">
+        DelWordLeft(self)
+
+        Delete the word to the left of the caret.
+        </div></div><br /><a name="DelWordRight" /><div class="sub_head">DelWordRight(args, kwargs)    <div class="sub_desc">
+        DelWordRight(self)
+
+        Delete the word to the right of the caret.
+        </div></div><br /><a name="DeleteBack" /><div class="sub_head">DeleteBack(args, kwargs)    <div class="sub_desc">
+        DeleteBack(self)
+
+        Delete the selection or if no selection, the character before the caret.
+        </div></div><br /><a name="DeleteBackNotLine" /><div class="sub_head">DeleteBackNotLine(args, kwargs)    <div class="sub_desc">
+        DeleteBackNotLine(self)
+
+        Delete the selection or if no selection, the character before the caret.
+        Will not delete the character before at the start of a line.
+        </div></div><br /><a name="DoDragOver" /><div class="sub_head">DoDragOver(args, kwargs)    <div class="sub_desc">
+        DoDragOver(self, int x, int y, int def) -> int
+
+        Allow for simulating a DnD DragOver.
+        </div></div><br /><a name="DoDropText" /><div class="sub_head">DoDropText(args, kwargs)    <div class="sub_desc">
+        DoDropText(self, long x, long y, String data) -> bool
+
+        Allow for simulating a DnD DropText.
+        </div></div><br /><a name="DocLineFromVisible" /><div class="sub_head">DocLineFromVisible(args, kwargs)    <div class="sub_desc">
+        DocLineFromVisible(self, int lineDisplay) -> int
+
+        Find the document line of a display line taking hidden lines into account.
+        </div></div><br /><a name="DocumentEnd" /><div class="sub_head">DocumentEnd(args, kwargs)    <div class="sub_desc">
+        DocumentEnd(self)
+
+        Move caret to last position in document.
+        </div></div><br /><a name="DocumentEndExtend" /><div class="sub_head">DocumentEndExtend(args, kwargs)    <div class="sub_desc">
+        DocumentEndExtend(self)
+
+        Move caret to last position in document extending selection to new caret position.
+        </div></div><br /><a name="DocumentStart" /><div class="sub_head">DocumentStart(args, kwargs)    <div class="sub_desc">
+        DocumentStart(self)
+
+        Move caret to first position in document.
+        </div></div><br /><a name="DocumentStartExtend" /><div class="sub_head">DocumentStartExtend(args, kwargs)    <div class="sub_desc">
+        DocumentStartExtend(self)
+
+        Move caret to first position in document extending selection to new caret position.
+        </div></div><br /><a name="EditToggleOvertype" /><div class="sub_head">EditToggleOvertype(args, kwargs)    <div class="sub_desc">
+        EditToggleOvertype(self)
+
+        Switch from insert to overtype mode or the reverse.
+        </div></div><br /><a name="EmptyUndoBuffer" /><div class="sub_head">EmptyUndoBuffer(args, kwargs)    <div class="sub_desc">
+        EmptyUndoBuffer(self)
+
+        Delete the undo history.
+        </div></div><br /><a name="EndUndoAction" /><div class="sub_head">EndUndoAction(args, kwargs)    <div class="sub_desc">
+        EndUndoAction(self)
+
+        End a sequence of actions that is undone and redone as a unit.
+        </div></div><br /><a name="EnsureCaretVisible" /><div class="sub_head">EnsureCaretVisible(args, kwargs)    <div class="sub_desc">
+        EnsureCaretVisible(self)
+
+        Ensure the caret is visible.
+        </div></div><br /><a name="EnsureVisible" /><div class="sub_head">EnsureVisible(args, kwargs)    <div class="sub_desc">
+        EnsureVisible(self, int line)
+
+        Ensure a particular line is visible by expanding any header line hiding it.
+        </div></div><br /><a name="EnsureVisibleEnforcePolicy" /><div class="sub_head">EnsureVisibleEnforcePolicy(args, kwargs)    <div class="sub_desc">
+        EnsureVisibleEnforcePolicy(self, int line)
+
+        Ensure a particular line is visible by expanding any header line hiding it.
+        Use the currently set visibility policy to determine which range to display.
+        </div></div><br /><a name="FindColumn" /><div class="sub_head">FindColumn(args, kwargs)    <div class="sub_desc">
+        FindColumn(self, int line, int column) -> int
+
+        Find the position of a column on a line taking into account tabs and 
+        multi-byte characters. If beyond end of line, return line end position.
+        </div></div><br /><a name="FindText" /><div class="sub_head">FindText(args, kwargs)    <div class="sub_desc">
+        FindText(self, int minPos, int maxPos, String text, int flags=0) -> int
+
+        Find some text in the document.
+        </div></div><br /><a name="FormFeed" /><div class="sub_head">FormFeed(args, kwargs)    <div class="sub_desc">
+        FormFeed(self)
+
+        Insert a Form Feed character.
+        </div></div><br /><a name="FormatRange" /><div class="sub_head">FormatRange(args, kwargs)    <div class="sub_desc">
+        FormatRange(self, bool doDraw, int startPos, int endPos, DC draw, DC target, 
+            Rect renderRect, Rect pageRect) -> int
+
+        On Windows, will draw the document into a display context such as a printer.
+        </div></div><br /><a name="GetAnchor" /><div class="sub_head">GetAnchor(args, kwargs)    <div class="sub_desc">
+        GetAnchor(self) -> int
+
+        Returns the position of the opposite end of the selection to the caret.
+        </div></div><br /><a name="GetBackSpaceUnIndents" /><div class="sub_head">GetBackSpaceUnIndents(args, kwargs)    <div class="sub_desc">
+        GetBackSpaceUnIndents(self) -> bool
+
+        Does a backspace pressed when caret is within indentation unindent?
+        </div></div><br /><a name="GetBufferedDraw" /><div class="sub_head">GetBufferedDraw(args, kwargs)    <div class="sub_desc">
+        GetBufferedDraw(self) -> bool
+
+        Is drawing done first into a buffer or direct to the screen?
+        </div></div><br /><a name="GetCaretForeground" /><div class="sub_head">GetCaretForeground(args, kwargs)    <div class="sub_desc">
+        GetCaretForeground(self) -> Colour
+
+        Get the foreground colour of the caret.
+        </div></div><br /><a name="GetCaretLineBack" /><div class="sub_head">GetCaretLineBack(args, kwargs)    <div class="sub_desc">
+        GetCaretLineBack(self) -> Colour
+
+        Get the colour of the background of the line containing the caret.
+        </div></div><br /><a name="GetCaretLineVisible" /><div class="sub_head">GetCaretLineVisible(args, kwargs)    <div class="sub_desc">
+        GetCaretLineVisible(self) -> bool
+
+        Is the background of the line containing the caret in a different colour?
+        </div></div><br /><a name="GetCaretPeriod" /><div class="sub_head">GetCaretPeriod(args, kwargs)    <div class="sub_desc">
+        GetCaretPeriod(self) -> int
+
+        Get the time in milliseconds that the caret is on and off.
+        </div></div><br /><a name="GetCaretWidth" /><div class="sub_head">GetCaretWidth(args, kwargs)    <div class="sub_desc">
+        GetCaretWidth(self) -> int
+
+        Returns the width of the insert mode caret.
+        </div></div><br /><a name="GetCharAt" /><div class="sub_head">GetCharAt(args, kwargs)    <div class="sub_desc">
+        GetCharAt(self, int pos) -> int
+
+        Returns the character byte at the position.
+        </div></div><br /><a name="GetCodePage" /><div class="sub_head">GetCodePage(args, kwargs)    <div class="sub_desc">
+        GetCodePage(self) -> int
+
+        Get the code page used to interpret the bytes of the document as characters.
+        </div></div><br /><a name="GetColumn" /><div class="sub_head">GetColumn(args, kwargs)    <div class="sub_desc">
+        GetColumn(self, int pos) -> int
+
+        Retrieve the column number of a position, taking tab width into account.
+        </div></div><br /><a name="GetControlCharSymbol" /><div class="sub_head">GetControlCharSymbol(args, kwargs)    <div class="sub_desc">
+        GetControlCharSymbol(self) -> int
+
+        Get the way control characters are displayed.
+        </div></div><br /><a name="GetCurLine" /><div class="sub_head">GetCurLine(args, kwargs)    <div class="sub_desc">
+        GetCurLine(self) -> (text, pos)
+
+        Retrieve the text of the line containing the caret, and also theindex
+        of the caret on the line.
+        </div></div><br /><a name="GetCurLineRaw" /><div class="sub_head">GetCurLineRaw(args, kwargs)    <div class="sub_desc">
+        GetCurLineRaw() -> (text, index)
+
+        Retrieve the text of the line containing the caret, and also the index
+        of the caret on the line.  The returned value is a utf-8 encoded
+        string in unicode builds of wxPython, or raw 8-bit text otherwise.
+        </div></div><br /><a name="GetCurLineUTF8" /><div class="sub_head">GetCurLineUTF8(self, text, u, pos)    <div class="sub_desc">
+        Retrieve the UTF8 text of the line containing the caret, and also
+        the index of the caret on the line.  In an ansi build of wxPython
+        the text retrieved from the document is assumed to be in the
+        current default encoding.
+        </div></div><br /><a name="GetCurrentLine" /><div class="sub_head">GetCurrentLine(args, kwargs)    <div class="sub_desc">
+        GetCurrentLine(self) -> int
+
+        Returns the line number of the line with the caret.
+        </div></div><br /><a name="GetCurrentPos" /><div class="sub_head">GetCurrentPos(args, kwargs)    <div class="sub_desc">
+        GetCurrentPos(self) -> int
+
+        Returns the position of the caret.
+        </div></div><br /><a name="GetDocPointer" /><div class="sub_head">GetDocPointer(args, kwargs)    <div class="sub_desc">
+        GetDocPointer(self) -> void
+
+        Retrieve a pointer to the document object.
+        </div></div><br /><a name="GetEOLMode" /><div class="sub_head">GetEOLMode(args, kwargs)    <div class="sub_desc">
+        GetEOLMode(self) -> int
+
+        Retrieve the current end of line mode - one of CRLF, CR, or LF.
+        </div></div><br /><a name="GetEdgeColour" /><div class="sub_head">GetEdgeColour(args, kwargs)    <div class="sub_desc">
+        GetEdgeColour(self) -> Colour
+
+        Retrieve the colour used in edge indication.
+        </div></div><br /><a name="GetEdgeColumn" /><div class="sub_head">GetEdgeColumn(args, kwargs)    <div class="sub_desc">
+        GetEdgeColumn(self) -> int
+
+        Retrieve the column number which text should be kept within.
+        </div></div><br /><a name="GetEdgeMode" /><div class="sub_head">GetEdgeMode(args, kwargs)    <div class="sub_desc">
+        GetEdgeMode(self) -> int
+
+        Retrieve the edge highlight mode.
+        </div></div><br /><a name="GetEndAtLastLine" /><div class="sub_head">GetEndAtLastLine(args, kwargs)    <div class="sub_desc">
+        GetEndAtLastLine(self) -> int
+
+        Retrieve whether the maximum scroll position has the last
+        line at the bottom of the view.
+        </div></div><br /><a name="GetEndStyled" /><div class="sub_head">GetEndStyled(args, kwargs)    <div class="sub_desc">
+        GetEndStyled(self) -> int
+
+        Retrieve the position of the last correctly styled character.
+        </div></div><br /><a name="GetFirstVisibleLine" /><div class="sub_head">GetFirstVisibleLine(args, kwargs)    <div class="sub_desc">
+        GetFirstVisibleLine(self) -> int
+
+        Retrieve the display line at the top of the display.
+        </div></div><br /><a name="GetFoldExpanded" /><div class="sub_head">GetFoldExpanded(args, kwargs)    <div class="sub_desc">
+        GetFoldExpanded(self, int line) -> bool
+
+        Is a header line expanded?
+        </div></div><br /><a name="GetFoldLevel" /><div class="sub_head">GetFoldLevel(args, kwargs)    <div class="sub_desc">
+        GetFoldLevel(self, int line) -> int
+
+        Retrieve the fold level of a line.
+        </div></div><br /><a name="GetFoldParent" /><div class="sub_head">GetFoldParent(args, kwargs)    <div class="sub_desc">
+        GetFoldParent(self, int line) -> int
+
+        Find the parent line of a child line.
+        </div></div><br /><a name="GetHighlightGuide" /><div class="sub_head">GetHighlightGuide(args, kwargs)    <div class="sub_desc">
+        GetHighlightGuide(self) -> int
+
+        Get the highlighted indentation guide column.
+        </div></div><br /><a name="GetIndent" /><div class="sub_head">GetIndent(args, kwargs)    <div class="sub_desc">
+        GetIndent(self) -> int
+
+        Retrieve indentation size.
+        </div></div><br /><a name="GetIndentationGuides" /><div class="sub_head">GetIndentationGuides(args, kwargs)    <div class="sub_desc">
+        GetIndentationGuides(self) -> bool
+
+        Are the indentation guides visible?
+        </div></div><br /><a name="GetLastChild" /><div class="sub_head">GetLastChild(args, kwargs)    <div class="sub_desc">
+        GetLastChild(self, int line, int level) -> int
+
+        Find the last child line of a header line.
+        </div></div><br /><a name="GetLastKeydownProcessed" /><div class="sub_head">GetLastKeydownProcessed(args, kwargs)    <div class="sub_desc">GetLastKeydownProcessed(self) -> bool</div></div><br /><a name="GetLayoutCache" /><div class="sub_head">GetLayoutCache(args, kwargs)    <div class="sub_desc">
+        GetLayoutCache(self) -> int
+
+        Retrieve the degree of caching of layout information.
+        </div></div><br /><a name="GetLength" /><div class="sub_head">GetLength(args, kwargs)    <div class="sub_desc">
+        GetLength(self) -> int
+
+        Returns the number of characters in the document.
+        </div></div><br /><a name="GetLexer" /><div class="sub_head">GetLexer(args, kwargs)    <div class="sub_desc">
+        GetLexer(self) -> int
+
+        Retrieve the lexing language of the document.
+        </div></div><br /><a name="GetLine" /><div class="sub_head">GetLine(args, kwargs)    <div class="sub_desc">
+        GetLine(self, int line) -> String
+
+        Retrieve the contents of a line.
+        </div></div><br /><a name="GetLineCount" /><div class="sub_head">GetLineCount(args, kwargs)    <div class="sub_desc">
+        GetLineCount(self) -> int
+
+        Returns the number of lines in the document. There is always at least one.
+        </div></div><br /><a name="GetLineEndPosition" /><div class="sub_head">GetLineEndPosition(args, kwargs)    <div class="sub_desc">
+        GetLineEndPosition(self, int line) -> int
+
+        Get the position after the last visible characters on a line.
+        </div></div><br /><a name="GetLineIndentPosition" /><div class="sub_head">GetLineIndentPosition(args, kwargs)    <div class="sub_desc">
+        GetLineIndentPosition(self, int line) -> int
+
+        Retrieve the position before the first non indentation character on a line.
+        </div></div><br /><a name="GetLineIndentation" /><div class="sub_head">GetLineIndentation(args, kwargs)    <div class="sub_desc">
+        GetLineIndentation(self, int line) -> int
+
+        Retrieve the number of columns that a line is indented.
+        </div></div><br /><a name="GetLineRaw" /><div class="sub_head">GetLineRaw(args, kwargs)    <div class="sub_desc">
+        GetLineRaw(self, int line) -> wxCharBuffer
+
+        Retrieve the contents of a line.  The returned value is a utf-8
+        encoded string in unicode builds of wxPython, or raw 8-bit text
+        otherwise.
+        </div></div><br /><a name="GetLineSelEndPosition" /><div class="sub_head">GetLineSelEndPosition(args, kwargs)    <div class="sub_desc">
+        GetLineSelEndPosition(self, int line) -> int
+
+        Retrieve the position of the end of the selection at the given line (INVALID_POSITION if no selection on this line).
+        </div></div><br /><a name="GetLineSelStartPosition" /><div class="sub_head">GetLineSelStartPosition(args, kwargs)    <div class="sub_desc">
+        GetLineSelStartPosition(self, int line) -> int
+
+        Retrieve the position of the start of the selection at the given line (INVALID_POSITION if no selection on this line).
+        </div></div><br /><a name="GetLineState" /><div class="sub_head">GetLineState(args, kwargs)    <div class="sub_desc">
+        GetLineState(self, int line) -> int
+
+        Retrieve the extra styling information for a line.
+        </div></div><br /><a name="GetLineUTF8" /><div class="sub_head">GetLineUTF8(self, line, text, u)    <div class="sub_desc">
+        Retrieve the contents of a line as UTF8.  In an ansi build of wxPython
+        the text retrieved from the document is assumed to be in the
+        current default encoding.
+        </div></div><br /><a name="GetLineVisible" /><div class="sub_head">GetLineVisible(args, kwargs)    <div class="sub_desc">
+        GetLineVisible(self, int line) -> bool
+
+        Is a line visible?
+        </div></div><br /><a name="GetMarginLeft" /><div class="sub_head">GetMarginLeft(args, kwargs)    <div class="sub_desc">
+        GetMarginLeft(self) -> int
+
+        Returns the size in pixels of the left margin.
+        </div></div><br /><a name="GetMarginMask" /><div class="sub_head">GetMarginMask(args, kwargs)    <div class="sub_desc">
+        GetMarginMask(self, int margin) -> int
+
+        Retrieve the marker mask of a margin.
+        </div></div><br /><a name="GetMarginRight" /><div class="sub_head">GetMarginRight(args, kwargs)    <div class="sub_desc">
+        GetMarginRight(self) -> int
+
+        Returns the size in pixels of the right margin.
+        </div></div><br /><a name="GetMarginSensitive" /><div class="sub_head">GetMarginSensitive(args, kwargs)    <div class="sub_desc">
+        GetMarginSensitive(self, int margin) -> bool
+
+        Retrieve the mouse click sensitivity of a margin.
+        </div></div><br /><a name="GetMarginType" /><div class="sub_head">GetMarginType(args, kwargs)    <div class="sub_desc">
+        GetMarginType(self, int margin) -> int
+
+        Retrieve the type of a margin.
+        </div></div><br /><a name="GetMarginWidth" /><div class="sub_head">GetMarginWidth(args, kwargs)    <div class="sub_desc">
+        GetMarginWidth(self, int margin) -> int
+
+        Retrieve the width of a margin in pixels.
+        </div></div><br /><a name="GetMaxLineState" /><div class="sub_head">GetMaxLineState(args, kwargs)    <div class="sub_desc">
+        GetMaxLineState(self) -> int
+
+        Retrieve the last line number that has line state.
+        </div></div><br /><a name="GetModEventMask" /><div class="sub_head">GetModEventMask(args, kwargs)    <div class="sub_desc">
+        GetModEventMask(self) -> int
+
+        Get which document modification events are sent to the container.
+        </div></div><br /><a name="GetModify" /><div class="sub_head">GetModify(args, kwargs)    <div class="sub_desc">
+        GetModify(self) -> bool
+
+        Is the document different from when it was last saved?
+        </div></div><br /><a name="GetMouseDownCaptures" /><div class="sub_head">GetMouseDownCaptures(args, kwargs)    <div class="sub_desc">
+        GetMouseDownCaptures(self) -> bool
+
+        Get whether mouse gets captured.
+        </div></div><br /><a name="GetMouseDwellTime" /><div class="sub_head">GetMouseDwellTime(args, kwargs)    <div class="sub_desc">
+        GetMouseDwellTime(self) -> int
+
+        Retrieve the time the mouse must sit still to generate a mouse dwell event.
+        </div></div><br /><a name="GetOvertype" /><div class="sub_head">GetOvertype(args, kwargs)    <div class="sub_desc">
+        GetOvertype(self) -> bool
+
+        Returns true if overtype mode is active otherwise false is returned.
+        </div></div><br /><a name="GetPrintColourMode" /><div class="sub_head">GetPrintColourMode(args, kwargs)    <div class="sub_desc">
+        GetPrintColourMode(self) -> int
+
+        Returns the print colour mode.
+        </div></div><br /><a name="GetPrintMagnification" /><div class="sub_head">GetPrintMagnification(args, kwargs)    <div class="sub_desc">
+        GetPrintMagnification(self) -> int
+
+        Returns the print magnification.
+        </div></div><br /><a name="GetPrintWrapMode" /><div class="sub_head">GetPrintWrapMode(args, kwargs)    <div class="sub_desc">
+        GetPrintWrapMode(self) -> int
+
+        Is printing line wrapped?
+        </div></div><br /><a name="GetReadOnly" /><div class="sub_head">GetReadOnly(args, kwargs)    <div class="sub_desc">
+        GetReadOnly(self) -> bool
+
+        In read-only mode?
+        </div></div><br /><a name="GetSTCCursor" /><div class="sub_head">GetSTCCursor(args, kwargs)    <div class="sub_desc">
+        GetSTCCursor(self) -> int
+
+        Get cursor type.
+        </div></div><br /><a name="GetSTCFocus" /><div class="sub_head">GetSTCFocus(args, kwargs)    <div class="sub_desc">
+        GetSTCFocus(self) -> bool
+
+        Get internal focus flag.
+        </div></div><br /><a name="GetScrollWidth" /><div class="sub_head">GetScrollWidth(args, kwargs)    <div class="sub_desc">
+        GetScrollWidth(self) -> int
+
+        Retrieve the document width assumed for scrolling.
+        </div></div><br /><a name="GetSearchFlags" /><div class="sub_head">GetSearchFlags(args, kwargs)    <div class="sub_desc">
+        GetSearchFlags(self) -> int
+
+        Get the search flags used by SearchInTarget.
+        </div></div><br /><a name="GetSelectedText" /><div class="sub_head">GetSelectedText(args, kwargs)    <div class="sub_desc">
+        GetSelectedText(self) -> String
+
+        Retrieve the selected text.
+        </div></div><br /><a name="GetSelectedTextRaw" /><div class="sub_head">GetSelectedTextRaw(args, kwargs)    <div class="sub_desc">
+        GetSelectedTextRaw(self) -> wxCharBuffer
+
+        Retrieve the selected text.  The returned value is a utf-8 encoded
+        string in unicode builds of wxPython, or raw 8-bit text otherwise.
+        </div></div><br /><a name="GetSelectedTextUTF8" /><div class="sub_head">GetSelectedTextUTF8(self, text, u)    <div class="sub_desc">
+        Retrieve the selected text as UTF8.  In an ansi build of wxPython
+        the text retrieved from the document is assumed to be in the
+        current default encoding.
+        </div></div><br /><a name="GetSelection" /><div class="sub_head">GetSelection(args, kwargs)    <div class="sub_desc">
+        GetSelection(self) -> (startPos, endPos)
+
+        Retrieve the start and end positions of the current selection.
+        </div></div><br /><a name="GetSelectionEnd" /><div class="sub_head">GetSelectionEnd(args, kwargs)    <div class="sub_desc">
+        GetSelectionEnd(self) -> int
+
+        Returns the position at the end of the selection.
+        </div></div><br /><a name="GetSelectionMode" /><div class="sub_head">GetSelectionMode(args, kwargs)    <div class="sub_desc">
+        GetSelectionMode(self) -> int
+
+        Get the mode of the current selection.
+        </div></div><br /><a name="GetSelectionStart" /><div class="sub_head">GetSelectionStart(args, kwargs)    <div class="sub_desc">
+        GetSelectionStart(self) -> int
+
+        Returns the position at the start of the selection.
+        </div></div><br /><a name="GetStatus" /><div class="sub_head">GetStatus(args, kwargs)    <div class="sub_desc">
+        GetStatus(self) -> int
+
+        Get error status.
+        </div></div><br /><a name="GetStyleAt" /><div class="sub_head">GetStyleAt(args, kwargs)    <div class="sub_desc">
+        GetStyleAt(self, int pos) -> int
+
+        Returns the style byte at the position.
+        </div></div><br /><a name="GetStyleBits" /><div class="sub_head">GetStyleBits(args, kwargs)    <div class="sub_desc">
+        GetStyleBits(self) -> int
+
+        Retrieve number of bits in style bytes used to hold the lexical state.
+        </div></div><br /><a name="GetStyledText" /><div class="sub_head">GetStyledText(args, kwargs)    <div class="sub_desc">
+        GetStyledText(self, int startPos, int endPos) -> wxMemoryBuffer
+
+        Retrieve a buffer of cells.
+        </div></div><br /><a name="GetTabIndents" /><div class="sub_head">GetTabIndents(args, kwargs)    <div class="sub_desc">
+        GetTabIndents(self) -> bool
+
+        Does a tab pressed when caret is within indentation indent?
+        </div></div><br /><a name="GetTabWidth" /><div class="sub_head">GetTabWidth(args, kwargs)    <div class="sub_desc">
+        GetTabWidth(self) -> int
+
+        Retrieve the visible size of a tab.
+        </div></div><br /><a name="GetTargetEnd" /><div class="sub_head">GetTargetEnd(args, kwargs)    <div class="sub_desc">
+        GetTargetEnd(self) -> int
+
+        Get the position that ends the target.
+        </div></div><br /><a name="GetTargetStart" /><div class="sub_head">GetTargetStart(args, kwargs)    <div class="sub_desc">
+        GetTargetStart(self) -> int
+
+        Get the position that starts the target.
+        </div></div><br /><a name="GetText" /><div class="sub_head">GetText(args, kwargs)    <div class="sub_desc">
+        GetText(self) -> String
+
+        Retrieve all the text in the document.
+        </div></div><br /><a name="GetTextLength" /><div class="sub_head">GetTextLength(args, kwargs)    <div class="sub_desc">
+        GetTextLength(self) -> int
+
+        Retrieve the number of characters in the document.
+        </div></div><br /><a name="GetTextRange" /><div class="sub_head">GetTextRange(args, kwargs)    <div class="sub_desc">
+        GetTextRange(self, int startPos, int endPos) -> String
+
+        Retrieve a range of text.
+        </div></div><br /><a name="GetTextRangeRaw" /><div class="sub_head">GetTextRangeRaw(args, kwargs)    <div class="sub_desc">
+        GetTextRangeRaw(self, int startPos, int endPos) -> wxCharBuffer
+
+        Retrieve a range of text.    The returned value is a utf-8 encoded
+        string in unicode builds of wxPython, or raw 8-bit text otherwise.
+        </div></div><br /><a name="GetTextRangeUTF8" /><div class="sub_head">GetTextRangeUTF8(self, startPos, endPos, text, u)    <div class="sub_desc">
+        Retrieve a range of text as UTF8.  In an ansi build of wxPython
+        the text retrieved from the document is assumed to be in the
+        current default encoding.
+        </div></div><br /><a name="GetTextRaw" /><div class="sub_head">GetTextRaw(args, kwargs)    <div class="sub_desc">
+        GetTextRaw(self) -> wxCharBuffer
+
+        Retrieve all the text in the document.  The returned value is a utf-8
+        encoded string in unicode builds of wxPython, or raw 8-bit text
+        otherwise.
+        </div></div><br /><a name="GetTextUTF8" /><div class="sub_head">GetTextUTF8(self, text, u)    <div class="sub_desc">
+        Retrieve all the text in the document as UTF8.  In an ansi build
+        of wxPython the text retrieved from the document is assumed to be
+        in the current default encoding.
+        </div></div><br /><a name="GetTwoPhaseDraw" /><div class="sub_head">GetTwoPhaseDraw(args, kwargs)    <div class="sub_desc">
+        GetTwoPhaseDraw(self) -> bool
+
+        Is drawing done in two phases with backgrounds drawn before foregrounds?
+        </div></div><br /><a name="GetUndoCollection" /><div class="sub_head">GetUndoCollection(args, kwargs)    <div class="sub_desc">
+        GetUndoCollection(self) -> bool
+
+        Is undo history being collected?
+        </div></div><br /><a name="GetUseAntiAliasing" /><div class="sub_head">GetUseAntiAliasing(args, kwargs)    <div class="sub_desc">
+        GetUseAntiAliasing(self) -> bool
+
+        Returns the current UseAntiAliasing setting.
+        </div></div><br /><a name="GetUseHorizontalScrollBar" /><div class="sub_head">GetUseHorizontalScrollBar(args, kwargs)    <div class="sub_desc">
+        GetUseHorizontalScrollBar(self) -> bool
+
+        Is the horizontal scroll bar visible?
+        </div></div><br /><a name="GetUseTabs" /><div class="sub_head">GetUseTabs(args, kwargs)    <div class="sub_desc">
+        GetUseTabs(self) -> bool
+
+        Retrieve whether tabs will be used in indentation.
+        </div></div><br /><a name="GetUseVerticalScrollBar" /><div class="sub_head">GetUseVerticalScrollBar(args, kwargs)    <div class="sub_desc">
+        GetUseVerticalScrollBar(self) -> bool
+
+        Is the vertical scroll bar visible?
+        </div></div><br /><a name="GetViewEOL" /><div class="sub_head">GetViewEOL(args, kwargs)    <div class="sub_desc">
+        GetViewEOL(self) -> bool
+
+        Are the end of line characters visible?
+        </div></div><br /><a name="GetViewWhiteSpace" /><div class="sub_head">GetViewWhiteSpace(args, kwargs)    <div class="sub_desc">
+        GetViewWhiteSpace(self) -> int
+
+        Are white space characters currently visible?
+        Returns one of SCWS_* constants.
+        </div></div><br /><a name="GetWrapMode" /><div class="sub_head">GetWrapMode(args, kwargs)    <div class="sub_desc">
+        GetWrapMode(self) -> int
+
+        Retrieve whether text is word wrapped.
+        </div></div><br /><a name="GetWrapStartIndent" /><div class="sub_head">GetWrapStartIndent(args, kwargs)    <div class="sub_desc">
+        GetWrapStartIndent(self) -> int
+
+        Retrive the start indent for wrapped lines.
+        </div></div><br /><a name="GetWrapVisualFlags" /><div class="sub_head">GetWrapVisualFlags(args, kwargs)    <div class="sub_desc">
+        GetWrapVisualFlags(self) -> int
+
+        Retrive the display mode of visual flags for wrapped lines.
+        </div></div><br /><a name="GetWrapVisualFlagsLocation" /><div class="sub_head">GetWrapVisualFlagsLocation(args, kwargs)    <div class="sub_desc">
+        GetWrapVisualFlagsLocation(self) -> int
+
+        Retrive the location of visual flags for wrapped lines.
+        </div></div><br /><a name="GetXOffset" /><div class="sub_head">GetXOffset(args, kwargs)    <div class="sub_desc">GetXOffset(self) -> int</div></div><br /><a name="GetZoom" /><div class="sub_head">GetZoom(args, kwargs)    <div class="sub_desc">
+        GetZoom(self) -> int
+
+        Retrieve the zoom level.
+        </div></div><br /><a name="GotoLine" /><div class="sub_head">GotoLine(args, kwargs)    <div class="sub_desc">
+        GotoLine(self, int line)
+
+        Set caret to start of a line and ensure it is visible.
+        </div></div><br /><a name="GotoPos" /><div class="sub_head">GotoPos(args, kwargs)    <div class="sub_desc">
+        GotoPos(self, int pos)
+
+        Set caret to a position and ensure it is visible.
+        </div></div><br /><a name="HideLines" /><div class="sub_head">HideLines(args, kwargs)    <div class="sub_desc">
+        HideLines(self, int lineStart, int lineEnd)
+
+        Make a range of lines invisible.
+        </div></div><br /><a name="HideSelection" /><div class="sub_head">HideSelection(args, kwargs)    <div class="sub_desc">
+        HideSelection(self, bool normal)
+
+        Draw the selection in normal style or with selection highlighted.
+        </div></div><br /><a name="Home" /><div class="sub_head">Home(args, kwargs)    <div class="sub_desc">
+        Home(self)
+
+        Move caret to first position on line.
+        </div></div><br /><a name="HomeDisplay" /><div class="sub_head">HomeDisplay(args, kwargs)    <div class="sub_desc">
+        HomeDisplay(self)
+
+        Move caret to first position on display line.
+        </div></div><br /><a name="HomeDisplayExtend" /><div class="sub_head">HomeDisplayExtend(args, kwargs)    <div class="sub_desc">
+        HomeDisplayExtend(self)
+
+        Move caret to first position on display line extending selection to
+        new caret position.
+        </div></div><br /><a name="HomeExtend" /><div class="sub_head">HomeExtend(args, kwargs)    <div class="sub_desc">
+        HomeExtend(self)
+
+        Move caret to first position on line extending selection to new caret position.
+        </div></div><br /><a name="HomeRectExtend" /><div class="sub_head">HomeRectExtend(args, kwargs)    <div class="sub_desc">
+        HomeRectExtend(self)
+
+        Move caret to first position on line, extending rectangular selection to new caret position.
+        </div></div><br /><a name="HomeWrap" /><div class="sub_head">HomeWrap(args, kwargs)    <div class="sub_desc">
+        HomeWrap(self)
+
+        These are like their namesakes Home(Extend)?, LineEnd(Extend)?, VCHome(Extend)?
+        except they behave differently when word-wrap is enabled:
+        They go first to the start / end of the display line, like (Home|LineEnd)Display
+        The difference is that, the cursor is already at the point, it goes on to the start
+        or end of the document line, as appropriate for (Home|LineEnd|VCHome)(Extend)?.
+        </div></div><br /><a name="HomeWrapExtend" /><div class="sub_head">HomeWrapExtend(args, kwargs)    <div class="sub_desc">HomeWrapExtend(self)</div></div><br /><a name="IndicatorGetForeground" /><div class="sub_head">IndicatorGetForeground(args, kwargs)    <div class="sub_desc">
+        IndicatorGetForeground(self, int indic) -> Colour
+
+        Retrieve the foreground colour of an indicator.
+        </div></div><br /><a name="IndicatorGetStyle" /><div class="sub_head">IndicatorGetStyle(args, kwargs)    <div class="sub_desc">
+        IndicatorGetStyle(self, int indic) -> int
+
+        Retrieve the style of an indicator.
+        </div></div><br /><a name="IndicatorSetForeground" /><div class="sub_head">IndicatorSetForeground(args, kwargs)    <div class="sub_desc">
+        IndicatorSetForeground(self, int indic, Colour fore)
+
+        Set the foreground colour of an indicator.
+        </div></div><br /><a name="IndicatorSetStyle" /><div class="sub_head">IndicatorSetStyle(args, kwargs)    <div class="sub_desc">
+        IndicatorSetStyle(self, int indic, int style)
+
+        Set an indicator to plain, squiggle or TT.
+        </div></div><br /><a name="InsertText" /><div class="sub_head">InsertText(args, kwargs)    <div class="sub_desc">
+        InsertText(self, int pos, String text)
+
+        Insert string at a position.
+        </div></div><br /><a name="InsertTextRaw" /><div class="sub_head">InsertTextRaw(args, kwargs)    <div class="sub_desc">
+        InsertTextRaw(self, int pos, char text)
+
+        Insert string at a position.  The text should be utf-8 encoded on
+        unicode builds of wxPython, or can be any 8-bit text in ansi builds.
+        </div></div><br /><a name="InsertTextUTF8" /><div class="sub_head">InsertTextUTF8(self, pos, text, u)    <div class="sub_desc">
+        Insert UTF8 encoded text at a position.  Works 'natively' in a
+        unicode build of wxPython, and will also work in an ansi build if
+        the UTF8 text is compatible with the current encoding.
+        </div></div><br /><a name="LineCopy" /><div class="sub_head">LineCopy(args, kwargs)    <div class="sub_desc">
+        LineCopy(self)
+
+        Copy the line containing the caret.
+        </div></div><br /><a name="LineCut" /><div class="sub_head">LineCut(args, kwargs)    <div class="sub_desc">
+        LineCut(self)
+
+        Cut the line containing the caret.
+        </div></div><br /><a name="LineDelete" /><div class="sub_head">LineDelete(args, kwargs)    <div class="sub_desc">
+        LineDelete(self)
+
+        Delete the line containing the caret.
+        </div></div><br /><a name="LineDown" /><div class="sub_head">LineDown(args, kwargs)    <div class="sub_desc">
+        LineDown(self)
+
+        Move caret down one line.
+        </div></div><br /><a name="LineDownExtend" /><div class="sub_head">LineDownExtend(args, kwargs)    <div class="sub_desc">
+        LineDownExtend(self)
+
+        Move caret down one line extending selection to new caret position.
+        </div></div><br /><a name="LineDownRectExtend" /><div class="sub_head">LineDownRectExtend(args, kwargs)    <div class="sub_desc">
+        LineDownRectExtend(self)
+
+        Move caret down one line, extending rectangular selection to new caret position.
+        </div></div><br /><a name="LineDuplicate" /><div class="sub_head">LineDuplicate(args, kwargs)    <div class="sub_desc">
+        LineDuplicate(self)
+
+        Duplicate the current line.
+        </div></div><br /><a name="LineEnd" /><div class="sub_head">LineEnd(args, kwargs)    <div class="sub_desc">
+        LineEnd(self)
+
+        Move caret to last position on line.
+        </div></div><br /><a name="LineEndDisplay" /><div class="sub_head">LineEndDisplay(args, kwargs)    <div class="sub_desc">
+        LineEndDisplay(self)
+
+        Move caret to last position on display line.
+        </div></div><br /><a name="LineEndDisplayExtend" /><div class="sub_head">LineEndDisplayExtend(args, kwargs)    <div class="sub_desc">
+        LineEndDisplayExtend(self)
+
+        Move caret to last position on display line extending selection to new
+        caret position.
+        </div></div><br /><a name="LineEndExtend" /><div class="sub_head">LineEndExtend(args, kwargs)    <div class="sub_desc">
+        LineEndExtend(self)
+
+        Move caret to last position on line extending selection to new caret position.
+        </div></div><br /><a name="LineEndRectExtend" /><div class="sub_head">LineEndRectExtend(args, kwargs)    <div class="sub_desc">
+        LineEndRectExtend(self)
+
+        Move caret to last position on line, extending rectangular selection to new caret position.
+        </div></div><br /><a name="LineEndWrap" /><div class="sub_head">LineEndWrap(args, kwargs)    <div class="sub_desc">LineEndWrap(self)</div></div><br /><a name="LineEndWrapExtend" /><div class="sub_head">LineEndWrapExtend(args, kwargs)    <div class="sub_desc">LineEndWrapExtend(self)</div></div><br /><a name="LineFromPosition" /><div class="sub_head">LineFromPosition(args, kwargs)    <div class="sub_desc">
+        LineFromPosition(self, int pos) -> int
+
+        Retrieve the line containing a position.
+        </div></div><br /><a name="LineLength" /><div class="sub_head">LineLength(args, kwargs)    <div class="sub_desc">
+        LineLength(self, int line) -> int
+
+        How many characters are on a line, not including end of line characters?
+        </div></div><br /><a name="LineScroll" /><div class="sub_head">LineScroll(args, kwargs)    <div class="sub_desc">
+        LineScroll(self, int columns, int lines)
+
+        Scroll horizontally and vertically.
+        </div></div><br /><a name="LineScrollDown" /><div class="sub_head">LineScrollDown(args, kwargs)    <div class="sub_desc">
+        LineScrollDown(self)
+
+        Scroll the document down, keeping the caret visible.
+        </div></div><br /><a name="LineScrollUp" /><div class="sub_head">LineScrollUp(args, kwargs)    <div class="sub_desc">
+        LineScrollUp(self)
+
+        Scroll the document up, keeping the caret visible.
+        </div></div><br /><a name="LineTranspose" /><div class="sub_head">LineTranspose(args, kwargs)    <div class="sub_desc">
+        LineTranspose(self)
+
+        Switch the current line with the previous.
+        </div></div><br /><a name="LineUp" /><div class="sub_head">LineUp(args, kwargs)    <div class="sub_desc">
+        LineUp(self)
+
+        Move caret up one line.
+        </div></div><br /><a name="LineUpExtend" /><div class="sub_head">LineUpExtend(args, kwargs)    <div class="sub_desc">
+        LineUpExtend(self)
+
+        Move caret up one line extending selection to new caret position.
+        </div></div><br /><a name="LineUpRectExtend" /><div class="sub_head">LineUpRectExtend(args, kwargs)    <div class="sub_desc">
+        LineUpRectExtend(self)
+
+        Move caret up one line, extending rectangular selection to new caret position.
+        </div></div><br /><a name="LinesJoin" /><div class="sub_head">LinesJoin(args, kwargs)    <div class="sub_desc">
+        LinesJoin(self)
+
+        Join the lines in the target.
+        </div></div><br /><a name="LinesOnScreen" /><div class="sub_head">LinesOnScreen(args, kwargs)    <div class="sub_desc">
+        LinesOnScreen(self) -> int
+
+        Retrieves the number of lines completely visible.
+        </div></div><br /><a name="LinesSplit" /><div class="sub_head">LinesSplit(args, kwargs)    <div class="sub_desc">
+        LinesSplit(self, int pixelWidth)
+
+        Split the lines in the target into lines that are less wide than pixelWidth
+        where possible.
+        </div></div><br /><a name="LoadFile" /><div class="sub_head">LoadFile(args, kwargs)    <div class="sub_desc">
+        LoadFile(self, String filename) -> bool
+
+        Load the contents of filename into the editor
+        </div></div><br /><a name="LowerCase" /><div class="sub_head">LowerCase(args, kwargs)    <div class="sub_desc">
+        LowerCase(self)
+
+        Transform the selection to lower case.
+        </div></div><br /><a name="MarkerAdd" /><div class="sub_head">MarkerAdd(args, kwargs)    <div class="sub_desc">
+        MarkerAdd(self, int line, int markerNumber) -> int
+
+        Add a marker to a line, returning an ID which can be used to find or delete the marker.
+        </div></div><br /><a name="MarkerDefine" /><div class="sub_head">MarkerDefine(args, kwargs)    <div class="sub_desc">
+        MarkerDefine(self, int markerNumber, int markerSymbol, Colour foreground=wxNullColour, 
+            Colour background=wxNullColour)
+
+        Set the symbol used for a particular marker number,
+        and optionally the fore and background colours.
+        </div></div><br /><a name="MarkerDefineBitmap" /><div class="sub_head">MarkerDefineBitmap(args, kwargs)    <div class="sub_desc">
+        MarkerDefineBitmap(self, int markerNumber, Bitmap bmp)
+
+        Define a marker from a bitmap
+        </div></div><br /><a name="MarkerDelete" /><div class="sub_head">MarkerDelete(args, kwargs)    <div class="sub_desc">
+        MarkerDelete(self, int line, int markerNumber)
+
+        Delete a marker from a line.
+        </div></div><br /><a name="MarkerDeleteAll" /><div class="sub_head">MarkerDeleteAll(args, kwargs)    <div class="sub_desc">
+        MarkerDeleteAll(self, int markerNumber)
+
+        Delete all markers with a particular number from all lines.
+        </div></div><br /><a name="MarkerDeleteHandle" /><div class="sub_head">MarkerDeleteHandle(args, kwargs)    <div class="sub_desc">
+        MarkerDeleteHandle(self, int handle)
+
+        Delete a marker.
+        </div></div><br /><a name="MarkerGet" /><div class="sub_head">MarkerGet(args, kwargs)    <div class="sub_desc">
+        MarkerGet(self, int line) -> int
+
+        Get a bit mask of all the markers set on a line.
+        </div></div><br /><a name="MarkerLineFromHandle" /><div class="sub_head">MarkerLineFromHandle(args, kwargs)    <div class="sub_desc">
+        MarkerLineFromHandle(self, int handle) -> int
+
+        Retrieve the line number at which a particular marker is located.
+        </div></div><br /><a name="MarkerNext" /><div class="sub_head">MarkerNext(args, kwargs)    <div class="sub_desc">
+        MarkerNext(self, int lineStart, int markerMask) -> int
+
+        Find the next line after lineStart that includes a marker in mask.
+        </div></div><br /><a name="MarkerPrevious" /><div class="sub_head">MarkerPrevious(args, kwargs)    <div class="sub_desc">
+        MarkerPrevious(self, int lineStart, int markerMask) -> int
+
+        Find the previous line before lineStart that includes a marker in mask.
+        </div></div><br /><a name="MarkerSetBackground" /><div class="sub_head">MarkerSetBackground(args, kwargs)    <div class="sub_desc">
+        MarkerSetBackground(self, int markerNumber, Colour back)
+
+        Set the background colour used for a particular marker number.
+        </div></div><br /><a name="MarkerSetForeground" /><div class="sub_head">MarkerSetForeground(args, kwargs)    <div class="sub_desc">
+        MarkerSetForeground(self, int markerNumber, Colour fore)
+
+        Set the foreground colour used for a particular marker number.
+        </div></div><br /><a name="MoveCaretInsideView" /><div class="sub_head">MoveCaretInsideView(args, kwargs)    <div class="sub_desc">
+        MoveCaretInsideView(self)
+
+        Move the caret inside current view if it's not there already.
+        </div></div><br /><a name="NewLine" /><div class="sub_head">NewLine(args, kwargs)    <div class="sub_desc">
+        NewLine(self)
+
+        Insert a new line, may use a CRLF, CR or LF depending on EOL mode.
+        </div></div><br /><a name="PageDown" /><div class="sub_head">PageDown(args, kwargs)    <div class="sub_desc">
+        PageDown(self)
+
+        Move caret one page down.
+        </div></div><br /><a name="PageDownExtend" /><div class="sub_head">PageDownExtend(args, kwargs)    <div class="sub_desc">
+        PageDownExtend(self)
+
+        Move caret one page down extending selection to new caret position.
+        </div></div><br /><a name="PageDownRectExtend" /><div class="sub_head">PageDownRectExtend(args, kwargs)    <div class="sub_desc">
+        PageDownRectExtend(self)
+
+        Move caret one page down, extending rectangular selection to new caret position.
+        </div></div><br /><a name="PageUp" /><div class="sub_head">PageUp(args, kwargs)    <div class="sub_desc">
+        PageUp(self)
+
+        Move caret one page up.
+        </div></div><br /><a name="PageUpExtend" /><div class="sub_head">PageUpExtend(args, kwargs)    <div class="sub_desc">
+        PageUpExtend(self)
+
+        Move caret one page up extending selection to new caret position.
+        </div></div><br /><a name="PageUpRectExtend" /><div class="sub_head">PageUpRectExtend(args, kwargs)    <div class="sub_desc">
+        PageUpRectExtend(self)
+
+        Move caret one page up, extending rectangular selection to new caret position.
+        </div></div><br /><a name="ParaDown" /><div class="sub_head">ParaDown(args, kwargs)    <div class="sub_desc">
+        ParaDown(self)
+
+        Move caret between paragraphs (delimited by empty lines).
+        </div></div><br /><a name="ParaDownExtend" /><div class="sub_head">ParaDownExtend(args, kwargs)    <div class="sub_desc">ParaDownExtend(self)</div></div><br /><a name="ParaUp" /><div class="sub_head">ParaUp(args, kwargs)    <div class="sub_desc">ParaUp(self)</div></div><br /><a name="ParaUpExtend" /><div class="sub_head">ParaUpExtend(args, kwargs)    <div class="sub_desc">ParaUpExtend(self)</div></div><br /><a name="Paste" /><div class="sub_head">Paste(args, kwargs)    <div class="sub_desc">
+        Paste(self)
+
+        Paste the contents of the clipboard into the document replacing the selection.
+        </div></div><br /><a name="PointFromPosition" /><div class="sub_head">PointFromPosition(args, kwargs)    <div class="sub_desc">
+        PointFromPosition(self, int pos) -> Point
+
+        Retrieve the point in the window where a position is displayed.
+        </div></div><br /><a name="PositionAfter" /><div class="sub_head">PositionAfter(args, kwargs)    <div class="sub_desc">
+        PositionAfter(self, int pos) -> int
+
+        Given a valid document position, return the next position taking code
+        page into account. Maximum value returned is the last position in the document.
+        </div></div><br /><a name="PositionBefore" /><div class="sub_head">PositionBefore(args, kwargs)    <div class="sub_desc">
+        PositionBefore(self, int pos) -> int
+
+        Given a valid document position, return the previous position taking code
+        page into account. Returns 0 if passed 0.
+        </div></div><br /><a name="PositionFromLine" /><div class="sub_head">PositionFromLine(args, kwargs)    <div class="sub_desc">
+        PositionFromLine(self, int line) -> int
+
+        Retrieve the position at the start of a line.
+        </div></div><br /><a name="PositionFromPoint" /><div class="sub_head">PositionFromPoint(args, kwargs)    <div class="sub_desc">
+        PositionFromPoint(self, Point pt) -> int
+
+        Find the position from a point within the window.
+        </div></div><br /><a name="PositionFromPointClose" /><div class="sub_head">PositionFromPointClose(args, kwargs)    <div class="sub_desc">
+        PositionFromPointClose(self, int x, int y) -> int
+
+        Find the position from a point within the window but return
+        INVALID_POSITION if not close to text.
+        </div></div><br /><a name="Redo" /><div class="sub_head">Redo(args, kwargs)    <div class="sub_desc">
+        Redo(self)
+
+        Redoes the next action on the undo history.
+        </div></div><br /><a name="RegisterImage" /><div class="sub_head">RegisterImage(args, kwargs)    <div class="sub_desc">
+        RegisterImage(self, int type, Bitmap bmp)
+
+        Register an image for use in autocompletion lists.
+        </div></div><br /><a name="ReleaseDocument" /><div class="sub_head">ReleaseDocument(args, kwargs)    <div class="sub_desc">
+        ReleaseDocument(self, void docPointer)
+
+        Release a reference to the document, deleting document if it fades to black.
+        </div></div><br /><a name="ReplaceSelection" /><div class="sub_head">ReplaceSelection(args, kwargs)    <div class="sub_desc">
+        ReplaceSelection(self, String text)
+
+        Replace the selected text with the argument text.
+        </div></div><br /><a name="ReplaceTarget" /><div class="sub_head">ReplaceTarget(args, kwargs)    <div class="sub_desc">
+        ReplaceTarget(self, String text) -> int
+
+        Replace the target text with the argument text.
+        Text is counted so it can contain NULs.
+        Returns the length of the replacement text.
+        </div></div><br /><a name="ReplaceTargetRE" /><div class="sub_head">ReplaceTargetRE(args, kwargs)    <div class="sub_desc">
+        ReplaceTargetRE(self, String text) -> int
+
+        Replace the target text with the argument text after \d processing.
+        Text is counted so it can contain NULs.
+        Looks for \d where d is between 1 and 9 and replaces these with the strings
+        matched in the last search operation which were surrounded by \( and \).
+        Returns the length of the replacement text including any change
+        caused by processing the \d patterns.
+        </div></div><br /><a name="SaveFile" /><div class="sub_head">SaveFile(args, kwargs)    <div class="sub_desc">
+        SaveFile(self, String filename) -> bool
+
+        Write the contents of the editor to filename
+        </div></div><br /><a name="ScrollToColumn" /><div class="sub_head">ScrollToColumn(args, kwargs)    <div class="sub_desc">
+        ScrollToColumn(self, int column)
+
+        Scroll enough to make the given column visible
+        </div></div><br /><a name="ScrollToLine" /><div class="sub_head">ScrollToLine(args, kwargs)    <div class="sub_desc">
+        ScrollToLine(self, int line)
+
+        Scroll enough to make the given line visible.
+        </div></div><br /><a name="SearchAnchor" /><div class="sub_head">SearchAnchor(args, kwargs)    <div class="sub_desc">
+        SearchAnchor(self)
+
+        Sets the current caret position to be the search anchor.
+        </div></div><br /><a name="SearchInTarget" /><div class="sub_head">SearchInTarget(args, kwargs)    <div class="sub_desc">
+        SearchInTarget(self, String text) -> int
+
+        Search for a counted string in the target and set the target to the found
+        range. Text is counted so it can contain NULs.
+        Returns length of range or -1 for failure in which case target is not moved.
+        </div></div><br /><a name="SearchNext" /><div class="sub_head">SearchNext(args, kwargs)    <div class="sub_desc">
+        SearchNext(self, int flags, String text) -> int
+
+        Find some text starting at the search anchor.
+        Does not ensure the selection is visible.
+        </div></div><br /><a name="SearchPrev" /><div class="sub_head">SearchPrev(args, kwargs)    <div class="sub_desc">
+        SearchPrev(self, int flags, String text) -> int
+
+        Find some text starting at the search anchor and moving backwards.
+        Does not ensure the selection is visible.
+        </div></div><br /><a name="SelectAll" /><div class="sub_head">SelectAll(args, kwargs)    <div class="sub_desc">
+        SelectAll(self)
+
+        Select all the text in the document.
+        </div></div><br /><a name="SelectionIsRectangle" /><div class="sub_head">SelectionIsRectangle(args, kwargs)    <div class="sub_desc">
+        SelectionIsRectangle(self) -> bool
+
+        Is the selection rectangular? The alternative is the more common stream selection.
+        </div></div><br /><a name="SendMsg" /><div class="sub_head">SendMsg(args, kwargs)    <div class="sub_desc">
+        SendMsg(self, int msg, long wp=0, long lp=0) -> long
+
+        Send a message to Scintilla.
+        </div></div><br /><a name="SetAnchor" /><div class="sub_head">SetAnchor(args, kwargs)    <div class="sub_desc">
+        SetAnchor(self, int posAnchor)
+
+        Set the selection anchor to a position. The anchor is the opposite
+        end of the selection from the caret.
+        </div></div><br /><a name="SetBackSpaceUnIndents" /><div class="sub_head">SetBackSpaceUnIndents(args, kwargs)    <div class="sub_desc">
+        SetBackSpaceUnIndents(self, bool bsUnIndents)
+
+        Sets whether a backspace pressed when caret is within indentation unindents.
+        </div></div><br /><a name="SetBufferedDraw" /><div class="sub_head">SetBufferedDraw(args, kwargs)    <div class="sub_desc">
+        SetBufferedDraw(self, bool buffered)
+
+        If drawing is buffered then each line of text is drawn into a bitmap buffer
+        before drawing it to the screen to avoid flicker.
+        </div></div><br /><a name="SetCaretForeground" /><div class="sub_head">SetCaretForeground(args, kwargs)    <div class="sub_desc">
+        SetCaretForeground(self, Colour fore)
+
+        Set the foreground colour of the caret.
+        </div></div><br /><a name="SetCaretLineBack" /><div class="sub_head">SetCaretLineBack(args, kwargs)    <div class="sub_desc">
+        SetCaretLineBack(self, Colour back)
+
+        Set the colour of the background of the line containing the caret.
+        </div></div><br /><a name="SetCaretLineVisible" /><div class="sub_head">SetCaretLineVisible(args, kwargs)    <div class="sub_desc">
+        SetCaretLineVisible(self, bool show)
+
+        Display the background of the line containing the caret in a different colour.
+        </div></div><br /><a name="SetCaretPeriod" /><div class="sub_head">SetCaretPeriod(args, kwargs)    <div class="sub_desc">
+        SetCaretPeriod(self, int periodMilliseconds)
+
+        Get the time in milliseconds that the caret is on and off. 0 = steady on.
+        </div></div><br /><a name="SetCaretWidth" /><div class="sub_head">SetCaretWidth(args, kwargs)    <div class="sub_desc">
+        SetCaretWidth(self, int pixelWidth)
+
+        Set the width of the insert mode caret.
+        </div></div><br /><a name="SetCharsDefault" /><div class="sub_head">SetCharsDefault(args, kwargs)    <div class="sub_desc">
+        SetCharsDefault(self)
+
+        Reset the set of characters for whitespace and word characters to the defaults.
+        </div></div><br /><a name="SetCodePage" /><div class="sub_head">SetCodePage(args, kwargs)    <div class="sub_desc">
+        SetCodePage(self, int codePage)
+
+        Set the code page used to interpret the bytes of the document as characters.
+        </div></div><br /><a name="SetControlCharSymbol" /><div class="sub_head">SetControlCharSymbol(args, kwargs)    <div class="sub_desc">
+        SetControlCharSymbol(self, int symbol)
+
+        Change the way control characters are displayed:
+        If symbol is < 32, keep the drawn way, else, use the given character.
+        </div></div><br /><a name="SetCurrentPos" /><div class="sub_head">SetCurrentPos(args, kwargs)    <div class="sub_desc">
+        SetCurrentPos(self, int pos)
+
+        Sets the position of the caret.
+        </div></div><br /><a name="SetDocPointer" /><div class="sub_head">SetDocPointer(args, kwargs)    <div class="sub_desc">
+        SetDocPointer(self, void docPointer)
+
+        Change the document object used.
+        </div></div><br /><a name="SetEOLMode" /><div class="sub_head">SetEOLMode(args, kwargs)    <div class="sub_desc">
+        SetEOLMode(self, int eolMode)
+
+        Set the current end of line mode.
+        </div></div><br /><a name="SetEdgeColour" /><div class="sub_head">SetEdgeColour(args, kwargs)    <div class="sub_desc">
+        SetEdgeColour(self, Colour edgeColour)
+
+        Change the colour used in edge indication.
+        </div></div><br /><a name="SetEdgeColumn" /><div class="sub_head">SetEdgeColumn(args, kwargs)    <div class="sub_desc">
+        SetEdgeColumn(self, int column)
+
+        Set the column number of the edge.
+        If text goes past the edge then it is highlighted.
+        </div></div><br /><a name="SetEdgeMode" /><div class="sub_head">SetEdgeMode(args, kwargs)    <div class="sub_desc">
+        SetEdgeMode(self, int mode)
+
+        The edge may be displayed by a line (EDGE_LINE) or by highlighting text that
+        goes beyond it (EDGE_BACKGROUND) or not displayed at all (EDGE_NONE).
+        </div></div><br /><a name="SetEndAtLastLine" /><div class="sub_head">SetEndAtLastLine(args, kwargs)    <div class="sub_desc">
+        SetEndAtLastLine(self, bool endAtLastLine)
+
+        Sets the scroll range so that maximum scroll position has
+        the last line at the bottom of the view (default).
+        Setting this to false allows scrolling one page below the last line.
+        </div></div><br /><a name="SetFoldExpanded" /><div class="sub_head">SetFoldExpanded(args, kwargs)    <div class="sub_desc">
+        SetFoldExpanded(self, int line, bool expanded)
+
+        Show the children of a header line.
+        </div></div><br /><a name="SetFoldFlags" /><div class="sub_head">SetFoldFlags(args, kwargs)    <div class="sub_desc">
+        SetFoldFlags(self, int flags)
+
+        Set some style options for folding.
+        </div></div><br /><a name="SetFoldLevel" /><div class="sub_head">SetFoldLevel(args, kwargs)    <div class="sub_desc">
+        SetFoldLevel(self, int line, int level)
+
+        Set the fold level of a line.
+        This encodes an integer level along with flags indicating whether the
+        line is a header and whether it is effectively white space.
+        </div></div><br /><a name="SetFoldMarginColour" /><div class="sub_head">SetFoldMarginColour(args, kwargs)    <div class="sub_desc">
+        SetFoldMarginColour(self, bool useSetting, Colour back)
+
+        Set the colours used as a chequerboard pattern in the fold margin
+        </div></div><br /><a name="SetFoldMarginHiColour" /><div class="sub_head">SetFoldMarginHiColour(args, kwargs)    <div class="sub_desc">SetFoldMarginHiColour(self, bool useSetting, Colour fore)</div></div><br /><a name="SetHScrollBar" /><div class="sub_head">SetHScrollBar(args, kwargs)    <div class="sub_desc">
+        SetHScrollBar(self, wxScrollBar bar)
+
+        Set the horizontal scrollbar to use instead of the ont that's built-in.
+        </div></div><br /><a name="SetHighlightGuide" /><div class="sub_head">SetHighlightGuide(args, kwargs)    <div class="sub_desc">
+        SetHighlightGuide(self, int column)
+
+        Set the highlighted indentation guide column.
+        0 = no highlighted guide.
+        </div></div><br /><a name="SetHotspotActiveBackground" /><div class="sub_head">SetHotspotActiveBackground(args, kwargs)    <div class="sub_desc">
+        SetHotspotActiveBackground(self, bool useSetting, Colour back)
+
+        Set a back colour for active hotspots.
+        </div></div><br /><a name="SetHotspotActiveForeground" /><div class="sub_head">SetHotspotActiveForeground(args, kwargs)    <div class="sub_desc">
+        SetHotspotActiveForeground(self, bool useSetting, Colour fore)
+
+        Set a fore colour for active hotspots.
+        </div></div><br /><a name="SetHotspotActiveUnderline" /><div class="sub_head">SetHotspotActiveUnderline(args, kwargs)    <div class="sub_desc">
+        SetHotspotActiveUnderline(self, bool underline)
+
+        Enable / Disable underlining active hotspots.
+        </div></div><br /><a name="SetHotspotSingleLine" /><div class="sub_head">SetHotspotSingleLine(args, kwargs)    <div class="sub_desc">
+        SetHotspotSingleLine(self, bool singleLine)
+
+        Limit hotspots to single line so hotspots on two lines don't merge.
+        </div></div><br /><a name="SetIndent" /><div class="sub_head">SetIndent(args, kwargs)    <div class="sub_desc">
+        SetIndent(self, int indentSize)
+
+        Set the number of spaces used for one level of indentation.
+        </div></div><br /><a name="SetIndentationGuides" /><div class="sub_head">SetIndentationGuides(args, kwargs)    <div class="sub_desc">
+        SetIndentationGuides(self, bool show)
+
+        Show or hide indentation guides.
+        </div></div><br /><a name="SetKeyWords" /><div class="sub_head">SetKeyWords(args, kwargs)    <div class="sub_desc">
+        SetKeyWords(self, int keywordSet, String keyWords)
+
+        Set up the key words used by the lexer.
+        </div></div><br /><a name="SetLastKeydownProcessed" /><div class="sub_head">SetLastKeydownProcessed(args, kwargs)    <div class="sub_desc">SetLastKeydownProcessed(self, bool val)</div></div><br /><a name="SetLayoutCache" /><div class="sub_head">SetLayoutCache(args, kwargs)    <div class="sub_desc">
+        SetLayoutCache(self, int mode)
+
+        Sets the degree of caching of layout information.
+        </div></div><br /><a name="SetLexer" /><div class="sub_head">SetLexer(args, kwargs)    <div class="sub_desc">
+        SetLexer(self, int lexer)
+
+        Set the lexing language of the document.
+        </div></div><br /><a name="SetLexerLanguage" /><div class="sub_head">SetLexerLanguage(args, kwargs)    <div class="sub_desc">
+        SetLexerLanguage(self, String language)
+
+        Set the lexing language of the document based on string name.
+        </div></div><br /><a name="SetLineIndentation" /><div class="sub_head">SetLineIndentation(args, kwargs)    <div class="sub_desc">
+        SetLineIndentation(self, int line, int indentSize)
+
+        Change the indentation of a line to a number of columns.
+        </div></div><br /><a name="SetLineState" /><div class="sub_head">SetLineState(args, kwargs)    <div class="sub_desc">
+        SetLineState(self, int line, int state)
+
+        Used to hold extra styling information for each line.
+        </div></div><br /><a name="SetMarginLeft" /><div class="sub_head">SetMarginLeft(args, kwargs)    <div class="sub_desc">
+        SetMarginLeft(self, int pixelWidth)
+
+        Sets the size in pixels of the left margin.
+        </div></div><br /><a name="SetMarginMask" /><div class="sub_head">SetMarginMask(args, kwargs)    <div class="sub_desc">
+        SetMarginMask(self, int margin, int mask)
+
+        Set a mask that determines which markers are displayed in a margin.
+        </div></div><br /><a name="SetMarginRight" /><div class="sub_head">SetMarginRight(args, kwargs)    <div class="sub_desc">
+        SetMarginRight(self, int pixelWidth)
+
+        Sets the size in pixels of the right margin.
+        </div></div><br /><a name="SetMarginSensitive" /><div class="sub_head">SetMarginSensitive(args, kwargs)    <div class="sub_desc">
+        SetMarginSensitive(self, int margin, bool sensitive)
+
+        Make a margin sensitive or insensitive to mouse clicks.
+        </div></div><br /><a name="SetMarginType" /><div class="sub_head">SetMarginType(args, kwargs)    <div class="sub_desc">
+        SetMarginType(self, int margin, int marginType)
+
+        Set a margin to be either numeric or symbolic.
+        </div></div><br /><a name="SetMarginWidth" /><div class="sub_head">SetMarginWidth(args, kwargs)    <div class="sub_desc">
+        SetMarginWidth(self, int margin, int pixelWidth)
+
+        Set the width of a margin to a width expressed in pixels.
+        </div></div><br /><a name="SetMargins" /><div class="sub_head">SetMargins(args, kwargs)    <div class="sub_desc">
+        SetMargins(self, int left, int right)
+
+        Set the left and right margin in the edit area, measured in pixels.
+        </div></div><br /><a name="SetModEventMask" /><div class="sub_head">SetModEventMask(args, kwargs)    <div class="sub_desc">
+        SetModEventMask(self, int mask)
+
+        Set which document modification events are sent to the container.
+        </div></div><br /><a name="SetMouseDownCaptures" /><div class="sub_head">SetMouseDownCaptures(args, kwargs)    <div class="sub_desc">
+        SetMouseDownCaptures(self, bool captures)
+
+        Set whether the mouse is captured when its button is pressed.
+        </div></div><br /><a name="SetMouseDwellTime" /><div class="sub_head">SetMouseDwellTime(args, kwargs)    <div class="sub_desc">
+        SetMouseDwellTime(self, int periodMilliseconds)
+
+        Sets the time the mouse must sit still to generate a mouse dwell event.
+        </div></div><br /><a name="SetOvertype" /><div class="sub_head">SetOvertype(args, kwargs)    <div class="sub_desc">
+        SetOvertype(self, bool overtype)
+
+        Set to overtype (true) or insert mode.
+        </div></div><br /><a name="SetPrintColourMode" /><div class="sub_head">SetPrintColourMode(args, kwargs)    <div class="sub_desc">
+        SetPrintColourMode(self, int mode)
+
+        Modify colours when printing for clearer printed text.
+        </div></div><br /><a name="SetPrintMagnification" /><div class="sub_head">SetPrintMagnification(args, kwargs)    <div class="sub_desc">
+        SetPrintMagnification(self, int magnification)
+
+        Sets the print magnification added to the point size of each style for printing.
+        </div></div><br /><a name="SetPrintWrapMode" /><div class="sub_head">SetPrintWrapMode(args, kwargs)    <div class="sub_desc">
+        SetPrintWrapMode(self, int mode)
+
+        Set printing to line wrapped (SC_WRAP_WORD) or not line wrapped (SC_WRAP_NONE).
+        </div></div><br /><a name="SetProperty" /><div class="sub_head">SetProperty(args, kwargs)    <div class="sub_desc">
+        SetProperty(self, String key, String value)
+
+        Set up a value that may be used by a lexer for some optional feature.
+        </div></div><br /><a name="SetReadOnly" /><div class="sub_head">SetReadOnly(args, kwargs)    <div class="sub_desc">
+        SetReadOnly(self, bool readOnly)
+
+        Set to read only or read write.
+        </div></div><br /><a name="SetSTCCursor" /><div class="sub_head">SetSTCCursor(args, kwargs)    <div class="sub_desc">
+        SetSTCCursor(self, int cursorType)
+
+        Sets the cursor to one of the SC_CURSOR* values.
+        </div></div><br /><a name="SetSTCFocus" /><div class="sub_head">SetSTCFocus(args, kwargs)    <div class="sub_desc">
+        SetSTCFocus(self, bool focus)
+
+        Change internal focus flag.
+        </div></div><br /><a name="SetSavePoint" /><div class="sub_head">SetSavePoint(args, kwargs)    <div class="sub_desc">
+        SetSavePoint(self)
+
+        Remember the current position in the undo history as the position
+        at which the document was saved.
+        </div></div><br /><a name="SetScrollWidth" /><div class="sub_head">SetScrollWidth(args, kwargs)    <div class="sub_desc">
+        SetScrollWidth(self, int pixelWidth)
+
+        Sets the document width assumed for scrolling.
+        </div></div><br /><a name="SetSearchFlags" /><div class="sub_head">SetSearchFlags(args, kwargs)    <div class="sub_desc">
+        SetSearchFlags(self, int flags)
+
+        Set the search flags used by SearchInTarget.
+        </div></div><br /><a name="SetSelBackground" /><div class="sub_head">SetSelBackground(args, kwargs)    <div class="sub_desc">
+        SetSelBackground(self, bool useSetting, Colour back)
+
+        Set the background colour of the selection and whether to use this setting.
+        </div></div><br /><a name="SetSelForeground" /><div class="sub_head">SetSelForeground(args, kwargs)    <div class="sub_desc">
+        SetSelForeground(self, bool useSetting, Colour fore)
+
+        Set the foreground colour of the selection and whether to use this setting.
+        </div></div><br /><a name="SetSelection" /><div class="sub_head">SetSelection(args, kwargs)    <div class="sub_desc">
+        SetSelection(self, int start, int end)
+
+        Select a range of text.
+        </div></div><br /><a name="SetSelectionEnd" /><div class="sub_head">SetSelectionEnd(args, kwargs)    <div class="sub_desc">
+        SetSelectionEnd(self, int pos)
+
+        Sets the position that ends the selection - this becomes the currentPosition.
+        </div></div><br /><a name="SetSelectionMode" /><div class="sub_head">SetSelectionMode(args, kwargs)    <div class="sub_desc">
+        SetSelectionMode(self, int mode)
+
+        Set the selection mode to stream (SC_SEL_STREAM) or rectangular (SC_SEL_RECTANGLE) or
+        by lines (SC_SEL_LINES).
+        </div></div><br /><a name="SetSelectionStart" /><div class="sub_head">SetSelectionStart(args, kwargs)    <div class="sub_desc">
+        SetSelectionStart(self, int pos)
+
+        Sets the position that starts the selection - this becomes the anchor.
+        </div></div><br /><a name="SetStatus" /><div class="sub_head">SetStatus(args, kwargs)    <div class="sub_desc">
+        SetStatus(self, int statusCode)
+
+        Change error status - 0 = OK.
+        </div></div><br /><a name="SetStyleBits" /><div class="sub_head">SetStyleBits(args, kwargs)    <div class="sub_desc">
+        SetStyleBits(self, int bits)
+
+        Divide each styling byte into lexical class bits (default: 5) and indicator
+        bits (default: 3). If a lexer requires more than 32 lexical states, then this
+        is used to expand the possible states.
+        </div></div><br /><a name="SetStyleBytes" /><div class="sub_head">SetStyleBytes(args, kwargs)    <div class="sub_desc">
+        SetStyleBytes(self, int length, char styleBytes)
+
+        Set the styles for a segment of the document.
+        </div></div><br /><a name="SetStyling" /><div class="sub_head">SetStyling(args, kwargs)    <div class="sub_desc">
+        SetStyling(self, int length, int style)
+
+        Change style from current styling position for length characters to a style
+        and move the current styling position to after this newly styled segment.
+        </div></div><br /><a name="SetTabIndents" /><div class="sub_head">SetTabIndents(args, kwargs)    <div class="sub_desc">
+        SetTabIndents(self, bool tabIndents)
+
+        Sets whether a tab pressed when caret is within indentation indents.
+        </div></div><br /><a name="SetTabWidth" /><div class="sub_head">SetTabWidth(args, kwargs)    <div class="sub_desc">
+        SetTabWidth(self, int tabWidth)
+
+        Change the visible size of a tab to be a multiple of the width of a space character.
+        </div></div><br /><a name="SetTargetEnd" /><div class="sub_head">SetTargetEnd(args, kwargs)    <div class="sub_desc">
+        SetTargetEnd(self, int pos)
+
+        Sets the position that ends the target which is used for updating the
+        document without affecting the scroll position.
+        </div></div><br /><a name="SetTargetStart" /><div class="sub_head">SetTargetStart(args, kwargs)    <div class="sub_desc">
+        SetTargetStart(self, int pos)
+
+        Sets the position that starts the target which is used for updating the
+        document without affecting the scroll position.
+        </div></div><br /><a name="SetText" /><div class="sub_head">SetText(args, kwargs)    <div class="sub_desc">
+        SetText(self, String text)
+
+        Replace the contents of the document with the argument text.
+        </div></div><br /><a name="SetTextRaw" /><div class="sub_head">SetTextRaw(args, kwargs)    <div class="sub_desc">
+        SetTextRaw(self, char text)
+
+        Replace the contents of the document with the argument text.  The text
+        should be utf-8 encoded on unicode builds of wxPython, or can be any
+        8-bit text in ansi builds.
+        </div></div><br /><a name="SetTextUTF8" /><div class="sub_head">SetTextUTF8(self, text, u)    <div class="sub_desc">
+        Replace the contents of the document with the UTF8 text given.
+        Works 'natively' in a unicode build of wxPython, and will also
+        work in an ansi build if the UTF8 text is compatible with the
+        current encoding.
+        </div></div><br /><a name="SetTwoPhaseDraw" /><div class="sub_head">SetTwoPhaseDraw(args, kwargs)    <div class="sub_desc">
+        SetTwoPhaseDraw(self, bool twoPhase)
+
+        In twoPhaseDraw mode, drawing is performed in two phases, first the background
+        and then the foreground. This avoids chopping off characters that overlap the next run.
+        </div></div><br /><a name="SetUndoCollection" /><div class="sub_head">SetUndoCollection(args, kwargs)    <div class="sub_desc">
+        SetUndoCollection(self, bool collectUndo)
+
+        Choose between collecting actions into the undo
+        history and discarding them.
+        </div></div><br /><a name="SetUseAntiAliasing" /><div class="sub_head">SetUseAntiAliasing(args, kwargs)    <div class="sub_desc">
+        SetUseAntiAliasing(self, bool useAA)
+
+        Specify whether anti-aliased fonts should be used.  Will have no
+        effect on some platforms, but on some (wxMac for example) can greatly
+        improve performance.
+        </div></div><br /><a name="SetUseHorizontalScrollBar" /><div class="sub_head">SetUseHorizontalScrollBar(args, kwargs)    <div class="sub_desc">
+        SetUseHorizontalScrollBar(self, bool show)
+
+        Show or hide the horizontal scroll bar.
+        </div></div><br /><a name="SetUseTabs" /><div class="sub_head">SetUseTabs(args, kwargs)    <div class="sub_desc">
+        SetUseTabs(self, bool useTabs)
+
+        Indentation will only use space characters if useTabs is false, otherwise
+        it will use a combination of tabs and spaces.
+        </div></div><br /><a name="SetUseVerticalScrollBar" /><div class="sub_head">SetUseVerticalScrollBar(args, kwargs)    <div class="sub_desc">
+        SetUseVerticalScrollBar(self, bool show)
+
+        Show or hide the vertical scroll bar.
+        </div></div><br /><a name="SetVScrollBar" /><div class="sub_head">SetVScrollBar(args, kwargs)    <div class="sub_desc">
+        SetVScrollBar(self, wxScrollBar bar)
+
+        Set the vertical scrollbar to use instead of the one that's built-in.
+        </div></div><br /><a name="SetViewEOL" /><div class="sub_head">SetViewEOL(args, kwargs)    <div class="sub_desc">
+        SetViewEOL(self, bool visible)
+
+        Make the end of line characters visible or invisible.
+        </div></div><br /><a name="SetViewWhiteSpace" /><div class="sub_head">SetViewWhiteSpace(args, kwargs)    <div class="sub_desc">
+        SetViewWhiteSpace(self, int viewWS)
+
+        Make white space characters invisible, always visible or visible outside indentation.
+        </div></div><br /><a name="SetVisiblePolicy" /><div class="sub_head">SetVisiblePolicy(args, kwargs)    <div class="sub_desc">
+        SetVisiblePolicy(self, int visiblePolicy, int visibleSlop)
+
+        Set the way the display area is determined when a particular line
+        is to be moved to by Find, FindNext, GotoLine, etc.
+        </div></div><br /><a name="SetWhitespaceBackground" /><div class="sub_head">SetWhitespaceBackground(args, kwargs)    <div class="sub_desc">
+        SetWhitespaceBackground(self, bool useSetting, Colour back)
+
+        Set the background colour of all whitespace and whether to use this setting.
+        </div></div><br /><a name="SetWhitespaceChars" /><div class="sub_head">SetWhitespaceChars(args, kwargs)    <div class="sub_desc">
+        SetWhitespaceChars(self, String characters)
+
+        Set the set of characters making up whitespace for when moving or selecting by word.
+        Should be called after SetWordChars.
+        </div></div><br /><a name="SetWhitespaceForeground" /><div class="sub_head">SetWhitespaceForeground(args, kwargs)    <div class="sub_desc">
+        SetWhitespaceForeground(self, bool useSetting, Colour fore)
+
+        Set the foreground colour of all whitespace and whether to use this setting.
+        </div></div><br /><a name="SetWordChars" /><div class="sub_head">SetWordChars(args, kwargs)    <div class="sub_desc">
+        SetWordChars(self, String characters)
+
+        Set the set of characters making up words for when moving or selecting by word.
+        First sets deaults like SetCharsDefault.
+        </div></div><br /><a name="SetWrapMode" /><div class="sub_head">SetWrapMode(args, kwargs)    <div class="sub_desc">
+        SetWrapMode(self, int mode)
+
+        Sets whether text is word wrapped.
+        </div></div><br /><a name="SetWrapStartIndent" /><div class="sub_head">SetWrapStartIndent(args, kwargs)    <div class="sub_desc">
+        SetWrapStartIndent(self, int indent)
+
+        Set the start indent for wrapped lines.
+        </div></div><br /><a name="SetWrapVisualFlags" /><div class="sub_head">SetWrapVisualFlags(args, kwargs)    <div class="sub_desc">
+        SetWrapVisualFlags(self, int wrapVisualFlags)
+
+        Set the display mode of visual flags for wrapped lines.
+        </div></div><br /><a name="SetWrapVisualFlagsLocation" /><div class="sub_head">SetWrapVisualFlagsLocation(args, kwargs)    <div class="sub_desc">
+        SetWrapVisualFlagsLocation(self, int wrapVisualFlagsLocation)
+
+        Set the location of visual flags for wrapped lines.
+        </div></div><br /><a name="SetXCaretPolicy" /><div class="sub_head">SetXCaretPolicy(args, kwargs)    <div class="sub_desc">
+        SetXCaretPolicy(self, int caretPolicy, int caretSlop)
+
+        Set the way the caret is kept visible when going sideway.
+        The exclusion zone is given in pixels.
+        </div></div><br /><a name="SetXOffset" /><div class="sub_head">SetXOffset(args, kwargs)    <div class="sub_desc">
+        SetXOffset(self, int newOffset)
+
+        Get and Set the xOffset (ie, horizonal scroll position).
+        </div></div><br /><a name="SetYCaretPolicy" /><div class="sub_head">SetYCaretPolicy(args, kwargs)    <div class="sub_desc">
+        SetYCaretPolicy(self, int caretPolicy, int caretSlop)
+
+        Set the way the line the caret is on is kept visible.
+        The exclusion zone is given in lines.
+        </div></div><br /><a name="SetZoom" /><div class="sub_head">SetZoom(args, kwargs)    <div class="sub_desc">
+        SetZoom(self, int zoom)
+
+        Set the zoom level. This number of points is added to the size of all fonts.
+        It may be positive to magnify or negative to reduce.
+        </div></div><br /><a name="ShowLines" /><div class="sub_head">ShowLines(args, kwargs)    <div class="sub_desc">
+        ShowLines(self, int lineStart, int lineEnd)
+
+        Make a range of lines visible.
+        </div></div><br /><a name="StartRecord" /><div class="sub_head">StartRecord(args, kwargs)    <div class="sub_desc">
+        StartRecord(self)
+
+        Start notifying the container of all key presses and commands.
+        </div></div><br /><a name="StartStyling" /><div class="sub_head">StartStyling(args, kwargs)    <div class="sub_desc">
+        StartStyling(self, int pos, int mask)
+
+        Set the current styling position to pos and the styling mask to mask.
+        The styling mask can be used to protect some bits in each styling byte from modification.
+        </div></div><br /><a name="StopRecord" /><div class="sub_head">StopRecord(args, kwargs)    <div class="sub_desc">
+        StopRecord(self)
+
+        Stop notifying the container of all key presses and commands.
+        </div></div><br /><a name="StutteredPageDown" /><div class="sub_head">StutteredPageDown(args, kwargs)    <div class="sub_desc">
+        StutteredPageDown(self)
+
+        Move caret to bottom of page, or one page down if already at bottom of page.
+        </div></div><br /><a name="StutteredPageDownExtend" /><div class="sub_head">StutteredPageDownExtend(args, kwargs)    <div class="sub_desc">
+        StutteredPageDownExtend(self)
+
+        Move caret to bottom of page, or one page down if already at bottom of page, extending selection to new caret position.
+        </div></div><br /><a name="StutteredPageUp" /><div class="sub_head">StutteredPageUp(args, kwargs)    <div class="sub_desc">
+        StutteredPageUp(self)
+
+        Move caret to top of page, or one page up if already at top of page.
+        </div></div><br /><a name="StutteredPageUpExtend" /><div class="sub_head">StutteredPageUpExtend(args, kwargs)    <div class="sub_desc">
+        StutteredPageUpExtend(self)
+
+        Move caret to top of page, or one page up if already at top of page, extending selection to new caret position.
+        </div></div><br /><a name="StyleClearAll" /><div class="sub_head">StyleClearAll(args, kwargs)    <div class="sub_desc">
+        StyleClearAll(self)
+
+        Clear all the styles and make equivalent to the global default style.
+        </div></div><br /><a name="StyleResetDefault" /><div class="sub_head">StyleResetDefault(args, kwargs)    <div class="sub_desc">
+        StyleResetDefault(self)
+
+        Reset the default style to its state at startup
+        </div></div><br /><a name="StyleSetBackground" /><div class="sub_head">StyleSetBackground(args, kwargs)    <div class="sub_desc">
+        StyleSetBackground(self, int style, Colour back)
+
+        Set the background colour of a style.
+        </div></div><br /><a name="StyleSetBold" /><div class="sub_head">StyleSetBold(args, kwargs)    <div class="sub_desc">
+        StyleSetBold(self, int style, bool bold)
+
+        Set a style to be bold or not.
+        </div></div><br /><a name="StyleSetCase" /><div class="sub_head">StyleSetCase(args, kwargs)    <div class="sub_desc">
+        StyleSetCase(self, int style, int caseForce)
+
+        Set a style to be mixed case, or to force upper or lower case.
+        </div></div><br /><a name="StyleSetChangeable" /><div class="sub_head">StyleSetChangeable(args, kwargs)    <div class="sub_desc">
+        StyleSetChangeable(self, int style, bool changeable)
+
+        Set a style to be changeable or not (read only).
+        Experimental feature, currently buggy.
+        </div></div><br /><a name="StyleSetCharacterSet" /><div class="sub_head">StyleSetCharacterSet(args, kwargs)    <div class="sub_desc">
+        StyleSetCharacterSet(self, int style, int characterSet)
+
+        Set the character set of the font in a style.  Converts the Scintilla
+        wx.stc.STC_CHARSET_* set values to a wxFontEncoding.
+        </div></div><br /><a name="StyleSetEOLFilled" /><div class="sub_head">StyleSetEOLFilled(args, kwargs)    <div class="sub_desc">
+        StyleSetEOLFilled(self, int style, bool filled)
+
+        Set a style to have its end of line filled or not.
+        </div></div><br /><a name="StyleSetFaceName" /><div class="sub_head">StyleSetFaceName(args, kwargs)    <div class="sub_desc">
+        StyleSetFaceName(self, int style, String fontName)
+
+        Set the font of a style.
+        </div></div><br /><a name="StyleSetFont" /><div class="sub_head">StyleSetFont(args, kwargs)    <div class="sub_desc">
+        StyleSetFont(self, int styleNum, Font font)
+
+        Set style size, face, bold, italic, and underline attributes from the
+        attributes of a `wx.Font`.
+        </div></div><br /><a name="StyleSetFontAttr" /><div class="sub_head">StyleSetFontAttr(args, kwargs)    <div class="sub_desc">
+        StyleSetFontAttr(self, int styleNum, int size, String faceName, bool bold, 
+            bool italic, bool underline, int encoding=wxFONTENCODING_DEFAULT)
+
+        Set all font style attributes at once.
+        </div></div><br /><a name="StyleSetFontEncoding" /><div class="sub_head">StyleSetFontEncoding(args, kwargs)    <div class="sub_desc">
+        StyleSetFontEncoding(self, int style, int encoding)
+
+        Set the font encoding to be used by a style.
+        </div></div><br /><a name="StyleSetForeground" /><div class="sub_head">StyleSetForeground(args, kwargs)    <div class="sub_desc">
+        StyleSetForeground(self, int style, Colour fore)
+
+        Set the foreground colour of a style.
+        </div></div><br /><a name="StyleSetHotSpot" /><div class="sub_head">StyleSetHotSpot(args, kwargs)    <div class="sub_desc">
+        StyleSetHotSpot(self, int style, bool hotspot)
+
+        Set a style to be a hotspot or not.
+        </div></div><br /><a name="StyleSetItalic" /><div class="sub_head">StyleSetItalic(args, kwargs)    <div class="sub_desc">
+        StyleSetItalic(self, int style, bool italic)
+
+        Set a style to be italic or not.
+        </div></div><br /><a name="StyleSetSize" /><div class="sub_head">StyleSetSize(args, kwargs)    <div class="sub_desc">
+        StyleSetSize(self, int style, int sizePoints)
+
+        Set the size of characters of a style.
+        </div></div><br /><a name="StyleSetSpec" /><div class="sub_head">StyleSetSpec(args, kwargs)    <div class="sub_desc">
+        StyleSetSpec(self, int styleNum, String spec)
+
+        Extract style settings from a spec-string which is composed of one or
+        more of the following comma separated elements::
+
+             bold                    turns on bold
+             italic                  turns on italics
+             fore:[name or #RRGGBB]  sets the foreground colour
+             back:[name or #RRGGBB]  sets the background colour
+             face:[facename]         sets the font face name to use
+             size:[num]              sets the font size in points
+             eol                     turns on eol filling
+             underline               turns on underlining
+
+        </div></div><br /><a name="StyleSetUnderline" /><div class="sub_head">StyleSetUnderline(args, kwargs)    <div class="sub_desc">
+        StyleSetUnderline(self, int style, bool underline)
+
+        Set a style to be underlined or not.
+        </div></div><br /><a name="StyleSetVisible" /><div class="sub_head">StyleSetVisible(args, kwargs)    <div class="sub_desc">
+        StyleSetVisible(self, int style, bool visible)
+
+        Set a style to be visible or not.
+        </div></div><br /><a name="Tab" /><div class="sub_head">Tab(args, kwargs)    <div class="sub_desc">
+        Tab(self)
+
+        If selection is empty or all on one line replace the selection with a tab character.
+        If more than one line selected, indent the lines.
+        </div></div><br /><a name="TargetFromSelection" /><div class="sub_head">TargetFromSelection(args, kwargs)    <div class="sub_desc">
+        TargetFromSelection(self)
+
+        Make the target range start and end be the same as the selection range start and end.
+        </div></div><br /><a name="TextHeight" /><div class="sub_head">TextHeight(args, kwargs)    <div class="sub_desc">
+        TextHeight(self, int line) -> int
+
+        Retrieve the height of a particular line of text in pixels.
+        </div></div><br /><a name="TextWidth" /><div class="sub_head">TextWidth(args, kwargs)    <div class="sub_desc">
+        TextWidth(self, int style, String text) -> int
+
+        Measure the pixel width of some text in a particular style.
+        NUL terminated text argument.
+        Does not handle tab or control characters.
+        </div></div><br /><a name="ToggleFold" /><div class="sub_head">ToggleFold(args, kwargs)    <div class="sub_desc">
+        ToggleFold(self, int line)
+
+        Switch a header line between expanded and contracted.
+        </div></div><br /><a name="Undo" /><div class="sub_head">Undo(args, kwargs)    <div class="sub_desc">
+        Undo(self)
+
+        Undo one action in the undo history.
+        </div></div><br /><a name="UpperCase" /><div class="sub_head">UpperCase(args, kwargs)    <div class="sub_desc">
+        UpperCase(self)
+
+        Transform the selection to upper case.
+        </div></div><br /><a name="UsePopUp" /><div class="sub_head">UsePopUp(args, kwargs)    <div class="sub_desc">
+        UsePopUp(self, bool allowPopUp)
+
+        Set whether a pop up menu is displayed automatically when the user presses
+        the wrong mouse button.
+        </div></div><br /><a name="UserListShow" /><div class="sub_head">UserListShow(args, kwargs)    <div class="sub_desc">
+        UserListShow(self, int listType, String itemList)
+
+        Display a list of strings and send notification when user chooses one.
+        </div></div><br /><a name="VCHome" /><div class="sub_head">VCHome(args, kwargs)    <div class="sub_desc">
+        VCHome(self)
+
+        Move caret to before first visible character on line.
+        If already there move to first character on line.
+        </div></div><br /><a name="VCHomeExtend" /><div class="sub_head">VCHomeExtend(args, kwargs)    <div class="sub_desc">
+        VCHomeExtend(self)
+
+        Like VCHome but extending selection to new caret position.
+        </div></div><br /><a name="VCHomeRectExtend" /><div class="sub_head">VCHomeRectExtend(args, kwargs)    <div class="sub_desc">
+        VCHomeRectExtend(self)
+
+        Move caret to before first visible character on line.
+        If already there move to first character on line.
+        In either case, extend rectangular selection to new caret position.
+        </div></div><br /><a name="VCHomeWrap" /><div class="sub_head">VCHomeWrap(args, kwargs)    <div class="sub_desc">VCHomeWrap(self)</div></div><br /><a name="VCHomeWrapExtend" /><div class="sub_head">VCHomeWrapExtend(args, kwargs)    <div class="sub_desc">VCHomeWrapExtend(self)</div></div><br /><a name="VisibleFromDocLine" /><div class="sub_head">VisibleFromDocLine(args, kwargs)    <div class="sub_desc">
+        VisibleFromDocLine(self, int line) -> int
+
+        Find the display line of a document line taking hidden lines into account.
+        </div></div><br /><a name="WordEndPosition" /><div class="sub_head">WordEndPosition(args, kwargs)    <div class="sub_desc">
+        WordEndPosition(self, int pos, bool onlyWordCharacters) -> int
+
+        Get position of end of word.
+        </div></div><br /><a name="WordLeft" /><div class="sub_head">WordLeft(args, kwargs)    <div class="sub_desc">
+        WordLeft(self)
+
+        Move caret left one word.
+        </div></div><br /><a name="WordLeftEnd" /><div class="sub_head">WordLeftEnd(args, kwargs)    <div class="sub_desc">
+        WordLeftEnd(self)
+
+        Move caret left one word, position cursor at end of word.
+        </div></div><br /><a name="WordLeftEndExtend" /><div class="sub_head">WordLeftEndExtend(args, kwargs)    <div class="sub_desc">
+        WordLeftEndExtend(self)
+
+        Move caret left one word, position cursor at end of word, extending selection to new caret position.
+        </div></div><br /><a name="WordLeftExtend" /><div class="sub_head">WordLeftExtend(args, kwargs)    <div class="sub_desc">
+        WordLeftExtend(self)
+
+        Move caret left one word extending selection to new caret position.
+        </div></div><br /><a name="WordPartLeft" /><div class="sub_head">WordPartLeft(args, kwargs)    <div class="sub_desc">
+        WordPartLeft(self)
+
+        Move to the previous change in capitalisation.
+        </div></div><br /><a name="WordPartLeftExtend" /><div class="sub_head">WordPartLeftExtend(args, kwargs)    <div class="sub_desc">
+        WordPartLeftExtend(self)
+
+        Move to the previous change in capitalisation extending selection
+        to new caret position.
+        </div></div><br /><a name="WordPartRight" /><div class="sub_head">WordPartRight(args, kwargs)    <div class="sub_desc">
+        WordPartRight(self)
+
+        Move to the change next in capitalisation.
+        </div></div><br /><a name="WordPartRightExtend" /><div class="sub_head">WordPartRightExtend(args, kwargs)    <div class="sub_desc">
+        WordPartRightExtend(self)
+
+        Move to the next change in capitalisation extending selection
+        to new caret position.
+        </div></div><br /><a name="WordRight" /><div class="sub_head">WordRight(args, kwargs)    <div class="sub_desc">
+        WordRight(self)
+
+        Move caret right one word.
+        </div></div><br /><a name="WordRightEnd" /><div class="sub_head">WordRightEnd(args, kwargs)    <div class="sub_desc">
+        WordRightEnd(self)
+
+        Move caret right one word, position cursor at end of word.
+        </div></div><br /><a name="WordRightEndExtend" /><div class="sub_head">WordRightEndExtend(args, kwargs)    <div class="sub_desc">
+        WordRightEndExtend(self)
+
+        Move caret right one word, position cursor at end of word, extending selection to new caret position.
+        </div></div><br /><a name="WordRightExtend" /><div class="sub_head">WordRightExtend(args, kwargs)    <div class="sub_desc">
+        WordRightExtend(self)
+
+        Move caret right one word extending selection to new caret position.
+        </div></div><br /><a name="WordStartPosition" /><div class="sub_head">WordStartPosition(args, kwargs)    <div class="sub_desc">
+        WordStartPosition(self, int pos, bool onlyWordCharacters) -> int
+
+        Get position of start of word.
+        </div></div><br /><a name="ZoomIn" /><div class="sub_head">ZoomIn(args, kwargs)    <div class="sub_desc">
+        ZoomIn(self)
+
+        Magnify the displayed text by increasing the sizes by 1 point.
+        </div></div><br /><a name="ZoomOut" /><div class="sub_head">ZoomOut(args, kwargs)    <div class="sub_desc">
+        ZoomOut(self)
+
+        Make the displayed text smaller by decreasing the sizes by 1 point.
+        </div></div><br /><a name="__init__" /><div class="sub_head">[constructor]    <div class="sub_desc">Usage: classname(arguments)</div></div><br /><a name="__doc__" /><div class="sub_head">[member '__doc__']    <div class="sub_desc">Documentation for this class</div></div><br /><a name="__module__" /><div class="sub_head">[member '__module__']    <div class="sub_desc">The module that this class belongs to</div></div><br /><a name="__repr__" /><div class="sub_head">[operator 'repr']    <div class="sub_desc">Usage: repr(a)</div></div><br /></div>
+</body>
+</html>

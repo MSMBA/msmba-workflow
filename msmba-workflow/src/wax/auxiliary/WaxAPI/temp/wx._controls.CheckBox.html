@@ -1,0 +1,77 @@
+<html>
+<head>
+    <title>Wax API</title>
+    <link href="waxapi.css" rel="stylesheet" type="text/css" />
+<head>
+    
+<body>
+<div id="header">Wax API Listing</div>
+<div id="body">
+<div class="main_head">wx._controls.CheckBox  <div class="main_desc">
+    A checkbox is a labelled box which by default is either on (the
+    checkmark is visible) or off (no checkmark). Optionally (When the
+    wx.CHK_3STATE style flag is set) it can have a third state, called the
+    mixed or undetermined state. Often this is used as a "Does Not
+    Apply" state.
+    </div>  <ul class="main_list">    <li><a href="#Create">Create</a></li>    <li><a href="#Get3StateValue">Get3StateValue</a></li>    <li><a href="#GetClassDefaultAttributes">GetClassDefaultAttributes</a></li>    <li><a href="#GetValue">GetValue</a></li>    <li><a href="#Is3State">Is3State</a></li>    <li><a href="#Is3rdStateAllowedForUser">Is3rdStateAllowedForUser</a></li>    <li><a href="#IsChecked">IsChecked</a></li>    <li><a href="#Set3StateValue">Set3StateValue</a></li>    <li><a href="#SetValue">SetValue</a></li>    <li><a href="#__init__">[constructor]</a></li>    <li><a href="#__doc__">[member '__doc__']</a></li>    <li><a href="#__module__">[member '__module__']</a></li>    <li><a href="#__repr__">[operator 'repr']</a></li>  </ul>  <div class="inherits">Inherits:     <a href="wx._core.Control.html">wx._core.Control</a>   </div></div><br /><a name="Create" /><div class="sub_head">Create(args, kwargs)    <div class="sub_desc">
+        Create(self, Window parent, int id=-1, String label=EmptyString, 
+            Point pos=DefaultPosition, Size size=DefaultSize, 
+            long style=0, Validator validator=DefaultValidator, 
+            String name=CheckBoxNameStr) -> bool
+
+        Actually create the GUI CheckBox for 2-phase creation.
+        </div></div><br /><a name="Get3StateValue" /><div class="sub_head">Get3StateValue(args, kwargs)    <div class="sub_desc">
+        Get3StateValue(self) -> int
+
+        Returns wx.CHK_UNCHECKED when the CheckBox is unchecked,
+        wx.CHK_CHECKED when it is checked and wx.CHK_UNDETERMINED when it's in
+        the undetermined state.  Raises an exceptiion when the function is
+        used with a 2-state CheckBox.
+        </div></div><br /><a name="GetClassDefaultAttributes" /><div class="sub_head">GetClassDefaultAttributes    <div class="sub_desc">
+        GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
+
+        Get the default attributes for this class.  This is useful if you want
+        to use the same font or colour in your own control as in a standard
+        control -- which is a much better idea than hard coding specific
+        colours or fonts which might look completely out of place on the
+        user's system, especially if it uses themes.
+
+        The variant parameter is only relevant under Mac currently and is
+        ignore under other platforms. Under Mac, it will change the size of
+        the returned font. See `wx.Window.SetWindowVariant` for more about
+        this.
+        </div></div><br /><a name="GetValue" /><div class="sub_head">GetValue(args, kwargs)    <div class="sub_desc">
+        GetValue(self) -> bool
+
+        Gets the state of a 2-state CheckBox.  Returns True if it is checked,
+        False otherwise.
+        </div></div><br /><a name="Is3State" /><div class="sub_head">Is3State(args, kwargs)    <div class="sub_desc">
+        Is3State(self) -> bool
+
+        Returns whether or not the CheckBox is a 3-state CheckBox.
+        </div></div><br /><a name="Is3rdStateAllowedForUser" /><div class="sub_head">Is3rdStateAllowedForUser(args, kwargs)    <div class="sub_desc">
+        Is3rdStateAllowedForUser(self) -> bool
+
+        Returns whether or not the user can set the CheckBox to the third
+        state.
+        </div></div><br /><a name="IsChecked" /><div class="sub_head">IsChecked(args, kwargs)    <div class="sub_desc">
+        IsChecked(self) -> bool
+
+        Similar to GetValue, but raises an exception if it is not a 2-state
+        CheckBox.
+        </div></div><br /><a name="Set3StateValue" /><div class="sub_head">Set3StateValue(args, kwargs)    <div class="sub_desc">
+        Set3StateValue(self, int state)
+
+        Sets the CheckBox to the given state.  The state parameter can be one
+        of the following: wx.CHK_UNCHECKED (Check is off), wx.CHK_CHECKED (the
+        Check is on) or wx.CHK_UNDETERMINED (Check is mixed). Raises an
+        exception when the CheckBox is a 2-state checkbox and setting the
+        state to wx.CHK_UNDETERMINED.
+        </div></div><br /><a name="SetValue" /><div class="sub_head">SetValue(args, kwargs)    <div class="sub_desc">
+        SetValue(self, bool state)
+
+        Set the state of a 2-state CheckBox.  Pass True for checked, False for
+        unchecked.
+        </div></div><br /><a name="__init__" /><div class="sub_head">[constructor]    <div class="sub_desc">Usage: classname(arguments)</div></div><br /><a name="__doc__" /><div class="sub_head">[member '__doc__']    <div class="sub_desc">Documentation for this class</div></div><br /><a name="__module__" /><div class="sub_head">[member '__module__']    <div class="sub_desc">The module that this class belongs to</div></div><br /><a name="__repr__" /><div class="sub_head">[operator 'repr']    <div class="sub_desc">Usage: repr(a)</div></div><br /></div>
+</body>
+</html>

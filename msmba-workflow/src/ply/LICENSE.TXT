@@ -1,0 +1,3 @@
+This module supplied by David Beazley (http://www.dabeaz.com)
+
+Licensed under the GNU LESSER GPL License

@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Wax API</title>
+    <link href="waxapi.css" rel="stylesheet" type="text/css" />
+<head>
+    
+<body>
+<div id="header">Wax API Listing</div>
+<div id="body">
+<div class="main_head">wx._core.EvtHandler  <div class="main_desc">Proxy of C++ EvtHandler class</div>  <ul class="main_list">    <li><a href="#AddPendingEvent">AddPendingEvent</a></li>    <li><a href="#Bind">Bind</a></li>    <li><a href="#Connect">Connect</a></li>    <li><a href="#Disconnect">Disconnect</a></li>    <li><a href="#GetEvtHandlerEnabled">GetEvtHandlerEnabled</a></li>    <li><a href="#GetNextHandler">GetNextHandler</a></li>    <li><a href="#GetPreviousHandler">GetPreviousHandler</a></li>    <li><a href="#ProcessEvent">ProcessEvent</a></li>    <li><a href="#ProcessPendingEvents">ProcessPendingEvents</a></li>    <li><a href="#SetEvtHandlerEnabled">SetEvtHandlerEnabled</a></li>    <li><a href="#SetNextHandler">SetNextHandler</a></li>    <li><a href="#SetPreviousHandler">SetPreviousHandler</a></li>    <li><a href="#Unbind">Unbind</a></li>    <li><a href="#__init__">[constructor]</a></li>    <li><a href="#__doc__">[member '__doc__']</a></li>    <li><a href="#__module__">[member '__module__']</a></li>    <li><a href="#__repr__">[operator 'repr']</a></li>  </ul>  <div class="inherits">Inherits:     <a href="wx._core.Object.html">wx._core.Object</a>   </div></div><br /><a name="AddPendingEvent" /><div class="sub_head">AddPendingEvent(args, kwargs)    <div class="sub_desc">AddPendingEvent(self, Event event)</div></div><br /><a name="Bind" /><div class="sub_head">Bind(self, event, handler, source, id, id2)    <div class="sub_desc">
+        Bind an event to an event handler.
+
+        :param event: One of the EVT_* objects that specifies the
+                      type of event to bind,
+
+        :param handler: A callable object to be invoked when the
+                      event is delivered to self.  Pass None to
+                      disconnect an event handler.
+
+        :param source: Sometimes the event originates from a
+                      different window than self, but you still
+                      want to catch it in self.  (For example, a
+                      button event delivered to a frame.)  By
+                      passing the source of the event, the event
+                      handling system is able to differentiate
+                      between the same event type from different
+                      controls.
+
+        :param id: Used to spcify the event source by ID instead
+                   of instance.
+
+        :param id2: Used when it is desirable to bind a handler
+                      to a range of IDs, such as with EVT_MENU_RANGE.
+        </div></div><br /><a name="Connect" /><div class="sub_head">Connect(args, kwargs)    <div class="sub_desc">Connect(self, int id, int lastId, int eventType, PyObject func)</div></div><br /><a name="Disconnect" /><div class="sub_head">Disconnect(args, kwargs)    <div class="sub_desc">Disconnect(self, int id, int lastId=-1, wxEventType eventType=wxEVT_NULL) -> bool</div></div><br /><a name="GetEvtHandlerEnabled" /><div class="sub_head">GetEvtHandlerEnabled(args, kwargs)    <div class="sub_desc">GetEvtHandlerEnabled(self) -> bool</div></div><br /><a name="GetNextHandler" /><div class="sub_head">GetNextHandler(args, kwargs)    <div class="sub_desc">GetNextHandler(self) -> EvtHandler</div></div><br /><a name="GetPreviousHandler" /><div class="sub_head">GetPreviousHandler(args, kwargs)    <div class="sub_desc">GetPreviousHandler(self) -> EvtHandler</div></div><br /><a name="ProcessEvent" /><div class="sub_head">ProcessEvent(args, kwargs)    <div class="sub_desc">ProcessEvent(self, Event event) -> bool</div></div><br /><a name="ProcessPendingEvents" /><div class="sub_head">ProcessPendingEvents(args, kwargs)    <div class="sub_desc">ProcessPendingEvents(self)</div></div><br /><a name="SetEvtHandlerEnabled" /><div class="sub_head">SetEvtHandlerEnabled(args, kwargs)    <div class="sub_desc">SetEvtHandlerEnabled(self, bool enabled)</div></div><br /><a name="SetNextHandler" /><div class="sub_head">SetNextHandler(args, kwargs)    <div class="sub_desc">SetNextHandler(self, EvtHandler handler)</div></div><br /><a name="SetPreviousHandler" /><div class="sub_head">SetPreviousHandler(args, kwargs)    <div class="sub_desc">SetPreviousHandler(self, EvtHandler handler)</div></div><br /><a name="Unbind" /><div class="sub_head">Unbind(self, event, source, id, id2)    <div class="sub_desc">
+        Disconencts the event handler binding for event from self.
+        Returns True if successful.
+        </div></div><br /><a name="__init__" /><div class="sub_head">[constructor]    <div class="sub_desc">Usage: classname(arguments)</div></div><br /><a name="__doc__" /><div class="sub_head">[member '__doc__']    <div class="sub_desc">Documentation for this class</div></div><br /><a name="__module__" /><div class="sub_head">[member '__module__']    <div class="sub_desc">The module that this class belongs to</div></div><br /><a name="__repr__" /><div class="sub_head">[operator 'repr']    <div class="sub_desc">Usage: repr(a)</div></div><br /></div>
+</body>
+</html>
