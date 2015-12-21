@@ -10,10 +10,10 @@ Created on Dec 17, 2012
 from collections import OrderedDict;
 from collections import namedtuple;
 from util import enum;
-from util import convert_fieldname_to_googledb;
-from util import convert_flowname_to_googledb;
-from util import convert_rolename_to_googledb;
-from util import convert_stepname_to_googledb;
+from util import convert_fieldname_to_db;
+from util import convert_flowname_to_db;
+from util import convert_rolename_to_db;
+from util import convert_stepname_to_db;
 
 Status = enum('NEW', 'COMPLETE');
 
@@ -54,9 +54,9 @@ class FlowData(object):
     '''
     
     def __init__(self, flowname, rolename, stepname, data=OrderedDict(), sequence=None, status=Status.NEW, uid=None, parents=None):
-        self.flowname = convert_flowname_to_googledb(flowname);
-        self.rolename = convert_rolename_to_googledb(rolename);
-        self.stepname = convert_stepname_to_googledb(stepname);
+        self.flowname = convert_flowname_to_db(flowname);
+        self.rolename = convert_rolename_to_db(rolename);
+        self.stepname = convert_stepname_to_db(stepname);
         self.data = data;
         self.sequence = sequence;
         self.status = status;
@@ -74,10 +74,10 @@ class FlowData(object):
         self.parents = [FlowDataReference.from_unknown(p) for p in parents];
                 
     def set_field(self, fieldname, value):
-        self.data[convert_fieldname_to_googledb(fieldname)] = value;
+        self.data[convert_fieldname_to_db(fieldname)] = value;
         
     def get_field(self, fieldname):    
-        f = convert_fieldname_to_googledb(fieldname);
+        f = convert_fieldname_to_db(fieldname);
         if f=='flowname':
             return self.flowname;
         if f=='rolename':
@@ -94,20 +94,20 @@ class FlowData(object):
             return self.data[f];
         
     def get_str_field(self, fieldname):
-        return self.data[convert_fieldname_to_googledb(fieldname)];
+        return self.data[convert_fieldname_to_db(fieldname)];
 
     def get_int_field(self, fieldname):
-        return int(self.data[convert_fieldname_to_googledb(fieldname)]);
+        return int(self.data[convert_fieldname_to_db(fieldname)]);
 
     def get_float_field(self, fieldname):
-        return float(self.data[convert_fieldname_to_googledb(fieldname)]);
+        return float(self.data[convert_fieldname_to_db(fieldname)]);
 
     def get_bool_field(self, fieldname):
-        s = self.data[convert_fieldname_to_googledb(fieldname)];
+        s = self.data[convert_fieldname_to_db(fieldname)];
         return s in ['TRUE', 'True', 'true', 'T', 't'];
 
     def remove_field(self, fieldname):
-        del self.data[convert_fieldname_to_googledb(fieldname)];
+        del self.data[convert_fieldname_to_db(fieldname)];
         
     def __eq__(self, other):
         if other == None:

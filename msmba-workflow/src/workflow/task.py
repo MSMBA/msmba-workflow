@@ -10,7 +10,7 @@ Created on Dec 14, 2012
 from flowData import FlowData;
 from collections import OrderedDict;
 from flowData import Status;
-from util import convert_fieldname_to_googledb;
+from util import convert_fieldname_to_db;
 
 class Task(FlowData):
     '''
@@ -32,7 +32,7 @@ class Task(FlowData):
             temp = instance.data;
             instance.data = OrderedDict();
             for k in copy:
-                k = convert_fieldname_to_googledb(k);
+                k = convert_fieldname_to_db(k);
                 if k in result.data:
                     instance.data[k] = result.data[k];
                 else:
@@ -47,7 +47,7 @@ class Task(FlowData):
         # Now handle appends:
         if append != None:
             for k in append:
-                k = convert_fieldname_to_googledb(k);
+                k = convert_fieldname_to_db(k);
                 if k not in instance.data:
                     instance.data[k] = "";
                 first = True;
@@ -65,7 +65,7 @@ class Task(FlowData):
         # Now handle adds:
         if add_fields != None:
             for k in add_fields:
-                k = convert_fieldname_to_googledb(k);
+                k = convert_fieldname_to_db(k);
                 if k not in instance.data:
                     instance.set_field(k, 0);
                 for result in results:

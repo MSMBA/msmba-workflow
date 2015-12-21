@@ -8,8 +8,8 @@ Created on Dec 21, 2012
 '''
 
 from flowData import Status;
-from util import convert_rolename_to_googledb;
-from util import convert_stepname_to_googledb;
+from util import convert_rolename_to_db;
+from util import convert_stepname_to_db;
 
 class GoogleJoinedListener(object):
     '''
@@ -29,8 +29,8 @@ class GoogleJoinedListener(object):
         self.predicate = predicate;
         self.listener = listener;
         for t in listenlist:
-            rolename = convert_rolename_to_googledb(t[0]);
-            stepname = convert_stepname_to_googledb(t[1]);
+            rolename = convert_rolename_to_db(t[0]);
+            stepname = convert_stepname_to_db(t[1]);
             flowDataCls = t[2];
             if len(t) == 4:
                 status = t[3];

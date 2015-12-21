@@ -2,9 +2,6 @@
 # Copyright (c) 2012 Benjamin Lubin (blubin@bu.com) 
 # Published under and subject to the GPLv2 license available at http://www.gnu.org/licenses/gpl-2.0.html
 
-import string;
-from gdata.spreadsheet.text_db import ConvertStringsToColumnHeaders;
-
 # Define an enum type, per: http://stackoverflow.com/questions/36932/whats-the-best-way-to-implement-an-enum-in-python
 def enum(*sequential, **named):
     enums = dict(zip(sequential, range(len(sequential))), **named)
@@ -12,19 +9,17 @@ def enum(*sequential, **named):
     enums['reverse_mapping'] = reverse
     return type('Enum', (), enums)
 
-
-def convert_fieldname_to_googledb(fieldname):
-    fieldname = to_alpha_numeric(fieldname, "fieldname");
-    return ConvertStringsToColumnHeaders([fieldname])[0];
-
-def convert_flowname_to_googledb(flowname):
+def convert_flowname_to_db(flowname):
     return to_alpha_numeric(flowname, label="flowname");
 
-def convert_rolename_to_googledb(rolename):
+def convert_rolename_to_db(rolename):
     return to_alpha_numeric(rolename, label="rolename");
 
-def convert_stepname_to_googledb(stepname):
+def convert_stepname_to_db(stepname):
     return to_alpha_numeric(stepname, label="stepname");
+
+def convert_fieldname_to_db(fieldname):
+    return to_alpha_numeric(fieldname, "fieldname");
 
 def to_alpha_numeric(string, label=""):
     if not string.isalnum():

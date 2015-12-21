@@ -35,7 +35,7 @@ class SqliteDBClient(object):
         sys.stdout.write("Connecting to server... ")
         self.rpcclient = self._create_client(serverparams)
         print "Login Complete."
-        self.rpcclient.ensure_database(self.flowname)
+        self.rpcclient.ensure_database_exists(self.flowname)
         self.tables = {} # TableReference -> _TableView
         self.all_table_listeners = []
         self.poll_count = 0
@@ -136,15 +136,19 @@ class _TableView(object):
         self.tableref = tableref
         self.listeners = [] # Tuples, (Status, Listener)
         self.rows = [] # FlowData subclass
+        self.fields = set() # Cached to reduce calls to ensure_all_fields_present
         self.ensure_exists()
     
     def ensure_exists(self):
         """ Ensure the table exists in the DB """
-        self.rpcclient.ensure_exists(self.flowname, self.tableref)
+        self.rpcclient.ensure_table_exists(self.flowname, self.tableref)
     
     def check_columns(self, fieldnames):
         """ Check that the columns are all present.  Can cache names so this is fast."""
-        self.rpcclient.check_columns(self.flowname, self.tableref, fieldnames)
+        if len(set(fieldnames).difference(self.fields)) > 0: # Does it match the cache?
+            # Cache miss, so update the db:            
+            newfields = self.rpcclient.ensure_all_fields_present(self.flowname, self.tableref, fieldnames)
+            self.fields.update(newfields)
     
     def register(self, listener, status=None):
         """ Register a listener for the given status.  None means get all events"""
@@ -162,8 +166,8 @@ class _TableView(object):
     
     def add_row(self, flowData):
         """ Add the given row to the table."""
-        self.rpcclient.add_row(self.flowname, self.tableref, flowData)
+        self.rpcclient.add_table_row(self.flowname, flowData)
     
     def update_row(self, uid, column, value):
         """ Update a given field in a given row."""
-        self.rpcclient.update_row(uid, column, value)
+        self.rpcclient.update_table_row(self.flowname, self.tableref, uid, column, value)

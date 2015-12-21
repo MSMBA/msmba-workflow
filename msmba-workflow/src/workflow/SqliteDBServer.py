@@ -46,6 +46,30 @@ class SqliteDBServer(object):
         if join:
             self.thread.join()
 
+    def ensure_database_exists(self, flowname):
+        ''' Make sure a database for the given flowname exists. '''
+        pass
+    
+    def get_table_references(self):
+        ''' Get all the table references in the DB. '''
+        pass
+    
+    def ensure_table_exists(self, flowname, tableref):
+        """ Ensure the table exists in the DB """
+        pass
+    
+    def ensure_all_fields_present(self, flowname, tableref, fieldnames):
+        """ Update the table so that it definitely includes all the columns provided."""
+        pass
+
+    def add_table_row(self, flowname, flowData):
+        """ Add the given row to the db """
+        pass
+
+    def update_table_row(self, flowname, tableref, uid, column, value):
+        """ Update the given row/column in the DB """
+        pass
+
 # Private
 
     def _get_tablename(self, rolename, stepname, flowDataCls):

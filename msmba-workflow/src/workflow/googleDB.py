@@ -23,9 +23,9 @@ from googleJoinedListener import GoogleJoinedListener;
 from collections import namedtuple;
 from allTableListener import AllTableListener;
 import traceback;
-from util import convert_flowname_to_googledb;
-from util import convert_rolename_to_googledb;
-from util import convert_stepname_to_googledb;
+from util import convert_flowname_to_db;
+from util import convert_rolename_to_db;
+from util import convert_stepname_to_db;
 
 TableReference = namedtuple("TableReference", "rolename stepname flowDataCls");
 
@@ -36,7 +36,7 @@ class GoogleDB(object):
 
     def __init__(self, flowname):
         """ name is the spreadsheet backing this flow """
-        self.flowname = convert_flowname_to_googledb(flowname);
+        self.flowname = convert_flowname_to_db(flowname);
         username, password = self.get_credentials();
         sys.stdout.write("Logging into Google... ");
         self.client = DatabaseClient(username=username, password=password);
@@ -67,8 +67,8 @@ class GoogleDB(object):
         self.register_listener(rolename, stepname, Task, listener, status);
         
     def register_listener(self, rolename, stepname, flowDataCls, listener, status=None):
-        rolename = convert_rolename_to_googledb(rolename);
-        stepname = convert_stepname_to_googledb(stepname);
+        rolename = convert_rolename_to_db(rolename);
+        stepname = convert_stepname_to_db(stepname);
         if flowDataCls == Task:
             tablename = self.get_task_tablename(rolename, stepname);
         elif flowDataCls == Result:
