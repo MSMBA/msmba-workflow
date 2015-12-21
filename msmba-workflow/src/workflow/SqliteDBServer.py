@@ -28,10 +28,10 @@ class SqliteDBServer(object):
     
     def __init__(self):
         self.db = {} # Flowname to DB Connection
-        serverparams = get_serverparams()
+        serverparams = get_serverparams(alwayslocalhost=True)
         sys.stdout.write("Starting Server... ")
         # We always start the server on localhost at the given port.
-        self.server = SimpleXMLRPCServer(("localhost", int(serverparams.port)))
+        self.server = SimpleXMLRPCServer((serverparams.address, serverparams.port),allow_none=True)
         # All public methods of this class are registered
         self.server.register_instance(self) 
         # Create a thread to handle the requests
@@ -211,6 +211,7 @@ class SqliteDBServer(object):
 class _ServerThread(Thread):
     ''' Super simple thread that will execute the server'''
     def __init__(self, server):
+        Thread.__init__(self)
         self.server = server
     def run(self):
         self.server.serve_forever() # Internal server loop that handles requests

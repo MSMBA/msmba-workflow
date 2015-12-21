@@ -14,22 +14,28 @@ from collections import namedtuple;
 TableReference = namedtuple("TableReference", "rolename stepname flowDataCls") # Note flowDataCls is the CLASS not a String
 ServerParams = namedtuple("ServerParams", "address port");
 
-def get_serverparams():
-    """ Get the address where the server is located"""
+def get_serverparams(alwayslocalhost=False):
+    """ Get the address where the server is located.
+        alwayslocalhost: When True, address will always be localhost (appropriate for server, not client) 
+    """
     serverparamfile = "server.cfg";
     if os.path.exists(serverparamfile):
         config = ConfigParser.RawConfigParser();
         config.read(serverparamfile);
         address = config.get("Server", "Address");
-        port = config.get("Server", "Port");
+        port = int(config.get("Server", "Port"));
     else:
-        print("Please enter your backend server address...")
-        address = raw_input("Enter hostname or ip address (Enter for default): ");
-        if address == "":
-            address = 'localhost';
-        port = raw_input("Enter port (Enter for default): ");
+        if alwayslocalhost:
+            address = 'localhost'
+        else:
+            address = raw_input("Enter server hostname or ip address (Enter for default): ");
+            if address == "":
+                address = 'localhost';
+        port = raw_input("Enter server port number (Enter for default): ");
         if port == "":
             port = 9000;
+        else:
+            port = int(port)
         config = ConfigParser.RawConfigParser();
         config.add_section("Server");
         config.set("Server", "Address", address);

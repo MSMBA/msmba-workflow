@@ -34,7 +34,7 @@ class SqliteDBClient(object):
         serverparams = get_serverparams()
         sys.stdout.write("Connecting to server... ")
         self.rpcclient = self._create_client(serverparams)
-        print "Login Complete."
+        print "done."
         self.rpcclient.ensure_database_exists(self.flowname)
         self.tables = {} # TableReference -> _TableView
         self.all_table_listeners = []
@@ -141,7 +141,7 @@ class _TableView(object):
     
     def ensure_exists(self):
         """ Ensure the table exists in the DB """
-        sys.stdout.write('Checking for table ' + self.tableref +"... ")
+        sys.stdout.write('Checking for table ' + str(self.tableref) +"... ")
         self.rpcclient.ensure_table_exists(self.flowname, self.tableref)
         print "done."
     
@@ -149,7 +149,7 @@ class _TableView(object):
         """ Check that the columns are all present.  Can cache names so this is fast."""
         if len(set(fieldnames).difference(self.fields)) > 0: # Does it match the cache?
             # Cache miss, so update the db:
-            sys.stdout.write("Table " + self.tableref + " has new fields... ")
+            sys.stdout.write("Table " + str(self.tableref) + " has new fields... ")
             newfields = self.rpcclient.ensure_all_fields_present(self.flowname, self.tableref, fieldnames)
             print ", ".join(set(newfields).difference(self.fields))
             self.fields.update(newfields)
@@ -164,13 +164,13 @@ class _TableView(object):
     
     def add_row(self, flowData):
         """ Add the given row to the table."""
-        sys.stdout.write("Adding to " + self.tableref + ": " + flowData +"...")
+        sys.stdout.write("Adding to " + str(self.tableref) + ": " + flowData +"...")
         self.rpcclient.add_table_row(self.flowname, flowData)
         print "done."
     
     def update_row(self, uid, column, value):
         """ Update a given field in a given row."""
-        sys.stdout.write("Updating " + self.tableref + "[" + str(uid) + "] " + column + "<-"+ str(value)+"...")
+        sys.stdout.write("Updating " + str(self.tableref) + "[" + str(uid) + "] " + column + "<-"+ str(value)+"...")
         self.rpcclient.update_table_row(self.flowname, self.tableref, uid, column, value)
         print "done."
         

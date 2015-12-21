@@ -34,10 +34,10 @@ class Backend(object):
         dashboard specifies whether the dashboard should be displayed
         when this backend runs.  dashboard is set to TRUE by default.
         '''
-        self.flowname = flowname;
-        self.workflow = Workflow(flowname);
         if server:
             self.server = SqliteDBServer()
+        self.flowname = flowname;
+        self.workflow = Workflow(flowname);
         self.wire();
         if dashboard:
             self.dashboard = DashboardApplication(self.workflow);
