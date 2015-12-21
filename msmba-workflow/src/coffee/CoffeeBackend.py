@@ -10,6 +10,7 @@ from backend.backend import Backend
 from workflow.task import Task
 from workflow.result import Result 
 from workflow.flowData import Status
+from Coffee import theflowname
 
 class CoffeeBackend(Backend):
     '''
@@ -25,7 +26,7 @@ class CoffeeBackend(Backend):
    
     def __init__(self): 
         # Specify the workflow name:       
-        Backend.__init__(self, "WorkflowName")  # !!! be sure you update the workflow name
+        Backend.__init__(self, theflowname)  # !!! be sure you update the workflow name
 
     def wire(self):
         '''

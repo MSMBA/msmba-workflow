@@ -10,6 +10,7 @@ Defines the base class for the backend processor needed for any MWP application.
 
 from workflow.workflow import Workflow;
 from workflow.flowData import Status;
+from workflow.SqliteDBServer import SqliteDBServer
 from dashboard.dashboard import DashboardApplication;
 
 class Backend(object):
@@ -17,7 +18,7 @@ class Backend(object):
     Base class for backend processor.
     '''
 
-    def __init__(self, flowname, dashboard=True):
+    def __init__(self, flowname, dashboard=True, server=True):
         '''
         initializes the backend processor.
         
@@ -35,11 +36,13 @@ class Backend(object):
         '''
         self.flowname = flowname;
         self.workflow = Workflow(flowname);
+        if server:
+            self.server = SqliteDBServer()
         self.wire();
         if dashboard:
             self.dashboard = DashboardApplication(self.workflow);
             self.dashboard.MainLoop()
-
+ 
     def wire(self):
         '''
         The actual backend needs to define a wire method which should 

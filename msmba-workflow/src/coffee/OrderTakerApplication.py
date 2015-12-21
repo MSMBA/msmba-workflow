@@ -13,6 +13,7 @@ in CoffeeBackend.py and made your edits there.
 # use in this file.
 from frontend.roleApplication import RoleApplication
 from frontend.form import Type
+from Coffee import theflowname
 
 class OrderTakerApplication(RoleApplication):
     '''
@@ -29,7 +30,7 @@ class OrderTakerApplication(RoleApplication):
         '''
         # Declare this application to be part of a given workflow, and responsible for a given role:
         # !!! Modify the following to use the actual work flow name and role name you need...
-        super(OrderTakerApplication, self).__init__("WorkflowName", "RoleName") 
+        super(OrderTakerApplication, self).__init__(theflowname, "RoleName") 
         # Declare any tasks that this role is able to perform:
         # !!! Modify to use actual name for this task...
         self.register_source_step("TaskName", self.take_drink_order_form_creator) 

@@ -11,12 +11,12 @@ from backend.backend import Backend;
 from workflow.task import Task;
 from workflow.result import Result;
 from workflow.flowData import Status;
-from unique import UNIQUE;
+from Healthcare import theflowname
 
 class HealthcareBackend(Backend):
    
     def __init__(self): 
-        Backend.__init__(self, "Healthcare"+UNIQUE, dashboard=True);
+        Backend.__init__(self, theflowname, dashboard=True);
 
     def wire(self):
         self.register_result_listener("Reception", "PatientArrival", self.patient_arrival_complete)

@@ -79,7 +79,6 @@ class Workflow(object):
         self.go = False;
 
     def init_db(self, flowname):
-        #self.db = GoogleDB(flowname);
         self.db = SqliteDBClient(flowname);
         
     def poll(self):

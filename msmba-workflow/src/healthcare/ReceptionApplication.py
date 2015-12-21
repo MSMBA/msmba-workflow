@@ -9,13 +9,13 @@ Created on Dec 14, 2012
 
 from frontend.roleApplication import RoleApplication;
 from frontend.form import Type;
-from unique import UNIQUE;
+from Healthcare import theflowname
 
 class ReceptionApplication(RoleApplication):
     """ The Reception User Interface """
 
     def __init__(self):
-        super(ReceptionApplication, self).__init__("Healthcare"+UNIQUE, "Reception");
+        super(ReceptionApplication, self).__init__(theflowname, "Reception");
         self.register_source_step("PatientArrival", self.patient_arrival_form_creator);
 
     def patient_arrival_form_creator(self, stepname, form):

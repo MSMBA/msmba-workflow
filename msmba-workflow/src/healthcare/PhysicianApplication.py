@@ -9,13 +9,14 @@ Created on Dec 18, 2012
 
 from frontend.roleApplication import RoleApplication;
 from frontend.form import Type;
-from unique import UNIQUE;
+from Healthcare import theflowname
+
 
 class PhysicianApplication(RoleApplication):
     """ The Physician User Interface """
 
     def __init__(self):
-        super(PhysicianApplication, self).__init__("Healthcare"+UNIQUE, "Physician");
+        super(PhysicianApplication, self).__init__(theflowname, "Physician");
         self.register_transition_step("Examine", self.examine_form_creator, name_fields=["sequence", "FirstName", "LastName", "Birthday"]);
         self.register_transition_step("IsPrescriptionNeeded", self.is_prescription_needed_form_creator, name_fields=["sequence", "FirstName", "LastName", "Birthday", 'PrescriptionNumber']);
         self.register_transition_step("WritePrescription", self.write_prescription_form_creator, name_fields=["sequence", "FirstName", "LastName", "Birthday", 'PrescriptionNumber']);

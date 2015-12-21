@@ -9,13 +9,13 @@ Created on Dec 18, 2012
 
 from frontend.roleApplication import RoleApplication;
 from frontend.form import Type;
-from unique import UNIQUE;
+from Healthcare import theflowname
 
 class PhysicianAsstApplication(RoleApplication):
     """ The Billing User Interface """
 
     def __init__(self):
-        super(PhysicianAsstApplication, self).__init__("Healthcare"+UNIQUE, "Billing");
+        super(PhysicianAsstApplication, self).__init__(theflowname, "Billing");
         self.register_sink_step("BillInsurance", self.bill_insurance_form_creator, name_fields=["sequence", "FirstName", "LastName", "Birthday"], form_handler=self.insurance_form_handler);
 
     def bill_insurance_form_creator(self, stepname, form):

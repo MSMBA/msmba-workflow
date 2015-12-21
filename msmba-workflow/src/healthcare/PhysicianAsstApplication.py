@@ -9,13 +9,13 @@ Created on Dec 18, 2012
 
 from frontend.roleApplication import RoleApplication;
 from frontend.form import Type;
-from unique import UNIQUE
+from Healthcare import theflowname
 
 class PhysicianAsstApplication(RoleApplication):
     """ The PhysicianAsst User Interface """
 
     def __init__(self):
-        super(PhysicianAsstApplication, self).__init__("Healthcare"+UNIQUE, "PhysicianAsst");
+        super(PhysicianAsstApplication, self).__init__(theflowname, "PhysicianAsst");
         self.register_transition_step("Admit", self.patient_admit_form_creator, name_fields=["sequence", "FirstName", "LastName", "Birthday"]);
 
     def patient_admit_form_creator(self, stepname, form):
