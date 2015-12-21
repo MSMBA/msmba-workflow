@@ -9,7 +9,7 @@ Created on Dec 14, 2012
 
 from frontend.roleApplication import RoleApplication;
 from frontend.form import Type;
-from Healthcare import theflowname
+from HealthcareConstants import theflowname
 
 class ReceptionApplication(RoleApplication):
     """ The Reception User Interface """

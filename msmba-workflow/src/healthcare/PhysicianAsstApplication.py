@@ -9,7 +9,7 @@ Created on Dec 18, 2012
 
 from frontend.roleApplication import RoleApplication;
 from frontend.form import Type;
-from Healthcare import theflowname
+from HealthcareConstants import theflowname
 
 class PhysicianAsstApplication(RoleApplication):
     """ The PhysicianAsst User Interface """

@@ -11,7 +11,7 @@ from backend.backend import Backend;
 from workflow.task import Task;
 from workflow.result import Result;
 from workflow.flowData import Status;
-from Healthcare import theflowname
+from HealthcareConstants import theflowname
 
 class HealthcareBackend(Backend):
    

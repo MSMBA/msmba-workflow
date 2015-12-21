@@ -10,7 +10,7 @@ from backend.backend import Backend
 from workflow.task import Task
 from workflow.result import Result 
 from workflow.flowData import Status
-from Coffee import theflowname
+from CoffeeConstants import theflowname
 
 class CoffeeBackend(Backend):
     '''

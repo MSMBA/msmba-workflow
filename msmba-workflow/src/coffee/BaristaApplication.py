@@ -10,7 +10,7 @@ in CoffeeBackend.py and OrderTakerApplication.py and made your edits there.
 
 from frontend.roleApplication import RoleApplication
 from frontend.form import Type
-from Coffee import theflowname
+from CoffeeConstants import theflowname
 
 class BaristaApplication(RoleApplication):
     '''
