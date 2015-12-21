@@ -101,13 +101,13 @@ class SqliteDBClient(object):
         
     def _get_table_references(self):
         ''' Get the table references -- all of them in the DB, not just the cache. '''
-        self.rpcclient.get_table_references()
+        self.rpcclient.get_table_references(self.flowname)
     
     def poll(self):
         ''' Call this in the worker thread periodically.  All callbacks will occur within this context.'''
         for table in self.tables.values():
             try:
-                table.update();
+                table.poll();
             except Exception, e:
                 print "Exception updating table: " + str(type(e)) + ": " + str(e);
                 print traceback.format_exc();
@@ -135,7 +135,7 @@ class _TableView(object):
         self.flowname = flowname
         self.tableref = tableref
         self.listeners = [] # Tuples, (Status, Listener)
-        self.rows = [] # FlowData subclass
+        self.rows = {} # uid -> FlowData subclass
         self.fields = set() # Cached to reduce calls to ensure_all_fields_present
         self.ensure_exists()
     
@@ -154,13 +154,7 @@ class _TableView(object):
         """ Register a listener for the given status.  None means get all events"""
         self.listeners.append((status,listener))
         # Fire any existing rows against the listener:
-        if status == None:
-            updated = self.rows;
-        else:
-            updated= [];
-            for r in self.rows:
-                if r.status == status:
-                    updated.append(r);
+        updated = self._restrict(self.rows.values(), status)
         if len(updated) > 0:
             listener(updated);
     
@@ -171,3 +165,38 @@ class _TableView(object):
     def update_row(self, uid, column, value):
         """ Update a given field in a given row."""
         self.rpcclient.update_table_row(self.flowname, self.tableref, uid, column, value)
+        
+    def poll(self):
+        """ Update the table cache """
+        results = self.rpcclient.get_records(self.flowname, self.tableref)
+        if results == None or len(results) == 0:
+            return
+        updated = [];
+        for dbData in results:
+            cacheData = None;
+            if dbData.uid in self.rows:
+                cacheData = self.rows[dbData.uid];
+            if not dbData == cacheData:
+                self.rows[dbData.uid] = dbData;
+                updated.append(dbData);
+        if len(updated) > 0:
+            self._fire_updates(updated);
+            
+    def _fire_updates(self, updated):
+        for status, listener in self.listeners:
+            upd = self._restrict(updated, status);
+            if len(upd) > 0:
+                listener(upd);
+
+    @staticmethod                
+    def _restrict(rows, status=None):
+        ''' Return a list of only those rows with the given status'''
+        if status == None:
+            return rows
+        else:
+            ret = [];
+            for r in rows:
+                if r.status == status:
+                    ret.append(r);
+            return ret
+
