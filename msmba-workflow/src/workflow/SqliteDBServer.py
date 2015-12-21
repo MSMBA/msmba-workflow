@@ -12,8 +12,9 @@ from threading import Thread
 from SimpleXMLRPCServer import SimpleXMLRPCServer
 import sqlite3
 from contextlib import closing
+from collections import OrderedDict;
 
-from flowData import Status
+from flowData import Status, FlowDataReference;
 from task import Task
 from result import Result
 from SqliteDBUtils import TableReference, get_serverparams
@@ -44,6 +45,7 @@ class SqliteDBServer(object):
         ''' Stop the server.  (Note: available over the network)
             if join==True, then we join against the server thread to block until shutdown
         '''
+        sys.stdout.write("Stopping server... ")
         self.server.shutdown()
         self.server.server_close()
         for db in self.db.values():
@@ -51,6 +53,7 @@ class SqliteDBServer(object):
             db.close()        
         if join:
             self.thread.join()
+        print "done."
 
     def ensure_database_exists(self, flowname):
         ''' Make sure a database for the given flowname exists. '''
@@ -60,6 +63,7 @@ class SqliteDBServer(object):
     
     def get_table_references(self, flowname):
         ''' Get all the table references in the DB. '''
+        sys.stdout.write("Getting all tables... ")
         ret = set();
         with closing(self.db[flowname].cursor()) as c:
             # We can get all the table names with following SQL:
@@ -68,47 +72,122 @@ class SqliteDBServer(object):
                 ref = self._get_tableref(r.name);
                 if ref != None:
                     ret.add(ref);
+        print "done."
         return ret;
     
     def ensure_table_exists(self, flowname, tableref):
         """ Ensure the table exists in the DB """
+        sys.stdout.write('Ensuring existence of ' + tableref + "... ")
         with closing(self.db[flowname].cursor()) as c:
             tablename = self._get_tablename(tableref)
-            c.execute("CREATE TABLE IF NOT EXISTS ? ();", tablename)
+            c.execute("CREATE TABLE IF NOT EXISTS ? ();", (tablename,))
             c.commit()
-            print "Added table: " + tablename
-            
+        print "done."
+                    
     def ensure_all_fields_present(self, flowname, tableref, fieldnames):
         """ Update the table so that it definitely includes all the columns provided.
             Returns: the current set of field (column) names.
         """
+        sys.stdout.write('Ensuring existence of columns in' + tableref + "... ")
         fieldnames = set(fieldnames)
         with closing(self.db[flowname].cursor()) as c:
             # First get the existing names
             tablename = self._get_tablename(tableref)
-            c.execute("PRAGMA table_info(?);", tablename)
+            c.execute("PRAGMA table_info(?);", (tablename,))
             columns = set([r.name for r in c.fetchall()])
             # Now any names not already present need to be added:
             toadd =  fieldnames.difference(columns)
             for field in toadd:
-                c.execute("'ALTER TABLE ? ADD COLUMN ?;", tablename, field)
+                c.execute("'ALTER TABLE ? ADD COLUMN ?;", (tablename, field))
             c.commit()
-            print "Added columns: " + ", ".join(toadd)
+            if len(toadd) > 0:
+                print "Added columns: " + ", ".join(toadd)
+            else:
+                print "done."
         return columns.union(toadd)
 
     def add_table_row(self, flowname, flowData):
         """ Add the given row to the db """
-        pass
+        tableref = self._get_tableref_for_data(flowData)
+        tablename = self._get_tablename(tableref)
+        sys.stdout.write('Adding to ' + tableref + ": " +  str(flowData.sequence) + "." + str(flowData.uid) + "... ");
+        # First build up a dictionary of the values:
+        row = OrderedDict(flowData.data);
+        row['status'] = Status.reverse_mapping[flowData.status];
+        if flowData.sequence == None:
+            flowData.sequence = self._get_new_sequence(flowname, tableref);
+        row['sequence'] = flowData.sequence;
+        if flowData.parents == None:
+            row['parents'] = "";
+        else:
+            row['parents'] = ",".join([FlowDataReference.to_string(p) for p in flowData.parents]);
+        # Now run the insert:
+        with closing(self.db[flowname].cursor()) as c:
+            # Just build with some strings to make it easier, if not as secure...
+            columns = ",".join(row.keys())
+            slots = ",".join(["?"]*len(columns)) # Make comma separated '?'
+            c.execute("INSERT INTO " + tablename + " (" + columns + ") VALUES (" + slots + ");", row.values())
+            c.commit()
+        print "done.";
 
     def update_table_row(self, flowname, tableref, uid, column, value):
         """ Update the given row/column in the DB """
-        pass
+        sys.stdout.write('Updating ' + tableref + " (" +  str(uid) + ") " + column + "<-" + str(value) + "... ")
+        tablename = self._get_tablename(tableref)
+        with closing(self.db[flowname].cursor()) as c:
+            c.execute("UPDATE ? SET ? = ? where uid = ?;",(tablename, column, value, uid))
+            c.commit()
+        print "done."
 
     def get_records(self, flowname, tableref):
         """ Get the records for the table """
-        pass
+        sys.stdout.write('Getting rows for ' + tableref + "... ")
+        tablename = self._get_tablename(tableref)
+        ret = []
+        with closing(self.db[flowname].cursor()) as c:
+            c.execute("select rowid, * from ?;",(tablename, ))
+            for r in c.fetchall():
+                data = self.create_flow_data(flowname, tableref, r)
+                if data != None:
+                    ret.append(data)
+        print "done."
+        return ret
 
 # Private
+
+    def _get_new_sequence(self, flowname, tableref):
+        sys.stdout.write('Obtain new sequence for ' + tableref + "... ")
+        with closing(self.db[flowname].cursor()) as c:
+            tablename = self._get_tablename(tableref)
+            c.execute("SELECT sequence FROM ? ORDER BY sequence DESC LIMIT 1;", (tablename,))
+            seq = c.fetchone()
+            if seq == None:
+                nseq = 1
+            else:
+                nseq = seq + 1
+        print "done."
+        return nseq
+
+    def create_flow_data(self, flowname, tableref, result):
+        #Hack to attempt to prevent race conditions:
+        if 'status' not in result:
+            return None;        
+        status = result['status'];
+        status = Status.__dict__[status]; #Convert to numeric
+        sequence = (int)(result['sequence']);
+        if 'parents' in result and result['parents'] != "" and result['parents']!=None:
+            parents = result['parents'].split(",");
+        else:
+            parents = None;
+        data = OrderedDict();
+        for field in result:
+            if field != 'status' and field != 'sequence' and field != 'parents':
+                data[field] = result[field];
+        uid = result['rowid'];
+        return tableref.flowDataCls(flowname, tableref.rolename, tableref.stepname, data, sequence, status, uid, parents);
+
+    def _get_tableref_for_data(self, flowData):
+        return TableReference(rolename=flowData.rolename, stepname=flowData.stepname, flowDataCls=flowData.__class__);
 
     def _get_tablename(self, tableref):
         if tableref.flowDataCls == Task:
@@ -119,8 +198,8 @@ class SqliteDBServer(object):
             raise Exception("Unknown flowData: " + str(tableref.flowDataCls));
         return tablename
     
-    def _get_tableref(self, string):
-        s = string.split("_");
+    def _get_tableref(self, tablename):
+        s = tablename.split("_");
         if s[0] == "R":
             flowDataCls = Result;
         elif s[0] == "T":
