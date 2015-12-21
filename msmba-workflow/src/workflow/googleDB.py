@@ -19,7 +19,7 @@ from flowData import FlowDataReference;
 from googleDBView import GoogleDBView;
 from result import Result;
 from task import Task;
-from joinedListener import JoinedListener;
+from googleJoinedListener import GoogleJoinedListener;
 from collections import namedtuple;
 from allTableListener import AllTableListener;
 import traceback;
@@ -89,7 +89,7 @@ class GoogleDB(object):
         predicate: a function, that takes a set of results obtained so far.  return True iff the set is complete and the event should fire.
         listener: the function to fire.  it takes a list of the results.
         '''
-        JoinedListener(self, listenlist, predicate, listener);
+        GoogleJoinedListener(self, listenlist, predicate, listener);
         
     def register_all_table_listener(self, listener, status=None):
         ''' register a listener on all the tables. '''

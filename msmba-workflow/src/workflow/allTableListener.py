@@ -12,7 +12,6 @@ class AllTableListener(object):
     Class that ensures the supplied listener is always registered on all tables.
     '''
 
-
     def __init__(self, db, listener, status):
         self.db = db;
         self.listener = listener;

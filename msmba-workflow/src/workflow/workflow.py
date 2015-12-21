@@ -7,13 +7,14 @@ Created on Dec 13, 2012
 @author: blubin
 '''
 
-from googleDB import GoogleDB;
+#from googleDB import GoogleDB;
+from SqliteDBClient import SqliteDBClient
 from threading import Thread;
 from Queue import Queue;
 from Queue import Empty;
 
 class Workflow(object):
-    """ Represents the workflow.  Handles threading, so the GoogleDB operates in its own thread."""
+    """ Represents the workflow.  Handles threading, so the Database Operations occur in their own thread."""
 
     def __init__(self, flowname):
         self.flowname = flowname;
@@ -78,7 +79,8 @@ class Workflow(object):
         self.go = False;
 
     def init_db(self, flowname):
-        self.db = GoogleDB(flowname);
-    
+        #self.db = GoogleDB(flowname);
+        self.db = SqliteDBClient(flowname);
+        
     def poll(self):
         self.db.poll(); 

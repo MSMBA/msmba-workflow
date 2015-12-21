@@ -11,13 +11,13 @@ from flowData import Status;
 from util import convert_rolename_to_googledb;
 from util import convert_stepname_to_googledb;
 
-class JoinedListener(object):
+class GoogleJoinedListener(object):
     '''
     Listen to one or more result tables, and fires when predicate says so.  
     Note: bins by 'sequence' field; you only get results associated with the same sequence number 
     '''
 
-    def __init__(self, dbclient, listenlist, predicate, listener):
+    def __init__(self, googleDB, listenlist, predicate, listener):
         '''
         Arguments:
         googleDB, the db to attach to.
@@ -36,7 +36,7 @@ class JoinedListener(object):
                 status = t[3];
             else:
                 status = Status.NEW;
-            dbclient.register_listener(rolename, stepname, flowDataCls, self.handler, status);
+            googleDB.register_listener(rolename, stepname, flowDataCls, self.handler, status);
     
     def handler(self, data):
         sequences = self.add_data(data);
