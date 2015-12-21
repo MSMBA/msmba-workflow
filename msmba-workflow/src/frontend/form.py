@@ -21,7 +21,7 @@ from wax.tools.spinboxdouble import SpinBoxDouble;
 from wax.tools.datepicker import DatePicker;
 from wax.htmlwindow import HTMLWindow;
 from collections import OrderedDict;
-from workflow.util import convert_fieldname_to_googledb;
+from workflow.util import convert_fieldname_to_db;
 from workflow.util import enum;
 
 Type = enum('SHORTSTRING', 'LONGSTRING', 'INTEGER', 'FLOAT', 'CURRENCY', 'DATE', 'BOOLEAN', 'CHOICE');
@@ -35,7 +35,7 @@ def default_title_renderer(task, fields):
 
 def default_fields_renderer(task, fields):
     s = "<table border=1 padding=1>";
-    cfields = [convert_fieldname_to_googledb(f) for f in fields];
+    cfields = [convert_fieldname_to_db(f) for f in fields];
     count = 0;
     numcols=3;
     if not len(cfields) == len(task.data.keys()):
@@ -101,7 +101,7 @@ class Form(ScrollPanel):
             labeltext = fieldname;
         
         # Ensure the field matches the database exactly:
-        fieldname = convert_fieldname_to_googledb(fieldname);
+        fieldname = convert_fieldname_to_db(fieldname);
         
         label = Label(fieldPanel, labeltext, size = (100, 20), noresize=1);
         fieldPanel.AddComponent(label);

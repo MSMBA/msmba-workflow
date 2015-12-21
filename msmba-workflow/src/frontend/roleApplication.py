@@ -12,8 +12,8 @@ from roleFrame import RoleFrame;
 from workflow.workflow import Workflow;
 from workflow.result import Result;
 from workflow.flowData import Status;
-from workflow.util import convert_rolename_to_googledb;
-from workflow.util import convert_stepname_to_googledb;
+from workflow.util import convert_rolename_to_db;
+from workflow.util import convert_stepname_to_db;
 
 class RoleApplication(Application):
     '''
@@ -24,7 +24,7 @@ class RoleApplication(Application):
         title = flowname + ": " + rolename;
         super(RoleApplication, self).__init__(RoleFrame, title=title);
         self.flowname = flowname;
-        rolename = convert_rolename_to_googledb(rolename);
+        rolename = convert_rolename_to_db(rolename);
         self.rolename = rolename;
         self.mainframe.set_flow_name(flowname);
         self.mainframe.set_role_name(rolename);
@@ -32,19 +32,19 @@ class RoleApplication(Application):
         self.mainframe.set_workflow(self.workflow);
 
     def register_source_step(self, stepname, form_creator, form_handler=None):
-        stepname = convert_stepname_to_googledb(stepname);
+        stepname = convert_stepname_to_db(stepname);
         if form_handler == None:
             form_handler = self.default_form_handler;
         self.mainframe.register_source_step(stepname, form_creator, form_handler);
 
     def register_sink_step(self, stepname, form_creator, form_handler=None, name_fields=["sequence"]):
-        stepname = convert_stepname_to_googledb(stepname);
+        stepname = convert_stepname_to_db(stepname);
         if form_handler == None:
             form_handler = self.default_sink_form_handler;
         self.mainframe.register_transition_step(stepname, form_creator, form_handler, name_fields);
             
     def register_transition_step(self, stepname, form_creator, form_handler=None, name_fields=["sequence"]):
-        stepname = convert_stepname_to_googledb(stepname);
+        stepname = convert_stepname_to_db(stepname);
         if form_handler == None:
             form_handler = self.default_form_handler;
         self.mainframe.register_transition_step(stepname, form_creator, form_handler, name_fields);

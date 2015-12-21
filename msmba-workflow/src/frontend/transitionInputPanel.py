@@ -12,7 +12,7 @@ from wax import Panel;
 from wax import ListBox;
 from inputPanel import InputPanel;
 from workflow.flowData import Status;
-from workflow.util import convert_fieldname_to_googledb;
+from workflow.util import convert_fieldname_to_db;
 
 class TransitionInputPanel(InputPanel, Panel):
 
@@ -87,7 +87,7 @@ class TransitionInputPanel(InputPanel, Panel):
             elif fn == "status":
                 s = Status.reverse_mapping[flowObj.status];
             else:
-                fn = convert_fieldname_to_googledb(fn);
+                fn = convert_fieldname_to_db(fn);
                 s = flowObj.data[fn];
             label += str(s) + " ";
         return label;
