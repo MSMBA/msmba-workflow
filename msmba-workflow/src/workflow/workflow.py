@@ -8,10 +8,10 @@ Created on Dec 13, 2012
 '''
 
 #from googleDB import GoogleDB;
-from SqliteDBClient import SqliteDBClient
+import sys
 from threading import Thread;
-from Queue import Queue;
-from Queue import Empty;
+from Queue import Queue, Empty;
+from SqliteDBClient import SqliteDBClient
 
 class Workflow(object):
     """ Represents the workflow.  Handles threading, so the Database Operations occur in their own thread."""
@@ -82,4 +82,5 @@ class Workflow(object):
         self.db = SqliteDBClient(flowname);
         
     def poll(self):
+        sys.stdout.write('.')
         self.db.poll(); 

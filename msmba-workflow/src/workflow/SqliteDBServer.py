@@ -9,13 +9,13 @@ Created on Dec 14, 2012
 
 import sys
 from threading import Thread
-from SimpleXMLRPCServer import SimpleXMLRPCServer
+from SimpleXMLRPCServer import SimpleXMLRPCServer, SimpleXMLRPCRequestHandler
 import sqlite3
 from contextlib import closing
 from collections import OrderedDict;
 from xmlrpclib import Binary
 import cPickle as pickle
-
+import traceback
 
 from flowData import Status, FlowDataReference;
 from task import Task
@@ -29,15 +29,18 @@ class SqliteDBServer(object):
     All public methods of this class are made available over the network.
     '''
     
+    ''' Should loggin happen server side '''
+    verbose = False
+    
     def __init__(self):
         self.db = {} # Flowname to DB Connection
         serverparams = get_serverparams(alwayslocalhost=True)
-        sys.stdout.write("Starting Server... ")
+        self._log("Starting Server... ")
         self.server = self._create_server(serverparams)
         # Create a thread to handle the requests
         self.thread = _ServerThread(self.server.xmlserver)
         self.thread.start()
-        print "done."
+        self._logln("done.")
         
 # Public
     
@@ -45,7 +48,7 @@ class SqliteDBServer(object):
         ''' Stop the server.  (Note: available over the network)
             if join==True, then we join against the server thread to block until shutdown
         '''
-        sys.stdout.write("Stopping server... ")
+        self._log("Stopping server... ")
         self.server.shutdown()
         self.server.server_close()
         for db in self.db.values():
@@ -53,65 +56,65 @@ class SqliteDBServer(object):
             db.close()        
         if join:
             self.thread.join()
-        print "done."
+        self._logln("done.")
 
     def ensure_database_exists(self, flowname):
         ''' Make sure a database for the given flowname exists. '''
         if not flowname in self.db:
             self.db[flowname] = sqlite3.connect(flowname+".db") 
+            self.db[flowname].row_factory = sqlite3.Row # Let us look up row entries by name
             print "Opened DB file: " + flowname + ".db"
     
     def get_table_references(self, flowname):
         ''' Get all the table references in the DB. '''
-        sys.stdout.write("Getting all tables... ")
+        self._log("Getting all tables... ")
         ret = set();
         with closing(self.db[flowname].cursor()) as c:
             # We can get all the table names with following SQL:
             c.execute("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;")
             for r in c.fetchall():
-                ref = self._get_tableref(r[0]);
+                ref = self._get_tableref(r['name'].encode('ascii'));
                 if ref != None:
                     ret.add(ref);
-        print "done."
+        self._logln("done.")
         return ret;
     
     def ensure_table_exists(self, flowname, tableref):
         """ Ensure the table exists in the DB """
-        sys.stdout.write('Ensuring existence of ' + str(tableref) + "... ")
+        self._log('Ensuring existence of ' + str(tableref) + "... ")
         with closing(self.db[flowname].cursor()) as c:
             tablename = self._get_tablename(tableref)
             # Can't do tablename with parameter...
-            c.execute("CREATE TABLE IF NOT EXISTS "+tablename+"(sequence INT, status INT);") 
+            c.execute("CREATE TABLE IF NOT EXISTS "+tablename+"(sequence INT, status INT, parents TEXT);") 
             self.db[flowname].commit()
-        print "done."
+        self._logln("done.")
                     
     def ensure_all_fields_present(self, flowname, tableref, fieldnames):
         """ Update the table so that it definitely includes all the columns provided.
             Returns: the current set of field (column) names.
         """
-        sys.stdout.write('Ensuring existence of columns in' + str(tableref) + "... ")
+        self._log('Ensuring existence of columns in' + str(tableref) + "... ")
         fieldnames = set(fieldnames)
         with closing(self.db[flowname].cursor()) as c:
             # First get the existing names
             tablename = self._get_tablename(tableref)
-            c.execute("PRAGMA table_info(?);", (tablename,))
-            columns = set([r.name for r in c.fetchall()])
+            c.execute("PRAGMA table_info(" + tablename + ");")
+            columns = set([r['name'].encode('ascii') for r in c.fetchall()])
             # Now any names not already present need to be added:
             toadd =  fieldnames.difference(columns)
             for field in toadd:
-                c.execute("'ALTER TABLE ? ADD COLUMN ?;", (tablename, field))
-            c.commit()
+                c.execute("ALTER TABLE " + tablename + " ADD COLUMN " + field + ";")
             if len(toadd) > 0:
-                print "Added columns: " + ", ".join(toadd)
+                self._logln("Added columns: " + ", ".join(toadd))
             else:
-                print "done."
+                self._logln("done.")
         return columns.union(toadd)
 
     def add_table_row(self, flowname, flowData):
         """ Add the given row to the db """
         tableref = self._get_tableref_for_data(flowData)
         tablename = self._get_tablename(tableref)
-        sys.stdout.write('Adding to ' + str(tableref) + ": " +  str(flowData.sequence) + "." + str(flowData.uid) + "... ");
+        self._log('Adding to ' + str(tableref) + ": " +  str(flowData.sequence) + "." + str(flowData.uid) + "... ");
         # First build up a dictionary of the values:
         row = OrderedDict(flowData.data);
         row['status'] = Status.reverse_mapping[flowData.status];
@@ -126,23 +129,23 @@ class SqliteDBServer(object):
         with closing(self.db[flowname].cursor()) as c:
             # Just build with some strings to make it easier, if not as secure...
             columns = ",".join(row.keys())
-            slots = ",".join(["?"]*len(columns)) # Make comma separated '?'
+            slots = ",".join(["?"]*len(row.keys())) # Make comma separated '?'
             c.execute("INSERT INTO " + tablename + " (" + columns + ") VALUES (" + slots + ");", row.values())
-            c.commit()
-        print "done.";
+            self.db[flowname].commit()
+        self._logln("done.");
 
     def update_table_row(self, flowname, tableref, uid, column, value):
         """ Update the given row/column in the DB """
-        sys.stdout.write('Updating ' + str(tableref) + " (" +  str(uid) + ") " + column + "<-" + str(value) + "... ")
+        self._log('Updating ' + str(tableref) + " (" +  str(uid) + ") " + column + "<-" + str(value) + "... ")
         tablename = self._get_tablename(tableref)
         with closing(self.db[flowname].cursor()) as c:
-            c.execute("UPDATE ? SET ? = ? where uid = ?;",(tablename, column, value, uid))
-            c.commit()
-        print "done."
+            c.execute("UPDATE " +tablename +" SET " + column +" = ? where rowid = ?;",(value, uid))
+            self.db[flowname].commit()
+        self._logln("done.")
 
     def get_records(self, flowname, tableref):
         """ Get the records for the table """
-        sys.stdout.write('Getting rows for ' + str(tableref) + "... ")
+        self._log('Getting rows for ' + str(tableref) + "... ")
         tablename = self._get_tablename(tableref)
         ret = []
         with closing(self.db[flowname].cursor()) as c:
@@ -151,41 +154,54 @@ class SqliteDBServer(object):
                 data = self.create_flow_data(flowname, tableref, r)
                 if data != None:
                     ret.append(data)
-        print "done."
+        self._logln("done.")
         return ret
 
 # Private
 
+    def _log(self, msg):
+        if SqliteDBServer.verbose:
+            sys.stdout.write(msg)
+
+    def _logln(self, msg):
+        self._log(msg+"\n")
+
     def _get_new_sequence(self, flowname, tableref):
-        sys.stdout.write('Obtain new sequence for ' + str(tableref) + "... ")
+        self._log('Obtain new sequence for ' + str(tableref) + "... ")
         with closing(self.db[flowname].cursor()) as c:
             tablename = self._get_tablename(tableref)
-            c.execute("SELECT sequence FROM ? ORDER BY sequence DESC LIMIT 1;", (tablename,))
+            c.execute("SELECT sequence FROM " + tablename + " ORDER BY sequence DESC LIMIT 1;")
             seq = c.fetchone()
             if seq == None:
                 nseq = 1
             else:
-                nseq = seq + 1
-        print "done."
+                nseq = seq[0] + 1
+        self._logln("done.")
         return nseq
 
     def create_flow_data(self, flowname, tableref, result):
         #Hack to attempt to prevent race conditions:
-        if 'status' not in result:
+        if 'status' not in result.keys():
             return None;        
-        status = result['status'];
+        status = result['status'].encode('ascii');
         status = Status.__dict__[status]; #Convert to numeric
         sequence = (int)(result['sequence']);
         if 'parents' in result and result['parents'] != "" and result['parents']!=None:
-            parents = result['parents'].split(",");
+            parents = result['parents'].encode('ascii').split(",");
         else:
             parents = None;
         data = OrderedDict();
-        for field in result:
+        for field in result.keys():
             if field != 'status' and field != 'sequence' and field != 'parents':
                 data[field] = result[field];
-        uid = result['rowid'];
-        return tableref.flowDataCls(flowname, tableref.rolename, tableref.stepname, data, sequence, status, uid, parents);
+                if isinstance(data[field], str):
+                    data[field] = data[field].encode('ascii')
+        if result['rowid'] == None:
+            uid = None
+        else:
+            uid = int(result['rowid']);
+        flowData = tableref.flowDataCls(flowname, tableref.rolename, tableref.stepname, data, sequence, status, uid, parents);
+        return flowData
 
     def _get_tableref_for_data(self, flowData):
         return TableReference(rolename=flowData.rolename, stepname=flowData.stepname, flowDataCls=flowData.__class__);
@@ -222,17 +238,18 @@ class SqliteDBServer(object):
             def __init__(self, serverparams, instance):
                 # We always start the server on localhost at the given port.
                 self.xmlserver = SimpleXMLRPCServer((serverparams.address, serverparams.port),\
+                                                    _ExceptionThrowingXMLRPCRequestHandler,\
                                                     allow_none=True,\
                                                     logRequests=False)
                 # All public methods of this class are registered
                 self.xmlserver.register_instance(self) 
-                self.instance = instance
+                self.proxiedinstance = instance
             
             def __getattr__(self, attr):
                 # This only gets called for attributes that haven't been defined.
                 # If this happens, try to get the attribute from the xmlproxy instead.
-                if hasattr(self.instance, attr):
-                    return getattr(self.instance, attr)
+                if hasattr(self.proxiedinstance, attr):
+                    return getattr(self.proxiedinstance, attr)
                 else:
                     # If its not defined either in this class, or in the proxy class, then its an error
                     raise AttributeError(attr)
@@ -248,21 +265,38 @@ class SqliteDBServer(object):
             # Define any methods that need marshalling/unmarshelling here.
             
             def ensure_table_exists(self, flowname, BINtableref):
-                self.instance.ensure_table_exists(flowname, self.from_bin(BINtableref))
+                self.proxiedinstance.ensure_table_exists(flowname, self.from_bin(BINtableref))
 
             def get_records(self, flowname, BINtableref):
-                ret = self.instance.get_records(flowname, self.from_bin(BINtableref))
+                ret = self.proxiedinstance.get_records(flowname, self.from_bin(BINtableref))
                 return self.to_bin(ret)
             
             def get_table_references(self, flowname):
-                ret = self.instance.get_table_references(flowname)
+                ret = self.proxiedinstance.get_table_references(flowname)
+                return self.to_bin(ret)
+            
+            def ensure_all_fields_present(self, flowname, BINtableref, BINfieldnames):
+                ret = self.proxiedinstance.ensure_all_fields_present(flowname, self.from_bin(BINtableref), self.from_bin(BINfieldnames))
                 return self.to_bin(ret)
 
+            def add_table_row(self, flowname, BINflowData):
+                self.proxiedinstance.add_table_row(flowname, self.from_bin(BINflowData))
+
+            def update_table_row(self, flowname, BINtableref, uid, column, value):
+                self.proxiedinstance.update_table_row(flowname, self.from_bin(BINtableref), uid, column, value)
+                
         return ServerWrapper(serverparams, self) #The SqliteDBServer will be the instance to delegate to
 
-        
-
-    
+class _ExceptionThrowingXMLRPCRequestHandler(SimpleXMLRPCRequestHandler):
+    """ A XMLRPC Handler that raises appropriate exceptions. """
+    def _dispatch(self, method, params):
+        try: 
+            func = getattr(self.server.instance, method)
+            return func(*params)
+        except:
+            traceback.print_exc()
+            raise    
+         
 class _ServerThread(Thread):
     ''' Super simple thread that will execute the server'''
     def __init__(self, server):

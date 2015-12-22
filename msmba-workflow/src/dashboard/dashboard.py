@@ -16,6 +16,7 @@ from grandalfCanvas import GrandalfCanvas;
 from workflow.workflow import Workflow;
 from workflow.flowData import Status;
 from workflow.flowData import FlowDataReference;
+
 from workflow.result import Result;
 from workflow.task import Task;
 from workflow.util import enum;
@@ -77,13 +78,14 @@ class Node(object):
         if self.task == None:
             return [];
         ret = [];
-        for resultref in self.task.parents:
-            result = cache.get_data(resultref);
-            if result != None:
-                if result.parents == None or len(result.parents)==0:
-                    ret.append(FlowDataReference.from_flow_data(result));
-                else:
-                    ret.extend(result.parents);
+        if self.task.parents != None:
+            for resultref in self.task.parents:
+                result = cache.get_data(resultref);
+                if result != None:
+                    if result.parents == None or len(result.parents)==0:
+                        ret.append(FlowDataReference.from_flow_data(result));
+                    else:
+                        ret.extend(result.parents);
         return ret;
 
 class StepCache(object):
@@ -271,7 +273,7 @@ class DashboardFrame(Frame):
             return (200, 200, 200);
 
     def get_name(self, ref):
-        return ref.rolename + ":" + ref.stepname + "(" + ref.uid +")";
+        return ref.rolename + ":" + ref.stepname + "(" + str(ref.uid) +")";
 
     def OnClose(self, event):
         self.workflow.terminate();

@@ -12,7 +12,7 @@ from xmlrpclib import ServerProxy, Binary
 import traceback;
 import cPickle as pickle
 
-from flowData import Status
+from flowData import Status, FlowDataReference;
 from task import Task
 from result import Result
 from joinedListener import JoinedListener
@@ -90,7 +90,7 @@ class SqliteDBClient(object):
             '''
             def __init__(self, serverparams):
                 url = "http://"+serverparams.address + ":" + str(serverparams.port)
-                self.xmlproxy = ServerProxy(url) # The xmlrpc client itself
+                self.xmlproxy = ServerProxy(url, allow_none=True) # The xmlrpc client itself
             
             def __getattr__(self, attr):
                 # This only gets called for attributes that haven't been defined.
@@ -122,6 +122,16 @@ class SqliteDBClient(object):
                 ret = self.xmlproxy.get_table_references(flowname)
                 return self.from_bin(ret)
             
+            def ensure_all_fields_present(self, flowname, tableref, fieldnames):
+                ret = self.xmlproxy.ensure_all_fields_present(flowname, self.to_bin(tableref), self.to_bin(fieldnames))
+                return self.from_bin(ret)
+
+            def add_table_row(self, flowname, flowData):
+                return self.xmlproxy.add_table_row(flowname, self.to_bin(flowData))
+            
+            def update_table_row(self, flowname, tableref, uid, column, value):
+                self.xmlproxy.update_table_row(flowname, self.to_bin(tableref), uid, column, value)
+                
         return ProxyWrapper(serverparams)
 
     def _get_table_flowdata(self, flowData):
@@ -205,7 +215,7 @@ class _TableView(object):
     
     def add_row(self, flowData):
         """ Add the given row to the table."""
-        sys.stdout.write("Adding to " + str(self.tableref) + ": " + flowData +"...")
+        sys.stdout.write("Adding to " + str(self.tableref) + ": " + str(flowData) +"...")
         self.rpcclient.add_table_row(self.flowname, flowData)
         print "done."
     

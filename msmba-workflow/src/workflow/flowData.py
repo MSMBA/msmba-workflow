@@ -21,23 +21,26 @@ FlowDataReferenceT = namedtuple("FlowDataReference", "rolename stepname type uid
 
 class FlowDataReference(FlowDataReferenceT):
     
+    def __init__(self, **kwargs):
+        FlowDataReferenceT.__init__(self, **kwargs)
+    
     @classmethod
     def to_string(cls, ref):
         if isinstance(ref, str):
             #Assume the string is already ok:
             return ref;
-        return ref.rolename + "|" + ref.stepname + "|" + ref.type+ "|" + ref.uid;
+        return ref.rolename + "|" + ref.stepname + "|" + ref.type+ "|" + str(ref.uid);
 
     @classmethod
     def from_string(cls, string):
         splits = string.split("|");
         if len(splits) != 4:
             raise Exception("Incorrect format: " + string);
-        return FlowDataReferenceT(rolename = splits[0], stepname = splits[1], type = splits[2], uid = splits[3]);
+        return FlowDataReference(rolename = splits[0], stepname = splits[1], type = splits[2], uid = splits[3]);
 
     @classmethod
     def from_flow_data(cls, flowData):
-        return FlowDataReferenceT(rolename = flowData.rolename, stepname = flowData.stepname, type = flowData.__class__.__name__, uid = flowData.uid);
+        return FlowDataReference(rolename = flowData.rolename, stepname = flowData.stepname, type = flowData.__class__.__name__, uid = flowData.uid);
  
     @classmethod
     def from_unknown(cls, p):
@@ -151,7 +154,7 @@ class FlowData(object):
             uid = "None";
         else:
             uid = self.uid;
-        s = s + uid;
+        s = s + str(uid);
         if self.parents == None:
             pstr = "";
         else:
