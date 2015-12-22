@@ -18,6 +18,7 @@ from result import Result
 from joinedListener import JoinedListener
 from allTableListener import AllTableListener
 from SqliteDBUtils import TableReference, get_serverparams
+from socket import error as socket_error
 
 class SqliteDBClient(object):
     '''
@@ -33,15 +34,18 @@ class SqliteDBClient(object):
         """ flowname is the database file backing this flow """
         self.flowname = flowname
         serverparams = get_serverparams()
-        sys.stdout.write("Connecting to server... ")
-        self.rpcclient = self._create_client(serverparams)
-        print "done."
-        self.rpcclient.ensure_database_exists(self.flowname)
         self.tables = {} # TableReference -> _TableView
         self.all_table_listeners = []
-        self.poll_count = 0
+        self.poll_count = 0        
+        self.rpcclient = self._create_client(serverparams)
         
 # PUBLIC
+    
+    def connect(self):
+        ''' Actually connect to the database '''
+        sys.stdout.write("Connecting to server... ")
+        self.rpcclient.ensure_database_exists(self.flowname)
+        print "done."
     
     def add(self, flowData):
         table = self._get_table_flowdata(flowData)
@@ -159,6 +163,8 @@ class SqliteDBClient(object):
         for table in self.tables.values():
             try:
                 table.poll();
+            except socket_error as serr:
+                raise serr
             except Exception, e:
                 print "Exception updating table: " + str(type(e)) + ": " + str(e);
                 print traceback.format_exc();
@@ -168,6 +174,8 @@ class SqliteDBClient(object):
             for listener in self.all_table_listeners:
                 try:
                     listener.poll(tablerefs);
+                except socket_error as serr:
+                    raise serr
                 except Exception, e:
                     print "Exception updating all table listener: " + str(type(e)) + ": " + str(e);
                     print traceback.format_exc();

@@ -12,6 +12,7 @@ import sys
 from threading import Thread;
 from Queue import Queue, Empty;
 from SqliteDBClient import SqliteDBClient
+from socket import error as socket_error
 
 class Workflow(object):
     """ Represents the workflow.  Handles threading, so the Database Operations occur in their own thread."""
@@ -20,6 +21,7 @@ class Workflow(object):
         self.flowname = flowname;
         self.queue = Queue();
         self.go = True;
+        self.db = None
         self.thread = Thread(target=self.work);
         self.thread.start();
         self.queue.put(lambda: self.init_db(flowname));
@@ -71,15 +73,24 @@ class Workflow(object):
                 call = self.queue.get(timeout=1);
                 call();
                 self.queue.task_done();
+            except socket_error as serr:
+                sys.stderr.write('Cannot connect to backend: ' + str(serr) +"\n")
+                self.queue.task_done();
+                self.queue.put(call) # This should be a pushback, but Queue doesn't support it
             except Empty:
-                self.poll();
+                try:
+                    self.poll();
+                except socket_error as serr:
+                    sys.stderr.write('Cannot connect to backend: ' + str(serr) +"\n")
         print "Database Thread Ended."
 
     def terminate(self):
         self.go = False;
 
     def init_db(self, flowname):
-        self.db = SqliteDBClient(flowname);
+        if self.db == None:
+            self.db = SqliteDBClient(flowname);
+        self.db.connect()
         
     def poll(self):
         sys.stdout.write('.')
