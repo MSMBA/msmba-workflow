@@ -69,7 +69,7 @@ class SqliteDBServer(object):
             # We can get all the table names with following SQL:
             c.execute("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;")
             for r in c.fetchall():
-                ref = self._get_tableref(r.name);
+                ref = self._get_tableref(r[0]);
                 if ref != None:
                     ret.add(ref);
         print "done."
@@ -89,7 +89,7 @@ class SqliteDBServer(object):
         """ Update the table so that it definitely includes all the columns provided.
             Returns: the current set of field (column) names.
         """
-        sys.stdout.write('Ensuring existence of columns in' + tableref + "... ")
+        sys.stdout.write('Ensuring existence of columns in' + str(tableref) + "... ")
         fieldnames = set(fieldnames)
         with closing(self.db[flowname].cursor()) as c:
             # First get the existing names
@@ -111,7 +111,7 @@ class SqliteDBServer(object):
         """ Add the given row to the db """
         tableref = self._get_tableref_for_data(flowData)
         tablename = self._get_tablename(tableref)
-        sys.stdout.write('Adding to ' + tableref + ": " +  str(flowData.sequence) + "." + str(flowData.uid) + "... ");
+        sys.stdout.write('Adding to ' + str(tableref) + ": " +  str(flowData.sequence) + "." + str(flowData.uid) + "... ");
         # First build up a dictionary of the values:
         row = OrderedDict(flowData.data);
         row['status'] = Status.reverse_mapping[flowData.status];
@@ -133,7 +133,7 @@ class SqliteDBServer(object):
 
     def update_table_row(self, flowname, tableref, uid, column, value):
         """ Update the given row/column in the DB """
-        sys.stdout.write('Updating ' + tableref + " (" +  str(uid) + ") " + column + "<-" + str(value) + "... ")
+        sys.stdout.write('Updating ' + str(tableref) + " (" +  str(uid) + ") " + column + "<-" + str(value) + "... ")
         tablename = self._get_tablename(tableref)
         with closing(self.db[flowname].cursor()) as c:
             c.execute("UPDATE ? SET ? = ? where uid = ?;",(tablename, column, value, uid))
@@ -142,11 +142,11 @@ class SqliteDBServer(object):
 
     def get_records(self, flowname, tableref):
         """ Get the records for the table """
-        sys.stdout.write('Getting rows for ' + tableref + "... ")
+        sys.stdout.write('Getting rows for ' + str(tableref) + "... ")
         tablename = self._get_tablename(tableref)
         ret = []
         with closing(self.db[flowname].cursor()) as c:
-            c.execute("select rowid, * from ?;",(tablename, ))
+            c.execute("select rowid, * from " + tablename + ";")
             for r in c.fetchall():
                 data = self.create_flow_data(flowname, tableref, r)
                 if data != None:
@@ -157,7 +157,7 @@ class SqliteDBServer(object):
 # Private
 
     def _get_new_sequence(self, flowname, tableref):
-        sys.stdout.write('Obtain new sequence for ' + tableref + "... ")
+        sys.stdout.write('Obtain new sequence for ' + str(tableref) + "... ")
         with closing(self.db[flowname].cursor()) as c:
             tablename = self._get_tablename(tableref)
             c.execute("SELECT sequence FROM ? ORDER BY sequence DESC LIMIT 1;", (tablename,))
@@ -249,7 +249,15 @@ class SqliteDBServer(object):
             
             def ensure_table_exists(self, flowname, BINtableref):
                 self.instance.ensure_table_exists(flowname, self.from_bin(BINtableref))
+
+            def get_records(self, flowname, BINtableref):
+                ret = self.instance.get_records(flowname, self.from_bin(BINtableref))
+                return self.to_bin(ret)
             
+            def get_table_references(self, flowname):
+                ret = self.instance.get_table_references(flowname)
+                return self.to_bin(ret)
+
         return ServerWrapper(serverparams, self) #The SqliteDBServer will be the instance to delegate to
 
         

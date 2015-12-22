@@ -114,6 +114,14 @@ class SqliteDBClient(object):
             def ensure_table_exists(self, flowname, tableref):
                 return self.xmlproxy.ensure_table_exists(flowname, self.to_bin(tableref))
             
+            def get_records(self, flowname, tableref):
+                ret = self.xmlproxy.get_records(flowname, self.to_bin(tableref))
+                return self.from_bin(ret)
+
+            def get_table_references(self, flowname):
+                ret = self.xmlproxy.get_table_references(flowname)
+                return self.from_bin(ret)
+            
         return ProxyWrapper(serverparams)
 
     def _get_table_flowdata(self, flowData):
@@ -134,7 +142,7 @@ class SqliteDBClient(object):
         
     def _get_table_references(self):
         ''' Get the table references -- all of them in the DB, not just the cache. '''
-        self.rpcclient.get_table_references(self.flowname)
+        return self.rpcclient.get_table_references(self.flowname)
     
     def poll(self):
         ''' Call this in the worker thread periodically.  All callbacks will occur within this context.'''

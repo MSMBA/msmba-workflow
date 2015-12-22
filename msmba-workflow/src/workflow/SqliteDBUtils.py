@@ -11,9 +11,17 @@ import os.path;
 import ConfigParser;
 from collections import namedtuple;
 
-TableReference = namedtuple("TableReference", "rolename stepname flowDataCls") # Note flowDataCls is the CLASS not a String
 ServerParams = namedtuple("ServerParams", "address port");
-
+class TableReference(namedtuple("TableReferenceT", "rolename stepname flowDataCls")): # Note flowDataCls is the CLASS not a String
+    # Named tuple with a custom tostring
+    __slots__ = ()
+    def __str__(self):
+        if hasattr(self.flowDataCls, '__name__'):
+            cls = self.flowDataCls.__name__
+        else:
+            cls = str(self.flowDataCls)
+        return self.rolename + "_" + self.stepname + "_" + cls
+    
 def get_serverparams(alwayslocalhost=False):
     """ Get the address where the server is located.
         alwayslocalhost: When True, address will always be localhost (appropriate for server, not client) 
