@@ -41,7 +41,7 @@ class HealthcareBackend(Backend):
     def examine_complete(self, results):
         for result in results:
             task = Task.construct_from_result(result, "Physician", "IsPrescriptionNeeded");
-            task.set_field('prescriptionnumber', 1);
+            task.set_field('PrescriptionNumber', 1);
             self.workflow.add(task);
             copyFields =['FirstName','LastName','Birthday','InsuranceCompany','CoPay'];
             task = Task.construct_from_result(result, "Billing", "BillInsurance", copy=copyFields);
@@ -50,31 +50,31 @@ class HealthcareBackend(Backend):
 
     def is_prescription_needed_complete(self, results):
         for result in results:
-            if result.data['isprescriptionneeded'] == "TRUE":
+            if result.data['IsPrescriptionNeeded'] == 1:
                 #Add task to write the needed prescrption
                 task = Task.construct_from_result(result, "Physician", "WritePrescription");
                 self.workflow.add(task);
                 #Add task to ask if we need another prescription
                 task = Task.construct_from_result(result, "Physician", "IsPrescriptionNeeded");
-                task.set_field('prescriptionnumber',result.get_int_field('prescriptionnumber')+1);
-                task.remove_field('isprescriptionneeded');
+                task.set_field('PrescriptionNumber',result.get_int_field('PrescriptionNumber')+1);
+                task.remove_field('IsPrescriptionNeeded');
                 self.workflow.add(task);
             self.workflow.update_status(result, Status.COMPLETE);
 
     def write_prescription_complete(self, results):
         for result in results:
-            copyFields =['FirstName','LastName','Birthday','DrugName','Dose','Frequency','Refills','IsGenericAcceptable', 'prescriptionnumber'];
+            copyFields =['FirstName','LastName','Birthday','DrugName','Dose','Frequency','Refills','IsGenericAcceptable', 'PrescriptionNumber'];
             task = Task.construct_from_result(result, "Pharmacist", "FillPrescription", copy=copyFields);
             self.workflow.add(task);
             self.workflow.update_status(result, Status.COMPLETE);
 
     def fill_prescription_predicate(self, results):
         # One of the results should have isprescriptionneeded=FALSE.  That is the total number.  Ensure we have that number.
-        lastpreneeded = [result for result in results if (result.stepname == "IsPrescriptionNeeded" and not result.get_bool_field('isprescriptionneeded'))];
+        lastpreneeded = [result for result in results if (result.stepname == "IsPrescriptionNeeded" and not result.get_bool_field('IsPrescriptionNeeded'))];
         if len(lastpreneeded) == 0:
             return False;
         # One less than the "No" is the number we are looking for:
-        numprescriptions = lastpreneeded[0].get_int_field("prescriptionnumber")-1;
+        numprescriptions = lastpreneeded[0].get_int_field("PrescriptionNumber")-1;
         # Get the filled ones:
         filled = [result for result in results if result.stepname == "FillPrescription"];
         # If they are all filled, we are done:
@@ -86,7 +86,7 @@ class HealthcareBackend(Backend):
         
         if len(filled) > 0:
             copyFields =['FirstName','LastName','Birthday'];
-            appendFields = ['prescriptionnumber', 'DrugName','GenericName','Refills'];
+            appendFields = ['PrescriptionNumber', 'DrugName','GenericName','Refills'];
             addFields = ['TotalCharge'];
             task = Task.construct_from_results(filled, "Pharmacist", "DispensePrescription", copy=copyFields, append=appendFields, add_fields=addFields);
             self.workflow.add(task);

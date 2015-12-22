@@ -278,6 +278,7 @@ class DashboardFrame(Frame):
     def OnClose(self, event):
         self.workflow.terminate();
         event.Skip();
+        sys.exit(0) # Just kill the app...
 
 class DashboardApplication(Application):
     def __init__(self, workflow):

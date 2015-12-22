@@ -17,8 +17,8 @@ class PhysicianAsstApplication(RoleApplication):
 
     def __init__(self):
         super(PhysicianAsstApplication, self).__init__(theflowname, "Pharmacist");
-        self.register_transition_step("FillPrescription", self.fill_prescription_form_creator, name_fields=["sequence", "FirstName", "LastName", "Birthday", "prescriptionnumber"]);
-        self.register_sink_step("DispensePrescription", self.dispense_prescription_form_creator, name_fields=["sequence", "FirstName", "LastName", "Birthday", "prescriptionnumber"], form_handler=self.dispense_prescription_form_handler);
+        self.register_transition_step("FillPrescription", self.fill_prescription_form_creator, name_fields=["sequence", "FirstName", "LastName", "Birthday", "PrescriptionNumber"]);
+        self.register_sink_step("DispensePrescription", self.dispense_prescription_form_creator, name_fields=["sequence", "FirstName", "LastName", "Birthday", "PrescriptionNumber"], form_handler=self.dispense_prescription_form_handler);
 
     def fill_prescription_form_creator(self, stepname, form):
         form.add_task_label(fields=["FirstName", "LastName", "Birthday"]);
@@ -31,7 +31,7 @@ class PhysicianAsstApplication(RoleApplication):
         form.add_field(Type.CURRENCY, "CoPay");
 
     def dispense_prescription_form_handler(self, stepname, data, task):
-        data["insurancecharge"] = task.get_int_field("totalcharge") - data["copay"];
+        data["InsuranceCharge"] = task.get_int_field("TotalCharge") - data["CoPay"];
         RoleApplication.default_sink_form_handler(self, stepname, data, task);
 
 if __name__ == '__main__':

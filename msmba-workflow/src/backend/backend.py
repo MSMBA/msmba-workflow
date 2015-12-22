@@ -38,7 +38,7 @@ class Backend(object):
             self.server = SqliteDBServer()
         self.flowname = flowname;
         self.workflow = Workflow(flowname);
-        self.wire();
+        self.workflow.queue.put(lambda: self.wire());
         if dashboard:
             self.dashboard = DashboardApplication(self.workflow);
             self.dashboard.MainLoop()

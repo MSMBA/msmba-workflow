@@ -68,6 +68,7 @@ class SqliteDBServer(object):
     
     def get_table_references(self, flowname):
         ''' Get all the table references in the DB. '''
+        self.ensure_database_exists(flowname)
         self._log("Getting all tables... ")
         ret = set();
         with closing(self.db[flowname].cursor()) as c:
@@ -82,6 +83,7 @@ class SqliteDBServer(object):
     
     def ensure_table_exists(self, flowname, tableref):
         """ Ensure the table exists in the DB """
+        self.ensure_database_exists(flowname)
         self._log('Ensuring existence of ' + str(tableref) + "... ")
         with closing(self.db[flowname].cursor()) as c:
             tablename = self._get_tablename(tableref)
@@ -94,6 +96,7 @@ class SqliteDBServer(object):
         """ Update the table so that it definitely includes all the columns provided.
             Returns: the current set of field (column) names.
         """
+        self.ensure_database_exists(flowname)
         self._log('Ensuring existence of columns in' + str(tableref) + "... ")
         fieldnames = set(fieldnames)
         with closing(self.db[flowname].cursor()) as c:
@@ -113,6 +116,7 @@ class SqliteDBServer(object):
 
     def add_table_row(self, flowname, flowData):
         """ Add the given row to the db """
+        self.ensure_database_exists(flowname)
         tableref = self._get_tableref_for_data(flowData)
         tablename = self._get_tablename(tableref)
         if flowData.uid != None:
@@ -139,6 +143,7 @@ class SqliteDBServer(object):
 
     def update_table_row(self, flowname, tableref, uid, column, value):
         """ Update the given row/column in the DB """
+        self.ensure_database_exists(flowname)
         self._log('Updating ' + str(tableref) + " (" +  str(uid) + ") " + column + "<-" + str(value) + "... ")
         tablename = self._get_tablename(tableref)
         with closing(self.db[flowname].cursor()) as c:
@@ -148,6 +153,7 @@ class SqliteDBServer(object):
 
     def get_records(self, flowname, tableref):
         """ Get the records for the table """
+        self.ensure_database_exists(flowname)
         self._log('Getting rows for ' + str(tableref) + "... ")
         tablename = self._get_tablename(tableref)
         ret = []

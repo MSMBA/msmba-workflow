@@ -23,7 +23,7 @@ class PhysicianAsstApplication(RoleApplication):
         form.add_field(Type.FLOAT, "TotalCharge");
 
     def insurance_form_handler(self, stepname, data, task):
-        data["insurancecharge"] = data["totalcharge"] - task.get_int_field("copay");
+        data["InsuranceCharge"] = data["TotalCharge"] - task.get_int_field("CoPay");
         RoleApplication.default_sink_form_handler(self, stepname, data, task);
 
 if __name__ == '__main__':

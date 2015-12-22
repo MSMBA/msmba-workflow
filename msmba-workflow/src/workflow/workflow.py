@@ -8,7 +8,7 @@ Created on Dec 13, 2012
 '''
 
 #from googleDB import GoogleDB;
-import sys
+import sys, time
 from threading import Thread;
 from Queue import Queue, Empty;
 from SqliteDBClient import SqliteDBClient
@@ -22,9 +22,9 @@ class Workflow(object):
         self.queue = Queue();
         self.go = True;
         self.db = None
+        self.connected = False
         self.thread = Thread(target=self.work);
         self.thread.start();
-        self.queue.put(lambda: self.init_db(flowname));
     
 # PUBLIC:
     
@@ -69,8 +69,15 @@ class Workflow(object):
 
     def work(self):
         while(self.go):
+            if not self.connected:
+                try:
+                    self.init_db();
+                except socket_error as serr:
+                    sys.stderr.write('Cannot connect to backend: ' + str(serr) +"\n")
+                    time.sleep(1)
+                    continue
             try:
-                call = self.queue.get(timeout=1);
+                call = self.queue.get_nowait()
                 call();
                 self.queue.task_done();
             except socket_error as serr:
@@ -80,6 +87,7 @@ class Workflow(object):
             except Empty:
                 try:
                     self.poll();
+                    time.sleep(.1)
                 except socket_error as serr:
                     sys.stderr.write('Cannot connect to backend: ' + str(serr) +"\n")
         print "Database Thread Ended."
@@ -87,10 +95,11 @@ class Workflow(object):
     def terminate(self):
         self.go = False;
 
-    def init_db(self, flowname):
+    def init_db(self):
         if self.db == None:
-            self.db = SqliteDBClient(flowname);
+            self.db = SqliteDBClient(self.flowname);
         self.db.connect()
+        self.connected = True
         
     def poll(self):
         sys.stdout.write('.')

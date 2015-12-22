@@ -61,7 +61,7 @@ class Task(FlowData):
                         first = False;
                     else:
                         instance.data[k] = instance.data[k] + ",";
-                    instance.data[k] = instance.data[k] + d;                
+                    instance.data[k] = instance.data[k] + str(d);                
         # Now handle adds:
         if add_fields != None:
             for k in add_fields:

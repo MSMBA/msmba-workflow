@@ -51,7 +51,7 @@ def default_fields_renderer(task, fields):
         val = task.get_field(field)
         if val == None:
             val = ""
-        s = s + "<td><i>" + field +" </i></td><td><b>" + val + "<b></td>";
+        s = s + "<td><i>" + str(field) +" </i></td><td><b>" + str(val) + "<b></td>";
         if count % numcols == 0:
             s = s + "</tr>";
         count = count + 1;
