@@ -36,7 +36,7 @@ class FlowDataReference(FlowDataReferenceT):
         splits = string.split("|");
         if len(splits) != 4:
             raise Exception("Incorrect format: " + string);
-        return FlowDataReference(rolename = splits[0], stepname = splits[1], type = splits[2], uid = splits[3]);
+        return FlowDataReference(rolename = splits[0], stepname = splits[1], type = splits[2], uid = int(splits[3]));
 
     @classmethod
     def from_flow_data(cls, flowData):
@@ -141,25 +141,31 @@ class FlowData(object):
     def __str__(self):
         s = '[' + self.__class__.__name__ + ' ';
         if self.sequence != None:
-            s += str(self.sequence);
+            s += str(self.sequence) +"#";
+
+        if self.uid == None:
+            uid = "None";
+        else:
+            uid = self.uid;
+        s = s + str(uid) + " ";
+
         if self.status == None:
             stat = "None";
         else:
             stat = Status.reverse_mapping[self.status];
         s = s + ":" + stat + ": ";
-        s = s + self.flowname + ":" + self.rolename + ":" + self.stepname + ": ";
+
+
+        s = s + self.flowname + "." + self.rolename + "." + self.stepname + " ";
+        
+        
         dstr = ','.join(['%s:%s' % (key, value) for (key, value) in self.data.items()]);
         s = s + "(" + dstr + ") ";
-        if self.uid == None:
-            uid = "None";
-        else:
-            uid = self.uid;
-        s = s + str(uid);
         if self.parents == None:
             pstr = "";
         else:
             pstr = ','.join([FlowDataReference.to_string(k) for k in self.parents]);
-        s = s + " (" + pstr + ") ";
+        s = s + " (" + pstr + ")";
         s = s + "]";
         return s;
     

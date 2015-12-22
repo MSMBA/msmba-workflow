@@ -63,6 +63,7 @@ class SqliteDBServer(object):
         if not flowname in self.db:
             self.db[flowname] = sqlite3.connect(flowname+".db") 
             self.db[flowname].row_factory = sqlite3.Row # Let us look up row entries by name
+            self.db[flowname].text_factory = str #Make strings not unicode
             print "Opened DB file: " + flowname + ".db"
     
     def get_table_references(self, flowname):
@@ -73,7 +74,7 @@ class SqliteDBServer(object):
             # We can get all the table names with following SQL:
             c.execute("SELECT name FROM sqlite_master WHERE type='table' ORDER BY name;")
             for r in c.fetchall():
-                ref = self._get_tableref(r['name'].encode('ascii'));
+                ref = self._get_tableref(r['name']);
                 if ref != None:
                     ret.add(ref);
         self._logln("done.")
@@ -99,7 +100,7 @@ class SqliteDBServer(object):
             # First get the existing names
             tablename = self._get_tablename(tableref)
             c.execute("PRAGMA table_info(" + tablename + ");")
-            columns = set([r['name'].encode('ascii') for r in c.fetchall()])
+            columns = set([r['name'] for r in c.fetchall()])
             # Now any names not already present need to be added:
             toadd =  fieldnames.difference(columns)
             for field in toadd:
@@ -114,6 +115,8 @@ class SqliteDBServer(object):
         """ Add the given row to the db """
         tableref = self._get_tableref_for_data(flowData)
         tablename = self._get_tablename(tableref)
+        if flowData.uid != None:
+            sys.stderr.write("Unepected UID: " + str(flowData.uid) + "\n")
         self._log('Adding to ' + str(tableref) + ": " +  str(flowData.sequence) + "." + str(flowData.uid) + "... ");
         # First build up a dictionary of the values:
         row = OrderedDict(flowData.data);
@@ -183,19 +186,19 @@ class SqliteDBServer(object):
         #Hack to attempt to prevent race conditions:
         if 'status' not in result.keys():
             return None;        
-        status = result['status'].encode('ascii');
+        status = result['status'];
         status = Status.__dict__[status]; #Convert to numeric
         sequence = (int)(result['sequence']);
-        if 'parents' in result and result['parents'] != "" and result['parents']!=None:
-            parents = result['parents'].encode('ascii').split(",");
+        if 'parents' in result.keys() and result['parents'] != "" and result['parents']!=None:
+            parents = result['parents'].split(",");
         else:
             parents = None;
         data = OrderedDict();
         for field in result.keys():
-            if field != 'status' and field != 'sequence' and field != 'parents':
+            if field != 'status' and field != 'sequence' and field != 'parents' and field != 'rowid':
                 data[field] = result[field];
                 if isinstance(data[field], str):
-                    data[field] = data[field].encode('ascii')
+                    data[field] = data[field]
         if result['rowid'] == None:
             uid = None
         else:
