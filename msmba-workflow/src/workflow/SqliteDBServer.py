@@ -245,8 +245,12 @@ class SqliteDBServer(object):
                 to the server.  But if you need to pickle, define a function explicitly here.
             '''
             def __init__(self, serverparams, instance):
-                # We always start the server on localhost at the given port.
-                self.xmlserver = SimpleXMLRPCServer((serverparams.address, serverparams.port),\
+                # On some machines resolving localhost takes a long time:
+                if serverparams.address == "localhost":
+                    address = "127.0.0.1"
+                else:
+                    address = serverparams.address
+                self.xmlserver = SimpleXMLRPCServer((address, serverparams.port),\
                                                     _ExceptionThrowingXMLRPCRequestHandler,\
                                                     allow_none=True,\
                                                     logRequests=False)

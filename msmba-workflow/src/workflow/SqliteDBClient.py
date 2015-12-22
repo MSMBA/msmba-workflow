@@ -93,7 +93,12 @@ class SqliteDBClient(object):
                 to the proxy.  But if you need to pickle, define a function explicitly here.
             '''
             def __init__(self, serverparams):
-                url = "http://"+serverparams.address + ":" + str(serverparams.port)
+                # On some machines resolving localhost takes a long time:
+                if serverparams.address == "localhost":
+                    address = "127.0.0.1"
+                else:
+                    address = serverparams.address
+                url = "http://"+address + ":" + str(serverparams.port)
                 self.xmlproxy = ServerProxy(url, allow_none=True) # The xmlrpc client itself
             
             def __getattr__(self, attr):
@@ -180,7 +185,6 @@ class SqliteDBClient(object):
                     print "Exception updating all table listener: " + str(type(e)) + ": " + str(e);
                     print traceback.format_exc();
         self.poll_count = self.poll_count+1;
-    
         
 class _TableView(object):
     """

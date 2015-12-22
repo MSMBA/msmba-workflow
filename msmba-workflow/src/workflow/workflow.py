@@ -17,6 +17,8 @@ from socket import error as socket_error
 class Workflow(object):
     """ Represents the workflow.  Handles threading, so the Database Operations occur in their own thread."""
 
+    POLL_DELAY = .5
+
     def __init__(self, flowname):
         self.flowname = flowname;
         self.queue = Queue();
@@ -87,7 +89,7 @@ class Workflow(object):
             except Empty:
                 try:
                     self.poll();
-                    time.sleep(.1)
+                    time.sleep(Workflow.POLL_DELAY)
                 except socket_error as serr:
                     sys.stderr.write('Cannot connect to backend: ' + str(serr) +"\n")
         print "Database Thread Ended."
