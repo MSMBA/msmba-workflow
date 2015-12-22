@@ -8,8 +8,9 @@ Created on Dec 14, 2012
 '''
 
 import sys
-from xmlrpclib import ServerProxy
+from xmlrpclib import ServerProxy, Binary
 import traceback;
+import cPickle as pickle
 
 from flowData import Status
 from task import Task
@@ -79,9 +80,41 @@ class SqliteDBClient(object):
 # Private
 
     def _create_client(self, serverparams):
-        ''' Connect tot he server. '''
-        url = "http://"+serverparams.address + ":" + str(serverparams.port)
-        return ServerProxy(url)
+        ''' Connect to the server. '''
+        # We create a wrapper that is a proxy to the proxy.  We need to do this because
+        # XMLRPC which we use does not support user-defined classes, so we need to do our own
+        # Marshalling via Pickle.
+        class ProxyWrapper(object):
+            ''' A wrapper for the proxy that handles pickling.  By default just dispatches
+                to the proxy.  But if you need to pickle, define a function explicitly here.
+            '''
+            def __init__(self, serverparams):
+                url = "http://"+serverparams.address + ":" + str(serverparams.port)
+                self.xmlproxy = ServerProxy(url) # The xmlrpc client itself
+            
+            def __getattr__(self, attr):
+                # This only gets called for attributes that haven't been defined.
+                # If this happens, try to get the attribute from the xmlproxy instead.
+                if hasattr(self.xmlproxy, attr):
+                    return getattr(self.xmlproxy, attr)
+                else:
+                    # If its not defined either in this class, or in the proxy class, then its an error
+                    raise AttributeError(attr)
+                
+            @staticmethod
+            def to_bin(obj):
+                return Binary(pickle.dumps(obj))
+
+            @staticmethod
+            def from_bin(bin):
+                return pickle.loads(bin.data)
+                
+            # Define any methods that need marshalling/unmarshelling here.
+            
+            def ensure_table_exists(self, flowname, tableref):
+                return self.xmlproxy.ensure_table_exists(flowname, self.to_bin(tableref))
+            
+        return ProxyWrapper(serverparams)
 
     def _get_table_flowdata(self, flowData):
         ''' Get the _Table that would store the given object'''

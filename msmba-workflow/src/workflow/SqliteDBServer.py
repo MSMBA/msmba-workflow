@@ -13,6 +13,9 @@ from SimpleXMLRPCServer import SimpleXMLRPCServer
 import sqlite3
 from contextlib import closing
 from collections import OrderedDict;
+from xmlrpclib import Binary
+import cPickle as pickle
+
 
 from flowData import Status, FlowDataReference;
 from task import Task
@@ -30,12 +33,9 @@ class SqliteDBServer(object):
         self.db = {} # Flowname to DB Connection
         serverparams = get_serverparams(alwayslocalhost=True)
         sys.stdout.write("Starting Server... ")
-        # We always start the server on localhost at the given port.
-        self.server = SimpleXMLRPCServer((serverparams.address, serverparams.port),allow_none=True)
-        # All public methods of this class are registered
-        self.server.register_instance(self) 
+        self.server = self._create_server(serverparams)
         # Create a thread to handle the requests
-        self.thread = _ServerThread(self.server)
+        self.thread = _ServerThread(self.server.xmlserver)
         self.thread.start()
         print "done."
         
@@ -77,11 +77,12 @@ class SqliteDBServer(object):
     
     def ensure_table_exists(self, flowname, tableref):
         """ Ensure the table exists in the DB """
-        sys.stdout.write('Ensuring existence of ' + tableref + "... ")
+        sys.stdout.write('Ensuring existence of ' + str(tableref) + "... ")
         with closing(self.db[flowname].cursor()) as c:
             tablename = self._get_tablename(tableref)
-            c.execute("CREATE TABLE IF NOT EXISTS ? ();", (tablename,))
-            c.commit()
+            # Can't do tablename with parameter...
+            c.execute("CREATE TABLE IF NOT EXISTS "+tablename+"(sequence INT, status INT);") 
+            self.db[flowname].commit()
         print "done."
                     
     def ensure_all_fields_present(self, flowname, tableref, fieldnames):
@@ -207,6 +208,52 @@ class SqliteDBServer(object):
         else:
             return None;
         return TableReference(rolename=s[2], stepname=s[1], flowDataCls=flowDataCls);
+    
+    def _create_server(self, serverparams):
+        # We create a wrapper that is a proxy to the server.  We need to do this because we use
+        # XMLRPC which we use does not support user-defined classes, so we need to do our own
+        # Marshalling via Pickle.
+
+        # Note: self will be the instance to call the members of.
+        class ServerWrapper(object):
+            ''' A wrapper for the server that handles pickling.  By default just dispatches
+                to the server.  But if you need to pickle, define a function explicitly here.
+            '''
+            def __init__(self, serverparams, instance):
+                # We always start the server on localhost at the given port.
+                self.xmlserver = SimpleXMLRPCServer((serverparams.address, serverparams.port),\
+                                                    allow_none=True,\
+                                                    logRequests=False)
+                # All public methods of this class are registered
+                self.xmlserver.register_instance(self) 
+                self.instance = instance
+            
+            def __getattr__(self, attr):
+                # This only gets called for attributes that haven't been defined.
+                # If this happens, try to get the attribute from the xmlproxy instead.
+                if hasattr(self.instance, attr):
+                    return getattr(self.instance, attr)
+                else:
+                    # If its not defined either in this class, or in the proxy class, then its an error
+                    raise AttributeError(attr)
+                
+            @staticmethod
+            def to_bin(obj):
+                return Binary(pickle.dumps(obj))
+
+            @staticmethod
+            def from_bin(bin):
+                return pickle.loads(bin.data)
+        
+            # Define any methods that need marshalling/unmarshelling here.
+            
+            def ensure_table_exists(self, flowname, BINtableref):
+                self.instance.ensure_table_exists(flowname, self.from_bin(BINtableref))
+            
+        return ServerWrapper(serverparams, self) #The SqliteDBServer will be the instance to delegate to
+
+        
+
     
 class _ServerThread(Thread):
     ''' Super simple thread that will execute the server'''
