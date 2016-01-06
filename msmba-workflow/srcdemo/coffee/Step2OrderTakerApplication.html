@@ -24,7 +24,7 @@ find the code to build that interface. We will edit each of these lines of code 
 
 <p>The first line of code actually calls an <tt>__init__</tt> method from another part of the WMP system,
 which does the actual work of recording the workflow name and rolename for this application.  
-To fix this line of code you need to replace <tt>"WorkflowName"</tt> and <tt>"RoleName"</tt> with the actual
+To fix this line of code you need to replace <tt>"RoleName"</tt> with the actual
 name you gave your workflow in <tt>CoffeeBackend</tt> and the actual name you gave the order taker
 role (also in <tt>CoffeeBackend</tt>).  That way WMP knows where this application (user interface)
 fits into the workflow you have defined.  See the <tt>__init__</tt> and <tt>wire</tt> methods in <tt>CoffeeBackend</tt>

@@ -12,40 +12,8 @@ amongst the frontend applications.</p>
 <p>Your job will be to edit the files defining all three parts of the system in turn,
 starting with the backend.  Here is what you need to do edit the backend:</p>
 
-<h2>Modify the <tt>__init__</tt> method</h2>
+<h2> Make sure that you use only alphabetic characters in all your names!!!</h2>
 
-<p>Look in the code for a method that starts:</p>
-<p><tt>    def __init__(self): </tt></p>
-
-<p>The <tt>__init__</tt> method is called automatically when we run the code in this file.
-The __init__ method, like all <i>class</i> methods, has the first parameter 'self'.
-This is a Python requirement for methods (any function that is part of a 
-Class definition).  You should always leave this parameter alone.</p>
-        
-<p>In this case, the first line of the __init__ for our CoffeeBackend class calls the __init__
-method of another class Backend which is part of the WMP system.
-Backend.__init__ has two parameters.  The first, is again self and
-you should, as always, leave it alone.</p>
-        
-<p>The second parameter here is a string and should be the name of your workflow.
-This is going to also be the name given to the spreadsheet which MWP will use to 
-store all data for this workflow. You can call your workflow whatever you like BUT:</p>
-
-<ul>
-<li>The name should be meaningful (not "workflow23")
-<li>The name should be different than all other workflows in your
-        organization (i.e. sharing the same Google account) (meaning our class)
-<li>The workflow name should contain only letters and numbers, no special characters or spaces.
-<li>You have to use the same name in all the other "front end" Python files, since
-        the name of the workflow is how MWP knows which tasks are sharing information
-        in the same spreadsheet.
-</ul>
-        
-<p>For Lab 5 we need to make sure that each student uses a different name for the
-workflow to avoid two students trying to store data in the same spreadsheet, so:</p>
-        
-<b>The workflow name should be your name (no spaces) plus the word coffee.</b>  For example, if your
-name is Rhett Terrier, then your workflow name would be 'RhettTerrierCoffee'.
 
 <h2>Modify the <tt>wire</tt> method</h2>
 

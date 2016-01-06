@@ -26,7 +26,7 @@ class CoffeeBackend(Backend):
    
     def __init__(self): 
         # Specify the workflow name:       
-        Backend.__init__(self, theflowname)  # !!! be sure you update the workflow name
+        Backend.__init__(self, theflowname)  
 
     def wire(self):
         '''

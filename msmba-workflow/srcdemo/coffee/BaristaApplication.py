@@ -26,7 +26,7 @@ class BaristaApplication(RoleApplication):
         Declare this application to be part of a given work flow and specify its role in that workflow.
         '''
         # Declare this application to be part of a given workflow, and responsible for a given role:
-        # !!! Modify the following to use the actual work flow name and role name you need...
+        # !!! Modify the following to use the actual role name you need...
         super(BaristaApplication, self).__init__(theflowname, "RoleName") 
         
         # Declare any tasks that this role is able to perform:
