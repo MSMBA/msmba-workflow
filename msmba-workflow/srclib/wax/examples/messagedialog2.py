@@ -5,7 +5,7 @@ from wax import *
 class MainFrame(Frame):
 
     def Body(self):
-        choices = MessageDialog._icons.keys()
+        choices = list(MessageDialog._icons.keys())
         choices.sort()
 
         self.dd = DropDownBox(self, choices)

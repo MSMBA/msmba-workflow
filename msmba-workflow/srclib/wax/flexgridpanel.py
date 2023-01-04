@@ -3,8 +3,8 @@
 # todo: styles
 
 import wx
-import containers
-import panel
+from . import containers
+from . import panel
 
 class FlexGridPanel(wx.Panel, containers.FlexGridContainer):
     """ Sub-level containers inside a frame, used for layout. """

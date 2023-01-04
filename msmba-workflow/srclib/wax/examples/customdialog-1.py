@@ -22,10 +22,10 @@ class MyDialog(CustomDialog):
         self.SetBehavior(b3, "cancel")
 
     def OnClickSave(self, event):
-        print "You clicked Save!"
+        print("You clicked Save!")
 
     def OnClickNormal(self, event):
-        print "I am just a normal button that doesn't harm anybody."
+        print("I am just a normal button that doesn't harm anybody.")
 
 class MainFrame(Frame):
     def Body(self):
@@ -36,7 +36,7 @@ class MainFrame(Frame):
     def OnShowDialog(self, event):
         dlg = MyDialog(self, "Pick your poison")
         result = dlg.ShowModal()
-        print "Result returned by CustomDialog:", result
+        print("Result returned by CustomDialog:", result)
         dlg.Destroy()
 
 app = Application(MainFrame, title="customdialog-1")

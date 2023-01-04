@@ -3,7 +3,7 @@
 # todo: styles
 
 import wx
-import containers
+from . import containers
 
 class MDIChildFrame(wx.MDIChildFrame, containers.Container):
     """ MDI Child frame (window) with built-in sizer. """
@@ -19,7 +19,7 @@ class MDIChildFrame(wx.MDIChildFrame, containers.Container):
 
     def SetIcon(self, obj):
         """ Like wx.Frame.SetIcon, but also accepts a path to an icon file. """
-        if isinstance(obj, str) or isinstance(obj, unicode):
+        if isinstance(obj, str) or isinstance(obj, str):
             obj = wx.Icon(obj, wx.BITMAP_TYPE_ICO)    # FIXME
         wx.Frame.SetIcon(self, obj)
 
@@ -37,6 +37,6 @@ class MDIParentFrame(wx.MDIParentFrame, containers.Container):
 
     def SetIcon(self, obj):
         """ Like wx.Frame.SetIcon, but also accepts a path to an icon file. """
-        if isinstance(obj, str) or isinstance(obj, unicode):
+        if isinstance(obj, str) or isinstance(obj, str):
             obj = wx.Icon(obj, wx.BITMAP_TYPE_ICO)    # FIXME
         wx.Frame.SetIcon(self, obj)

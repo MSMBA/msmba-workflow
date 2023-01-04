@@ -43,9 +43,9 @@ class MainFrame(Frame):
     def ProcessFiles(self, dirs, files):
         listview = self.filewindow.listview
         listview.DeleteAllItems()
-        for short, long in dirs:
+        for short, int in dirs:
             listview.AppendRow(short + "/")
-        for short, long in files:
+        for short, int in files:
             index = listview.AppendRow(short)
             image_index = listview._imagelist['file']
             listview.SetItemImage(index, image_index, image_index)

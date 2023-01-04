@@ -9,11 +9,11 @@ Created on Dec 17, 2012
 
 from collections import OrderedDict;
 from collections import namedtuple;
-from util import enum;
-from util import convert_fieldname_to_db;
-from util import convert_flowname_to_db;
-from util import convert_rolename_to_db;
-from util import convert_stepname_to_db;
+from .util import enum;
+from .util import convert_fieldname_to_db;
+from .util import convert_flowname_to_db;
+from .util import convert_rolename_to_db;
+from .util import convert_stepname_to_db;
 
 Status = enum('NEW', 'COMPLETE');
 
@@ -22,7 +22,7 @@ FlowDataReferenceT = namedtuple("FlowDataReference", "rolename stepname type uid
 class FlowDataReference(FlowDataReferenceT):
     
     def __init__(self, **kwargs):
-        FlowDataReferenceT.__init__(self, **kwargs)
+        FlowDataReferenceT.__init__(self)
     
     @classmethod
     def to_string(cls, ref):

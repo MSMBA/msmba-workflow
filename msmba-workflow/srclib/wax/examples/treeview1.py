@@ -12,7 +12,7 @@ def filltree(tree):
         for j in range(5):
             grandchild = tree.AppendItem(child, "Item %d" % (i*10+j))
 
-    print [x for x in tree.GetChildNodes(root)]
+    print([x for x in tree.GetChildNodes(root)])
 
     d = {
         "Hans": {

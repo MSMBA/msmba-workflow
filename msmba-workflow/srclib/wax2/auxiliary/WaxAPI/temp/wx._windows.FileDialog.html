@@ -1,0 +1,91 @@
+<html>
+<head>
+    <title>Wax API</title>
+    <link href="waxapi.css" rel="stylesheet" type="text/css" />
+<head>
+    
+<body>
+<div id="header">Wax API Listing</div>
+<div id="body">
+<div class="main_head">wx._windows.FileDialog  <div class="main_desc">
+    wx.FileDialog allows the user to select one or more files from the
+    filesystem.
+    </div>  <ul class="main_list">    <li><a href="#GetDirectory">GetDirectory</a></li>    <li><a href="#GetFilename">GetFilename</a></li>    <li><a href="#GetFilenames">GetFilenames</a></li>    <li><a href="#GetFilterIndex">GetFilterIndex</a></li>    <li><a href="#GetMessage">GetMessage</a></li>    <li><a href="#GetPath">GetPath</a></li>    <li><a href="#GetPaths">GetPaths</a></li>    <li><a href="#GetStyle">GetStyle</a></li>    <li><a href="#GetWildcard">GetWildcard</a></li>    <li><a href="#SetDirectory">SetDirectory</a></li>    <li><a href="#SetFilename">SetFilename</a></li>    <li><a href="#SetFilterIndex">SetFilterIndex</a></li>    <li><a href="#SetMessage">SetMessage</a></li>    <li><a href="#SetPath">SetPath</a></li>    <li><a href="#SetStyle">SetStyle</a></li>    <li><a href="#SetWildcard">SetWildcard</a></li>    <li><a href="#__init__">[constructor]</a></li>    <li><a href="#__doc__">[member '__doc__']</a></li>    <li><a href="#__module__">[member '__module__']</a></li>    <li><a href="#__repr__">[operator 'repr']</a></li>  </ul>  <div class="inherits">Inherits:     <a href="wx._windows.Dialog.html">wx._windows.Dialog</a>   </div></div><br /><a name="GetDirectory" /><div class="sub_head">GetDirectory(args, kwargs)    <div class="sub_desc">
+        GetDirectory(self) -> String
+
+        Returns the default directory.
+        </div></div><br /><a name="GetFilename" /><div class="sub_head">GetFilename(args, kwargs)    <div class="sub_desc">
+        GetFilename(self) -> String
+
+        Returns the default filename.
+        </div></div><br /><a name="GetFilenames" /><div class="sub_head">GetFilenames(args, kwargs)    <div class="sub_desc">
+        GetFilenames(self) -> PyObject
+
+        Returns a list of filenames chosen in the dialog.  This function
+        should only be used with the dialogs which have wx.MULTIPLE style, use
+        GetFilename for the others.
+        </div></div><br /><a name="GetFilterIndex" /><div class="sub_head">GetFilterIndex(args, kwargs)    <div class="sub_desc">
+        GetFilterIndex(self) -> int
+
+        Returns the index into the list of filters supplied, optionally, in
+        the wildcard parameter. Before the dialog is shown, this is the index
+        which will be used when the dialog is first displayed. After the
+        dialog is shown, this is the index selected by the user.
+        </div></div><br /><a name="GetMessage" /><div class="sub_head">GetMessage(args, kwargs)    <div class="sub_desc">
+        GetMessage(self) -> String
+
+        Returns the message that will be displayed on the dialog.
+        </div></div><br /><a name="GetPath" /><div class="sub_head">GetPath(args, kwargs)    <div class="sub_desc">
+        GetPath(self) -> String
+
+        Returns the full path (directory and filename) of the selected file.
+        </div></div><br /><a name="GetPaths" /><div class="sub_head">GetPaths(args, kwargs)    <div class="sub_desc">
+        GetPaths(self) -> PyObject
+
+        Fills the array paths with the full paths of the files chosen. This
+        function should only be used with the dialogs which have wx.MULTIPLE
+        style, use GetPath for the others.
+        </div></div><br /><a name="GetStyle" /><div class="sub_head">GetStyle(args, kwargs)    <div class="sub_desc">
+        GetStyle(self) -> long
+
+        Returns the dialog style.
+        </div></div><br /><a name="GetWildcard" /><div class="sub_head">GetWildcard(args, kwargs)    <div class="sub_desc">
+        GetWildcard(self) -> String
+
+        Returns the file dialog wildcard.
+        </div></div><br /><a name="SetDirectory" /><div class="sub_head">SetDirectory(args, kwargs)    <div class="sub_desc">
+        SetDirectory(self, String dir)
+
+        Sets the default directory.
+        </div></div><br /><a name="SetFilename" /><div class="sub_head">SetFilename(args, kwargs)    <div class="sub_desc">
+        SetFilename(self, String name)
+
+        Sets the default filename.
+        </div></div><br /><a name="SetFilterIndex" /><div class="sub_head">SetFilterIndex(args, kwargs)    <div class="sub_desc">
+        SetFilterIndex(self, int filterIndex)
+
+        Sets the default filter index, starting from zero.
+        </div></div><br /><a name="SetMessage" /><div class="sub_head">SetMessage(args, kwargs)    <div class="sub_desc">
+        SetMessage(self, String message)
+
+        Sets the message that will be displayed on the dialog.
+        </div></div><br /><a name="SetPath" /><div class="sub_head">SetPath(args, kwargs)    <div class="sub_desc">
+        SetPath(self, String path)
+
+        Sets the path (the combined directory and filename that will be
+        returned when the dialog is dismissed).
+        </div></div><br /><a name="SetStyle" /><div class="sub_head">SetStyle(args, kwargs)    <div class="sub_desc">
+        SetStyle(self, long style)
+
+        Sets the dialog style.
+        </div></div><br /><a name="SetWildcard" /><div class="sub_head">SetWildcard(args, kwargs)    <div class="sub_desc">
+        SetWildcard(self, String wildCard)
+
+        Sets the wildcard, which can contain multiple file types, for
+        example::
+
+            "BMP files (*.bmp)|*.bmp|GIF files (*.gif)|*.gif"
+
+        </div></div><br /><a name="__init__" /><div class="sub_head">[constructor]    <div class="sub_desc">Usage: classname(arguments)</div></div><br /><a name="__doc__" /><div class="sub_head">[member '__doc__']    <div class="sub_desc">Documentation for this class</div></div><br /><a name="__module__" /><div class="sub_head">[member '__module__']    <div class="sub_desc">The module that this class belongs to</div></div><br /><a name="__repr__" /><div class="sub_head">[operator 'repr']    <div class="sub_desc">Usage: repr(a)</div></div><br /></div>
+</body>
+</html>

@@ -9,18 +9,19 @@ Created on Dec 14, 2012
 
 import sys
 from threading import Thread
-from SimpleXMLRPCServer import SimpleXMLRPCServer, SimpleXMLRPCRequestHandler
+from xmlrpc.server import SimpleXMLRPCServer, SimpleXMLRPCRequestHandler
 import sqlite3
 from contextlib import closing
 from collections import OrderedDict;
-from xmlrpclib import Binary
-import cPickle as pickle
+from xmlrpc.client import Binary
+#import cPickle as pickle
+import pickle
 import traceback
 
-from flowData import Status, FlowDataReference;
-from task import Task
-from result import Result
-from SqliteDBUtils import TableReference, get_serverparams
+from .flowData import Status, FlowDataReference;
+from .task import Task
+from .result import Result
+from .SqliteDBUtils import TableReference, get_serverparams
 
 class SqliteDBServer(object):
     '''
@@ -45,15 +46,15 @@ class SqliteDBServer(object):
 # Public
     
     def stop_server(self, join=False):
-        ''' Stop the server.  (Note: available over the network)
+        ''' Stop the server.  
             if join==True, then we join against the server thread to block until shutdown
         '''
         self._log("Stopping server... ")
-        self.server.shutdown()
-        self.server.server_close()
-        for db in self.db.values():
+        self._log("Shutdown isn't automatic for now...")
+        #self.server.shutdown()
+        #for db in self.db.values():
             # Note: anything happening right now will be lost... (No commit)
-            db.close()        
+        #   db.close()        
         if join:
             self.thread.join()
         self._logln("done.")
@@ -64,7 +65,7 @@ class SqliteDBServer(object):
             self.db[flowname] = sqlite3.connect(flowname+".db") 
             self.db[flowname].row_factory = sqlite3.Row # Let us look up row entries by name
             self.db[flowname].text_factory = str #Make strings not unicode
-            print "Opened DB file: " + flowname + ".db"
+            print("Opened DB file: " + flowname + ".db")
     
     def get_table_references(self, flowname):
         ''' Get all the table references in the DB. '''
@@ -137,7 +138,7 @@ class SqliteDBServer(object):
             # Just build with some strings to make it easier, if not as secure...
             columns = ",".join(row.keys())
             slots = ",".join(["?"]*len(row.keys())) # Make comma separated '?'
-            c.execute("INSERT INTO " + tablename + " (" + columns + ") VALUES (" + slots + ");", row.values())
+            c.execute("INSERT INTO " + tablename + " (" + columns + ") VALUES (" + slots + ");", [v for v in row.values()])
             self.db[flowname].commit()
         self._logln("done.");
 
@@ -276,7 +277,7 @@ class SqliteDBServer(object):
                 return pickle.loads(bin.data)
         
             # Define any methods that need marshalling/unmarshelling here.
-            
+           
             def ensure_table_exists(self, flowname, BINtableref):
                 self.proxiedinstance.ensure_table_exists(flowname, self.from_bin(BINtableref))
 
@@ -313,8 +314,9 @@ class _ExceptionThrowingXMLRPCRequestHandler(SimpleXMLRPCRequestHandler):
 class _ServerThread(Thread):
     ''' Super simple thread that will execute the server'''
     def __init__(self, server):
-        Thread.__init__(self)
+        Thread.__init__(self, name="DBServer")
         self.server = server
     def run(self):
         self.server.serve_forever() # Internal server loop that handles requests
+        print("SqliteDBServer Thread Ended.")
         

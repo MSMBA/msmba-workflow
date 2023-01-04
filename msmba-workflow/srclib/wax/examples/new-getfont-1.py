@@ -13,8 +13,8 @@ class MainFrame(Frame):
     def OnButtonClick(self, event):
         button = event.GetEventObject()
         font = button.GetFont()
-        print font
-        print font.IsItalic # does not exist in wx.Font
+        print(font)
+        print(font.IsItalic) # does not exist in wx.Font
 
 app = Application(MainFrame)
 app.Run()

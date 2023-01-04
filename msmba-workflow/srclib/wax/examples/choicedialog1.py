@@ -20,10 +20,10 @@ class MainFrame(Frame):
         dlg = ChoiceDialog(self, choices=CHOICES, selection=selection)
         if dlg.ShowModal() == 'ok':
             if selection == 'single':
-                print dlg.choice, CHOICES[dlg.choice]
+                print(dlg.choice, CHOICES[dlg.choice])
             else:
-                print dlg.choice,
-                print [CHOICES[x] for x in dlg.choice]
+                print(dlg.choice, end=' ')
+                print([CHOICES[x] for x in dlg.choice])
         dlg.Destroy()
 
 app = Application(MainFrame)

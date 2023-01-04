@@ -4,8 +4,8 @@
 
 import wx
 import wx.grid as gridlib
-import waxobject
-import waxconfig
+from . import waxobject
+from . import waxconfig
 
 class Grid(gridlib.Grid, waxobject.WaxObject):
 

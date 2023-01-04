@@ -11,14 +11,14 @@ _colordata = open("colordb.txt", "r").read()
 d = {}
 for s in _colordata.split("\n"):
     name, rest = s[:27], s[27:]
-    r, g, b = map(int, string.split(rest))
+    r, g, b = list(map(int, string.split(rest)))
     d[name.strip().lower()] = (r, g, b)
 
-items = d.items()
+items = list(d.items())
 items.sort()
 f = open("colordb.py.out", "w")
-print >> f, "data = {"
+print("data = {", file=f)
 for key, value in items:
-    print >> f, " %r: %r," % (key, value)
-print >> f, "}"
+    print(" %r: %r," % (key, value), file=f)
+print("}", file=f)
 f.close()

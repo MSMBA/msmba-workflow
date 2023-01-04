@@ -1,6 +1,6 @@
 # inject.py
 
-import font
+from . import font
 
 def inject(classes):
     """ Inject behavior into Wax classes. """

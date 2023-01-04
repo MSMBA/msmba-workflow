@@ -3,8 +3,8 @@
 import wx
 from wx.py import shell, version, filling
 
-import waxobject
-from splitter import Splitter
+from . import waxobject
+from .splitter import Splitter
 
 class PyCrust(shell.Shell, waxobject.WaxObject):
 

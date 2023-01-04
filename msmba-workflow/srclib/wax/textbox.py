@@ -1,9 +1,9 @@
 # textbox.py
 
-import waxobject
+from . import waxobject
 import wx
-import core
-import styles
+from . import core
+from . import styles
 
 class TextBox(wx.TextCtrl, waxobject.WaxObject):
 

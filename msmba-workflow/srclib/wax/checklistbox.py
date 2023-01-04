@@ -4,8 +4,8 @@
 # todo: styles (if any)
 
 import wx
-import waxobject
-import styles
+from . import waxobject
+from . import styles
 
 class CheckListBox(wx.CheckListBox, waxobject.WaxObject):
 

@@ -34,8 +34,8 @@ class keys:
     left = cursor_left = wx.WXK_LEFT
     right = cursor_right = wx.WXK_RIGHT
 
-    pageup = pgup = wx.WXK_PRIOR   # not: WXK_PAGEUP
-    pagedown = pgdown = pgdn = wx.WXK_NEXT # not: WXK_PAGEDOWN
+    pageup = pgup = wx.WXK_PAGEUP #wx.WXK_PRIOR   # not: WXK_PAGEUP
+    pagedown = pgdown = pgdn = wx.WXK_PAGEDOWN # wx.WXK_NEXT # not: WXK_PAGEDOWN
 
     tab = wx.WXK_TAB
     backspace = bsp = wx.WXK_BACK

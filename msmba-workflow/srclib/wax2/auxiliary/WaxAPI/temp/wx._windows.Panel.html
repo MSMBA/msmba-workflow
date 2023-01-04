@@ -1,0 +1,50 @@
+<html>
+<head>
+    <title>Wax API</title>
+    <link href="waxapi.css" rel="stylesheet" type="text/css" />
+<head>
+    
+<body>
+<div id="header">Wax API Listing</div>
+<div id="body">
+<div class="main_head">wx._windows.Panel  <div class="main_desc">Proxy of C++ Panel class</div>  <ul class="main_list">    <li><a href="#Create">Create</a></li>    <li><a href="#GetClassDefaultAttributes">GetClassDefaultAttributes</a></li>    <li><a href="#InitDialog">InitDialog</a></li>    <li><a href="#SetFocus">SetFocus</a></li>    <li><a href="#SetFocusIgnoringChildren">SetFocusIgnoringChildren</a></li>    <li><a href="#__init__">[constructor]</a></li>    <li><a href="#__doc__">[member '__doc__']</a></li>    <li><a href="#__module__">[member '__module__']</a></li>    <li><a href="#__repr__">[operator 'repr']</a></li>  </ul>  <div class="inherits">Inherits:     <a href="wx._core.Window.html">wx._core.Window</a>   </div></div><br /><a name="Create" /><div class="sub_head">Create(args, kwargs)    <div class="sub_desc">
+        Create(self, Window parent, int id=-1, Point pos=DefaultPosition, 
+            Size size=DefaultSize, long style=wxTAB_TRAVERSAL|wxNO_BORDER, 
+            String name=PanelNameStr) -> bool
+
+        Create the GUI part of the Window for 2-phase creation mode.
+        </div></div><br /><a name="GetClassDefaultAttributes" /><div class="sub_head">GetClassDefaultAttributes    <div class="sub_desc">
+        GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
+
+        Get the default attributes for this class.  This is useful if you want
+        to use the same font or colour in your own control as in a standard
+        control -- which is a much better idea than hard coding specific
+        colours or fonts which might look completely out of place on the
+        user's system, especially if it uses themes.
+
+        The variant parameter is only relevant under Mac currently and is
+        ignore under other platforms. Under Mac, it will change the size of
+        the returned font. See `wx.Window.SetWindowVariant` for more about
+        this.
+        </div></div><br /><a name="InitDialog" /><div class="sub_head">InitDialog(args, kwargs)    <div class="sub_desc">
+        InitDialog(self)
+
+        Sends an EVT_INIT_DIALOG event, whose handler usually transfers data
+        to the dialog via validators.
+        </div></div><br /><a name="SetFocus" /><div class="sub_head">SetFocus(args, kwargs)    <div class="sub_desc">
+        SetFocus(self)
+
+        Overrides `wx.Window.SetFocus`.  This method uses the (undocumented)
+        mix-in class wxControlContainer which manages the focus and TAB logic
+        for controls which usually have child controls.  In practice, if you
+        call this method and the panel has at least one child window, then the
+        focus will be given to the child window.
+        </div></div><br /><a name="SetFocusIgnoringChildren" /><div class="sub_head">SetFocusIgnoringChildren(args, kwargs)    <div class="sub_desc">
+        SetFocusIgnoringChildren(self)
+
+        In contrast to `SetFocus` (see above) this will set the focus to the
+        panel even of there are child windows in the panel. This is only
+        rarely needed.
+        </div></div><br /><a name="__init__" /><div class="sub_head">[constructor]    <div class="sub_desc">Usage: classname(arguments)</div></div><br /><a name="__doc__" /><div class="sub_head">[member '__doc__']    <div class="sub_desc">Documentation for this class</div></div><br /><a name="__module__" /><div class="sub_head">[member '__module__']    <div class="sub_desc">The module that this class belongs to</div></div><br /><a name="__repr__" /><div class="sub_head">[operator 'repr']    <div class="sub_desc">Usage: repr(a)</div></div><br /></div>
+</body>
+</html>

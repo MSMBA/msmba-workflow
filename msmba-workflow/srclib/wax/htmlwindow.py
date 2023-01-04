@@ -3,7 +3,7 @@
 # todo: styles
 
 import wx.html
-import waxobject
+from . import waxobject
 
 class HTMLWindow(wx.html.HtmlWindow, waxobject.WaxObject):
 

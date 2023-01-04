@@ -4,9 +4,9 @@
 # "basic" controls like Panel and Frame.  When in doubt, derive from those
 # two rather than making up your own container construct.
 
-import utils
-import waxconfig
-import waxobject
+from . import utils
+from . import waxconfig
+from . import waxobject
 import wx
 import warnings
 
@@ -18,7 +18,7 @@ class Container(waxobject.WaxObject):
         elif direction.lower().startswith("v"):
             dir = wx.VERTICAL
         else:
-            raise ValueError, "Incorrect direction"
+            raise ValueError("Incorrect direction")
         self.sizer = wx.BoxSizer(dir)
         self._packed = 0
 
@@ -47,7 +47,7 @@ class Container(waxobject.WaxObject):
             elif expand == '':
                 expand = stretch = 0
             else:
-                raise ValueError, "Invalid value for expand: %r" % (expand,)
+                raise ValueError("Invalid value for expand: %r" % (expand,))
 
         flags = 0
         if stretch:
@@ -129,6 +129,10 @@ class Container(waxobject.WaxObject):
             self._packed = 1
 
     def Repack(self):
+        #Handle what appears to be a bug in wxPython 4.1.1:
+        if isinstance(self.sizer, wx.BoxSizer):
+            print('Skipping BoxSizer.RecalcSizes()...')
+            return
         self.sizer.RecalcSizes()
 
     def GetOrientation(self):
@@ -139,7 +143,7 @@ class Container(waxobject.WaxObject):
         elif orientation == wx.VERTICAL:
             return 'vertical'
         else:
-            raise ValueError, "Unknown direction for sizer"
+            raise ValueError("Unknown direction for sizer")
             
     def GetSizerItems(self):
         """ Return a list of the object handled by the container's sizer, in 
@@ -166,7 +170,7 @@ class Container(waxobject.WaxObject):
         try:
             return objects[idx]
         except IndexError:
-            raise IndexError, "Sizer has no object at index #%s" % (idx,)
+            raise IndexError("Sizer has no object at index #%s" % (idx,))
     
     def GetSizerObjectIndex(self, obj):
         """ Get the index of <obj> in the list returned by GetSizerItems. """
@@ -214,7 +218,7 @@ class GridContainer(Container):
             warnings.warn("stretch is deprecated and has no effect here")
 
         if self.controls[col, row]:
-            raise ValueError, "A control has already been set for position (%s, %s)" % (row, col)
+            raise ValueError("A control has already been set for position (%s, %s)" % (row, col))
         self.controls[col, row] = {'obj': obj, 'expand': expand, 'align': align,
                                    'border': border, 'proportion': proportion}
 
@@ -239,7 +243,7 @@ class GridContainer(Container):
             for col in range(self.sizer.GetCols()):
                 d = self.controls[col, row]
                 if d is None:
-                    from panel import Panel
+                    from .panel import Panel
                     p = Panel(self) # hack up a dummy panel
                     controls.append((p, 0, wx.EXPAND|wx.FIXED_MINSIZE))
                 else:
@@ -248,7 +252,7 @@ class GridContainer(Container):
                     # set alignment
                     align = d['align'].lower()
                     alignment = 0
-                    for key, value in self.__class__.alignment.items():
+                    for key, value in list(self.__class__.alignment.items()):
                         if key in align:
                             alignment |= value
 
@@ -281,9 +285,9 @@ class FlexGridContainer(GridContainer):
 #
 # OverlayContainer
 
-class OverlaySizer(wx.PySizer):
+class OverlaySizer(wx.Sizer):
     def __init__(self):
-        wx.PySizer.__init__(self)
+        wx.Sizer.__init__(self)
 
     def CalcMin(self):
         maxx, maxy = 0, 0
@@ -329,7 +333,7 @@ class GroupBoxContainer(Container):
         elif direction.startswith('h'):
             dir = wx.HORIZONTAL
         else:
-            raise ValueError, "Unknown direction: %s" % (direction,)
+            raise ValueError("Unknown direction: %s" % (direction,))
 
         self.sizer = wx.StaticBoxSizer(groupbox, dir)
         self._packed = 0
@@ -367,7 +371,7 @@ class PlainContainer(Container):
         self._packed = 1    # useless, but included for compatibility
 
         if len(self.Children) == 1:
-            import panel
+            from . import panel
             dummy = panel.Panel(self, size=(0,0))
             dummy.Position = 0, 0
             self.__dummy = dummy

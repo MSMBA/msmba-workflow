@@ -3,13 +3,13 @@
 
 from wax import *
 import wx
-import cStringIO
+import io
 
 class MainFrame(VerticalFrame):
     def Body(self):
         self.art = ArtProvider((16,16))
         for image in self.art.images:
-            stream = cStringIO.StringIO(smile48_png)
+            stream = io.StringIO(smile48_png)
             self.art.RegisterFromData(stream, image, 'toolbar', (48,48))
         label = Label(self, "ArtProvider", align='c')
         label.Font = Font("Arial", 18, bold=1)
@@ -71,7 +71,7 @@ class MainFrame(VerticalFrame):
     def GetArt(self):
         client = self.combo1.Value
         image = self.combo2.Value
-        print client, image
+        print(client, image)
         self.SetBitmap('bmp16', client, image, (16,16))
         self.SetBitmap('bmp32', client, image, (32,32))
         self.SetBitmap('bmp48', client, image, (48,48))
@@ -88,7 +88,7 @@ class MainFrame(VerticalFrame):
 
     def SetBitmap(self, name, client, image, size):
         bmp = self.art.GetBitmap(image or 'error', client or 'other', size)
-        print bmp
+        print(bmp)
         if not bmp.Ok():
             bmp = wx.EmptyBitmap(*size)
         obj = getattr(self, name)

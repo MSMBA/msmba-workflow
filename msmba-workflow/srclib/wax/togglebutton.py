@@ -2,8 +2,8 @@
 
 # todo: styles, if possible (like a regular Button)
 
-import containers
-import waxobject
+from . import containers
+from . import waxobject
 import wx
 
 class ToggleButton(wx.ToggleButton, waxobject.WaxObject):

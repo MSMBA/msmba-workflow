@@ -1,6 +1,6 @@
 # waxconfig.py
 
-import font
+from . import font
 
 class WaxConfig:
     def __init__(self):

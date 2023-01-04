@@ -12,7 +12,7 @@ class MainFrame(PlainFrame):
         self.SetSize((400, 400))
         b = Button(self, "Button 0")
         bx, by = b.GetSize()
-        print "Size of a regular button:", (bx, by)
+        print("Size of a regular button:", (bx, by))
         self.AddComponent(10, 10, b)
 
         x = 10

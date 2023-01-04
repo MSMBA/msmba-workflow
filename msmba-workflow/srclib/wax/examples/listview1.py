@@ -9,7 +9,7 @@ class MainFrame(Frame):
                    columns=["Sender", "Subject", "Date"])
 
         for i in range(100):
-            listview.InsertStringItem(i, `i`)
+            listview.InsertStringItem(i, repr(i))
             listview.SetStringItem(i, 0, "sender" + str(i))
             listview.SetStringItem(i, 1, "subject" + str(i))
             listview.SetItemData(i, i)
@@ -23,11 +23,11 @@ class MainFrame(Frame):
         # __setitem__...
         listview[0,0] = "Dookie"
         listview[0,1] = "Re: Programming"
-        print listview[1,1]
+        print(listview[1,1])
         listview[110,0] = "Bjorn Lassing"
         listview[111,0] = 42     # number is converted to string
         listview[111,1] = {1:2}  # ditto for dict
-        listview[111,2] = u'an unicode string'  # remains as it is
+        listview[111,2] = 'an unicode string'  # remains as it is
 
         listview.SetColumnWidth(0, 150)
         listview.SetColumnWidth(1, 200)
@@ -42,12 +42,12 @@ class MainFrame(Frame):
     def OnListItemSelected(self, event=None):
         listview = event.GetEventObject()
         currentitem = event.m_itemIndex
-        print listview.GetItemText(currentitem)
+        print(listview.GetItemText(currentitem))
 
     def OnListItemDoubleClick(self, event=None):
         listview = event.GetEventObject()
         currentitem = event.m_itemIndex
-        print "You double-clicked:", listview.GetItemText(currentitem)
+        print("You double-clicked:", listview.GetItemText(currentitem))
 
 
 app = Application(MainFrame)

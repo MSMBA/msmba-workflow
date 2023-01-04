@@ -1,8 +1,8 @@
 # customdialog.py
 
 import wx
-import containers
-import dialog
+from . import containers
+from . import dialog
 
 class CustomDialog(wx.Dialog, containers.Container):
 

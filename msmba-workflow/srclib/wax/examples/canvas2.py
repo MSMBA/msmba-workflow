@@ -18,10 +18,10 @@ class Sprite:
 
         dc.DrawBitmap(self.bitmap, self.x, self.y, 1)
     def Hide(self, dc):
-        print 'Hiding...'
+        print('Hiding...')
         dc.Blit(self.x, self.y, self.bitmap.GetWidth(), self.bitmap.GetHeight(),
                 self.background, 0, 0, wxCOPY, 0)
-        print self.background
+        print(self.background)
     def Move(self, dc, dx, dy):
         self.Hide(dc)
         self.x += dx

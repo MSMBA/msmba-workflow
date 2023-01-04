@@ -125,16 +125,16 @@ class _SystemSettings:
                 return wx.SystemSettings.GetColour(id)
             except KeyError:
                 pass
-        raise KeyError, id
+        raise KeyError(id)
 
     def GetColour(self, id):
         return self.GetColor(id)
 
     def GetColorList(self):
-        return self.syscolordata.keys()
+        return list(self.syscolordata.keys())
 
     def GetColourList(self):
-        return self.syscolordata.keys()
+        return list(self.syscolordata.keys())
 
     def GetFont(self, id):
         """ Find system font by id. """
@@ -152,10 +152,10 @@ class _SystemSettings:
                 return wx.SystemSettings.GetFont(id)
             except KeyError:
                 pass
-        raise KeyError, id
+        raise KeyError(id)
 
     def GetFontList(self):
-        return self.sysfontdata.keys()
+        return list(self.sysfontdata.keys())
 
     def GetMetric(self, id):
         """ Find system metric by id. """
@@ -173,10 +173,10 @@ class _SystemSettings:
                 return wx.SystemSettings.GetMetric(id)
             except KeyError:
                 pass
-        raise KeyError, id
+        raise KeyError(id)
 
     def GetMetricList(self):
-        return self.sysmetricdata.keys()
+        return list(self.sysmetricdata.keys())
 
     def GetScreenType(self, id):
         """ Find screen type by id. """
@@ -194,10 +194,10 @@ class _SystemSettings:
                 return wx.SystemSettings.GetScreenType(id)
             except KeyError:
                 pass
-        raise KeyError, id
+        raise KeyError(id)
 
     def GetScreenTypeList(self):
-        return self.sysscreendata.keys()
+        return list(self.sysscreendata.keys())
 
 
 SystemSettings = _SystemSettings()

@@ -7,13 +7,13 @@ import warnings
 def asstring(x):
     """ Ensure that x is a string, i.e. if it's not of the str or unicode
         types, convert it with str.  Otherwise, leave it unchanged. """
-    if not (isinstance(x, str) or isinstance(x, unicode)):
+    if not (isinstance(x, str) or isinstance(x, str)):
         x = str(x)
     return x
 
 def opj(path):
     """Convert paths to the platform-specific separator"""
-    str = apply(os.path.join, tuple(path.split('/')))
+    str = os.path.join(*tuple(path.split('/')))
     # HACK: on Linux, a leading / gets lost...
     if path.startswith('/'):
         str = '/' + str

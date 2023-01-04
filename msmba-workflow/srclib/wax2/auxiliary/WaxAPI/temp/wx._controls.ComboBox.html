@@ -1,0 +1,143 @@
+<html>
+<head>
+    <title>Wax API</title>
+    <link href="waxapi.css" rel="stylesheet" type="text/css" />
+<head>
+    
+<body>
+<div id="header">Wax API Listing</div>
+<div id="body">
+<div class="main_head">wx._controls.ComboBox  <div class="main_desc">
+    A combobox is like a combination of an edit control and a
+    listbox. It can be displayed as static list with editable or
+    read-only text field; or a drop-down list with text field.
+
+    A combobox permits a single selection only. Combobox items are
+    numbered from zero.
+    </div>  <ul class="main_list">    <li><a href="#CanCopy">CanCopy</a></li>    <li><a href="#CanCut">CanCut</a></li>    <li><a href="#CanPaste">CanPaste</a></li>    <li><a href="#CanRedo">CanRedo</a></li>    <li><a href="#CanUndo">CanUndo</a></li>    <li><a href="#Copy">Copy</a></li>    <li><a href="#Create">Create</a></li>    <li><a href="#Cut">Cut</a></li>    <li><a href="#GetClassDefaultAttributes">GetClassDefaultAttributes</a></li>    <li><a href="#GetInsertionPoint">GetInsertionPoint</a></li>    <li><a href="#GetLastPosition">GetLastPosition</a></li>    <li><a href="#GetMark">GetMark</a></li>    <li><a href="#GetValue">GetValue</a></li>    <li><a href="#IsEditable">IsEditable</a></li>    <li><a href="#Paste">Paste</a></li>    <li><a href="#Redo">Redo</a></li>    <li><a href="#Remove">Remove</a></li>    <li><a href="#Replace">Replace</a></li>    <li><a href="#SelectAll">SelectAll</a></li>    <li><a href="#SetEditable">SetEditable</a></li>    <li><a href="#SetInsertionPoint">SetInsertionPoint</a></li>    <li><a href="#SetInsertionPointEnd">SetInsertionPointEnd</a></li>    <li><a href="#SetMark">SetMark</a></li>    <li><a href="#SetSelection">SetSelection</a></li>    <li><a href="#SetString">SetString</a></li>    <li><a href="#SetStringSelection">SetStringSelection</a></li>    <li><a href="#SetValue">SetValue</a></li>    <li><a href="#Undo">Undo</a></li>    <li><a href="#__init__">[constructor]</a></li>    <li><a href="#__doc__">[member '__doc__']</a></li>    <li><a href="#__module__">[member '__module__']</a></li>    <li><a href="#__repr__">[operator 'repr']</a></li>  </ul>  <div class="inherits">Inherits:     <a href="wx._controls.Choice.html">wx._controls.Choice</a>   </div></div><br /><a name="CanCopy" /><div class="sub_head">CanCopy(args, kwargs)    <div class="sub_desc">
+        CanCopy(self) -> bool
+
+        Returns True if the combobox is editable and there is a text selection
+        to copy to the clipboard.  Only available on Windows.
+        </div></div><br /><a name="CanCut" /><div class="sub_head">CanCut(args, kwargs)    <div class="sub_desc">
+        CanCut(self) -> bool
+
+        Returns True if the combobox is editable and there is a text selection
+        to copy to the clipboard.  Only available on Windows.
+        </div></div><br /><a name="CanPaste" /><div class="sub_head">CanPaste(args, kwargs)    <div class="sub_desc">
+        CanPaste(self) -> bool
+
+        Returns True if the combobox is editable and there is text on the
+        clipboard that can be pasted into the text field. Only available on
+        Windows.
+        </div></div><br /><a name="CanRedo" /><div class="sub_head">CanRedo(args, kwargs)    <div class="sub_desc">
+        CanRedo(self) -> bool
+
+        Returns True if the combobox is editable and the last undo can be
+        redone.  Only available on Windows.
+        </div></div><br /><a name="CanUndo" /><div class="sub_head">CanUndo(args, kwargs)    <div class="sub_desc">
+        CanUndo(self) -> bool
+
+        Returns True if the combobox is editable and the last edit can be
+        undone.  Only available on Windows.
+        </div></div><br /><a name="Copy" /><div class="sub_head">Copy(args, kwargs)    <div class="sub_desc">
+        Copy(self)
+
+        Copies the selected text to the clipboard.
+        </div></div><br /><a name="Create" /><div class="sub_head">Create(args, kwargs)    <div class="sub_desc">
+        Create(Window parent, int id, String value=EmptyString,
+            Point pos=DefaultPosition, Size size=DefaultSize,
+            List choices=EmptyList, long style=0, Validator validator=DefaultValidator,
+            String name=ChoiceNameStr) -> bool
+
+        Actually create the GUI wxComboBox control for 2-phase creation
+        </div></div><br /><a name="Cut" /><div class="sub_head">Cut(args, kwargs)    <div class="sub_desc">
+        Cut(self)
+
+        Copies the selected text to the clipboard and removes the selection.
+        </div></div><br /><a name="GetClassDefaultAttributes" /><div class="sub_head">GetClassDefaultAttributes    <div class="sub_desc">
+        GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
+
+        Get the default attributes for this class.  This is useful if you want
+        to use the same font or colour in your own control as in a standard
+        control -- which is a much better idea than hard coding specific
+        colours or fonts which might look completely out of place on the
+        user's system, especially if it uses themes.
+
+        The variant parameter is only relevant under Mac currently and is
+        ignore under other platforms. Under Mac, it will change the size of
+        the returned font. See `wx.Window.SetWindowVariant` for more about
+        this.
+        </div></div><br /><a name="GetInsertionPoint" /><div class="sub_head">GetInsertionPoint(args, kwargs)    <div class="sub_desc">
+        GetInsertionPoint(self) -> long
+
+        Returns the insertion point for the combobox's text field.
+        </div></div><br /><a name="GetLastPosition" /><div class="sub_head">GetLastPosition(args, kwargs)    <div class="sub_desc">
+        GetLastPosition(self) -> long
+
+        Returns the last position in the combobox text field.
+        </div></div><br /><a name="GetMark" /><div class="sub_head">GetMark(args, kwargs)    <div class="sub_desc">
+        GetMark(self) -> (from, to)
+
+        Gets the positions of the begining and ending of the selection mark in
+        the combobox text field.
+        </div></div><br /><a name="GetValue" /><div class="sub_head">GetValue(args, kwargs)    <div class="sub_desc">
+        GetValue(self) -> String
+
+        Returns the current value in the combobox text field.
+        </div></div><br /><a name="IsEditable" /><div class="sub_head">IsEditable(args, kwargs)    <div class="sub_desc">
+        IsEditable(self) -> bool
+
+        Returns True if the combo is ediatable (not read-only.)
+        </div></div><br /><a name="Paste" /><div class="sub_head">Paste(args, kwargs)    <div class="sub_desc">
+        Paste(self)
+
+        Pastes text from the clipboard to the text field.
+        </div></div><br /><a name="Redo" /><div class="sub_head">Redo(args, kwargs)    <div class="sub_desc">
+        Redo(self)
+
+        Undoes the last edit in the text field. Windows only.
+        </div></div><br /><a name="Remove" /><div class="sub_head">Remove(args, kwargs)    <div class="sub_desc">
+        Remove(self, long from, long to)
+
+        Removes the text between the two positions in the combobox text field.
+        </div></div><br /><a name="Replace" /><div class="sub_head">Replace(args, kwargs)    <div class="sub_desc">
+        Replace(self, long from, long to, String value)
+
+        Replaces the text between two positions with the given text, in the
+        combobox text field.
+        </div></div><br /><a name="SelectAll" /><div class="sub_head">SelectAll(args, kwargs)    <div class="sub_desc">
+        SelectAll(self)
+
+        Select all the text in the combo's text field.
+        </div></div><br /><a name="SetEditable" /><div class="sub_head">SetEditable(args, kwargs)    <div class="sub_desc">SetEditable(self, bool editable)</div></div><br /><a name="SetInsertionPoint" /><div class="sub_head">SetInsertionPoint(args, kwargs)    <div class="sub_desc">
+        SetInsertionPoint(self, long pos)
+
+        Sets the insertion point in the combobox text field.
+        </div></div><br /><a name="SetInsertionPointEnd" /><div class="sub_head">SetInsertionPointEnd(args, kwargs)    <div class="sub_desc">
+        SetInsertionPointEnd(self)
+
+        Sets the insertion point at the end of the combobox text field.
+        </div></div><br /><a name="SetMark" /><div class="sub_head">SetMark(args, kwargs)    <div class="sub_desc">
+        SetMark(self, long from, long to)
+
+        Selects the text between the two positions in the combobox text field.
+        </div></div><br /><a name="SetSelection" /><div class="sub_head">SetSelection(args, kwargs)    <div class="sub_desc">
+        SetSelection(self, int n)
+
+        Sets the item at index 'n' to be the selected item.
+        </div></div><br /><a name="SetString" /><div class="sub_head">SetString(args, kwargs)    <div class="sub_desc">
+        SetString(self, int n, String string)
+
+        Set the label for the n'th item (zero based) in the list.
+        </div></div><br /><a name="SetStringSelection" /><div class="sub_head">SetStringSelection(args, kwargs)    <div class="sub_desc">
+        SetStringSelection(self, String string) -> bool
+
+        Select the item with the specifed string
+        </div></div><br /><a name="SetValue" /><div class="sub_head">SetValue(args, kwargs)    <div class="sub_desc">SetValue(self, String value)</div></div><br /><a name="Undo" /><div class="sub_head">Undo(args, kwargs)    <div class="sub_desc">
+        Undo(self)
+
+        Redoes the last undo in the text field. Windows only.
+        </div></div><br /><a name="__init__" /><div class="sub_head">[constructor]    <div class="sub_desc">Usage: classname(arguments)</div></div><br /><a name="__doc__" /><div class="sub_head">[member '__doc__']    <div class="sub_desc">Documentation for this class</div></div><br /><a name="__module__" /><div class="sub_head">[member '__module__']    <div class="sub_desc">The module that this class belongs to</div></div><br /><a name="__repr__" /><div class="sub_head">[operator 'repr']    <div class="sub_desc">Usage: repr(a)</div></div><br /></div>
+</body>
+</html>

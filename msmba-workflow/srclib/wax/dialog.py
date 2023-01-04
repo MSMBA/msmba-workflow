@@ -5,12 +5,12 @@
 
 import wx
 
-from button import Button
-from containers import Container
-from line import Line
-from panel import Panel
-from keys import keys
-import frame
+from .button import Button
+from .containers import Container
+from .line import Line
+from .panel import Panel
+from .keys import keys
+from . import frame
 
 # TODO: styles (same as Frame?)
 

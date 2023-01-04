@@ -70,25 +70,25 @@ check the source for this sample to see how to implement them.
 
         # demonstrate menubar.Walk()
         for mwitem in menubar.Walk():
-            print mwitem.name, [(item.GetLabel(), item.GetId())
-                                for item in mwitem.items]
+            print(mwitem.name, [(item.GetLabel(), item.GetId())
+                                for item in mwitem.items])
 
-    def Menu_Planets_Mercury(self, event): print "Welcome to Mercury"
-    def Menu_Planets_Venus(self, event): print "Welcome to Venus"
-    def Menu_Planets_Earth(self, event): print "Welcome to the Earth"
+    def Menu_Planets_Mercury(self, event): print("Welcome to Mercury")
+    def Menu_Planets_Venus(self, event): print("Welcome to Venus")
+    def Menu_Planets_Earth(self, event): print("Welcome to the Earth")
     def Menu_Planets_Close(self, event): self.Close()
     def Menu_Elements_Hydrogen(self, event):
-        print "Chemical element number 1"
+        print("Chemical element number 1")
     def Menu_Elements_Helium(self, event):
-        print "Chemical element number 2"
+        print("Chemical element number 2")
     def Menu_Elements_Lanthanides_Lanthanium(self, event):
-        print "Chemical element number 57"
+        print("Chemical element number 57")
     def Menu_Elements_Lanthanides_Cerium(self, event):
-        print "Chemical element number 58"
+        print("Chemical element number 58")
     def Menu_Elements_Lanthanides_Praesodymium(self, event):
-        print "Chemical element number 59"
-    def Menu_Fun_Interesting_thing(self, event): print "Foo!"
-    def Hello(self, event): print "Hello!"
+        print("Chemical element number 59")
+    def Menu_Fun_Interesting_thing(self, event): print("Foo!")
+    def Hello(self, event): print("Hello!")
 
 app = Application(MyFrame)
 app.MainLoop()

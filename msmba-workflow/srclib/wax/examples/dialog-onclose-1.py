@@ -13,7 +13,7 @@ class MyDialog(Dialog):
             label.ForegroundColor = color
             indent = indent + "  "
     def OnClose(self, event):
-        print "I'm sorry, but I can't let you do that, Dave."
+        print("I'm sorry, but I can't let you do that, Dave.")
 
 class MainFrame(Frame):
     def Body(self):

@@ -10,9 +10,9 @@ Created on Dec 14, 2012
 from wax import Frame;
 from wax import NoteBook;
 from wax import Splitter;
-from outputPanel import OutputPanel;
-from sourceInputPanel import SourceInputPanel;
-from transitionInputPanel import TransitionInputPanel;
+from .outputPanel import OutputPanel;
+from .sourceInputPanel import SourceInputPanel;
+from .transitionInputPanel import TransitionInputPanel;
 
 class RoleFrame(Frame):
 

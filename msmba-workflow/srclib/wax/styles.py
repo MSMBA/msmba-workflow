@@ -12,7 +12,7 @@ REVERSE   = 32
 
 def styledict(name, dict, kwargs, default=0):
     flags = 0
-    if kwargs.has_key(name):
+    if name in kwargs:
         value = kwargs[name]
         try:
             value = value.lower()
@@ -29,11 +29,11 @@ def styledictstart(name, dict, kwargs, default=0):
         Used e.g. in _button_align.
     """
     flags = 0
-    if kwargs.has_key(name):
+    if name in kwargs:
         value = kwargs[name].lower()
         # note that we traverse the dict pair by pair, so ambiguous matches
         # *are* possible
-        for key, flag in dict.items():
+        for key, flag in list(dict.items()):
             if key.startswith(value):
                 flags |= flag
                 break
@@ -50,7 +50,7 @@ def stylebool(name, flag, kwargs, reverse=0):
         will return wx.BLAH_NOLINES if lines==0, not if lines==1.)
     """
     flags = 0
-    if kwargs.has_key(name):
+    if name in kwargs:
         value = kwargs[name]
         if reverse:
             value = not value
@@ -61,7 +61,7 @@ def stylebool(name, flag, kwargs, reverse=0):
 
 def styleboolexclude(name, flag, kwargs, reverse=0):
     flags = 0
-    if kwargs.has_key(name):
+    if name in kwargs:
         value = kwargs[name]
         if reverse:
             value = not value
@@ -72,7 +72,7 @@ def styleboolexclude(name, flag, kwargs, reverse=0):
 
 def stylebooleither(name, flagtrue, flagfalse, kwargs):
     flags = 0
-    if kwargs.has_key(name):
+    if name in kwargs:
         value = kwargs[name]
         if value:
             flags |= flagtrue
@@ -83,7 +83,7 @@ def stylebooleither(name, flagtrue, flagfalse, kwargs):
 
 # not sure if this can be used...
 def stylefunc(name, func, kwargs):
-    if kwargs.has_key(name):
+    if name in kwargs:
         value = kwargs[name]
         func(value)
         del kwargs[value]
@@ -96,7 +96,7 @@ def dostyle(styledict, kwargs):
     """ Set styles for a given control, using a "style dict".  Return the 
         eventual flag value.  Mostly for internal use. """
     flags = 0
-    for k, (style, type) in styledict.items():
+    for k, (style, type) in list(styledict.items()):
         #style, type = styledict[k]
         # First check for reversing
         reverse = 0
@@ -122,9 +122,9 @@ def properties(obj, kwargs):
     """ Called by constructors to set properties from a dict.  Must be called
         *after* the parent's constructor (unlike most of the other styles
         functions). """
-    if kwargs.has_key('properties'):
+    if 'properties' in kwargs:
         d = kwargs['properties']
-        for key, value in d.items():
+        for key, value in list(d.items()):
             setattr(obj, key, value)  # attempt to set property
         del kwargs['properties']
 

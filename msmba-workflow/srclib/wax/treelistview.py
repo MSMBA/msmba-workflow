@@ -1,10 +1,10 @@
 # treelistview.py
 
-import styles
+from . import styles
 import wx
 import wx.gizmos as gizmos
-import waxobject
-import treeview
+from . import waxobject
+from . import treeview
 
 class TreeListView(gizmos.TreeListCtrl, waxobject.WaxObject):
 
@@ -24,6 +24,7 @@ class TreeListView(gizmos.TreeListCtrl, waxobject.WaxObject):
 
     # some deviltry to copy styles stuff from TreeView...
     _treeview_selection = treeview.TreeView._treeview_selection
-    _params = treeview.TreeView._params.im_func
+    #_params = treeview.TreeView._params.__func__
+    _params = treeview.TreeView._params
     # I'll come up with a better solution later.
 

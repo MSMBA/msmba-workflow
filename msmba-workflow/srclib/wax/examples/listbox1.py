@@ -2,18 +2,18 @@
 
 from wax import *
 
-LIST1 = sys.modules.keys()
+LIST1 = list(sys.modules.keys())
 LIST1.sort()
 
 import keyword
 LIST2 = keyword.kwlist
 
-import __builtin__
-LIST3 = __builtin__.__dict__.keys()
+import builtins
+LIST3 = list(builtins.__dict__.keys())
 LIST3.sort()
 
 def clicked(event):
-    print "Clicked:", event.GetEventObject()
+    print("Clicked:", event.GetEventObject())
 
 class MainFrame(Frame):
     def Body(self):

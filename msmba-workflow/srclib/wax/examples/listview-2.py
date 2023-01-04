@@ -20,8 +20,8 @@ class MyVirtualListView(ListView):
     def OnGetItemText(self, item, col):
         return "%d, %s" % (item, COLUMNS[col])
     def OnColumnClick(self, event):
-        print "Aha, you clicked column", event.GetColumn(),
-        print "(%r)" % (COLUMNS[event.GetColumn()],)
+        print("Aha, you clicked column", event.GetColumn(), end=' ')
+        print("(%r)" % (COLUMNS[event.GetColumn()],))
     def OnGetItemAttr(self, row):
         idx = row % len(COLORS)
         attr = self.attrs[idx]

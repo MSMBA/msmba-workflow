@@ -1,9 +1,9 @@
 # listbox.py
 
 import wx
-import containers
-import waxobject
-import styles
+from . import containers
+from . import waxobject
+from . import styles
 
 class ListBox(wx.ListBox, waxobject.WaxObject):
 
@@ -35,7 +35,7 @@ class ListBox(wx.ListBox, waxobject.WaxObject):
         elif selection == "extended":
             style |= wx.LB_EXTENDED
         else:
-            raise ValueError, "selection must be single, multiple or extended"
+            raise ValueError("selection must be single, multiple or extended")
         return style
 
     def SetItems(self, items):

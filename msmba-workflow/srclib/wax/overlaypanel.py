@@ -2,7 +2,7 @@
 
 # todo: styles
 
-from containers import OverlayContainer
+from .containers import OverlayContainer
 import wx
 
 class OverlayPanel(wx.Panel, OverlayContainer):

@@ -7,10 +7,11 @@ Created on Dec 16, 2012
 @author: blubin
 '''
 
+import wx
 from wax import OverlayPanel;
 from wax import Panel;
 from wax import Button;
-from inputPanel import InputPanel;
+from .inputPanel import InputPanel;
 
 class SourceInputPanel(InputPanel, OverlayPanel):
 
@@ -39,6 +40,7 @@ class SourceInputPanel(InputPanel, OverlayPanel):
     def remove_form(self):
         InputPanel.remove_form(self);
         self.Select(0);
-        self.sizer.Remove(self.windows[1]);
+        #self.sizer.Remove(self.windows[1]);
+        self.sizer.Remove(1);
         del self.windows[1];
 

@@ -19,9 +19,9 @@ class MainFrame(Frame):
         # some test code... will remove later
         #
         font = self.label.GetFont() # a wax Font, not a wxFont!
-        print ">>", font
+        print(">>", font)
         #print ">>", font.IsBold(), font.IsItalic()  # wrong!
-        print ">>", dir(font)
+        print(">>", dir(font))
         #
 
     def SelectFont(self, event):

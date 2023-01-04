@@ -1,8 +1,8 @@
 # scrollframe.py
 
 import wx
-import containers
-import styles
+from . import containers
+from . import styles
 from wx.lib.scrolledpanel import ScrolledPanel
 
 class ScrollPanel(ScrolledPanel, containers.Container):

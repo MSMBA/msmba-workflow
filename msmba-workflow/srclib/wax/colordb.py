@@ -7,6 +7,7 @@
 import math
 import operator
 import string
+from functools import reduce
 
 def convert_color(color):
     if isinstance(color, str):
@@ -784,7 +785,7 @@ class ColorDB:
             return self.colordata[name.lower()]
         except KeyError:
             pass
-        raise KeyError, name
+        raise KeyError(name)
 
     def blend(self, color1, color2):
         """ "Blend" two colors, i.e. take their average RGB values. """
@@ -826,11 +827,11 @@ class ColorDB:
             return math.sqrt(sum)
 
         results = {}
-        for (name, acolor) in self.colordata.items():
+        for (name, acolor) in list(self.colordata.items()):
             dist = distance(color, acolor)
             results[dist] = (dist, name, acolor)
 
-        results = results.values()
+        results = list(results.values())
         results.sort()
         return results[:numresults]
 

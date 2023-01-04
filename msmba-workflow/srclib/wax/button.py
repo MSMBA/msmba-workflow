@@ -1,9 +1,9 @@
 # button.py
 
-import containers
-import waxobject
+from . import containers
+from . import waxobject
 import wx
-import styles
+from . import styles
 
 
 class Button(wx.Button, waxobject.WaxObject):

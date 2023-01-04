@@ -7,8 +7,8 @@ Created on Dec 14, 2012
 @author: blubin
 '''
 
-from flowData import FlowData;
-from flowData import Status;
+from .flowData import FlowData;
+from .flowData import Status;
 from collections import OrderedDict;
 
 class Result(FlowData):

@@ -13,7 +13,7 @@ class MainFrame(Frame):
         dlg = TextEntryDialog(self)
         result = dlg.ShowModal()
         if result == 'ok':
-            print dlg.GetValue()
+            print(dlg.GetValue())
         dlg.Destroy()
 
 app = Application(MainFrame)

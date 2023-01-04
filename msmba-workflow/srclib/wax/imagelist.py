@@ -23,7 +23,7 @@ class ImageList(wx.ImageList):
         self._names = {}
 
     def Add(self, bitmap, name=None):
-        if isinstance(bitmap, str) or isinstance(bitmap, unicode):
+        if isinstance(bitmap, str) or isinstance(bitmap, str):
             bitmap = wx.BitmapFromImage(wx.Image(bitmap))
            
         index = wx.ImageList.Add(self, bitmap)

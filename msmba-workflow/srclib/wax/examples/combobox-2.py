@@ -24,17 +24,17 @@ class MainFrame(VerticalFrame):
         self.cb1 = cb1
 
     def OnButtonClick(self, event):
-        print "You chose:", self.cb1.GetValue()
+        print("You chose:", self.cb1.GetValue())
 
     def OnChar(self, event):
         obj = event.GetEventObject()
         keycode = event.GetKeyCode()
-        print keycode
+        print(keycode)
         if keycode == keys.backspace:
             self.phrase = self.phrase[:-1]
         elif keycode == keys.delete:
             self.phrase = ''
-        elif keycode not in range(256):
+        elif keycode not in list(range(256)):
             event.Skip()
             return 0
         else:

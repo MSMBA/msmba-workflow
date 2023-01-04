@@ -2,8 +2,8 @@
 
 import wx
 import sys
-from waxconfig import WaxConfig
-import font
+from .waxconfig import WaxConfig
+from . import font
 
 class Application(wx.App):
 
@@ -16,7 +16,7 @@ class Application(wx.App):
 
         # when set, the app uses the stdout/stderr window; off by default
         use_stdout_window = 0
-        if kwargs.has_key('use_stdout_window'):
+        if 'use_stdout_window' in kwargs:
             use_stdout_window = kwargs['use_stdout_window']
             del kwargs['use_stdout_window']
         wx.App.__init__(self, use_stdout_window)
@@ -25,7 +25,7 @@ class Application(wx.App):
         if isinstance(WaxConfig.default_font, tuple):
             WaxConfig.default_font = font.Font(*WaxConfig.default_font)
         else:
-            print >> sys.stderr, "Warning: This construct will not work in future wxPython versions"
+            print("Warning: This construct will not work in future wxPython versions", file=sys.stderr)
         self.mainframe = self.frameklass(*self.args, **self.kwargs)
         if hasattr(self.mainframe.__class__, "__ExceptHook__"):
             sys.excepthook = self.mainframe.__ExceptHook__
@@ -45,7 +45,7 @@ class Application(wx.App):
             f = getattr(self, "Get" + name)
             return f()
         else:
-            raise AttributeError, name
+            raise AttributeError(name)
 
     def __setattr__(self, name, value):
         if hasattr(self, "Set" + name):

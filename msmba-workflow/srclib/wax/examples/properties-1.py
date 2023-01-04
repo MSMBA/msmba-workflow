@@ -10,13 +10,13 @@ class MainFrame(Frame):
         p = Panel(self)
         self.AddComponent(p, expand=1, stretch=1)
 
-        print "Frame size/position:", self.Size, self.Position
-        print "Panel size/position:", p.Size, p.Position
+        print("Frame size/position:", self.Size, self.Position)
+        print("Panel size/position:", p.Size, p.Position)
         p.BackgroundColor = 'red'
 
         # normal attributes still work
         self.foobar = 42
-        print self.foobar
+        print(self.foobar)
 
 app = Application(MainFrame)
 app.Run()

@@ -1,7 +1,7 @@
 # choosedirectory.py
 
 import wx
-import waxobject
+from . import waxobject
 
 class DirectoryDialog(wx.DirDialog, waxobject.WaxObject):
 

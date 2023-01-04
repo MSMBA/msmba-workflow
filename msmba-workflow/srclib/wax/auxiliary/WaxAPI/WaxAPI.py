@@ -17,7 +17,7 @@ from htmlexport import name_mapping, write_module
 # Build a class list that can be used with LoadFromNestedList
 #
 def BuildClassHierarchyDict(obj, accepted):
-    temp = [(k, v) for k, v in obj.__dict__.items() if type(v) in accepted]
+    temp = [(k, v) for k, v in list(obj.__dict__.items()) if type(v) in accepted]
     temp.sort()
 
     l = []
@@ -111,7 +111,7 @@ class WaxAPIFrame(Frame):
         #argnames, args, kwargs, defs = inspect.getargspec(function)
 
         sep = ','
-        str = func.func_name + '(' + sep.join(func.func_code.co_varnames) + ')'
+        str = func.__name__ + '(' + sep.join(func.__code__.co_varnames) + ')'
         return str
 
     def obj_list_OnSelectionChanged(self, event=None):

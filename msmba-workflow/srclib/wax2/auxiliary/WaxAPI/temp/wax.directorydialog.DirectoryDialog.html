@@ -1,0 +1,89 @@
+<html>
+<head>
+    <title>Wax API</title>
+    <link href="waxapi.css" rel="stylesheet" type="text/css" />
+<head>
+    
+<body>
+<div id="header">Wax API Listing</div>
+<div id="body">
+<div class="main_head">wax.directorydialog.DirectoryDialog  <div class="main_desc">None</div>  <ul class="main_list">    <li><a href="#GetBackgroundColor">GetBackgroundColor</a></li>    <li><a href="#GetFont">GetFont</a></li>    <li><a href="#GetForegroundColor">GetForegroundColor</a></li>    <li><a href="#SetBackgroundColor">SetBackgroundColor</a></li>    <li><a href="#SetBackgroundColour">SetBackgroundColour</a></li>    <li><a href="#SetCursor">SetCursor</a></li>    <li><a href="#SetFont">SetFont</a></li>    <li><a href="#SetForegroundColor">SetForegroundColor</a></li>    <li><a href="#SetForegroundColour">SetForegroundColour</a></li>    <li><a href="#SetWindowStyle">SetWindowStyle</a></li>    <li><a href="#ShowModal">ShowModal</a></li>    <li><a href="#__init__">[constructor]</a></li>    <li><a href="#__doc__">[member '__doc__']</a></li>    <li><a href="#__module__">[member '__module__']</a></li>  </ul>  <div class="inherits">Inherits:     <a href="wx._windows.DirDialog.html">wx._windows.DirDialog</a>     <a href="wax.waxobject.WaxObject.html">wax.waxobject.WaxObject</a>   </div></div><br /><a name="GetBackgroundColor" /><div class="sub_head">GetBackgroundColor(args, kwargs)    <div class="sub_desc">
+        GetBackgroundColour(self) -> Colour
+
+        Returns the background colour of the window.
+        </div></div><br /><a name="GetFont" /><div class="sub_head">GetFont(self, wxfont)    <div class="sub_desc">
+        GetFont(self) -> Font
+
+        Returns the default font used for this window.
+        </div></div><br /><a name="GetForegroundColor" /><div class="sub_head">GetForegroundColor(args, kwargs)    <div class="sub_desc">
+        GetForegroundColour(self) -> Colour
+
+        Returns the foreground colour of the window.  The interpretation of
+        foreground colour is dependent on the window class; it may be the text
+        colour or other colour, or it may not be used at all.
+        </div></div><br /><a name="SetBackgroundColor" /><div class="sub_head">SetBackgroundColor(self, color)    <div class="sub_desc">
+        SetBackgroundColour(self, Colour colour) -> bool
+
+        Sets the background colour of the window.  Returns True if the colour
+        was changed.  The background colour is usually painted by the default
+        EVT_ERASE_BACKGROUND event handler function under Windows and
+        automatically under GTK.  Using `wx.NullColour` will reset the window
+        to the default background colour.
+
+        Note that setting the background colour may not cause an immediate
+        refresh, so you may wish to call `ClearBackground` or `Refresh` after
+        calling this function.
+
+        Using this function will disable attempts to use themes for this
+        window, if the system supports them.  Use with care since usually the
+        themes represent the appearance chosen by the user to be used for all
+        applications on the system.
+        </div></div><br /><a name="SetBackgroundColour" /><div class="sub_head">SetBackgroundColour(self, color)    <div class="sub_desc">
+        SetBackgroundColour(self, Colour colour) -> bool
+
+        Sets the background colour of the window.  Returns True if the colour
+        was changed.  The background colour is usually painted by the default
+        EVT_ERASE_BACKGROUND event handler function under Windows and
+        automatically under GTK.  Using `wx.NullColour` will reset the window
+        to the default background colour.
+
+        Note that setting the background colour may not cause an immediate
+        refresh, so you may wish to call `ClearBackground` or `Refresh` after
+        calling this function.
+
+        Using this function will disable attempts to use themes for this
+        window, if the system supports them.  Use with care since usually the
+        themes represent the appearance chosen by the user to be used for all
+        applications on the system.
+        </div></div><br /><a name="SetCursor" /><div class="sub_head">SetCursor(self, x, c)    <div class="sub_desc">
+        SetCursor(self, Cursor cursor) -> bool
+
+        Sets the window's cursor. Notice that the window cursor also sets it
+        for the children of the window implicitly.
+
+        The cursor may be wx.NullCursor in which case the window cursor will
+        be reset back to default.
+        </div></div><br /><a name="SetFont" /><div class="sub_head">SetFont(self, obj, font)    <div class="sub_desc">
+        SetFont(self, Font font) -> bool
+
+        Sets the font for this window.
+        </div></div><br /><a name="SetForegroundColor" /><div class="sub_head">SetForegroundColor(self, color)    <div class="sub_desc">
+        SetForegroundColour(self, Colour colour) -> bool
+
+        Sets the foreground colour of the window.  Returns True is the colour
+        was changed.  The interpretation of foreground colour is dependent on
+        the window class; it may be the text colour or other colour, or it may
+        not be used at all.
+        </div></div><br /><a name="SetForegroundColour" /><div class="sub_head">SetForegroundColour(self, color)    <div class="sub_desc">
+        SetForegroundColour(self, Colour colour) -> bool
+
+        Sets the foreground colour of the window.  Returns True is the colour
+        was changed.  The interpretation of foreground colour is dependent on
+        the window class; it may be the text colour or other colour, or it may
+        not be used at all.
+        </div></div><br /><a name="SetWindowStyle" /><div class="sub_head">SetWindowStyle(self, __default__, kwargs, flags)    <div class="sub_desc"> Wax-style SetWindowStyle that supports the old way of
+                    setting styles (using an integer flag value), and/or
+                    named keywords, depending on the class's _params method.
+                </div></div><br /><a name="ShowModal" /><div class="sub_head">ShowModal(self, result)    <div class="sub_desc"> Simplified ShowModal(), returning strings 'ok' or 'cancel'. </div></div><br /><a name="__init__" /><div class="sub_head">[constructor]    <div class="sub_desc">Usage: classname(arguments)</div></div><br /><a name="__doc__" /><div class="sub_head">[member '__doc__']    <div class="sub_desc">Documentation for this class</div></div><br /><a name="__module__" /><div class="sub_head">[member '__module__']    <div class="sub_desc">The module that this class belongs to</div></div><br /></div>
+</body>
+</html>

@@ -1,8 +1,8 @@
 # messagedialog.py
 
 import wx
-import waxobject
-import core
+from . import waxobject
+from . import core
 
 class MessageDialog(wx.MessageDialog, waxobject.WaxObject):
     """Displays a message dialog.  Title, text, buttons (OK/Cancel/Yes/No),

@@ -57,7 +57,7 @@ class MenuHistory:
     def Save(self):
         f = open(self.filename, "w")
         for title in self.titles:
-            print >> f, title
+            print(title, file=f)
         f.close()
 
     def OnMenuClick(self, event):

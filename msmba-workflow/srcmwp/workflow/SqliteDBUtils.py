@@ -8,7 +8,7 @@ Created on Dec 14, 2012
 '''
 
 import os.path;
-import ConfigParser;
+import configparser;
 from collections import namedtuple;
 
 ServerParams = namedtuple("ServerParams", "address port");
@@ -28,7 +28,7 @@ def get_serverparams(alwayslocalhost=False):
     """
     serverparamfile = "server.cfg";
     if os.path.exists(serverparamfile):
-        config = ConfigParser.RawConfigParser();
+        config = configparser.RawConfigParser();
         config.read(serverparamfile);
         address = config.get("Server", "Address");
         port = int(config.get("Server", "Port"));
@@ -39,15 +39,15 @@ def get_serverparams(alwayslocalhost=False):
             address = raw_input("Enter server hostname or ip address (Enter for default): ");
             if address == "":
                 address = 'localhost';
-        port = raw_input("Enter server port number (Enter for default): ");
+        port = input("Enter server port number (Enter for default): ");
         if port == "":
             port = 9000;
         else:
             port = int(port)
-        config = ConfigParser.RawConfigParser();
+        config = configparser.RawConfigParser();
         config.add_section("Server");
         config.set("Server", "Address", address);
         config.set("Server", "Port", port);
-        with open(serverparamfile, 'wb') as cfile:
+        with open(serverparamfile, 'w') as cfile:
             config.write(cfile)        
     return ServerParams(address, port);

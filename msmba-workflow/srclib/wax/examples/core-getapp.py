@@ -5,7 +5,7 @@ from wax import *
 class MainFrame(Frame):
     def Body(self):
         app = core.GetApp()
-        print app
+        print(app)
         assert isinstance(app, Application)
 
 app = Application(MainFrame, title="core-getapp")

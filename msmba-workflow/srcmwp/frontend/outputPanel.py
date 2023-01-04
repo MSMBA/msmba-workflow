@@ -7,9 +7,10 @@ Created on Dec 16, 2012
 @author: blubin
 '''
 
+import wx
 from wax import Grid;
 from wx import CallAfter;
-from wx.grid import PyGridTableBase; 
+from wx.grid import GridTableBase; 
 from wx.grid import GRID_VALUE_STRING; 
 from workflow.flowData import Status;
 from workflow.flowData import FlowDataReference;
@@ -29,10 +30,10 @@ class OutputPanel(Grid):
         self.SetTable(self.grid_table);
         self.AutoSizeColumns();
         
-class GridTable(PyGridTableBase):
+class GridTable(GridTableBase):
     
     def __init__(self):
-        PyGridTableBase.__init__(self);
+        GridTableBase.__init__(self);
         self.rows = [];
         self.cols = None;
         self.uid = {};
@@ -82,7 +83,7 @@ class GridTable(PyGridTableBase):
 
     def get_column(self, col):
         if self.cols == None:
-            self.cols = self.rows[0].data.keys();
+            self.cols = [k for k in self.rows[0].data.keys()];
         if col - len(self.cols) == 0:
             return 'sequence';
         if col - len(self.cols) == 1:

@@ -16,7 +16,7 @@ class MainFrame(PlainFrame):
         self.Size = 200, 200
     def OnClickButton(self, event):
         obj = event.GetEventObject()
-        print "foobar is:", obj.foobar
+        print("foobar is:", obj.foobar)
 
 app = Application(MainFrame)
 app.Run()

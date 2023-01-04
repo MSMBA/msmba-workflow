@@ -1,10 +1,10 @@
 # listview.py
 
 import wx
-import waxobject
-import styles
-import colordb
-import utils
+from . import waxobject
+from . import styles
+from . import colordb
+from . import utils
 
 # todo: mixins
 

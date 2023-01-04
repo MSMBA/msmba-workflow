@@ -66,7 +66,7 @@ class Wizard(wx.Dialog, Container):
         try:
             self.mainpanel.Select(0)
         except IndexError:
-            raise ValueError, "Wizard object has no pages"
+            raise ValueError("Wizard object has no pages")
         return self.ShowModal()
 
     def End(self):
@@ -113,9 +113,9 @@ class Wizard(wx.Dialog, Container):
                   the last page, and changes next to finish appropriately.
                   Override this event if you don't want that! """
 
-        if old.next and not new.next:
+        if old.__next__ and not new.__next__:
             self.nextbutton.SetLabel('Finish')
-        elif not old.next and new.next:
+        elif not old.__next__ and new.__next__:
             self.nextbutton.SetLabel('Next')
 
 class WizardPage(VerticalPanel):
@@ -142,11 +142,11 @@ class WizardPage(VerticalPanel):
         """ Override this if you want to control what happens when the Next/Finish
             Button is pressed. As it stands, it will go ahead one page or end the
             wizard, depending on the state of the button. """
-        if self.next:
+        if self.__next__:
             self.wizard.mainpanel.SelectNext()
             self.wizard.backbutton.Enable()
             self.next.UpdateEvents()
-            self.wizard.OnNewPage(self, self.next)
+            self.wizard.OnNewPage(self, self.__next__)
         else:
             self.wizard.End()
 

@@ -24,6 +24,6 @@ if __name__ == "__main__":
 
     # Take care of any double newlines
     for file in files:
-        print "fixing " + file
+        print("fixing " + file)
         fix_newlines(file)
 

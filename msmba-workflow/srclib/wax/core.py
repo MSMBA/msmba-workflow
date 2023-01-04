@@ -14,7 +14,7 @@ if not hasattr(sys, 'frozen'):
         wxversion_req = ".".join(map(str, required[:2]))
         try:
             wxversion.ensureMinimal(wxversion_req)
-        except wxversion.VersionError, e:
+        except wxversion.VersionError as e:
             # it should also be possible to import wax after wxPython is imported.
             # this VersionError prevents this, so we work around it.
             if e.args[0].find("must be called before wxPython is imported") < 0:

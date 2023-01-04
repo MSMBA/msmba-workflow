@@ -2,10 +2,10 @@
 # Simple dialog for entering a string.
 # Note: Not based on wxPython's TextEntryDialog.
 
-from dialog import Dialog
-from textbox import TextBox
-from label import Label
-from keys import keys
+from .dialog import Dialog
+from .textbox import TextBox
+from .label import Label
+from .keys import keys
 
 class TextEntryDialog(Dialog):
 

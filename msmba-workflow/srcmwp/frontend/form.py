@@ -168,7 +168,7 @@ class Form(ScrollPanel):
         
     def get_data(self):
         ret = OrderedDict();
-        for fieldname, control in self.controls.iteritems():
+        for fieldname, control in self.controls.items():
             fieldtype = self.fieldtypes[fieldname];
             data = self.get_field_data(fieldname, fieldtype, control);
             ret[fieldname] = data;
@@ -202,5 +202,7 @@ class Form(ScrollPanel):
         
     def get_ascii_string(self, control):
             data = control.GetValue();
-            return unicodedata.normalize('NFKD', data).encode('ascii','ignore');
+            data = unicodedata.normalize('NFKD', data).encode('ascii','ignore').decode('ascii');
+            return data
+
 

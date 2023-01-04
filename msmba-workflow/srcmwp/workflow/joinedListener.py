@@ -7,9 +7,9 @@ Created on Dec 21, 2012
 @author: blubin
 '''
 
-from flowData import Status;
-from util import convert_rolename_to_db;
-from util import convert_stepname_to_db;
+from .flowData import Status;
+from .util import convert_rolename_to_db;
+from .util import convert_stepname_to_db;
 
 class JoinedListener(object):
     '''

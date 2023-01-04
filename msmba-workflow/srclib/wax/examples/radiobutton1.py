@@ -24,7 +24,7 @@ class MainFrame(Frame):
     def Order(self, event):
         for obj in self.GetChildren():
             if isinstance(obj, RadioButton) and obj.GetValue():
-                print "You selected:", obj.GetLabel()
+                print("You selected:", obj.GetLabel())
 
 
 if __name__ == "__main__":

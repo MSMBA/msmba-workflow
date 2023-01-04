@@ -1,17 +1,18 @@
 # taskbaricon.py
 
-import waxobject
+from . import waxobject
+import wx.adv
 import wx
 
-class TaskBarIcon(wx.TaskBarIcon, waxobject.WaxObject):
+class TaskBarIcon(wx.adv.TaskBarIcon, waxobject.WaxObject):
 
     __events__ = {
-        'LeftDoubleClick': wx.EVT_TASKBAR_LEFT_DCLICK,
-        'RightUp': wx.EVT_TASKBAR_RIGHT_UP,
-        'LeftDown' : wx.EVT_TASKBAR_LEFT_DOWN,
-        'RightDoubleClick' : wx.EVT_TASKBAR_RIGHT_DCLICK,
-        'RightUp': wx.EVT_TASKBAR_RIGHT_UP,
-        'RightDown': wx.EVT_TASKBAR_RIGHT_DOWN,
+        'LeftDoubleClick': wx.adv.wxEVT_TASKBAR_LEFT_DCLICK,
+        'RightUp': wx.adv.wxEVT_TASKBAR_RIGHT_UP,
+        'LeftDown' : wx.adv.wxEVT_TASKBAR_LEFT_DOWN,
+        'RightDoubleClick' : wx.adv.wxEVT_TASKBAR_RIGHT_DCLICK,
+        'RightUp': wx.adv.wxEVT_TASKBAR_RIGHT_UP,
+        'RightDown': wx.adv.wxEVT_TASKBAR_RIGHT_DOWN,
     }
 
     def __init__(self):
@@ -20,7 +21,7 @@ class TaskBarIcon(wx.TaskBarIcon, waxobject.WaxObject):
 
     def SetIcon(self, obj, tooltip=""):
         """ Like wx.Frame.SetIcon, but also accepts a path to an icon file. """
-        if isinstance(obj, str) or isinstance(obj, unicode):
+        if isinstance(obj, str) or isinstance(obj, str):
             obj = wx.Icon(obj, wx.BITMAP_TYPE_ICO)    # FIXME
         wx.TaskBarIcon.SetIcon(self, obj, tooltip)
         # XXX same as Frame.SetIcon... there must be a better way, since I

@@ -34,11 +34,11 @@ class ChoiceDialog(Dialog):
         if self.selection == 'single':
             self.choice = self.chooser.GetSelection()
             if self.choice < 0:
-                raise ValueError, "No item selected"
+                raise ValueError("No item selected")
         else:
             self.choice = self.chooser.GetSelections()
             if self.choice == []:
-                raise ValueError, "No item selected"
+                raise ValueError("No item selected")
         # XXX not sure if this is how it's supposed to be... Validate()
         # should return 0, and "somehow" OnValidateError should do the error
         # message?

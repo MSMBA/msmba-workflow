@@ -4,8 +4,8 @@
 # objects' GetFont() really should return a Font instance, not a wx.Font
 
 import wx
-import waxobject
-from font import Font
+from . import waxobject
+from .font import Font
 
 class FontDialog(wx.FontDialog, waxobject.WaxObject):
 

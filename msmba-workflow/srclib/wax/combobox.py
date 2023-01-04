@@ -1,9 +1,9 @@
 # combobox.py
 
 import wx
-import containers
-import styles
-import waxobject
+from . import containers
+from . import styles
+from . import waxobject
 
 class ComboBox(wx.ComboBox, waxobject.WaxObject):
 

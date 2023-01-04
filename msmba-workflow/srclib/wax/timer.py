@@ -1,7 +1,7 @@
 # timer.py
 
 import wx
-import waxobject
+from . import waxobject
 
 class Timer(wx.Timer, waxobject.WaxObject):
 

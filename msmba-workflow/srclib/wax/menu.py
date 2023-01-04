@@ -1,7 +1,7 @@
 # menu.py
 
 import wx
-import waxobject
+from . import waxobject
 import string
 
 class Menu(wx.Menu, waxobject.WaxObject):

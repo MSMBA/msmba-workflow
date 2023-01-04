@@ -1,7 +1,7 @@
 # canvas.py
 
 import wx
-import waxobject
+from . import waxobject
 
 class Canvas(wx.ScrolledWindow, waxobject.WaxObject):
 

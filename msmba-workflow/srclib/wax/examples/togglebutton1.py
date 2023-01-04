@@ -16,8 +16,8 @@ class MainFrame(Frame):
         self.Pack()
     def OnButtonClick(self, event=None):
         b = event.GetEventObject()
-        print "Button", repr(b.GetLabel()), "is",
-        print b.Pressed() and "pressed" or "not pressed"
+        print("Button", repr(b.GetLabel()), "is", end=' ')
+        print(b.Pressed() and "pressed" or "not pressed")
 
 app = Application(MainFrame)
 app.MainLoop()

@@ -1,0 +1,8 @@
+Installing Wax:
+
+Simply grab the 'wax' directory and put it in your Python's lib/site-packages
+directory, or any other directory in sys.path.  (Windows users: look for
+c:\Python24\lib\site-packages, etc, depending on your Python version.)
+
+Due to recurring problems with distutils, an installation script is
+currently not available.

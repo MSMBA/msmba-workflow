@@ -230,8 +230,8 @@ def getWizTestBitmap():
     return wx.BitmapFromImage(getWizTestImage())
 
 def getWizTestImage():
-    import cStringIO
-    stream = cStringIO.StringIO(getWizTestData())
+    import io
+    stream = io.StringIO(getWizTestData())
     return wx.ImageFromStream(stream)
 
 

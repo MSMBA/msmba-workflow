@@ -1,8 +1,8 @@
 # statusbar.py
 
 import wx
-import waxobject
-import styles
+from . import waxobject
+from . import styles
 
 class StatusBar(wx.StatusBar, waxobject.WaxObject):
 

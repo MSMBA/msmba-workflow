@@ -26,7 +26,7 @@ class MainFrame(Frame):
         self.SetSize((400, 200))
 
     def OnScroll(self, event=None):
-        print event.GetPosition()
+        print(event.GetPosition())
 
 app = Application(MainFrame, title='slider-1')
 app.Run()

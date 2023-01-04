@@ -3,7 +3,7 @@
 # todo: styles
 
 import wx
-import containers
+from . import containers
 
 class GroupBox(wx.Panel, containers.GroupBoxContainer):
 

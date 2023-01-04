@@ -4,9 +4,9 @@ import os
 import string
 import sys
 import wx
-from treeview import TreeView
-from imagelist import ImageList
-from artprovider import ArtProvider
+from .treeview import TreeView
+from .imagelist import ImageList
+from .artprovider import ArtProvider
 
 class FileTreeView(TreeView):
 
@@ -61,22 +61,22 @@ class FileTreeView(TreeView):
                     drives.append(drive)
         else:
             drives = win32api.GetLogicalDriveStrings()
-            drives = filter(None, string.splitfields(drives, "\000"))
+            drives = [_f for _f in string.splitfields(drives, "\000") if _f]
 
         return drives
 
     def AddDirs(self, node, dirs):
         """ <dirs> is a list of tuples (short, long). """
-        for short, long in dirs:
+        for short, int in dirs:
             child = self.AppendItem(node, short)
-            self.SetPyData(child, long)
+            self.SetPyData(child, int)
             self.SetImages(child)
 
     def GetDirectories(self, path):
         files = os.listdir(path)
         files = [(f, os.path.join(path, f)) for f in files]
-        dirs = [(short, long) for (short, long) in files if os.path.isdir(long)]
-        files = [(short, long) for (short, long) in files if not os.path.isdir(long)]
+        dirs = [(short, int) for (short, int) in files if os.path.isdir(int)]
+        files = [(short, int) for (short, int) in files if not os.path.isdir(int)]
         return dirs, files
 
     #def OnItemActivated(self, event):

@@ -12,7 +12,7 @@ from wx import CallAfter;
 from wax import DropDownBox;
 from wax import Frame;
 from wax import Application;
-from grandalfCanvas import GrandalfCanvas;
+from .grandalfCanvas import GrandalfCanvas;
 from workflow.workflow import Workflow;
 from workflow.flowData import Status;
 from workflow.flowData import FlowDataReference;
@@ -21,7 +21,7 @@ from workflow.result import Result;
 from workflow.task import Task;
 from workflow.util import enum;
 import sys;
-from grandalfCanvas import NodeProperties;
+from dashboard.grandalfCanvas import NodeProperties;
 from grandalf.graphs import Vertex;
 from grandalf.graphs import Edge;
 from grandalf.graphs import Graph;
@@ -182,7 +182,7 @@ class Cache(object):
         
 class SequenceChoice(DropDownBox):
     def __init__(self, parent, choices=[], size=None, **kwargs):
-        DropDownBox.__init__(self, parent, choices, size, **kwargs);
+        super(SequenceChoice, self).__init__(parent, choices, size, **kwargs);
         
     def OnSelect(self, evt):
         self.Parent.set_active_sequence(self.get_selected_sequence());
@@ -198,6 +198,7 @@ class DashboardFrame(Frame):
         self.caches = {}; #Indexed by sequence number.
         self.active_sequence=0;
         self.workflow.register_all_table_listener(self.listener);
+        #self.Bind(wx.EVT_CLOSE, self.OnClose)
     
     def Body(self):
         self.seqchoice = SequenceChoice(self);
@@ -225,7 +226,7 @@ class DashboardFrame(Frame):
             self.update();
 
     def update_seqs(self, seqs):
-        for seq in seqs:
+        for seq in sorted(seqs):
             if self.seqchoice.FindString(seq) == wx.NOT_FOUND:
                 self.seqchoice.Append(seq);
             
@@ -246,11 +247,11 @@ class DashboardFrame(Frame):
             sequence = self.active_sequence;
         cache = self.caches[sequence];
         nodemap = cache.get_nodes();
-        forward = list(nodemap.iterkeys()); # num -> ref
+        forward = list(nodemap.keys()); # num -> ref
         backward = dict([(v,k) for (k,v) in enumerate(forward)]); # ref -> num
         V = [Vertex(ref) for ref in forward];
         E = []
-        for ref, node in nodemap.iteritems():
+        for ref, node in nodemap.items():
             v = V[backward[ref]];
             for pref in node.get_parent_refs(cache):
                 pv = V[backward[pref]];
@@ -276,7 +277,9 @@ class DashboardFrame(Frame):
         return ref.rolename + ":" + ref.stepname + "(" + str(ref.uid) +")";
 
     def OnClose(self, event):
+        print('Closing!')
         self.workflow.terminate();
+        print('DB Thread not terminated for now...')
         event.Skip();
 
 class DashboardApplication(Application):
@@ -289,5 +292,5 @@ if __name__ == '__main__':
         exit(1);
     print("Creating dashboard on: " + sys.argv[1]);
     workflow = Workflow(sys.argv[1]);
-    app = DashboardApplication(workflow);
+    app = DashboardApplication(DashboardFrame, workflow);
     app.MainLoop()

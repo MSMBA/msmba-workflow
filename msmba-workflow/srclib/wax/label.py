@@ -1,9 +1,9 @@
 # label.py
 
 import wx
-import containers
-import waxobject
-import styles
+from . import containers
+from . import waxobject
+from . import styles
 
 class Label(wx.StaticText, waxobject.WaxObject):
 

@@ -13,7 +13,7 @@
 
 
 import wax
-import imgcoder
+from . import imgcoder
 import wax.tools.wizard
 import wx
 

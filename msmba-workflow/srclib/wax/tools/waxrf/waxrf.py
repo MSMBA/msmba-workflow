@@ -8,7 +8,7 @@
 #---------------------------------------------------------------------
 
 
-from handlers import *
+from .handlers import *
 import xml.dom.minidom as minidom 
 
 class XMLResource:
@@ -22,7 +22,7 @@ class XMLResource:
         """ Load XRC data from a string. """
         self._names = {}
         dom = minidom.parseString(string)
-        if dom.documentElement.nodeName == u'resource':
+        if dom.documentElement.nodeName == 'resource':
             self._top = self._load_from_dom(dom.documentElement)
             return self._top
         else:
@@ -101,17 +101,17 @@ class XMLResource:
             attributes = {}
             addprops = [0, '', 0]  # AddComponent - border, align, expand
             name = None
-            for k, v in node.attributes.items():
-                if k == u'name':
+            for k, v in list(node.attributes.items()):
+                if k == 'name':
                     name = str(v)
-                elif k == u'_border':
+                elif k == '_border':
                     try:
                         addprops[0] = int(str(v))
                     except:
                         pass
-                elif k == u'_align':
+                elif k == '_align':
                     addprops[1] = str(v)
-                elif k == u'_expand':
+                elif k == '_expand':
                     addprops[2] = str(v)
                 else:
                     try:

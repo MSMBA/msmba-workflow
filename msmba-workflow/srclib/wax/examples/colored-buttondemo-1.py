@@ -10,7 +10,7 @@ COLORS = ['orange', 'chartreuse', 'papayawhip', 'dark blue', 'gold',
 
 # stick a custom event in Button
 def MyOnClick(self, event):
-    print 'U clicked the button with label', `self.GetLabel()`
+    print('U clicked the button with label', repr(self.GetLabel()))
 Button.OnClick = MyOnClick
 
 class MainFrame(Frame):
@@ -50,7 +50,7 @@ class MainFrame(Frame):
 
         # override event for this button
         def my_event(event):
-            print "Wahey!"
+            print("Wahey!")
         b.OnClick = my_event
 
         # color these buttons, using the GetAllChildren() method (new as of

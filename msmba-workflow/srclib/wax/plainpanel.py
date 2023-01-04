@@ -3,7 +3,7 @@
 # todo: styles
 
 import wx
-import containers
+from . import containers
 
 class PlainPanel(wx.Panel, containers.PlainContainer):
     """ Sub-level containers inside a frame, used for layout. """

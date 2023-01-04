@@ -38,15 +38,15 @@ class MainFrame(Frame):
 
     def OnCheckLimburger(self, event):
         if event.GetEventObject().IsChecked():
-            print "It's really very runny, sir."
+            print("It's really very runny, sir.")
         else:
-            print "We were out of it anyway."
+            print("We were out of it anyway.")
 
     def Order(self, event=None):
-        print "You want these toppings:"
+        print("You want these toppings:")
         for obj in self.panel.GetChildren():
             if isinstance(obj, CheckBox) and obj.IsChecked():
-                print obj._value
+                print(obj._value)
 
 if __name__ == "__main__":
 

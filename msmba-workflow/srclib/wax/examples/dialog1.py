@@ -14,8 +14,8 @@ class MainFrame(Frame):
     def OnClick(self, event=None):
         # show an empty dialog... ugly, but it should work
         dlg = Dialog(self, "JUst some dialog")
-        print dlg.OnCharHook
-        print dlg.ShowModal()
+        print(dlg.OnCharHook)
+        print(dlg.ShowModal())
         dlg.Destroy()
 
 app = Application(MainFrame)

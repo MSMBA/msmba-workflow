@@ -1,7 +1,7 @@
 # simpleeditor.py
 
-import image
-import waxobject
+from . import image
+from . import waxobject
 import wx
 from wx.lib.editor import Editor
 

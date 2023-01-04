@@ -8,7 +8,7 @@ Created on Dec 14, 2012
 '''
 
 from wax import Application;
-from roleFrame import RoleFrame;
+from .roleFrame import RoleFrame;
 from workflow.workflow import Workflow;
 from workflow.result import Result;
 from workflow.flowData import Status;

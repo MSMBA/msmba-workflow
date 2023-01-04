@@ -15,7 +15,7 @@ class MainFrame(Frame):
             x = 1/0
         except:
             dlg = ErrorDialog(self, *sys.exc_info())
-            print dlg.ShowModal()
+            print(dlg.ShowModal())
             dlg.Destroy()
 
 app = Application(MainFrame)

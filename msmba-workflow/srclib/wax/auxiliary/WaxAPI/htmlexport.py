@@ -168,9 +168,9 @@ def write_module(module, directory, accepted):
         except:
             pass
             
-    print 'Exporting to HTML...'
+    print('Exporting to HTML...')
     
-    temp = [(k, v) for k, v in module.__dict__.items() if type(v) in accepted]
+    temp = [(k, v) for k, v in list(module.__dict__.items()) if type(v) in accepted]
     temp.sort()
 
     for k, v in temp:
@@ -179,7 +179,7 @@ def write_module(module, directory, accepted):
     write_alphabetical_index(temp, directory)
     copy_files(directory)
     
-    print 'Finished exporting!'
+    print('Finished exporting!')
 
 
 #
@@ -196,7 +196,7 @@ def write_alphabetical_index(items, directory):
     for k, v in items:
         alpha_dict[ k[0].lower() ] = True
         
-    alpha_list = alpha_dict.keys()
+    alpha_list = list(alpha_dict.keys())
     alpha_list.sort()
 
     f.write('<div style="text-align: center;">')
@@ -275,7 +275,7 @@ def hierarchial_write(obj, directory):
         else:
             item = getattr(obj, x[1])
             if type(item) is MethodType:
-                name = x[0] + '(' + sep.join(item.func_code.co_varnames) + ')'
+                name = x[0] + '(' + sep.join(item.__code__.co_varnames) + ')'
                 write_sub_item(f, name, item.__doc__, x[1])
             else:
                 write_sub_item(f, x[0], item.__doc__, x[1])

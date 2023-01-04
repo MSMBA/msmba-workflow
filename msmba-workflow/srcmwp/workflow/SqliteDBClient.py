@@ -8,16 +8,17 @@ Created on Dec 14, 2012
 '''
 
 import sys
-from xmlrpclib import ServerProxy, Binary
+from xmlrpc.client import ServerProxy, Binary
 import traceback;
-import cPickle as pickle
+#import cPickle as pickle
+import pickle
 
-from flowData import Status, FlowDataReference;
-from task import Task
-from result import Result
-from joinedListener import JoinedListener
-from allTableListener import AllTableListener
-from SqliteDBUtils import TableReference, get_serverparams
+from .flowData import Status, FlowDataReference;
+from .task import Task
+from .result import Result
+from .joinedListener import JoinedListener
+from .allTableListener import AllTableListener
+from .SqliteDBUtils import TableReference, get_serverparams
 from socket import error as socket_error
 
 class SqliteDBClient(object):
@@ -45,7 +46,7 @@ class SqliteDBClient(object):
         ''' Actually connect to the database '''
         sys.stdout.write("Connecting to server... ")
         self.rpcclient.ensure_database_exists(self.flowname)
-        print "done."
+        print("done.")
     
     def add(self, flowData):
         table = self._get_table_flowdata(flowData)
@@ -112,6 +113,10 @@ class SqliteDBClient(object):
                 
             @staticmethod
             def to_bin(obj):
+                # Handle python3 issue where dictionary key views are not pickleable
+                from _collections_abc import dict_keys
+                if isinstance(obj, dict_keys):
+                    obj = [x for x in obj] 
                 return Binary(pickle.dumps(obj))
 
             @staticmethod
@@ -170,9 +175,9 @@ class SqliteDBClient(object):
                 table.poll();
             except socket_error as serr:
                 raise serr
-            except Exception, e:
-                print "Exception updating table: " + str(type(e)) + ": " + str(e);
-                print traceback.format_exc();
+            except Exception as e:
+                print("Exception updating table: " + str(type(e)) + ": " + str(e));
+                print(traceback.format_exc());
         # Only do this every 5 polls:
         if self.poll_count%SqliteDBClient.ALL_TABLE_POLL_CYCLES==0:
             tablerefs = self._get_table_references();
@@ -181,9 +186,9 @@ class SqliteDBClient(object):
                     listener.poll(tablerefs);
                 except socket_error as serr:
                     raise serr
-                except Exception, e:
-                    print "Exception updating all table listener: " + str(type(e)) + ": " + str(e);
-                    print traceback.format_exc();
+                except Exception as e:
+                    print("Exception updating all table listener: " + str(type(e)) + ": " + str(e));
+                    print(traceback.format_exc());
         self.poll_count = self.poll_count+1;
         
 class _TableView(object):
@@ -206,7 +211,7 @@ class _TableView(object):
         """ Ensure the table exists in the DB """
         sys.stdout.write('Checking for table ' + str(self.tableref) +"... ")
         self.rpcclient.ensure_table_exists(self.flowname, self.tableref)
-        print "done."
+        print("done.")
     
     def check_columns(self, fieldnames):
         """ Check that the columns are all present.  Can cache names so this is fast."""
@@ -214,7 +219,7 @@ class _TableView(object):
             # Cache miss, so update the db:
             sys.stdout.write("Table " + str(self.tableref) + " has new fields... ")
             newfields = self.rpcclient.ensure_all_fields_present(self.flowname, self.tableref, fieldnames)
-            print ", ".join(set(newfields).difference(self.fields))
+            print(", ".join(set(newfields).difference(self.fields)))
             self.fields.update(newfields)
     
     def register(self, listener, status=None):
@@ -229,13 +234,13 @@ class _TableView(object):
         """ Add the given row to the table."""
         sys.stdout.write("Adding to " + str(self.tableref) + ": " + str(flowData) +"...")
         self.rpcclient.add_table_row(self.flowname, flowData)
-        print "done."
+        print("done.")
     
     def update_row(self, uid, column, value):
         """ Update a given field in a given row."""
         sys.stdout.write("Updating " + str(self.tableref) + "[" + str(uid) + "] " + column + "<-"+ str(value)+"...")
         self.rpcclient.update_table_row(self.flowname, self.tableref, uid, column, value)
-        print "done."
+        print("done.")
         
     def poll(self):
         """ Update the table cache """

@@ -4,10 +4,10 @@
 # - remove code duplication in LoadImage/LoadStream
 
 import wx
-import colordb
+from . import colordb
 import os
 import sys
-import utils
+from . import utils
 
 POINTERS = {
     "arrow" : wx.CURSOR_ARROW,
@@ -45,19 +45,19 @@ class MousePointerRegistry:
     def __init__(self):
         self.custom = {}
     def Get(self, name):
-        if POINTERS.has_key(name):
+        if name in POINTERS:
             return wx.StockCursor(POINTERS[name]) # return a cursor
-        elif self.custom.has_key(name):
+        elif name in self.custom:
             return self.custom[name] # return an image-as-cursor
         else:
-            raise KeyError, "Unknown pointer name: %s" % (name,)
+            raise KeyError("Unknown pointer name: %s" % (name,))
     def Set(self, name, value):
         self.custom[name] = value
     Register = Set
     def GetBuiltinNames(self):
-        return POINTERS.keys()
+        return list(POINTERS.keys())
     def GetCustomNames(self):
-        return self.custom.keys()
+        return list(self.custom.keys())
     def GetNames(self):
         return self.GetBuiltinNames() + self.GetCustomNames()
 

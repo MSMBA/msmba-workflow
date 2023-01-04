@@ -1,8 +1,8 @@
 # frame.py
 
 import wx
-import containers
-import styles
+from . import containers
+from . import styles
 
 class Frame(wx.Frame, containers.Container):
     """ Top-level frame (window) with built-in sizer. """
@@ -37,7 +37,7 @@ class Frame(wx.Frame, containers.Container):
 
     def SetIcon(self, obj):
         """ Like wx.Frame.SetIcon, but also accepts a path to an icon file. """
-        if isinstance(obj, str) or isinstance(obj, unicode):
+        if isinstance(obj, str) or isinstance(obj, str):
             obj = wx.Icon(obj, wx.BITMAP_TYPE_ICO)    # FIXME
         wx.Frame.SetIcon(self, obj)
 

@@ -41,7 +41,7 @@ class MainFrame(VerticalFrame):
         
     def AddOneDay(self, event):
         self.dp1.Inc()
-        print "Date set to:", self.dp1.Value
+        print("Date set to:", self.dp1.Value)
         
     def SetToYesterday(self, event):
         now = time.localtime(time.time())

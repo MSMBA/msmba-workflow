@@ -9,7 +9,7 @@ from wax import *
 
 # stick a custom event in Button
 def MyOnClick(self, event):
-    print 'U clicked the button with label', `self.GetLabel()`
+    print('U clicked the button with label', repr(self.GetLabel()))
 Button.OnClick = MyOnClick
 
 class MainFrame(Frame):
@@ -49,7 +49,7 @@ class MainFrame(Frame):
 
         # override event for this button
         def my_event(event):
-            print "Wahey!"
+            print("Wahey!")
         b.OnClick = my_event
 
 app = Application(MainFrame, direction='vertical', title="Test test...")

@@ -1,10 +1,10 @@
 # notebook.py
 
-import waxobject
+from . import waxobject
 import wx
-import styles
-import waxconfig
-import utils
+from . import styles
+from . import waxconfig
+from . import utils
 
 class NoteBook(wx.Notebook, waxobject.WaxObject):
 
@@ -34,7 +34,7 @@ class NoteBook(wx.Notebook, waxobject.WaxObject):
     def GetCurrentPage(self):
         idx = self.GetSelection()
         if idx == -1:
-            raise ValueError, "NoteBook currently has no pages"
+            raise ValueError("NoteBook currently has no pages")
         else:
             return self.GetPage(idx)
 

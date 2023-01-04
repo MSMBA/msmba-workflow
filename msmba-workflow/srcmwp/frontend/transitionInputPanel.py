@@ -10,7 +10,7 @@ Created on Dec 16, 2012
 from wx import CallAfter;
 from wax import Panel;
 from wax import ListBox;
-from inputPanel import InputPanel;
+from .inputPanel import InputPanel;
 from workflow.flowData import Status;
 from workflow.util import convert_fieldname_to_db;
 
@@ -65,7 +65,7 @@ class TransitionInputPanel(InputPanel, Panel):
                 newSelectionIdx = self.uid[selectionID];
                 self.task_box.SetSelection(newSelectionIdx);
             else:
-                print "Task backing active form, removed";
+                print("Task backing active form, removed");
                 self.task_box.SetSelection(-1);
                 self.remove_form();
                 

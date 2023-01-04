@@ -1,3 +1,0 @@
-This module supplied by Axel Tillequin (bdcht3@gmail.com) 
-
-Licensed under the GNU GPL 2.0 License

@@ -1,33 +1,33 @@
 # waxobject.py
 
-from __future__ import generators
-import wx
-import waxconfig
-import core
-import colordb
-import events
-import mousepointer
-import styles
 
-class MetaWaxObject(type):
+import wx
+from . import waxconfig
+from . import core
+from . import colordb
+from . import events
+from . import mousepointer
+from . import styles
+
+class MetaWaxObject(type(wx.Object)):
 
     def inject_SetFont(cls):
         if hasattr(cls, "SetFont"):
             real_SetFont = getattr(cls, "SetFont")
             def SetFont(self, obj):
                 if isinstance(obj, tuple):
-                    import font
+                    from . import font
                     obj = font.Font(*obj)
                 real_SetFont(self, obj)
             SetFont.__doc__ = real_SetFont.__doc__
             setattr(cls, "SetFont", SetFont)
             if core.DEBUG:
-                print "%s: SetFont replaced" % (cls,)
+                print("%s: SetFont replaced" % (cls,))
 
     def inject_GetFont(cls):
         if hasattr(cls, "GetFont"):
             real_GetFont = getattr(cls, "GetFont")
-            import font
+            from . import font
             def GetFont(self):
                 wxfont = real_GetFont(self)
                 wxfont.__class__ = font.Font
@@ -35,13 +35,13 @@ class MetaWaxObject(type):
             GetFont.__doc__ = real_GetFont.__doc__
             setattr(cls, "GetFont", GetFont)
             if core.DEBUG:
-                print "%s: GetFont replaced" % (cls,)
+                print("%s: GetFont replaced" % (cls,))
 
     def inject_SetCursor(cls):
         if hasattr(cls, "SetCursor"):
             real_SetCursor = getattr(cls, "SetCursor")
             def SetCursor(self, x):
-                if isinstance(x, basestring):
+                if isinstance(x, str):
                     c = mousepointer.MousePointers.Get(x)
                     real_SetCursor(self, c)
                 else:
@@ -49,7 +49,7 @@ class MetaWaxObject(type):
             SetCursor.__doc__ = real_SetCursor.__doc__
             setattr(cls, "SetCursor", SetCursor)
             if core.DEBUG:
-                print "%s: SetCursor replaced" % (cls,)
+                print("%s: SetCursor replaced" % (cls,))
 
     def inject_SetWindowStyle(cls):
         if hasattr(cls, "SetWindowStyle"):
@@ -66,7 +66,7 @@ class MetaWaxObject(type):
                 real_SetWindowStyle(self, flags)
             setattr(cls, "SetWindowStyle", SetWindowStyle)
             if core.DEBUG:
-                print "%s: SetWindowStyle replaced" % (cls,)
+                print("%s: SetWindowStyle replaced" % (cls,))
 
     def inject_ColorMethods(cls):
         if hasattr(cls, "SetBackgroundColour"):
@@ -92,21 +92,20 @@ class MetaWaxObject(type):
             setattr(cls, "GetForegroundColor", cls.GetForegroundColour)
 
             if core.DEBUG:
-                print "%s: SetForegroundColour/SetBackgroundColour replaced" % (cls,)
+                print("%s: SetForegroundColour/SetBackgroundColour replaced" % (cls,))
 
     def __init__(cls, name, bases, dict):
+        super(MetaWaxObject, cls).__init__(name, bases, dict)
         cls.inject_SetFont()
         cls.inject_GetFont()
         cls.inject_SetCursor()
         cls.inject_ColorMethods()
         cls.inject_SetWindowStyle()
 
-
-class WaxObject:
+class WaxObject(metaclass=MetaWaxObject):
     """ Mixin class for Wax controls.
         Stick attributes and methods here that every Wax control should have.
     """
-    __metaclass__ = MetaWaxObject
     # yes, I don't like metaclasses, but they're actually useful here :-)
 
     __events__ = {}
@@ -133,14 +132,14 @@ class WaxObject:
     def BindEvents(self):
         items = []
         if hasattr(self, "__events__"):
-            items = getattr(self, "__events__").items()
-        items.extend(events.events.items())
+            items = list(getattr(self, "__events__").items())
+        items.extend(list(events.events.items()))
         for name, wxevent in items:
             if hasattr(self, "On" + name):
                 f = getattr(self, "On" + name)
                 self.Bind(wxevent, f)
                 if core.DEBUG:
-                    print "Binding %s to %s" % (name, f)
+                    print("Binding %s to %s" % (name, f))
 
     def GetAllChildren(self):
         """ Return a generator returning all children, grandchildren, etc,
@@ -161,7 +160,7 @@ class WaxObject:
             f = getattr(self, "Get" + name)
             return f()
         else:
-            raise AttributeError, name
+            raise AttributeError(name)
 
     def __setattr__(self, name, value):
         if hasattr(self, "Set" + name):
@@ -169,9 +168,9 @@ class WaxObject:
             return f(value)
         elif name.startswith("On"):
             shortname = name[2:]
-            if self.__events__.has_key(shortname):
+            if shortname in self.__events__:
                 wxevent = self.__events__[shortname]
-            elif events.events.has_key(shortname):
+            elif shortname in events.events:
                 wxevent = events.events[shortname]
             else:
                 wxevent = None
@@ -179,7 +178,7 @@ class WaxObject:
             if wxevent:
                 self.Bind(wxevent, value)
                 if core.DEBUG:
-                    print "Binding %s to %s" % (name, value)
+                    print("Binding %s to %s" % (name, value))
         else:
             self.__dict__[name] = value
 
@@ -187,18 +186,18 @@ class WaxObject:
         """ Set a number of attributes at once.  E.g.
             widget.SetAttributes(Font=MYFONT, Size=(100,200))
         """
-        for (key, value) in kwargs.items():
+        for (key, value) in list(kwargs.items()):
             self.__setattr__(key, value)
 
     def SetProperties(self, **kwargs):
         """ As SetAttributes, but raises an error if an unknown property name
             is specified. """
-        for (key, value) in kwargs.items():
+        for (key, value) in list(kwargs.items()):
             f = getattr(self, "Set" + key, None)
             if f:
                 f(value)
             else:
-                raise AttributeError, "Unknown property: %s" % (key,)
+                raise AttributeError("Unknown property: %s" % (key,))
 
     def _params(self, kwargs, thesestyles={}):
         # default method for those controls that don't have a _params()

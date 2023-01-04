@@ -1,8 +1,8 @@
 # radiobutton.py
 
 import wx
-import waxobject
-import styles
+from . import waxobject
+from . import styles
 
 class RadioButton(wx.RadioButton, waxobject.WaxObject):
 

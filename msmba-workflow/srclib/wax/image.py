@@ -1,7 +1,7 @@
 # image.py
 
 import wx
-import waxobject
+from . import waxobject
 
 _handlers = {}
 
@@ -29,7 +29,6 @@ def AddAllImageHandlers():
     wx.InitAllImageHandlers()
 
 class Image(wx.Image, waxobject.WaxObject):
-
     def __init__(self, filename, type=None, autoinstall=1):
         lfilename = filename.lower()
         t = 0
@@ -60,12 +59,12 @@ class Image(wx.Image, waxobject.WaxObject):
         }.get(type.lower(), 0)
 
         if not t:
-            raise ValueError, "Could not determine bitmap type of '%s'" % (
-                  filename,)
+            raise ValueError("Could not determine bitmap type of '%s'" % (
+                  filename,))
 
         # if autoinstall is true, install handler on demand
         if autoinstall:
-            if not _handlers.has_key(type):
+            if type not in _handlers:
                 AddImageHandler(type)
 
         wx.Image.__init__(self, filename, t)

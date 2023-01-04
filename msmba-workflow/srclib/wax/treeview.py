@@ -2,12 +2,12 @@
 
 # todo: can we access tree like a dict?
 
-from __future__ import generators
+
 import wx
-import waxobject
-import styles
+from . import waxobject
+from . import styles
 import types
-import utils
+from . import utils
 
 class TreeView(wx.TreeCtrl, waxobject.WaxObject):
 
@@ -57,7 +57,7 @@ class TreeView(wx.TreeCtrl, waxobject.WaxObject):
 
     def LoadFromDict(self, node, adict):
         # XXX extend this to work with objects
-        items = adict.items()
+        items = list(adict.items())
         items.sort()
         for key, value in items:
             if isinstance(value, dict):
@@ -75,13 +75,13 @@ class TreeView(wx.TreeCtrl, waxobject.WaxObject):
         order of elements as they appear in the list.
         """
         for item in list:
-            if (type(item) not in (types.TupleType, types.ListType)
+            if (type(item) not in (tuple, list)
             or len(item) not in (0, 3)):
-                raise Exception, "LoadFromNestedList requires a list of (key, value, children) tuples"
+                raise Exception("LoadFromNestedList requires a list of (key, value, children) tuples")
             (key, value, children) = item
             node = self.AppendItem(root, utils.asstring(key))
             self.SetPyData(node, value)
-            if type(children) == types.ListType:
+            if type(children) == list:
                 self.LoadFromNestedList(node, children)
 
     def SetImageList(self, imagelist):
@@ -98,7 +98,7 @@ class TreeView(wx.TreeCtrl, waxobject.WaxObject):
     _treeview_selection = {
         'single': wx.TR_SINGLE,
         'multiple': wx.TR_MULTIPLE,
-        'extended': wx.TR_EXTENDED,
+#        'extended': wx.TR_EXTENDED,
     }
 
     def _params(self, kwargs):
@@ -110,7 +110,7 @@ class TreeView(wx.TreeCtrl, waxobject.WaxObject):
         flags |= styles.styledictstart('selection', self._treeview_selection, kwargs)
 
         # has_buttons requires special code:
-        if kwargs.has_key('has_buttons'):
+        if 'has_buttons' in kwargs:
             if kwargs['has_buttons']:
                 flags |= wx.TR_HAS_BUTTONS
             else:

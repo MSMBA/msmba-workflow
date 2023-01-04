@@ -15,7 +15,7 @@ html = """
 
 class HelpWindow(Frame):
     def Body(self):
-        print 'creating HelpWindow...'
+        print('creating HelpWindow...')
         self.htmlwindow = HTMLWindow(self)
         self.AddComponent(self.htmlwindow, expand='both')
         self.htmlwindow.SetPage(html)
@@ -25,7 +25,7 @@ class HelpWindow(Frame):
         self.Show()
         self.SetFocus()
     def OnClose(self, event):
-        print 'hiding HelpWindow...'
+        print('hiding HelpWindow...')
         self.Hide()
         # note that we don't call event.Skip(), so nothing is actually closed!
 

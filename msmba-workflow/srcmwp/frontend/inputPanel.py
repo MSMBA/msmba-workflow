@@ -9,7 +9,7 @@ Created on Dec 16, 2012
 
 from wax import Panel;
 from wax import Button;
-from form import Form;
+from .form import Form;
 
 class InputPanel(object):
     '''

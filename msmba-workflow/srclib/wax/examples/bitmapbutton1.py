@@ -15,7 +15,7 @@ class MainFrame(Frame):
         self.Pack()
 
     def Blah(self, event):
-        print "Clickety-click"
+        print("Clickety-click")
 
 if __name__ == "__main__":
 

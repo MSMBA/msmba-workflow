@@ -20,12 +20,12 @@ class MainFrame(VerticalFrame):
         self.Pack()
 
     def OnDropFiles(self, x, y, filenames):
-        print "You dropped:", filenames
+        print("You dropped:", filenames)
         for filename in filenames:
-            print >> self.text1, filename
+            print(filename, file=self.text1)
 
     def OnDropText(self, x, y, text):
-        print >> self.text2, text
+        print(text, file=self.text2)
 
 app = Application(MainFrame, title="Drag & drop demo")
 app.Run()

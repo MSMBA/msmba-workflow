@@ -1,8 +1,8 @@
 # panel.py
 
 import wx
-import containers
-import styles
+from . import containers
+from . import styles
 
 class Panel(wx.Panel, containers.Container):
     """ Sub-level containers inside a frame, used for layout. """

@@ -1,7 +1,7 @@
 # line.py
 
 import wx
-import waxobject
+from . import waxobject
 
 class Line(wx.StaticLine, waxobject.WaxObject):
 
@@ -12,7 +12,7 @@ class Line(wx.StaticLine, waxobject.WaxObject):
         elif direction.lower().startswith('v'):
             style |= wx.LI_VERTICAL
         else:
-            raise ValueError, "direction should be horizontal or vertical"
+            raise ValueError("direction should be horizontal or vertical")
 
         wx.StaticLine.__init__(self, parent, wx.NewId(), size=size, style=style)
 

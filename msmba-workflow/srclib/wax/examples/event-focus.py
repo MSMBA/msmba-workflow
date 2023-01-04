@@ -12,9 +12,9 @@ class MainFrame(Frame):
             self.AddComponent(text, expand=1, border=2)
         self.Pack()
     def OnTextBoxGetFocus(self, event):
-        print "Control", event.GetEventObject(), "gets focus!"
+        print("Control", event.GetEventObject(), "gets focus!")
     def OnTextBoxLoseFocus(self, event):
-        print "Control", event.GetEventObject(), "loses focus!"
+        print("Control", event.GetEventObject(), "loses focus!")
 
 app = Application(MainFrame, direction='v', tab_traversal=1)
 # you can walk through the screen using Tab

@@ -1,7 +1,7 @@
 # filedialog.py
 
 import wx
-import waxobject
+from . import waxobject
 
 class FileDialog(wx.FileDialog, waxobject.WaxObject):
 

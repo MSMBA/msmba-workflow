@@ -2,7 +2,7 @@
 
 import wx
 import wx.lib.masked.textctrl as med
-import waxobject
+from . import waxobject
 
 class MaskedTextBox(med.TextCtrl, waxobject.WaxObject):
 

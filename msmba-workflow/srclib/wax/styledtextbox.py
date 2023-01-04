@@ -9,7 +9,7 @@
 
 import wx
 from wx import stc
-import waxobject
+from . import waxobject
 
 # create a method that calls StyledTextBox.SendMsg with a given code
 def _bindcmd(code):
@@ -75,8 +75,8 @@ class StyledTextBox(waxobject.WaxObject, stc.StyledTextCtrl):
 
     def Replace(self, start, end, text):
         self.SetTargetStart(start)
-	self.SetTargetEnd(end)
-	self.ReplaceTarget(text)
+        self.SetTargetEnd(end)
+        self.ReplaceTarget(text)
 
     def GetCurrentLineNumber(self):
         return self.LineFromPosition(self.GetCurrentPos())
@@ -111,14 +111,14 @@ class StyledTextBox(waxobject.WaxObject, stc.StyledTextCtrl):
     def SetEOLMode(self, mode):
         """ Set the EOL mode.  <mode> can be a wxSTC flag, or a string 'unix',
             'dos', 'windows' or 'mac'.  ('dos' and 'windows' are the same.) """
-        if isinstance(mode, basestring):
+        if isinstance(mode, str):
             mode = _string_to_eol[mode]
         stc.StyledTextCtrl.SetEOLMode(self, mode)
 
     def ConvertEOLs(self, mode):
         """ Convert the line endings to the given mode.  <mode> can be a wxSTC
             flag, or a string 'unix', 'dos', 'windows', or 'mac'. """
-        if isinstance(mode, basestring):
+        if isinstance(mode, str):
             mode = _string_to_eol[mode]
         stc.StyledTextCtrl.ConvertEOLs(self, mode)
 
@@ -134,7 +134,7 @@ class StyledTextBox(waxobject.WaxObject, stc.StyledTextCtrl):
         try:
             return other_styles[name]
         except KeyError:
-            raise KeyError, "Unknown style name '%s'" % (name,)
+            raise KeyError("Unknown style name '%s'" % (name,))
 
     def SetLanguage(self, language):
         self._language = language
@@ -149,14 +149,14 @@ class StyledTextBox(waxobject.WaxObject, stc.StyledTextCtrl):
     def StyleSetFont(self, style, font):
         """ If self._language is set, this can be called with a string for
             <state>, e.g. 'default' or 'comment', etc. """
-        if isinstance(style, str) or isinstance(style, unicode):
+        if isinstance(style, str) or isinstance(style, str):
             #style = language_states[self._language][style]
             style = self._getstyleconst(style)
         stc.StyledTextCtrl.StyleSetFont(self, style, font)
 
     def SetFont(self, font):
         if self._language and self._language != 'container':
-            for name, value in language_states[self._language].items():
+            for name, value in list(language_states[self._language].items()):
                 self.StyleSetFont(value, font)
         else:
             self.StyleSetFont(stc.STC_STYLE_DEFAULT, font)

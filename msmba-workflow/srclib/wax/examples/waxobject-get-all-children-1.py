@@ -56,11 +56,11 @@ class MainFrame(VerticalFrame):
 
     def OnClickButton(self, event):
         try:
-            obj = self.g.next()
+            obj = next(self.g)
         except StopIteration:
             ShowMessage("Done", "No more children left")
         else:
-            print "Coloring:", obj
+            print("Coloring:", obj)
             obj.BackgroundColor = 'yellow'
             obj.Refresh() # in some cases, this is necessary to show the color
 

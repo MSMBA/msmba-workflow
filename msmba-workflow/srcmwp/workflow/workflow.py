@@ -10,8 +10,8 @@ Created on Dec 13, 2012
 #from googleDB import GoogleDB;
 import sys, time
 from threading import Thread;
-from Queue import Queue, Empty;
-from SqliteDBClient import SqliteDBClient
+from queue import Queue, Empty;
+from .SqliteDBClient import SqliteDBClient
 from socket import error as socket_error
 
 class Workflow(object):
@@ -25,7 +25,7 @@ class Workflow(object):
         self.go = True;
         self.db = None
         self.connected = False
-        self.thread = Thread(target=self.work);
+        self.thread = Thread(target=self.work, name="Workflow");
         self.thread.start();
     
 # PUBLIC:
@@ -65,8 +65,7 @@ class Workflow(object):
     _instance = None
     def __new__(cls, *args, **kwargs):
         if not cls._instance:
-            cls._instance = super(Workflow, cls).__new__(
-                                cls, *args, **kwargs)
+            cls._instance = super(Workflow, cls).__new__(cls)
         return cls._instance
 
     def work(self):
@@ -92,7 +91,7 @@ class Workflow(object):
                     time.sleep(Workflow.POLL_DELAY)
                 except socket_error as serr:
                     sys.stderr.write('Cannot connect to backend: ' + str(serr) +"\n")
-        print "Database Thread Ended."
+        print("Workflow Thread Ended.")
 
     def terminate(self):
         self.go = False;

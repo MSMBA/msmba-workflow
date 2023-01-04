@@ -1,0 +1,171 @@
+<html>
+<head>
+    <title>Wax API</title>
+    <link href="waxapi.css" rel="stylesheet" type="text/css" />
+<head>
+    
+<body>
+<div id="header">Wax API Listing</div>
+<div id="body">
+<div class="main_head">wx._windows.SplitterWindow  <div class="main_desc">
+    wx.SplitterWindow manages up to two subwindows or panes, with an
+    optional vertical or horizontal split which can be used with the mouse
+    or programmatically.
+    </div>  <ul class="main_list">    <li><a href="#Create">Create</a></li>    <li><a href="#GetBorderSize">GetBorderSize</a></li>    <li><a href="#GetClassDefaultAttributes">GetClassDefaultAttributes</a></li>    <li><a href="#GetMinimumPaneSize">GetMinimumPaneSize</a></li>    <li><a href="#GetNeedUpdating">GetNeedUpdating</a></li>    <li><a href="#GetSashGravity">GetSashGravity</a></li>    <li><a href="#GetSashPosition">GetSashPosition</a></li>    <li><a href="#GetSashSize">GetSashSize</a></li>    <li><a href="#GetSplitMode">GetSplitMode</a></li>    <li><a href="#GetWindow1">GetWindow1</a></li>    <li><a href="#GetWindow2">GetWindow2</a></li>    <li><a href="#Initialize">Initialize</a></li>    <li><a href="#IsSplit">IsSplit</a></li>    <li><a href="#ReplaceWindow">ReplaceWindow</a></li>    <li><a href="#SashHitTest">SashHitTest</a></li>    <li><a href="#SetBorderSize">SetBorderSize</a></li>    <li><a href="#SetMinimumPaneSize">SetMinimumPaneSize</a></li>    <li><a href="#SetNeedUpdating">SetNeedUpdating</a></li>    <li><a href="#SetSashGravity">SetSashGravity</a></li>    <li><a href="#SetSashPosition">SetSashPosition</a></li>    <li><a href="#SetSashSize">SetSashSize</a></li>    <li><a href="#SetSplitMode">SetSplitMode</a></li>    <li><a href="#SizeWindows">SizeWindows</a></li>    <li><a href="#SplitHorizontally">SplitHorizontally</a></li>    <li><a href="#SplitVertically">SplitVertically</a></li>    <li><a href="#Unsplit">Unsplit</a></li>    <li><a href="#UpdateSize">UpdateSize</a></li>    <li><a href="#__init__">[constructor]</a></li>    <li><a href="#__doc__">[member '__doc__']</a></li>    <li><a href="#__module__">[member '__module__']</a></li>    <li><a href="#__repr__">[operator 'repr']</a></li>  </ul>  <div class="inherits">Inherits:     <a href="wx._core.Window.html">wx._core.Window</a>   </div></div><br /><a name="Create" /><div class="sub_head">Create(args, kwargs)    <div class="sub_desc">
+        Create(self, Window parent, int id=-1, Point pos=DefaultPosition, 
+            Size size=DefaultSize, long style=SP_3D, String name=SplitterNameStr) -> bool
+
+        Create the GUI part of the SplitterWindow for the 2-phase create.
+        </div></div><br /><a name="GetBorderSize" /><div class="sub_head">GetBorderSize(args, kwargs)    <div class="sub_desc">
+        GetBorderSize(self) -> int
+
+        Gets the border size
+        </div></div><br /><a name="GetClassDefaultAttributes" /><div class="sub_head">GetClassDefaultAttributes    <div class="sub_desc">
+        GetClassDefaultAttributes(int variant=WINDOW_VARIANT_NORMAL) -> VisualAttributes
+
+        Get the default attributes for this class.  This is useful if you want
+        to use the same font or colour in your own control as in a standard
+        control -- which is a much better idea than hard coding specific
+        colours or fonts which might look completely out of place on the
+        user's system, especially if it uses themes.
+
+        The variant parameter is only relevant under Mac currently and is
+        ignore under other platforms. Under Mac, it will change the size of
+        the returned font. See `wx.Window.SetWindowVariant` for more about
+        this.
+        </div></div><br /><a name="GetMinimumPaneSize" /><div class="sub_head">GetMinimumPaneSize(args, kwargs)    <div class="sub_desc">
+        GetMinimumPaneSize(self) -> int
+
+        Gets the minimum pane size in pixels.
+        </div></div><br /><a name="GetNeedUpdating" /><div class="sub_head">GetNeedUpdating(args, kwargs)    <div class="sub_desc">GetNeedUpdating(self) -> bool</div></div><br /><a name="GetSashGravity" /><div class="sub_head">GetSashGravity(args, kwargs)    <div class="sub_desc">
+        GetSashGravity(self) -> double
+
+        Gets the sash gravity.
+
+        :see: `SetSashGravity`
+
+        </div></div><br /><a name="GetSashPosition" /><div class="sub_head">GetSashPosition(args, kwargs)    <div class="sub_desc">
+        GetSashPosition(self) -> int
+
+        Returns the surrent sash position.
+        </div></div><br /><a name="GetSashSize" /><div class="sub_head">GetSashSize(args, kwargs)    <div class="sub_desc">
+        GetSashSize(self) -> int
+
+        Gets the sash size
+        </div></div><br /><a name="GetSplitMode" /><div class="sub_head">GetSplitMode(args, kwargs)    <div class="sub_desc">
+        GetSplitMode(self) -> int
+
+        Gets the split mode
+        </div></div><br /><a name="GetWindow1" /><div class="sub_head">GetWindow1(args, kwargs)    <div class="sub_desc">
+        GetWindow1(self) -> Window
+
+        Gets the only or left/top pane.
+        </div></div><br /><a name="GetWindow2" /><div class="sub_head">GetWindow2(args, kwargs)    <div class="sub_desc">
+        GetWindow2(self) -> Window
+
+        Gets the right/bottom pane.
+        </div></div><br /><a name="Initialize" /><div class="sub_head">Initialize(args, kwargs)    <div class="sub_desc">
+        Initialize(self, Window window)
+
+        Initializes the splitter window to have one pane.  This should be
+        called if you wish to initially view only a single pane in the
+        splitter window.  The child window is shown if it is currently hidden.
+        </div></div><br /><a name="IsSplit" /><div class="sub_head">IsSplit(args, kwargs)    <div class="sub_desc">
+        IsSplit(self) -> bool
+
+        Is the window split?
+        </div></div><br /><a name="ReplaceWindow" /><div class="sub_head">ReplaceWindow(args, kwargs)    <div class="sub_desc">
+        ReplaceWindow(self, Window winOld, Window winNew) -> bool
+
+        This function replaces one of the windows managed by the
+        SplitterWindow with another one. It is in general better to use it
+        instead of calling Unsplit() and then resplitting the window back
+        because it will provoke much less flicker. It is valid to call this
+        function whether the splitter has two windows or only one.
+
+        Both parameters should be non-None and winOld must specify one of the
+        windows managed by the splitter. If the parameters are incorrect or
+        the window couldn't be replaced, False is returned. Otherwise the
+        function will return True, but please notice that it will not Destroy
+        the replaced window and you may wish to do it yourself.
+        </div></div><br /><a name="SashHitTest" /><div class="sub_head">SashHitTest(args, kwargs)    <div class="sub_desc">
+        SashHitTest(self, int x, int y, int tolerance=5) -> bool
+
+        Tests for x, y over the sash
+        </div></div><br /><a name="SetBorderSize" /><div class="sub_head">SetBorderSize(args, kwargs)    <div class="sub_desc">
+        SetBorderSize(self, int width)
+
+        Sets the border size. Currently a NOP.
+        </div></div><br /><a name="SetMinimumPaneSize" /><div class="sub_head">SetMinimumPaneSize(args, kwargs)    <div class="sub_desc">
+        SetMinimumPaneSize(self, int min)
+
+        Sets the minimum pane size in pixels.
+
+        The default minimum pane size is zero, which means that either pane
+        can be reduced to zero by dragging the sash, thus removing one of the
+        panes. To prevent this behaviour (and veto out-of-range sash
+        dragging), set a minimum size, for example 20 pixels. If the
+        wx.SP_PERMIT_UNSPLIT style is used when a splitter window is created,
+        the window may be unsplit even if minimum size is non-zero.
+        </div></div><br /><a name="SetNeedUpdating" /><div class="sub_head">SetNeedUpdating(args, kwargs)    <div class="sub_desc">SetNeedUpdating(self, bool needUpdating)</div></div><br /><a name="SetSashGravity" /><div class="sub_head">SetSashGravity(args, kwargs)    <div class="sub_desc">
+        SetSashGravity(self, double gravity)
+
+        Set the sash gravity.  Gravity is a floating-point factor between 0.0
+        and 1.0 which controls position of sash while resizing the
+        `wx.SplitterWindow`.  The gravity specifies how much the left/top
+        window will grow while resizing.
+        </div></div><br /><a name="SetSashPosition" /><div class="sub_head">SetSashPosition(args, kwargs)    <div class="sub_desc">
+        SetSashPosition(self, int position, bool redraw=True)
+
+        Sets the sash position, in pixels.  If redraw is Ttrue then the panes
+        are resized and the sash and border are redrawn.
+        </div></div><br /><a name="SetSashSize" /><div class="sub_head">SetSashSize(args, kwargs)    <div class="sub_desc">
+        SetSashSize(self, int width)
+
+        Sets the sash size.
+        </div></div><br /><a name="SetSplitMode" /><div class="sub_head">SetSplitMode(args, kwargs)    <div class="sub_desc">
+        SetSplitMode(self, int mode)
+
+        Sets the split mode.  The mode can be wx.SPLIT_VERTICAL or
+        wx.SPLIT_HORIZONTAL.  This only sets the internal variable; does not
+        update the display.
+        </div></div><br /><a name="SizeWindows" /><div class="sub_head">SizeWindows(args, kwargs)    <div class="sub_desc">
+        SizeWindows(self)
+
+        Resizes subwindows
+        </div></div><br /><a name="SplitHorizontally" /><div class="sub_head">SplitHorizontally(args, kwargs)    <div class="sub_desc">
+        SplitHorizontally(self, Window window1, Window window2, int sashPosition=0) -> bool
+
+        Initializes the top and bottom panes of the splitter window.  The
+        child windows are shown if they are currently hidden.
+        </div></div><br /><a name="SplitVertically" /><div class="sub_head">SplitVertically(args, kwargs)    <div class="sub_desc">
+        SplitVertically(self, Window window1, Window window2, int sashPosition=0) -> bool
+
+        Initializes the left and right panes of the splitter window.  The
+        child windows are shown if they are currently hidden.
+        </div></div><br /><a name="Unsplit" /><div class="sub_head">Unsplit(args, kwargs)    <div class="sub_desc">
+        Unsplit(self, Window toRemove=None) -> bool
+
+        Unsplits the window.  Pass the pane to remove, or None to remove the
+        right or bottom pane.  Returns True if successful, False otherwise (the
+        window was not split).
+
+        This function will not actually delete the pane being
+        removed; it sends EVT_SPLITTER_UNSPLIT which can be handled
+        for the desired behaviour. By default, the pane being
+        removed is only hidden.
+        </div></div><br /><a name="UpdateSize" /><div class="sub_head">UpdateSize(args, kwargs)    <div class="sub_desc">
+        UpdateSize(self)
+
+        Causes any pending sizing of the sash and child panes to take place
+        immediately.
+
+        Such resizing normally takes place in idle time, in order to wait for
+        layout to be completed. However, this can cause unacceptable flicker
+        as the panes are resized after the window has been shown. To work
+        around this, you can perform window layout (for example by sending a
+        size event to the parent window), and then call this function, before
+        showing the top-level window.
+        </div></div><br /><a name="__init__" /><div class="sub_head">[constructor]    <div class="sub_desc">Usage: classname(arguments)</div></div><br /><a name="__doc__" /><div class="sub_head">[member '__doc__']    <div class="sub_desc">Documentation for this class</div></div><br /><a name="__module__" /><div class="sub_head">[member '__module__']    <div class="sub_desc">The module that this class belongs to</div></div><br /><a name="__repr__" /><div class="sub_head">[operator 'repr']    <div class="sub_desc">Usage: repr(a)</div></div><br /></div>
+</body>
+</html>

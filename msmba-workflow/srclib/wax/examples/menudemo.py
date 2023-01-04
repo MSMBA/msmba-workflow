@@ -68,17 +68,17 @@ check the source for this sample to see how to implement them.
         #menu5.Append("With an icon", icon="moon16.gif")
         menubar.Append(menu5, "&Fun")
 
-    def Menu101(self, event): print "Welcome to Mercury"
-    def Menu102(self, event): print "Welcome to Venus"
-    def Menu103(self, event): print "Welcome to the Earth"
+    def Menu101(self, event): print("Welcome to Mercury")
+    def Menu102(self, event): print("Welcome to Venus")
+    def Menu103(self, event): print("Welcome to the Earth")
     def CloseWindow(self, event): self.Close()
-    def Menu201(self, event): print "Chemical element number 1"
-    def Menu202(self, event): print "Chemical element number 2"
-    def Menu2031(self, event): print "Chemical element number 57"
-    def Menu2032(self, event): print "Chemical element number 58"
-    def Menu2033(self, event): print "Chemical element number 59"
-    def Foo(self, event): print "Foo!"
-    def Hello(self, event): print "Hello!"
+    def Menu201(self, event): print("Chemical element number 1")
+    def Menu202(self, event): print("Chemical element number 2")
+    def Menu2031(self, event): print("Chemical element number 57")
+    def Menu2032(self, event): print("Chemical element number 58")
+    def Menu2033(self, event): print("Chemical element number 59")
+    def Foo(self, event): print("Foo!")
+    def Hello(self, event): print("Hello!")
 
 app = Application(MyFrame)
 app.MainLoop()

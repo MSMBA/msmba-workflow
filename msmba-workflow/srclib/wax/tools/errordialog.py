@@ -2,7 +2,7 @@
 
 from wax import Dialog, Font, Label, TextBox
 #
-import cStringIO
+import io
 import pprint
 import traceback
 
@@ -25,7 +25,7 @@ class ErrorDialog(Dialog):
 
         text = TextBox(self, size=(550,210), multiline=1, wrap=0, readonly=1)
         text.SetFont(self.FIXED_FONT_SMALLER)
-        c = cStringIO.StringIO()
+        c = io.StringIO()
         traceback.print_exception(self.exctype, self.excvalue, self.traceback,
          file=c)
         text.AppendText(c.getvalue())
@@ -35,7 +35,7 @@ class ErrorDialog(Dialog):
         if hasattr(self.excvalue, 'globals'):
             text.AppendText('\nglobals:\n')
             del self.excvalue.globals["__builtins__"]
-            c2 = cStringIO.StringIO()
+            c2 = io.StringIO()
             pprint.pprint(self.excvalue.globals, c2)
             text.AppendText(c2.getvalue())
 

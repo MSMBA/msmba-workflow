@@ -2,7 +2,7 @@
 
 import wx, os
 import string
-import cStringIO
+import io
 
 ARTCLIENTS = [ "ART_TOOLBAR",
                "ART_MENU",
@@ -120,7 +120,7 @@ class ArtPushProvider(wx.ArtProvider):
     def CreateBitmap(self, artid, client, size):
         keyword = string.join([client,"::", artid, "::", str(size[0]),":", str(size[1])],'')
         bmp = wx.NullBitmap
-        if self.__AP.custom.has_key(keyword):
+        if keyword in self.__AP.custom:
             bmp = self.__AP.custom[keyword]
         return bmp
 

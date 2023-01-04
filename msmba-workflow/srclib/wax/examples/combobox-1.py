@@ -20,7 +20,7 @@ class MainFrame(VerticalFrame):
         self.cb1 = cb1
 
     def OnButtonClick(self, event):
-        print "You chose:", self.cb1.GetValue()
+        print("You chose:", self.cb1.GetValue())
 
 app = Application(MainFrame, resize=0)
 app.Run()

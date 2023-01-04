@@ -45,7 +45,7 @@ class URLDropPanel(VerticalPanel):
         self.Pack()
         
     def LoadURL(self, x, y, d, url):
-        print "** Loading:", url
+        print("** Loading:", url)
         self.htmlwin.LoadPage(url)
 
     def tb_OnChar(self, event=None):

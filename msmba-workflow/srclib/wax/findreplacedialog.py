@@ -20,11 +20,11 @@
 #     -
 #---------------------------------------------------------------------
 
-from messagedialog import MessageDialog
+from .messagedialog import MessageDialog
 import string
 import os
 import wx
-import waxobject
+from . import waxobject
 
 SPECIAL_ATTRS = ['GetValue', 'Replace', 'SetSelection', 'GetSelection',
                  'GetStringSelection']
@@ -33,11 +33,11 @@ class FindReplaceDialog(wx.FindReplaceDialog, waxobject.WaxObject):
     """ A Find/Replace dialog with pre-programmed find/replace functionality. """
 
     __events__ = {
-        'Find': wx.EVT_COMMAND_FIND,
-        'FindNext': wx.EVT_COMMAND_FIND_NEXT,
-        'FindReplace': wx.EVT_COMMAND_FIND_REPLACE,
-        'FindReplaceAll': wx.EVT_COMMAND_FIND_REPLACE_ALL,
-        'FindClose': wx.EVT_COMMAND_FIND_CLOSE,
+        'Find': wx.wxEVT_FIND,
+        'FindNext': wx.wxEVT_FIND_NEXT,
+        'FindReplace': wx.wxEVT_FIND_REPLACE,
+        'FindReplaceAll': wx.wxEVT_FIND_REPLACE_ALL,
+        'FindClose': wx.wxEVT_FIND_CLOSE,
     }
 
     def __init__(self, parent, control=None, title="", replace=0):
@@ -229,7 +229,7 @@ def string_find(str, what, start, end, dir=1, case_sensitive=0, whole_word=0, nl
     if end == -2:
         end = len(str)
     # An iterator to go over the search string
-    xiter = xrange(start, end, dir).__iter__()
+    xiter = range(start, end, dir).__iter__()
     y = 0
     # If case sensitive, lowercase everything
     if case_sensitive == 0:
@@ -239,7 +239,7 @@ def string_find(str, what, start, end, dir=1, case_sensitive=0, whole_word=0, nl
         # StopIteration exception should break this loop
         while True:
             # Get the next position in the search string
-            x = xiter.next()
+            x = next(xiter)
             # Get current character (lowercase if case sensitive)
             char_check = str[x]
             # If that char is same as the char were looking at
@@ -255,7 +255,7 @@ def string_find(str, what, start, end, dir=1, case_sensitive=0, whole_word=0, nl
                         else: # not a whole word, start again
                             curr_char = start_char
                             if partial_match and chr_is_equal(char_check, what[curr_char], case_sensitive):
-                                xiter = xrange(x, end, dir).__iter__()
+                                xiter = range(x, end, dir).__iter__()
                     else:
                         return pos# + newline_error_fix(str, x)
                 else:
@@ -266,7 +266,7 @@ def string_find(str, what, start, end, dir=1, case_sensitive=0, whole_word=0, nl
                 # Not the same char, let's revert back
                 curr_char = start_char
                 if partial_match and chr_is_equal(char_check, what[curr_char], case_sensitive):
-                    xiter = xrange(x, end, dir).__iter__()
+                    xiter = range(x, end, dir).__iter__()
     except StopIteration:
         pass
     # Never found it

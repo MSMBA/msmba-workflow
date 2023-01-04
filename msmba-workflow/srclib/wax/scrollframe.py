@@ -1,8 +1,8 @@
 # scrollframe.py
 
 import wx
-import waxobject, containers
-import styles
+from . import waxobject, containers
+from . import styles
 
 class ScrollFrame(wx.ScrolledWindow, containers.Container):
 

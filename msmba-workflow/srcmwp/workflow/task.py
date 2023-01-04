@@ -7,10 +7,10 @@ Created on Dec 14, 2012
 @author: blubin
 '''
 
-from flowData import FlowData;
+from .flowData import FlowData;
 from collections import OrderedDict;
-from flowData import Status;
-from util import convert_fieldname_to_db;
+from .flowData import Status;
+from .util import convert_fieldname_to_db;
 
 class Task(FlowData):
     '''
@@ -36,7 +36,7 @@ class Task(FlowData):
                 if k in result.data:
                     instance.data[k] = result.data[k];
                 else:
-                    print "Error: unknown key: " + k;
+                    print("Error: unknown key: " + k);
             instance.data.update(temp);
         return instance;
 

@@ -3,9 +3,9 @@
 # todo: styles... if any?
 
 import wx
-import containers
-import waxobject
-import styles
+from . import containers
+from . import waxobject
+from . import styles
 
 class DropDownBox(wx.Choice, waxobject.WaxObject):
 

@@ -41,8 +41,8 @@ res.LoadFromString(resource)
 
 # stick a custom event in Button
 def MyOnClick(self, event):
-    print 'U clicked the button with label', `self.GetLabel()`
-    print self.GetId(), self.GetName()
+    print('U clicked the button with label', repr(self.GetLabel()))
+    print(self.GetId(), self.GetName())
 
 Button.OnClick = MyOnClick
 
@@ -55,13 +55,13 @@ class MainFrame(VerticalFrame):
         self.Size = 800, 600
         
         # we can refer to the controls like this:
-        print sp1.leftpanel
-        print sp1.leftpanel.btnPrj
-        print self.mysplitter
+        print(sp1.leftpanel)
+        print(sp1.leftpanel.btnPrj)
+        print(self.mysplitter)
         # (assuming they have a 'name' attribute!)
 
     def Menu_Datei_Beenden(self, event):
-        print "Beenden"
+        print("Beenden")
         self.Close()
 
 app = Application(MainFrame, title='Test')

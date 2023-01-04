@@ -1,8 +1,8 @@
 # checkbox.py
 
 import wx
-import waxobject
-import styles
+from . import waxobject
+from . import styles
 
 class CheckBox(wx.CheckBox, waxobject.WaxObject):
 
@@ -20,7 +20,7 @@ class CheckBox(wx.CheckBox, waxobject.WaxObject):
         flags |= self._params(kwargs)
         flags |= styles.window(kwargs)
 
-        wx.CheckBox.__init__(self, parent, wx.NewId(), text, None,
+        wx.CheckBox.__init__(self, parent, wx.NewId(), text, wx.DefaultPosition,
          size or (-1, -1), flags)
 
         self.BindEvents()
@@ -34,12 +34,12 @@ class CheckBox(wx.CheckBox, waxobject.WaxObject):
     }
 
     def Set3StateValue(self, state):
-        for name, flag in self._3states.items():
+        for name, flag in list(self._3states.items()):
             if name.startswith(state):
                 wx.CheckBox.Set3StateValue(self, flag)
                 break
         else:
-            raise KeyError, "Unknown state: %s" % (state,)
+            raise KeyError("Unknown state: %s" % (state,))
 
     def Get3StateValue(self):
         value = wx.CheckBox.Get3StateValue(self)

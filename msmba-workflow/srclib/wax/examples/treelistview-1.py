@@ -20,7 +20,7 @@ class MainFrame(Frame):
         il = ImageList(*isz)
         ifolder = il.Add(wx.ArtProvider_GetBitmap(wx.ART_GO_FORWARD, wx.ART_TOOLBAR, isz))
         iopen = il.Add(wx.ArtProvider_GetBitmap(wx.ART_GO_DOWN, wx.ART_OTHER, isz))
-        print ifolder, iopen
+        print(ifolder, iopen)
         treelistview.SetImageList(il)
         self.il = il
 

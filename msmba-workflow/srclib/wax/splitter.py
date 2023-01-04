@@ -1,10 +1,10 @@
 # splitter.py
 
 import wx
-import waxconfig
-import waxobject
-import styles
-import utils
+from . import waxconfig
+from . import waxobject
+from . import styles
+from . import utils
 
 class Splitter(wx.SplitterWindow, waxobject.WaxObject):
 
@@ -46,7 +46,7 @@ class Splitter(wx.SplitterWindow, waxobject.WaxObject):
         elif direction.lower().startswith("v"):
             self.SplitVertically(window1, window2, sashposition)
         else:
-            raise ValueError, "direction must be horizontal or vertical"
+            raise ValueError("direction must be horizontal or vertical")
 
         self.SetMinimumPaneSize(minsize)
 

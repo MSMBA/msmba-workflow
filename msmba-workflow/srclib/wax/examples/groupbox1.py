@@ -27,9 +27,9 @@ class MainFrame(Frame):
         #for cb in self.checkboxen:
         #    if cb.IsChecked():
         #        print cb.GetLabel()
-        print "You ordered:",
-        print [cb.GetLabel() for cb in self.checkboxen if cb.IsChecked()] \
-              or 'no toppings'
+        print("You ordered:", end=' ')
+        print([cb.GetLabel() for cb in self.checkboxen if cb.IsChecked()] \
+              or 'no toppings')
 
 
 

@@ -1,15 +1,15 @@
 # bitmapbutton.py
 
-import button
-import containers
-import waxobject
+from . import button
+from . import containers
+from . import waxobject
 import wx
 import os
-import styles
+from . import styles
 
 def opj(path):
     """Convert paths to the platform-specific separator"""
-    return apply(os.path.join, tuple(path.split('/')))
+    return os.path.join(*tuple(path.split('/')))
 
 def loadbitmap(filename):
     """Load a bitmap from an image file"""
@@ -22,7 +22,7 @@ class BitmapButton(wx.BitmapButton, waxobject.WaxObject):
     }
 
     def __init__(self, parent, bmp, event=None, default_style=1, size=None, **kwargs):
-        if isinstance(bmp, str) or isinstance(bmp, unicode):
+        if isinstance(bmp, str) or isinstance(bmp, str):
             bmp = loadbitmap(bmp)
         style = default_style and 4 or 0
         style |= self._params(kwargs)
