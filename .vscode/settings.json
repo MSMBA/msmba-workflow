@@ -1,5 +1,5 @@
 {
     "terminal.integrated.env.windows": {
-    "PYTHONPATH": "${workspaceFolder}${pathSeparator}msmba-workflow${pathSeparator}srcmwp;${workspaceFolder}${pathSeparator}msmba-workflow${pathSeparator}srclib"
+    "PYTHONPATH": "${workspaceFolder}${pathSeparator}srcmwp;${workspaceFolder}${pathSeparator}srclib"
   }
 }
