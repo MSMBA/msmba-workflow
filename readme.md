@@ -2,7 +2,7 @@
 
 To get this project to run:
 * open it in VSCode (i.e., clone it from git)
-* type <ctrl>-<shift>-P
+* type ctrl-shift-P
 * type Create Python Environment
 * select a "Venv" environment
 
