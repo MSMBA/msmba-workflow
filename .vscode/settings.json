@@ -1,5 +1,8 @@
 {
     "terminal.integrated.env.windows": {
     "PYTHONPATH": "${workspaceFolder}${pathSeparator}srcmwp;${workspaceFolder}${pathSeparator}srclib"
+  },
+    "terminal.integrated.env.osx": {
+    "PYTHONPATH": "${workspaceFolder}${pathSeparator}srcmwp:${workspaceFolder}${pathSeparator}srclib"
   }
 }
