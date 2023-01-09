@@ -29,7 +29,7 @@ Type = enum('SHORTSTRING', 'LONGSTRING', 'INTEGER', 'FLOAT', 'CURRENCY', 'DATE',
 def default_title_renderer(task, fields):
     s = "<b>";
     for field in fields:
-        s = s + task.get_field(field) + " ";
+        s = s + str(task.get_field(field)) + " ";
     s = s + ":</b><br>";
     return s;
 
