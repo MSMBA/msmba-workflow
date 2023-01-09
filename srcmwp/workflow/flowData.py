@@ -107,7 +107,7 @@ class FlowData(object):
 
     def get_bool_field(self, fieldname):
         s = self.data[convert_fieldname_to_db(fieldname)];
-        return s in ['TRUE', 'True', 'true', 'T', 't'];
+        return s in ['TRUE', 'True', 'true', 'T', 't', '1', 1];
 
     def remove_field(self, fieldname):
         del self.data[convert_fieldname_to_db(fieldname)];
