@@ -26,9 +26,9 @@ class SpinBox(wx.SpinCtrl, waxobject.WaxObject):
         style |= self._params(kwargs)
         style |= styles.window(kwargs)
 
-        wx.SpinCtrl.__init__(self, parent, wx.NewId(), value,
-            size=size or (-1, -1), style=style, min=min, max=max,
-            initial=initial)
+        wx.SpinCtrl.__init__(self, parent, id=wx.NewId(), value=value,
+            size=size or (-1, -1), style=style, min=int(min), max=int(max),
+            initial=int(initial))
         self.SetDefaultFont()
 
         self.BindEvents()
