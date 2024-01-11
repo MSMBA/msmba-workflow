@@ -63,7 +63,8 @@ class GrandalfCanvas(NavCanvas):
             w = v.view.w;
             h = v.view.h;
             self.Canvas.AddRectangle((pos[0]-(w/2.0), pos[1]-h), (w,h), FillColor=color, LineWidth=2);
-            self.Canvas.AddScaledText(name,(pos[0], pos[1]-(h/2.0)), .8*h, Position="cc");                        
+            #self.Canvas.AddScaledText(name,(pos[0], pos[1]-(h/2.0)), .8*h, Position="cc");
+            self.Canvas.AddScaledTextBox(name,(pos[0], pos[1]-(h/2.0)), .8*h, Position="cc", LineColor=None);
         for e in c.E():
             h=1 # should set from node, but just hard code for now.
             pts = e.view.pts;
